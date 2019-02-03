@@ -108,11 +108,11 @@ Timber works with your existing [`Logger`](https://hexdocs.pm/logger/Logger.html
 
 ## Context
 
-`:timber` automatically captures context to enrich your logs. If you're shipping logs from within your app you'll want to keep context enabled. If you're shipping logs external from your app you'll want to disable context that is redundant to your log shipper.
+`:timber` automatically captures [context](../../../under-the-hood/concepts.md#context) to enrich your logs. If you're shipping logs from within your app you'll want to keep context enabled. If you're shipping logs external from your app you'll want to disable context that is redundant to your log shipper.
 
 ### System 
 
-System context captures system level context such as hostname and pid:
+System context captures system level information such as hostname and pid:
 
 ```javascript
 {
@@ -132,7 +132,7 @@ System context captures system level context such as hostname and pid:
 
 ### Runtime
 
-The Elixir `Logger` by default includes [runtime metadata](https://hexdocs.pm/logger/Logger.html#module-metadata) that Timber takes advantage of.
+Runtime context captures information about the originator of the log line. By default, the Elixir `Logger` includes [runtime metadata](https://hexdocs.pm/logger/Logger.html#module-metadata) that Timber simply takes advantage of.
 
 ```javascript
 {
@@ -178,7 +178,7 @@ end)
 
 Before capturing context, please make sure Timber does not already capture the context you want \([see the Context section](./#context)\).
 
-#### Local Context
+#### Local Context \(default\)
 
 Because Elixir is a highly concurrent language, Timber context, by default, is local to the Elixir process. This makes context management easy since it dies with the process. This fits well with Erlang / Elixir concurrency patterns since processes are typically ephemeral. Adding context in this fashion is simple:
 
@@ -190,7 +190,7 @@ If you are spawning processes and wish to copy context to that process see the [
 
 #### Global Context
 
-In rare cases you'll want to set global context. Global context applies to _all_ processes and should be used with care. Setting global context follow the same pattern as local context except it must be explicitly specified as the second argument:
+In rare cases you'll want to set global context. Global context applies to _all_ processes and should be used with care. Setting global context follows the same pattern as local context except it must be explicitly specified as the second argument:
 
 ```elixir
 Timber.add_context(build: %{commit_sha: "0529d471fa3e2eeb8556bb400ba8b2b0f497a7e1"}, :global)
@@ -198,11 +198,11 @@ Timber.add_context(build: %{commit_sha: "0529d471fa3e2eeb8556bb400ba8b2b0f497a7e
 
 ### Deleting Context
 
-As stated above, you should not have to remove context, as it will die with the process. In cases where you need to remove context you can do so as follows:
+As stated above, you should regularly not have to remove context, as it will die with the process. In cases where you need to explicitly remove context you can do so as follows:
 
 ```elixir
 # Add context with a :user root key
-Timber.addon_context(user: %{id: "abcd1234"})
+Timber.add_context(user: %{id: "abcd1234"})
 
 # Delete the entire :user key
 Timber.delete_context(:user)
