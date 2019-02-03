@@ -106,58 +106,6 @@ All configuration options for Timber can be found in the [`Timber.Config` docume
 
 Timber works with your existing [`Logger`](https://hexdocs.pm/logger/Logger.html) calls, no changes necessary:
 
-## Context
-
-`:timber` automatically captures [context](../../../under-the-hood/concepts.md#context) to enrich your logs. If you're shipping logs from within your app you'll want to keep context enabled. If you're shipping logs external from your app you'll want to disable context that is redundant to your log shipper.
-
-### System 
-
-System context captures system level information such as hostname and pid:
-
-```javascript
-{
-    "context": {
-        "system": {
-            "hostname": "ec2-44-125-241-8",
-            "pid": 20643
-        }
-    }
-}
-```
-
-| Field | Description |
-| :--- | :--- |
-| `context.system.hostname` | System level hostname, value of [`:inet.gethostname()`](http://erlang.org/doc/man/inet.html#gethostname-0)\`\` |
-| `context.system.pid` | System level process ID, value of [`System.get_pid()`](https://hexdocs.pm/elixir/System.html#get_pid/0)\`\` |
-
-### Runtime
-
-Runtime context captures information about the originator of the log line. By default, the Elixir `Logger` includes [runtime metadata](https://hexdocs.pm/logger/Logger.html#module-metadata) that Timber simply takes advantage of.
-
-```javascript
-{
-    "context": {
-        "runtime": {
-            "vm_pid": "<0.9960.261>",
-            "module_name": "MyModule",
-            "line": 371,
-            "function": "my_func/2",
-            "file": "lib/my_app/my_module.ex",
-            "application": "my_app"
-        }
-    }
-}
-```
-
-| Field | Description |
-| :--- | :--- |
-| `context.runtime.vm_pid` | The Elixir VM pid \(not the operating system level pid\) |
-| `context.runtime.module_name` | The name of the module where the log statement originated. |
-| `context.runtime.line` | The line number where the log statement originated. |
-| `context.runtime.file` | The file where the log statement originated. |
-| `context.runtime.function` | The function where the log statement originated. |
-| `content.runtime.application` | The Elixir component app where the log statement originated. |
-
 ```elixir
 Logger.info("Hello world")
 ```
@@ -213,6 +161,58 @@ Deleting global context is similar but with a second explicit argument:
 ```elixir
 Timber.delete_context(:user, :global)
 ```
+
+## Context
+
+`:timber` automatically captures [context](../../../under-the-hood/concepts.md#context) to enrich your logs. If you're shipping logs from within your app you'll want to keep context enabled. If you're shipping logs external from your app you'll want to disable context that is redundant to your log shipper.
+
+### System 
+
+System context captures system level information such as hostname and pid:
+
+```javascript
+{
+    "context": {
+        "system": {
+            "hostname": "ec2-44-125-241-8",
+            "pid": 20643
+        }
+    }
+}
+```
+
+| Field | Description |
+| :--- | :--- |
+| `context.system.hostname` | System level hostname, value of [`:inet.gethostname()`](http://erlang.org/doc/man/inet.html#gethostname-0)\`\` |
+| `context.system.pid` | System level process ID, value of [`System.get_pid()`](https://hexdocs.pm/elixir/System.html#get_pid/0)\`\` |
+
+### Runtime
+
+Runtime context captures information about the originator of the log line. By default, the Elixir `Logger` includes [runtime metadata](https://hexdocs.pm/logger/Logger.html#module-metadata) that Timber simply takes advantage of.
+
+```javascript
+{
+    "context": {
+        "runtime": {
+            "vm_pid": "<0.9960.261>",
+            "module_name": "MyModule",
+            "line": 371,
+            "function": "my_func/2",
+            "file": "lib/my_app/my_module.ex",
+            "application": "my_app"
+        }
+    }
+}
+```
+
+| Field | Description |
+| :--- | :--- |
+| `context.runtime.vm_pid` | The Elixir VM pid \(not the operating system level pid\) |
+| `context.runtime.module_name` | The name of the module where the log statement originated. |
+| `context.runtime.line` | The line number where the log statement originated. |
+| `context.runtime.file` | The file where the log statement originated. |
+| `context.runtime.function` | The function where the log statement originated. |
+| `content.runtime.application` | The Elixir component app where the log statement originated. |
 
 ## Integrations
 
