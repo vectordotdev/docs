@@ -106,6 +106,10 @@ All configuration options for Timber can be found in the [`Timber.Config` docume
 
 Timber works with your existing [`Logger`](https://hexdocs.pm/logger/Logger.html) calls, no changes necessary:
 
+```elixir
+Logger.info("Hello world")
+```
+
 ## Context
 
 `:timber` automatically captures [context](../../../under-the-hood/concepts.md#context) to enrich your logs. If you're shipping logs from within your app you'll want to keep context enabled. If you're shipping logs external from your app you'll want to disable context that is redundant to your log shipper.
@@ -157,10 +161,6 @@ Runtime context captures information about the originator of the log line. By de
 | `context.runtime.file` | The file where the log statement originated. |
 | `context.runtime.function` | The function where the log statement originated. |
 | `content.runtime.application` | The Elixir component app where the log statement originated. |
-
-```elixir
-Logger.info("Hello world")
-```
 
 ### Structured Logging
 
