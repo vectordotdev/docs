@@ -56,7 +56,3 @@ The `cloudwatch` context includes data about the originating CloudWatch log stre
 | `context.cloudwatch.log_stream` | The log stream name of the originating log data. |
 | `context.cloudwatch.owner` | The AWS account ID of the originating log data. |
 
-## Troubleshooting
-
-TODO: Jesse to fill in
-

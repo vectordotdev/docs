@@ -8,39 +8,9 @@ Timber integrates with [AWS Lambda](https://aws.amazon.com/lambda/) through the 
 
 ## Installation
 
-AWS Lambda logs can be forwarded to Timber through AWS CloudWatch Logs, this ensures that we receive Lambda platform logs in addition to your function's runtime logs. To get started, please follow our [AWS CloudWatch Logs instructions](aws-cloudwatch/#installation) and simply select your AWS lambda function's CloudWatch log stream during that process.
+By default, your AWS Lambda function will create a dedicated CloudWatch Logs stream. You can simply forward this stream to Timber by following the [AWS CloudWatch Logs instructions](aws-cloudwatch/#installation), selecting your AWS Lambda function's stream during the process:
 
 {% page-ref page="aws-cloudwatch/" %}
-
-## Context
-
-The most valuable thing you can do to improve your AWS Lambda logging experience is to enhance your logs with Lambda context and structured data. Below we outline best practices for each runtime to achieve this:
-
-{% tabs %}
-{% tab title="Go" %}
-
-{% endtab %}
-
-{% tab title="Java" %}
-
-{% endtab %}
-
-{% tab title="Node" %}
-TODO: Lee to fill in. I'm curious how this would work.
-{% endtab %}
-
-{% tab title="Ruby" %}
-
-{% endtab %}
-
-{% tab title=".NET" %}
-
-{% endtab %}
-
-{% tab title="Other" %}
-
-{% endtab %}
-{% endtabs %}
 
 ## Events
 
