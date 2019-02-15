@@ -6,7 +6,7 @@ description: Best practices when writing structured logs
 
 Timber has a strong focus on structured logging, because modern developers are starting to see their logs as structured events, not text. And while the benefits of structured logs are obvious, it's not always obvious how to get started. After working with thousands of companies, and using Timber heavily within Timber itself, this document collates all of the best practices we've seen around structured logging.
 
-## What is a structured event?
+## What Is Structured Logging?
 
 This is best explained with an example. Let's look at your basic Rails HTTP response log. It typically looks something like this:
 
@@ -59,7 +59,7 @@ But how did we come up with the structure above? Why did we add a `"context"` ke
 
 In the example above you'll notice we namespace our HTTP response event with a `"http_response_sent"` key. This creates a dedicated namespace for this events and it's attributes. It prevents type conflicts from other events with the same keys. For example, if another event used the `"status"` key but included a string value that would clash with the integer value we're using here. All of our library documentation pages include this best practice, you can [see an example in our Elixir docs](../integrations/elixir/#structured-logging).
 
-## Use Past-tense Verbs
+## Use Past-tense Verb Names
 
 Creating a consistent naming scheme for your events is important since it makes understanding the resulting schema much easier. We highly recommend adopting the past-tense verb naming schema. Instead of `http_response` use `http_response_sent` . This more descriptive of the fact that this is an immutable event. Some other examples:
 
