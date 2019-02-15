@@ -34,10 +34,6 @@ TODO: Jesse to fill in
 
 As part of Timber's commitment to data quality, the [`timber-logging` Lambda function](%20https://serverlessrepo.aws.amazon.com/applications/arn:aws:serverlessrepo:us-east-1:754402436383:applications~timber-logging) automatically adds context to your logs, helping you to search and use your logs.
 
-### CloudWatch
-
-The `cloudwatch` context includes data about the originating CloudWatch log stream.
-
 ```javascript
 {
     "context": {

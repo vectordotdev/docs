@@ -40,6 +40,7 @@
   * [Syslog](setup/integrations/syslog.md)
 * [Guides](setup/guides/README.md)
   * [Ship Logs From Within My App?](setup/guides/ship-logs-from-within-my-app.md)
+  * [Sending Logs To Timber's API](setup/guides/sending-logs-to-timbers-api.md)
   * [Structured Logging Best Practices](setup/guides/event-naming.md)
 
 ## Usage

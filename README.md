@@ -17,5 +17,5 @@
 
 * \*\*\*\*[**Better Integrations**](setup/integrations/) - Timber is not an observer of your log data, it is active participant in its collection. Timber improves your log data through it's integrations. See our [Ruby integration](setup/integrations/ruby.md) for an example.
 * **Less Configuration** - Timber knows your platform and language, making Timber curated out of the box without the need for copious amounts of configuration. For most cases, Timber should not require custom parsing rules and filters.
-* **Better Structured Logging Support** - While Timber works great with traditional text-based logs, it is best experienced with structured logs. Timber has very strong structured data support and is very powerful in that context. See our [dynamic schema management](under-the-hood/schema-maintenance.md), [searching](usage/searching.md), and [graphing](usage/graphing.md) documents.
+* **Structured Logging Support** - While Timber works great with traditional text-based logs, it is best experienced with structured logs. Timber has very strong structured data support and is powerful in that context. See our [dynamic schema management](under-the-hood/schema-maintenance.md) and [structured logging best practice](setup/guides/event-naming.md) documents.
 

@@ -1,5 +1,5 @@
 ---
-description: High-level overview of Timber
+description: High-level overview of how Timber works
 ---
 
 # How Timber Works

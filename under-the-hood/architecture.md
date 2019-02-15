@@ -1,5 +1,5 @@
 ---
-description: Timber's technical architecture
+description: Timber's internal architecture
 ---
 
 # Architecture
