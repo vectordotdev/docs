@@ -12,22 +12,18 @@ Timber offers language level libraries that handle the efficient and reliable de
 
 ## Installation
 
-Forwarding logs to Timber is highly specific to your HTTP client. Below are a few examples as well as best practices.
+Forwarding logs to Timber is highly specific to your HTTP client. Below are a few examples as well as best practices. If possible, we recommend using one of [Timber's libraries](../../under-the-hood/language-libraries.md) as all of the intricate details of sending data to Timber are handled for you.
 
 ### Examples
-
-{% hint style="warning" %}
-Your Timber API key must be Base64 encoded before including it in the `Authorization` header. Please use the Base64 version of your API key!
-{% endhint %}
 
 {% tabs %}
 {% tab title="http" %}
 ```bash
 POST https://logs.timber.io/frames
-Authorization: Basic {{my-base64-encoded-timber-api-key}}
-Content-Type: text/plain
-debug: Testing the pipes
-debug: Testing the pipes again
+Authorization: Basic {{my-timber-api-key}}
+Content-Type: application/ndjson
+{"level": "debug", "message": "Testing the pipes"}
+{"level": "debug", "message": "Testing the pipes again"}
 ```
 {% endtab %}
 
@@ -35,14 +31,22 @@ debug: Testing the pipes again
 ```bash
 curl \
 --request POST \
---user '{{my-base64-encoded-timber-api-key}}' \
---header "Content-Type: text/plain" \
---data 'debug: Testing the pipes
-debug: Testing the pipes again' \
+--user '{{my-timber-api-key}}' \
+--header "Content-Type: application/ndjson" \
+--data '{"level": "debug", "message": "Testing the pipes"}
+{"level": "debug", "message": "Testing the pipes again"}' \
 https://logs.timber.io/frames
 ```
 {% endtab %}
 {% endtabs %}
+
+{% hint style="warning" %}
+Your Timber API key must be Base64 encoded before including it in the `Authorization` header. Please use the Base64 version of your API key!
+{% endhint %}
+
+Always buffer and batch your log data to Timber. Do _not_ send lines individually as this is extremely inefficient; you'll quickly tax your application. Timber recommends flushing your buffer every 2 seconds or until it's size reaches 950kb. Timber will not accept requests larger than 1mb.
+
+### Accepted Content Types
 
 ### Base64 Encoding Your Timber API Key
 
@@ -59,10 +63,6 @@ Base64.urlsafe_encode64("925_d317185e7ae25f2f:46572b152d4f3bbe79ceba443e994868b1
 
 ### Buffering & Batching
 
-Always buffer and batch your log data to Timber. Do _not_ send lines individually as this is extremely inefficient; you'll quickly tax your application. Timber recommends flushing your buffer every 2 seconds or until it's size reaches 950kb. Timber will not accept requests larger than 1mb.
-
-### Accepted Content Types
-
 Timber accepts the following content types \(ordered by preference\):
 
 1. \`\`[`application/msgpack`](https://msgpack.org/index.html) 
@@ -78,4 +78,8 @@ Timber accepts the following content types \(ordered by preference\):
 3. `401` - API key invalid.
 4. `402` - Subscription blocked or unpaid. Please update your subscription.
 5. `500` - Timber service error.
+
+### Timber Libraries
+
+If you don't want to do this yourself you can use one of [Timber's language libraries](../../under-the-hood/language-libraries.md).
 

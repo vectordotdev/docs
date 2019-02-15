@@ -5,6 +5,7 @@
 * [Under The Hood](under-the-hood/README.md)
   * [How Timber Works](under-the-hood/how-it-works.md)
   * [Architecture](under-the-hood/architecture.md)
+  * [Language Libraries](under-the-hood/language-libraries.md)
   * [Dynamic Schema Maintenance](under-the-hood/schema-maintenance.md)
   * [Performance](under-the-hood/performance.md)
   * [Security](under-the-hood/security.md)
