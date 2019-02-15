@@ -4,11 +4,11 @@ description: Send AWS Lambda logs to Timber
 
 # AWS Lambda
 
-Timber integrates with [AWS Lambda](https://aws.amazon.com/lambda/) through the [AWS CloudWatch Logs subscriptions feature](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Subscriptions.html), making it simple to forward your Lambda log to Timber while capturing useful context and Lambda platform events.
+Timber integrates with [AWS Lambda](https://aws.amazon.com/lambda/) through the [AWS CloudWatch Logs subscriptions feature](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Subscriptions.html), making it simple to forward your Lambda log to Timber while still capturing useful context and platform events.
 
 ## Installation
 
-By default, your AWS Lambda function will create a dedicated CloudWatch Logs stream. You can simply forward this stream to Timber by following the [AWS CloudWatch Logs instructions](aws-cloudwatch/#installation), selecting your AWS Lambda function's stream during the process:
+By default, your AWS Lambda function will create a dedicated CloudWatch Logs stream. You can simply forward this stream to Timber by following the [AWS CloudWatch Logs instructions](aws-cloudwatch/#installation). Be sure to select your AWS Lambda function's stream during the process:
 
 {% page-ref page="aws-cloudwatch/" %}
 

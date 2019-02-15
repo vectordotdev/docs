@@ -4,11 +4,11 @@ description: Send Kubernetes logs to Timber
 
 # Kubernetes
 
-Timber integrates with [Kubernetes](https://kubernetes.io/) through the [Fluent Bit](fluent-bit.md) log forwarder. Fluent is the [recommended](https://kubernetes.io/docs/concepts/cluster-administration/logging/) log forwarder for Kubernetes since it's light weight, fast, and adds useful Kubernetes context to your logs. Our guide follows this best practice recommendation.
+Timber integrates with [Kubernetes](https://kubernetes.io/) through the [Fluent Bit](fluent-bit.md) log forwarder.
 
 ## Installation
 
-To forward logs from your kubernetes cluster, we recommend deploying fluentbit as a daemonset to forward all container logs with Kubernetes annotations such as pod, namespace, and host.
+To forward logs from your kubernetes cluster, we recommend deploying fluentbit as a [daemonset](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) to forward all container logs with Kubernetes annotations such as pod, namespace, and host.
 
 1. To get started run the following commands to create the namespace, service account and role setup:  
 
@@ -24,12 +24,13 @@ To forward logs from your kubernetes cluster, we recommend deploying fluentbit a
 
 
    ```bash
-   kubectl create -f <the attached fluent-bit-configmap.yaml>
+   kubectl create -f https://gist.githubusercontent.com/binarylogic/f6b9ff62058dd5bf5d4b7a6ba760af19/raw/dad3ab918f70582ae5cf43742c8bfbda68bbbeda/fluent-but-configmap.yaml
    ```
 
-3. Finally, deploy the daemonset to start forwarding logs:
-
-
+3. Finally, deploy the daemonset to start forwarding logs: 
+   1. [Download the Timber daemonset file: `fluent-bit-ds.yaml`](https://gist.github.com/binarylogic/951ea32ed462933fa70c439f9cab06f3)\`\`
+   2. Replace `YOUR_API_KEY_HERE` with your Timber API key.
+   3. Run `kubectl create -f path/to/fluent-bit-ds.yaml`
 
 ## Configuration
 
@@ -71,5 +72,5 @@ Every line emitted from your Kubernetes cluster will contain the following addit
 | `kubernetes.docker_id` | The ID of the docker machine the logs originated from. |
 | `kubernetes.container_name` | The name of the container the logs originated from. |
 | `kubernetes.container_id` | The ID of the container the logs originated from. |
-| `labels` | The labels, in object form, assigned to your k8s cluster. |
+| `kubernetes.labels` | The labels, in object form, assigned to your k8s cluster. |
 

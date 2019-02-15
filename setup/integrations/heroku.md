@@ -4,7 +4,7 @@ description: Send Heroku logs to Timber
 
 # Heroku
 
-Timber offers deep integration with [Heroku](https://heroku.com) through the [Timber Heroku add-on](https://elements.heroku.com/addons/timber-logging). We went the extra mile with our integration, supporting add-on attachments, automatically parsing log context, and recognizing various Heroku log events, making your logs much more useful.
+Timber offers deep integration with [Heroku](https://heroku.com) through the [Timber Heroku add-on](https://elements.heroku.com/addons/timber-logging), supporting add-on attachments, automatic log parsing, recognition of various Heroku platform events, and more.
 
 ## Installation
 
@@ -58,11 +58,7 @@ heroku labs:enable runtime-dyno-metadata
 
 ## Context
 
-By default, Timber adds useful Heroku context to your logs. There is nothing you have to do:
-
-### Dyno
-
-The dyno context helps you understand which dyno the log came from:
+By default, Timber adds useful Heroku context to your logs:
 
 ```text
 {

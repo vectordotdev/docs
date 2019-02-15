@@ -4,7 +4,7 @@
 
 ![](.gitbook/assets/logo-purple.png)
 
-[Timber](https://timber.io/) is a hosted service for aggregating logs across your entire stack - [any language, any platform, any data source](usage/integrations/). Timber is built to be simple and reliable with a focus on real-time access to your log data.
+[Timber](https://timber.io/) is a hosted service for aggregating logs across your entire stack - [any language, any platform, any data source](setup/integrations/). Timber is built to be simple and reliable with a focus on real-time access to your log data.
 
 ## Is Timber For Me?
 
@@ -15,7 +15,7 @@
 
 ## What Makes Timber Different?
 
-* \*\*\*\*[**Better Integrations**](usage/integrations/) - Timber is not an observer of your log data, it is active participant in its collection. Timber improves your log data through it's integrations. See our [Ruby integration](usage/integrations/ruby.md) for an example.
-* **Low Configuration** - Timber knows your platform, language, and the data you're sending it. Timber will feel curated out of the box and will not require copious amounts of configuration to get started.
-* **Simple** - Timber is designed to be simple and reliable with a strong focus on real-time access of your log data. Timber's focus is not on edge-case or complex logging use cases.
+* \*\*\*\*[**Better Integrations**](setup/integrations/) - Timber is not an observer of your log data, it is active participant in its collection. Timber improves your log data through it's integrations. See our [Ruby integration](setup/integrations/ruby.md) for an example.
+* **Less Configuration** - Timber knows your platform and language, making Timber curated out of the box without the need for copious amounts of configuration. For most cases, Timber should not require custom parsing rules and filters.
+* **Better Structured Logging Support** - While Timber works great with traditional text-based logs, it is best experienced with structured logs. Timber has very strong structured data support and is very powerful in that context. See our [dynamic schema management](under-the-hood/schema-maintenance.md), [searching](usage/searching.md), and [graphing](usage/graphing.md) documents.
 

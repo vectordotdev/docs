@@ -17,6 +17,15 @@ Timber integrates with [AWS Elastic Beanstalk](https://aws.amazon.com/elasticbea
 
    \(you can also do this in the [AWS EB console](https://console.aws.amazon.com/elasticbeanstalk) itself by following [these instructions](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environments-cfg-softwaresettings.html#environments-cfg-softwaresettings-console).\)
 
-2. Add the [`01_timber.config` file](https://gist.github.com/binarylogic/26f97f4ef3589bdbdd14e65fd4c002a8) to your `.ebextensions` folder.
-3. Package your source bundle as usual and upload it to AWS Elastic Beanstalk to deploy a new version
+2. Add the [`01_timber.config` file](https://gist.github.com/binarylogic/26f97f4ef3589bdbdd14e65fd4c002a8) to your `.ebextensions` folder:  
+
+
+   ```bash
+   mkdir -p .ebextensions
+   curl -o .ebextensions/01_timber_install.config https://gist.githubusercontent.com/binarylogic/26f97f4ef3589bdbdd14e65fd4c002a8/raw/9eeab3af7506ff38cb264dc6d74dcc4d97433000/001_timber.config
+   ```
+
+3. Package your source bundle as usual and upload it to AWS Elastic Beanstalk as usual.
+
+
 

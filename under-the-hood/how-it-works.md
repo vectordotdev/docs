@@ -1,3 +1,7 @@
+---
+description: High-level overview of Timber
+---
+
 # How Timber Works
 
 * hosted service

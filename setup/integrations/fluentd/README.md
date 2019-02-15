@@ -9,7 +9,13 @@ description: Send logs to Timber via FluentD
 ## Installation
 
 1. [Install Fluentd.](https://docs.fluentd.org/v1.0/categories/installation)
-2. Install the [Timber Fluentd plugin](https://github.com/timberio/fluent-plugin-timber): `gem install fluent-plugin-timber` 
+2. Install the [Timber Fluentd plugin](https://github.com/timberio/fluent-plugin-timber):  
+
+
+   ```bash
+   gem install fluent-plugin-timber
+   ```
+
 3. Configure an additional output for Fluentd by adding the following to `/etc/td-agent/td-agent.conf` :  
 
 
@@ -24,5 +30,10 @@ description: Send logs to Timber via FluentD
    {% endcode-tabs-item %}
    {% endcode-tabs %}
 
-4. Restart your Fluentd agent. E.g. `sudo service td-agent restart` 
+4. Restart your Fluentd agent:  
+
+
+   ```text
+   sudo service td-agent restart
+   ```
 

@@ -35,5 +35,10 @@ Fluent Bit is a general purpose log forwarder that can forward logs from multipl
    {% endcode-tabs-item %}
    {% endcode-tabs %}
 
-3. Restart your fluent-bit agent with the command `sudo service td-agent-bit restart` 
+3. Restart your fluent-bit agent:  
+
+
+   ```bash
+   sudo service td-agent-bit restart
+   ```
 

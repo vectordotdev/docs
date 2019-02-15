@@ -4,8 +4,6 @@ description: Send Linux logs to Timber
 
 # Linux
 
-Timber integrates with Linux environments through the [Fluent Bit](fluent-bit.md) log forwarder.
-
 ## Installation
 
 Timber integrates with Linux environments by using Fluent Bit. Fluent Bit is a general purpose log forwarded with strong support for the Linux environment. As such, please follow the [Fluent Bit installation instructions](fluent-bit.md#installation):

@@ -47,7 +47,11 @@ Ship logs directly to Timber from _within_ your Elixir app. Recommended for its 
 
    ```bash
    mix timber.test_the_pipes
+
+
    ```
+
+4. _Optionally_ [install integrations](./#integrations) with `Plug`, `Phoenix`, `Ecto`, and more.
 {% endtab %}
 
 {% tab title="STDOUT" %}
@@ -216,49 +220,14 @@ Runtime context captures information about the originator of the log line. By de
 
 ## Integrations
 
+Timber integrates with popular 3rd party libraries to enhance the logs they emit. Instead of emitting raw text logs, Timber's integrations augment their logs with structured data, turning them into rich structured events.
+
 | Name | Description |
 | :--- | :--- |
 | \`\`[`:timber_ecto`](https://github.com/timberio/timber-elixir-ecto) | Upgrade your `Ecto` logs with context and metadata. |
 | \`\`[`:timber_exceptions`](https://github.com/timberio/timber-elixir-exceptions) | Upgrade your exception logs to include useful metadata. |
 | \`\`[`:timber_phoenix`](https://github.com/timberio/timber-elixir-phoenix) | Update your `Phoenix` logs with context and metadata. |
 | \`\`[`:timber_plug`](https://github.com/timberio/timber-elixir-plug) | Upgrade your `Plug` logs with context and metadata. |
-
-## Guides
-
-### Metrics & Timings
-
-For operational events, it's common to include execution timings. This allows you to use log events to gain insight into your applications' performance. This is especially useful for questions that operate on high cardinality attributes, such as a user's ID. Timber makes capturing and logging timings easy, let's run through an example of timing a HTTP request to an external service:
-
-```elixir
-timer = Timber.start_timer()
-
-# ... issue the HTTP request ...
-
-duration_ms = Timber.duration_ms(timer)
-
-Logger.info(
-  event = %{http_response_received: %{method: "GET", host: "api.payments.com", path: "/payment", duration_ms: duration_ms}}
-  message = "Received POST https://api.payments.com/payment in 56.7ms",
-  {message, event: event}
-)
-```
-
-It's important that you use `Timber.start_timer/0` and `Timber.duration_ms/1` to capture timings since it uses monotonic times. This is important for accurate timings. You can read more about this in the Elixir [`System` documentation](https://hexdocs.pm/elixir/System.html#module-time).
-
-### Copying Context To Other Processes
-
-As described in the ["Setting Context" section](./#setting-context), Timber's context is local to each process. This ensures that each process can maintain context specific to it's state without conflicting with other processes, but there are times where you'll want to carry context over to child processes, such as when using the [`Task` module](https://hexdocs.pm/elixir/Task.html):
-
-```elixir
-current_context = Timber.LocalContext.load()
-
-Task.async fn ->
-  Timber.LocalContext.save(current_context)
-  Logger.info("Logs from a separate process")
-end
-```
-
-The new process spawned with `Task.async/1` will now contain the same Timber context as its parent. Please note, that the [runtime context's](./#runtime) `vm_pid` will be overridden and remain true to the local process.
 
 ## Performance
 
