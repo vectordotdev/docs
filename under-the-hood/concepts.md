@@ -36,6 +36,10 @@ The highest organizational unit within Timber. An organization is contains many 
 
 A [member's](concepts.md#member) role dictates their access within Timber. Learn more in our [Team Management doc](../usage/account-management/team-management.md).
 
+## Schema
+
+Refers to your application's log schema. Learn more in our [Dynamic Schema Maintenance doc](schema-maintenance.md).
+
 ## Search
 
 A search represents a search of your log data. Learn more in our [Search docs](../usage/searching.md).
