@@ -4,7 +4,7 @@ description: Send Heroku logs to Timber
 
 # Heroku
 
-Timber integrates with [Heroku](https://heroku.com) through [Timber's Heroku add-on](https://elements.heroku.com/addons/timber-logging).
+Timber offers deep integration with [Heroku](https://heroku.com) through the [Timber Heroku add-on](https://elements.heroku.com/addons/timber-logging). We went the extra mile with our integration, supporting add-on attachments, automatically parsing log context, and recognizing various Heroku log events, making your logs much more useful.
 
 ## Installation
 
@@ -15,7 +15,7 @@ Timber integrates with [Heroku](https://heroku.com) through [Timber's Heroku add
    heroku addons:create timber-logging:free
    ```
 
-2. _Optionally_ [attach](https://devcenter.heroku.com/articles/managing-add-ons#using-the-command-line-interface-attaching-an-add-on-to-another-app) the Timber add-on to multiple apps:  
+2. _Optionally_ [attach](https://devcenter.heroku.com/articles/managing-add-ons#using-the-command-line-interface-attaching-an-add-on-to-another-app) the Timber add-on to other apps \(repeat for all apps\):  
 
 
    ```bash
@@ -24,9 +24,14 @@ Timber integrates with [Heroku](https://heroku.com) through [Timber's Heroku add
 
 3. _Optionally_ improve your logs by [configuring Heroku features](heroku.md#configuration).
 
-### Why should I attach Timber's add-in instead of adding it to each app?
+### Attaching a single add-on vs having multiple add-ons
 
-Timber's Heroku add-on includes first-class support for add-on attachments. When you log into Timber you'll see all of your attached apps with the ability to conveniently switch between them without having to go back to the Heroku dashboard. We recommend this approach because it makes plan management easier. You have one add-on to manage instead of multiple.
+Timber's Heroku add-on includes first-class support for [Heroku's add-on attachments](https://devcenter.heroku.com/articles/add-ons#multiple-aliases-attachments) which includes the following benefits:
+
+1. See all apps \(including attachments\) when you log into Timber.
+2. Easily switch between all apps without having to leave Timber.
+3. Each app gets it's own private data stream to easily segment and view the data.
+4. One bill and plan to manage, not multiple.
 
 ## Configuration
 
@@ -50,4 +55,64 @@ Heroku offers a [dyno metadata feature ](https://devcenter.heroku.com/articles/d
 ```text
 heroku labs:enable runtime-dyno-metadata
 ```
+
+## Context
+
+By default, Timber adds useful Heroku context to your logs. There is nothing you have to do:
+
+### Dyno
+
+The dyno context helps you understand which dyno the log came from:
+
+```text
+{
+    "source": "app",
+    "dyno_id": 4,
+    "proc_type": "web"
+}
+```
+
+| Field | Description |
+| :--- | :--- |
+| `source` | The source of the log, will be `heroku` or `app` |
+| `dyno_id` | The ID of the dyno that emitted the log. |
+| `proc_type` | The process type as defined in your `Procfile` |
+
+## Events
+
+Heroku will log useful platform events within your log stream. Timber recognizes these events and automatically parses them.
+
+### CPU Usage Samples
+
+If you enabled the log runtime metrics feature you'll begin to see events like
+
+```text
+source=web.1 dyno=heroku.2808254.d97d0ea7-cf3d-411b-b453-d2943a50b456 sample#load_avg_1m=2.46 sample#load_avg_5m=1.06 sample#load_avg_15m=0.99
+```
+
+Timber parses these events into the following document:
+
+```javascript
+{
+    "source": "web.1",
+    "dyno": "heroku.2808254.d97d0ea7-cf3d-411b-b453-d2943a50b456"
+    "sample#load_avg_1m": 2.46,
+    "sample#load_avg_5m": 1.06,
+    "sample#load_avg_15m": 0.99
+}
+```
+
+### Deploys
+
+Each time your app deploys on Heroku an event is added to your logs. Timber parses this event so that you can easily search for and audit when deploys were made.
+
+### Memory Usage Samples
+
+### Platform Errors
+
+### Router  Events
+
+### Slow Queries
+
+
 
