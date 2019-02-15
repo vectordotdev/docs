@@ -7,7 +7,7 @@ description: Send logs to Timber via the Timber HTTP API
 Timber has a rich [HTTP API](http://docs.api.timber.io/) that you can use to send logs to the Timber platform.
 
 {% hint style="info" %}
-Timber offers language level libraries that handle the efficient and reliable delivery of log data for a variety of languages. We highly recommend using those when possible.
+Timber offers [language level libraries](../../under-the-hood/language-libraries.md) that handle the efficient and reliable delivery of log data for a variety of languages. We highly recommend using those when possible.
 {% endhint %}
 
 ## Installation
@@ -15,6 +15,10 @@ Timber offers language level libraries that handle the efficient and reliable de
 Forwarding logs to Timber is highly specific to your HTTP client. Below are a few examples as well as best practices. If possible, we recommend using one of [Timber's libraries](../../under-the-hood/language-libraries.md) as all of the intricate details of sending data to Timber are handled for you.
 
 ### Examples
+
+{% hint style="warning" %}
+Your Timber API key must be Base64 encoded before including it in the `Authorization` header. Please use the Base64 version of your API key!
+{% endhint %}
 
 {% tabs %}
 {% tab title="http" %}
@@ -40,14 +44,6 @@ https://logs.timber.io/frames
 {% endtab %}
 {% endtabs %}
 
-{% hint style="warning" %}
-Your Timber API key must be Base64 encoded before including it in the `Authorization` header. Please use the Base64 version of your API key!
-{% endhint %}
-
-Always buffer and batch your log data to Timber. Do _not_ send lines individually as this is extremely inefficient; you'll quickly tax your application. Timber recommends flushing your buffer every 2 seconds or until it's size reaches 950kb. Timber will not accept requests larger than 1mb.
-
-### Accepted Content Types
-
 ### Base64 Encoding Your Timber API Key
 
 The `Authorization` header requires that the value be [Base64 URL encoded](https://en.wikipedia.org/wiki/Base64). Timber provides you with a base64 encoded version. To manually encode your key you can run `irb` in your terminal and perform the following:
@@ -62,6 +58,10 @@ Base64.urlsafe_encode64("925_d317185e7ae25f2f:46572b152d4f3bbe79ceba443e994868b1
 {% endcode-tabs %}
 
 ### Buffering & Batching
+
+Always buffer and batch your log data to Timber. Do _not_ send lines individually as this is extremely inefficient; you'll quickly tax your application. Timber recommends flushing your buffer every 2 seconds or until it's size reaches 950kb. Timber will not accept requests larger than 1mb.
+
+### Accepted Content Types
 
 Timber accepts the following content types \(ordered by preference\):
 
