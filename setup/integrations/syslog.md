@@ -195,7 +195,7 @@ These are the general instructions for forwarding syslog messages to Timber. We 
    [authentication@51576 api_key="{{timber_api_key}}"]
    ```
 
-3. Ensure that your TLS ciphers are configured properly. The Timber service expects TLS v1.2 and recognizes the following ciphers \(in OpenSSL notation\):
+3. Ensure that your TLS ciphers are configured properly. The Timber service expects TLS v1.2 and recognizes the following ciphers \(in OpenSSL notation\): 
    1. ECDHE-ECDSA-AES128-GCM-SHA256
    2. ECDHE-ECDSA-AES128-SHA256
    3. ECDHE-ECDSA-AES256-GCM-SHA384
@@ -203,7 +203,7 @@ These are the general instructions for forwarding syslog messages to Timber. We 
    5. ECDHE-RSA-AES128-GCM-SHA256
    6. ECDHE-RSA-AES128-SHA256
    7. ECDHE-RSA-AES256-GCM-SHA384
-   8. ECDHE-RSA-AES256-SHA384
+   8. ECDHE-RSA-AES256-SHA384 
 4. Install the Timber certificate. The [Timber TLS public certificate](https://files.timber.io/certificates/latest/io.timber-wildcard.pem) is a wildcard certificate for `*.timber.io` issued by RapidSSL \(managed by DigiCert\):  
 
 
