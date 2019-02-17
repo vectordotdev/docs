@@ -1,10 +1,10 @@
 ---
-description: Timber's official language integrations
+description: Timber's language libraries & integrations
 ---
 
 # Language Libraries
 
-Timber offers official language level integrations through the form of libraries. What makes Timber's libraries unique is that they go beyond simply shipping data to the Timber service by providing an interface for logging structured data. To get started, select your language below:
+The Timber service extends beyond just a hosted service. Instead of being an observer of your log data, Timber is an active participant. This is why we invest in language level libraries that capture useful context and metadata to make your logs more useful. To get started, select your language below:
 
 {% page-ref page="../setup/integrations/elixir/" %}
 

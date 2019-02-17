@@ -17,7 +17,7 @@ Forwarding logs to Timber is highly specific to your HTTP client. Below are a fe
 ### Examples
 
 {% hint style="warning" %}
-Your Timber API key must be Base64 encoded before including it in the `Authorization` header. Please use the Base64 version of your API key!
+Your Timber API key must be [Base64 encoded](http-api.md#base64-encoding-your-timber-api-key) before including it in the `Authorization` header. Please use the [Base64 version](http-api.md#base64-encoding-your-timber-api-key) of your API key!
 {% endhint %}
 
 {% tabs %}

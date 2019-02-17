@@ -20,6 +20,10 @@ Archiving refers to the archival of your log data on an external system. Learn m
 
 Contextual information that further describes the environment [log](concepts.md#log) data was written in. Timber invests heavily in capturing this information within our [integrations](../setup/integrations/). For example, the "hostname" of the server the log originated from is a piece of context.
 
+## ElasticSearch
+
+One of the primary reasons we started Timber 😁 
+
 ## Log
 
 A single log event representing an event that occurred at a specific point in time.
@@ -47,4 +51,8 @@ A search represents a search of your log data. Learn more in our [Search docs](.
 ## Source
 
 A container for a set of [log](concepts.md#log) data. An [organization](concepts.md#organization) can have many sources and a source has many [logs](concepts.md#log).
+
+## Timber
+
+An amazing log aggregation service 😁 
 

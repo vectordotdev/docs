@@ -47,8 +47,6 @@ Ship logs directly to Timber from _within_ your Elixir app. Recommended for its 
 
    ```bash
    mix timber.test_the_pipes
-
-
    ```
 
 4. _Optionally_ [install integrations](./#integrations) with `Plug`, `Phoenix`, `Ecto`, and more.

@@ -6,6 +6,7 @@
   * [How Timber Works](under-the-hood/how-it-works.md)
   * [Architecture](under-the-hood/architecture.md)
   * [Language Libraries](under-the-hood/language-libraries.md)
+  * [Log Processing](under-the-hood/log-processing.md)
   * [Dynamic Schema Maintenance](under-the-hood/schema-maintenance.md)
   * [Security](under-the-hood/security.md)
   * [Compliance](under-the-hood/compliance.md)
@@ -45,12 +46,12 @@
 
 ## Usage
 
+* [Sending Logs](usage/sending-logs.md)
 * [Searching](usage/searching.md)
 * [Graphing](usage/graphing.md)
 * [Saved Views](usage/saved-views.md)
 * [Alerting](usage/alerting.md)
 * [Archiving](usage/archiving.md)
-* [Log Processing](usage/log-processing.md)
 * [Account Management](usage/account-management/README.md)
   * [API Keys](usage/account-management/api-keys.md)
   * [Billing](usage/account-management/billing.md)
