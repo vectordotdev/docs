@@ -26,15 +26,6 @@ Timber offers deep integration with [Heroku](https://heroku.com) through the [Ti
 
 3. Done! _Optionally_ improve your logs by [configuring Heroku features](./#configuration).
 
-### Attaching a single add-on vs having multiple add-ons
-
-Timber's Heroku add-on includes first-class support for [Heroku's add-on attachments](https://devcenter.heroku.com/articles/add-ons#multiple-aliases-attachments) which includes the following benefits:
-
-1. See all apps \(including attachments\) when you log into Timber.
-2. Easily switch between all apps without having to leave Timber.
-3. Each app gets it's own private data stream to easily segment and view the data.
-4. One bill and plan to manage, not multiple.
-
 ### Add-on Limitations
 
 Because of the way Heroku add-ons are structured there are a few inherent limitations:
@@ -47,14 +38,7 @@ Because of the way Heroku add-ons are structured there are a few inherent limita
 {% tab title="Manual" %}
 
 
-1. Add the Timber [Heroku log drain](https://devcenter.heroku.com/articles/log-drains):  
-
-
-   ```bash
-    heroku drains:add https://{{my-timber-api-key}}@logs.timber.io/frames
-   ```
-
-2.  _Optionally_ improve your logs by [configuring Heroku features](./#configuration).
+fdsfd
 {% endtab %}
 {% endtabs %}
 
