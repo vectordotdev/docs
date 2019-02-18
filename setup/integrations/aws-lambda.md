@@ -20,29 +20,35 @@ AWS Lambda automatically logs platform events that contain useful information ab
 
 The request start event is emitted immediately before a Lambda invocation.
 
+{% tabs %}
+{% tab title="Before" %}
 ```text
 START RequestId: 84f70cff-ab16-4f17-a729-91cc92530be4 Version: $LATEST
 ```
+{% endtab %}
 
-Is parsed into:
-
+{% tab title="After" %}
 ```javascript
 {
     "type": "END",
     "request_id": "84f70cff-ab16-4f17-a729-91cc92530be4"
 }
 ```
+{% endtab %}
+{% endtabs %}
 
 ### Request End
 
-The request end event is emitted immediate after a Lambda invocation.
+The request end event is emitted immediately when you lambda invocation ends.
 
+{% tabs %}
+{% tab title="Before" %}
 ```
 END RequestId: 84f70cff-ab16-4f17-a729-91cc92530be4
 ```
+{% endtab %}
 
-Is parsed into:
-
+{% tab title="After" %}
 ```javascript
 {
     "type": "START",
@@ -50,17 +56,21 @@ Is parsed into:
     "version": "$LATEST"
 }
 ```
+{% endtab %}
+{% endtabs %}
 
 ### Report
 
 The report event is emitted immediately after a Lambda invocation, it contains useful summary information.
 
+{% tabs %}
+{% tab title="Before" %}
 ```text
 REPORT RequestId: 84f70cff-ab16-4f17-a729-91cc92530be4	Duration: 10028.34 ms	Billed Duration: 10100 ms Memory Size: 1280 MB	Max Memory Used: 173 MB
 ```
+{% endtab %}
 
-Is parsed into:
-
+{% tab title="After" %}
 ```javascript
 {
     "type": "REPORT",
@@ -71,4 +81,6 @@ Is parsed into:
     "max_memory_used_mb": 173
 }
 ```
+{% endtab %}
+{% endtabs %}
 

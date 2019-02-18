@@ -36,9 +36,14 @@ Because of the way Heroku add-ons are structured there are a few inherent limita
 {% endtab %}
 
 {% tab title="Manual" %}
+1. Add the Timber [Heroku log drain](https://devcenter.heroku.com/articles/log-drains):  
 
 
-fdsfd
+   ```bash
+    heroku drains:add https://{{my-timber-api-key}}@logs.timber.io/frames
+   ```
+
+2.  _Optionally_ improve your logs by [configuring Heroku features](./#configuration).
 {% endtab %}
 {% endtabs %}
 
@@ -71,7 +76,7 @@ heroku labs:enable runtime-dyno-metadata
 
 ## Context
 
-By default, Timber adds useful Heroku context to your logs:
+By default, Timber adds the following context to your Heroku logs:
 
 ```text
 {
@@ -93,14 +98,16 @@ Heroku will log useful platform events within your log stream. Timber recognizes
 
 ### CPU Usage Samples
 
-If you enabled the log runtime metrics feature you'll begin to see events like
+If you enabled the [log runtime metrics feature](./#log-runtime-metrics) you'll begin to see CPU usage samples in your logs. Timber parses these and uses this data to help you understand your application's CPU usage.
 
+{% tabs %}
+{% tab title="Before" %}
 ```text
 source=web.1 dyno=heroku.2808254.d97d0ea7-cf3d-411b-b453-d2943a50b456 sample#load_avg_1m=2.46 sample#load_avg_5m=1.06 sample#load_avg_15m=0.99
 ```
+{% endtab %}
 
-Timber parses these events into the following document:
-
+{% tab title="After" %}
 ```javascript
 {
     "source": "web.1",
@@ -111,15 +118,81 @@ Timber parses these events into the following document:
 }
 ```
 
+You can read more about these fields in the [Heroku docs](https://devcenter.heroku.com/articles/log-runtime-metrics#cpu-load-averages).
+{% endtab %}
+{% endtabs %}
+
 ### Deploys
 
 Each time your app deploys on Heroku an event is added to your logs. Timber parses this event so that you can easily search for and audit when deploys were made.
 
 ### Memory Usage Samples
 
+If you enabled the [log runtime metrics feature](./#log-runtime-metrics) you'll begin to see meory usage samples in your logs. Timber parses these and uses this data to help you understand your application's CPU usage.
+
+{% tabs %}
+{% tab title="Before" %}
+```text
+source=web.1 dyno=heroku.2808254.d97d0ea7-cf3d-411b-b453-d2943a50b456 sample#memory_total=21.00MB sample#memory_rss=21.22MB sample#memory_cache=0.00MB sample#memory_swap=0.00MB sample#memory_pgpgin=348836pages sample#memory_pgpgout=343403pages
+```
+{% endtab %}
+
+{% tab title="After" %}
+```javascript
+{
+    "source": "web.1",
+    "dyno": "heroku.2808254.d97d0ea7-cf3d-411b-b453-d2943a50b456"
+    "sample#memory_total_mb": 21.0,
+    "sample#memory_rss_mb": 21.22,
+    "sample#memory_cache_mb": 0.0,
+    "sample#memory_swap_mb": 0.0,
+    "sample#memory_pgpgin_pages": 348836,
+    "sample#memory_pgpgout_pages": 343403
+}
+```
+
+You can read more about these fields in the [Heroku docs](https://devcenter.heroku.com/articles/log-runtime-metrics#memory-swap).
+{% endtab %}
+{% endtabs %}
+
 ### Platform Errors
 
+All Heroku H, R, and L platform errors are parsed to help you keep tabs on your application's errors
+
+```text
+2010-10-06T21:51:12-07:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/" host=myapp.herokuapp.com fwd=17.17.17.17 dyno= connect= service= status=503 bytes=
+```
+
+### 
+
 ### Router  Events
+
+Heroku's built-in router will log events every time it routes a request to your app. Timber parses these events.
+
+{% tabs %}
+{% tab title="Before" %}
+```text
+2012-02-07T09:43:06.123456+00:00 heroku[router]: at=info method=GET path="/stylesheets/dev-center/library.css" host=devcenter.heroku.com fwd="204.204.204.204" dyno=web.5 connect=1ms service=18ms status=200 bytes=13
+```
+{% endtab %}
+
+{% tab title="After" %}
+```javascript
+{
+    "level": "info",
+    "method": "GET",
+    "path": "/stylesheets/dev-center/library.css",
+    "host": "devcenter.heroku.com",
+    "dyno": "web.5",
+    "connect_ms": 1.0,
+    "service_ms": 18.0,
+    "status": 200,
+    "bytes": 13,
+    "fwd": "204.204.204.204"
+}    
+```
+{% endtab %}
+{% endtabs %}
 
 ### Slow Queries
 

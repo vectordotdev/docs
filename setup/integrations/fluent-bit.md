@@ -35,10 +35,25 @@ Fluent Bit is a general purpose log forwarder that can forward logs from multipl
    {% endcode-tabs-item %}
    {% endcode-tabs %}
 
-3. Restart your fluent-bit agent:  
+3. _Optionally_ install and configure plug-ins to enhance your logs with context.
+4. Restart your fluent-bit agent:  
 
 
    ```bash
    sudo service td-agent-bit restart
    ```
+
+## Configuration
+
+### Adding Context
+
+If applicable, we highly recommend installing one of the below plugins to enhance your logs with context:
+
+1. [Docker metadata](https://github.com/fabric8io/fluent-plugin-docker_metadata_filter)
+2. [EC2 metadata](https://github.com/takus/fluent-plugin-ec2-metadata)
+3. [Kubernetes metadata](https://github.com/fabric8io/fluent-plugin-kubernetes_metadata_filter)
+
+### All Other Options
+
+Please see the FluentD configuration documentation.
 

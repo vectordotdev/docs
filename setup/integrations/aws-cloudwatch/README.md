@@ -52,3 +52,9 @@ As part of Timber's commitment to data quality, the [`timber-logging` Lambda fun
 | `context.cloudwatch.log_stream` | The log stream name of the originating log data. |
 | `context.cloudwatch.owner` | The AWS account ID of the originating log data. |
 
+## Additional Resources
+
+* Timber's AWS Serverless Application
+* Github repo for Timber's Serverless Application
+* [CloudWatch Logs docs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html)
+
