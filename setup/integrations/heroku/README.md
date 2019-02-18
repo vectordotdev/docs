@@ -47,7 +47,14 @@ Because of the way Heroku add-ons are structured there are a few inherent limita
 {% tab title="Manual" %}
 
 
-fdsfd
+1. Add the Timber [Heroku log drain](https://devcenter.heroku.com/articles/log-drains):  
+
+
+   ```bash
+    heroku drains:add https://{{my-timber-api-key}}@logs.timber.io/frames
+   ```
+
+2.  _Optionally_ improve your logs by [configuring Heroku features](./#configuration).
 {% endtab %}
 {% endtabs %}
 
