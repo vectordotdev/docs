@@ -8,7 +8,11 @@ The Timber service extends beyond just a hosted service. Instead of being an obs
 
 {% page-ref page="../setup/integrations/elixir/" %}
 
+{% page-ref page="../setup/integrations/javascript.md" %}
+
 {% page-ref page="../setup/integrations/node.md" %}
+
+{% page-ref page="../setup/integrations/python.md" %}
 
 {% page-ref page="../setup/integrations/ruby.md" %}
 

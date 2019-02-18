@@ -8,6 +8,8 @@ Timber offers deep integration with [Heroku](https://heroku.com) through the [Ti
 
 ## Installation
 
+{% tabs %}
+{% tab title="Addon" %}
 1. Add the [Timber Heroku add-on](https://elements.heroku.com/addons/timber-logging):  
 
 
@@ -22,7 +24,7 @@ Timber offers deep integration with [Heroku](https://heroku.com) through the [Ti
    heroku addons:attach timber-1234 -a my-app
    ```
 
-3. _Optionally_ improve your logs by [configuring Heroku features](heroku.md#configuration).
+3. _Optionally_ improve your logs by [configuring Heroku features](./#configuration).
 
 ### Attaching a single add-on vs having multiple add-ons
 
@@ -32,6 +34,26 @@ Timber's Heroku add-on includes first-class support for [Heroku's add-on attachm
 2. Easily switch between all apps without having to leave Timber.
 3. Each app gets it's own private data stream to easily segment and view the data.
 4. One bill and plan to manage, not multiple.
+
+### Limitations
+
+Because of the way Heroku add-ons are structured there are a few inherent limitations:
+
+1. Because Heroku handles billing, you're limited to the Timber add-on plans, whereas traditional Timber accounts have a much more flexible matrix of volume and retention.
+2. Because of the way Heroku handles billing, organizations created through the Heroku add-on process cannot add non-Heroku sources to their account. If you require this you'll need to signup for Timber directly and use the "Manual" installation method.
+3. Teams & members are delegates to Heroku since Heroku handles authentication.
+{% endtab %}
+
+{% tab title="Manual" %}
+
+
+fdsfd
+{% endtab %}
+{% endtabs %}
+
+### Which installation method should I use?
+
+For sheer simplicity we recommend the "Addon" method. It's a one-click install and billing is handled through your Heroku account. If any of the limitations listed are a problem, please use the "Manual" method. Beyond the limitations, there is no functional difference between the two methods.
 
 ## Configuration
 
