@@ -24,11 +24,11 @@ All log data sent to Timber is written to S3 in addition to Elasticsearch. S3 ha
 
 ### Improved Reliability & Natural Failover
 
-A inherent benefit of this architecture is the natural failover. If Elasticsearch was to fail, Timber's query engine falls back to S3 for the data that woud otherwise be on Elasticsearch.
+A inherent benefit of this architecture is the natural failover. If Elasticsearch was to fail, Timber's query engine falls back to S3 for the data that woud otherwise be on Elasticsearch. Given Elasticsearch's relative reduced reliability this helps to ensure Timber is available when you need it most.
 
 ### Longer Retentions
 
-Because we use S3 we are able to much more efficiently retain data for longer periods. This benefit is passed onto our customers. We have many customers that retain 12 months worth of data and actively search it.
+Because we use S3 we are able to much more efficiently retain data for longer periods. This benefit is passed onto our customers. We don't pay for active running servers to persist data, we simply pay the S3 storage prices and pay when we query it. For example, we have many customers that retain over 12 months of searchable data without issue. This is why our pricing plans offer customizable retention for little cost difference.
 
 ### Faster Query Speeds
 
@@ -40,5 +40,5 @@ Timber's fast query speeds are very much a result of this architectural decision
 
 ### Affordability
 
-This architecture is also cheaper, and we pass those costs saving onto our competitors. This is why our pricing is generally much cheaper than our competition.
+This architecture is also cheaper, and we pass those costs saving onto our competitors. This is why our pricing is generally much cheaper than our competition. And as we improve we plan to pass those cost saving onto our customers.
 

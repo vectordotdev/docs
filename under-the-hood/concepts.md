@@ -52,7 +52,3 @@ A search represents a search of your log data. Learn more in our [Search docs](.
 
 A container for a set of [log](concepts.md#log) data. An [organization](concepts.md#organization) can have many sources and a source has many [logs](concepts.md#log).
 
-## Timber
-
-An amazing log aggregation service 😁 
-
