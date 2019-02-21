@@ -4,9 +4,14 @@ description: Send Elixir logs to Timber
 
 # Elixir
 
-Timber integrates with [Elixir](https://elixir-lang.org/) through the [`:timber` Hex package](https://hex.pm/packages/timber). It works directly with the core [Elixir `Logger`](https://hexdocs.pm/logger/Logger.html) making it easy to integrate without code level changes.
+Timber integrates with [Elixir](https://elixir-lang.org/) through the [`:timber` Hex package](https://hex.pm/packages/timber). The Timber Elixir library features:
 
-In its most basic form, `:timber` simply ships logs from your Elixir app to Timber. In its most advanced form, `:timber` serves as a structured logging framework, turning your text-based logs into rich structured events.
+* Works directly with the core [Elixir `Logger`](https://hexdocs.pm/logger/Logger.html) making it easy to integrate without code level changes.
+* [Performant, light-weight, with a thoughtful design.](./#performance)
+* Support for [local](./#local-context-default) and [global](./#global-context) context.
+* [Automatic context](./#context).
+* Support for [structure logging](./#structured-logging).
+* [Integrates with popular 3rd party libraries](./#integrations).
 
 ## Installation
 
