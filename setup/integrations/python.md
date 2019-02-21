@@ -6,10 +6,10 @@ description: Send Python logs to Timber
 
 Timber integrates with [Python](https://www.python.org/) through the [`timber` Python library](https://pypi.org/project/timber/). The Timber Python library features:
 
-* Integrates with the core [Python `logging` library](https://docs.python.org/3/library/logging.html). Making it easy to integrate without code level changes.
+* Integrates with the [Python `logging` library](https://docs.python.org/3/library/logging.html), making it easy to integrate without code level changes.
 * [Support for structured logging and events](python.md#structured-logging).
 * [Support for context](python.md#setting-context).
-* [Performant and light weight](python.md#performance).
+* [Performant, light weight, with a thoughtful design](python.md#performance).
 
 ## Installation
 
