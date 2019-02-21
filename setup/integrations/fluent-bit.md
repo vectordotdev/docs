@@ -57,3 +57,19 @@ If applicable, we highly recommend installing one of the below plugins to enhanc
 
 Please see the FluentD configuration documentation.
 
+## Troubleshooting
+
+To begin, please see our [log delivery troubleshooting guide](../guides/troubleshooting-log-delivery.md). This covers the most common issues we see with log delivery:
+
+{% page-ref page="../guides/troubleshooting-log-delivery.md" %}
+
+If the above troubleshooting guide does not resolve your issue then we recommend enabling logging for the FluentBit service itself. You can do so by adding the following section to your FluentBit configuration file, typically located at:
+
+```text
+[SERVICE]
+    Log_File    /var/log/fluentbit.log
+    Log_Level   DEBUG
+```
+
+More information on these options can be found in the [FluentBit configuration documentation](https://docs.fluentbit.io/manual/service).
+

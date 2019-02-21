@@ -63,3 +63,11 @@ Please see [https://docs.docker.com/config/containers/logging/fluentd/](https://
 
 In addition to the log message itself, the above setup will automatically augment your logs with the following context keys.
 
+## Troubleshooting
+
+Because the Docker integration relies on FluentBit we recommend reviewing the following troubleshooting guides:
+
+{% page-ref page="../guides/troubleshooting-log-delivery.md" %}
+
+{% page-ref page="fluent-bit.md" %}
+

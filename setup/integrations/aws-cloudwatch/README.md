@@ -24,15 +24,11 @@ Timber integrates with [AWS CloudWatch Logs](https://docs.aws.amazon.com/AmazonC
 
 Repeat this process for any other CloudWatch log groups you wish to forward.
 {% endtab %}
-
-{% tab title="Terraform" %}
-TODO: Jesse to fill in
-{% endtab %}
 {% endtabs %}
 
 ## Context
 
-As part of Timber's commitment to data quality, the [`timber-logging` Lambda function](%20https://serverlessrepo.aws.amazon.com/applications/arn:aws:serverlessrepo:us-east-1:754402436383:applications~timber-logging) automatically adds context to your logs, helping you to search and use your logs.
+The [`timber-logging` Lambda function](%20https://serverlessrepo.aws.amazon.com/applications/arn:aws:serverlessrepo:us-east-1:754402436383:applications~timber-logging) automatically adds context to your logs, helping you to search and use your logs. The following is merged into every log line shipped to Timber:
 
 ```javascript
 {
@@ -52,9 +48,11 @@ As part of Timber's commitment to data quality, the [`timber-logging` Lambda fun
 | `context.cloudwatch.log_stream` | The log stream name of the originating log data. |
 | `context.cloudwatch.owner` | The AWS account ID of the originating log data. |
 
-## Additional Resources
+## Troubleshooting
 
-* Timber's AWS Serverless Application
-* Github repo for Timber's Serverless Application
-* [CloudWatch Logs docs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html)
+To begin, please see our [log delivery troubleshooting guide](../../guides/troubleshooting-log-delivery.md). This covers the most common issues we see with log delivery:
+
+{% page-ref page="../../guides/troubleshooting-log-delivery.md" %}
+
+If the above troubleshooting guide does not resolve your issue we recommend enabling debug logging on the Timber Lambda forwarder function. You can do this by setting the `TIMBER_DEBUG` environment variable to `true` . The the Timber logging function will begin emitting debug logs which you can analyze in the AWS CloudWatch Logs console.
 

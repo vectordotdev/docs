@@ -27,5 +27,15 @@ Timber integrates with [AWS Elastic Beanstalk](https://aws.amazon.com/elasticbea
 
 3. Package your source bundle as usual and upload it to AWS Elastic Beanstalk as usual.
 
+## Configuration
 
+The [`001_timber.config` file](https://gist.github.com/binarylogic/26f97f4ef3589bdbdd14e65fd4c002a8) installs [FluentBit](http://fluentbit.org/) as a log forwarder. As such, please refer to [FluentBit's configuration documentation](https://docs.fluentbit.io/manual/configuration) on the various options available. All of the options can be modified in the `"/tmp/td-agent-bit.conf":` section of the `001_timber.config` file.
+
+## Troubleshooting
+
+Because the AWS Elastic Bean Stalk integration relies on FluentBit we recommend reviewing the following troubleshooting guides:
+
+{% page-ref page="../guides/troubleshooting-log-delivery.md" %}
+
+{% page-ref page="fluent-bit.md" %}
 

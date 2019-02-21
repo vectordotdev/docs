@@ -74,3 +74,7 @@ Every line emitted from your Kubernetes cluster will contain the following addit
 | `kubernetes.container_id` | The ID of the container the logs originated from. |
 | `kubernetes.labels` | The labels, in object form, assigned to your k8s cluster. |
 
+## Troubleshooting
+
+Because the Kubernetes integration relies on FluentBit we recommend reviewing the [FluentBit troubleshooting section](fluentd/#troubleshooting).
+

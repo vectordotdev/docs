@@ -25,14 +25,6 @@ Timber offers deep integration with [Heroku](https://heroku.com) through the [Ti
    ```
 
 3. Done! _Optionally_ improve your logs by [configuring Heroku features](./#configuration).
-
-### Add-on Limitations
-
-Because of the way Heroku add-ons are structured there are a few inherent limitations:
-
-1. Because Heroku handles billing, you're limited to the Timber add-on plans, whereas traditional Timber accounts have a much more flexible matrix of volume and retention.
-2. Because of the way Heroku handles billing, organizations created through the Heroku add-on process cannot add non-Heroku sources to their account. If you require this you'll need to signup for Timber directly and use the "Manual" installation method.
-3. Authentication is delegated to Heroku, meaning to log into Timber you must do so by clicking the Timber addon within your Heroku dashboard.
 {% endtab %}
 
 {% tab title="Manual" %}
@@ -49,7 +41,7 @@ Because of the way Heroku add-ons are structured there are a few inherent limita
 
 ### Which installation method should I use?
 
-For sheer simplicity we recommend the "Add-on" method. It's a one-click install and billing is handled automatically through your Heroku account. If any of the limitations listed are a problem, please use the "Manual" method. Beyond the limitations, there is no functional difference between the two methods.
+For sheer simplicity we recommend the "Add-on" method. It's a one-click install and billing is handled automatically through your Heroku account. Please note that Heroku add-ons are limited to Heroku apps only, if you plan to add non-Heroku apps you'll need to register with Timber directly and use the "Manual" method.
 
 ## Configuration
 
@@ -78,7 +70,7 @@ heroku labs:enable runtime-dyno-metadata
 
 By default, Timber adds the following context to your Heroku logs:
 
-```text
+```javascript
 {
     "source": "app",
     "dyno_id": 4,
@@ -159,13 +151,32 @@ You can read more about these fields in the [Heroku docs](https://devcenter.hero
 
 All Heroku H, R, and L platform errors are parsed to help you keep tabs on your application's errors
 
+{% tabs %}
+{% tab title="Before" %}
 ```text
 2010-10-06T21:51:12-07:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/" host=myapp.herokuapp.com fwd=17.17.17.17 dyno= connect= service= status=503 bytes=
 ```
+{% endtab %}
 
-### 
+{% tab title="Second Tab" %}
+```javascript
+{
+    "source": "heroku",
+    "dyno": "router",
+    "level": "error",
+    "code": "H10",
+    "desc": "App crashed",
+    "method": "GET",
+    "path": "/",
+    "host": "myapp.herokuapp.com",
+    "fwd": "17.17.17.17",
+    "status": 503
+}
+```
+{% endtab %}
+{% endtabs %}
 
-### Router  Events
+### Routings
 
 Heroku's built-in router will log events every time it routes a request to your app. Timber parses these events.
 
@@ -195,6 +206,40 @@ Heroku's built-in router will log events every time it routes a request to your 
 {% endtabs %}
 
 ### Slow Queries
+
+Heroku's postgres service queries that are slow or expensive, Timber parses these queries making it easier to observe and fix them.
+
+{% tabs %}
+{% tab title="Before" %}
+```text
+Jun 26 08:49:40 issuetriage app/postgres.29339:  [DATABASE] [41-1] LOG:  duration: 2406.615 ms  execute <unnamed>: SELECT  "issues".* FROM "issues" WHERE "issues"."repo_id" = $1 AND "issues"."state" = $2 ORDER BY created_at DESC LIMIT $3 OFFSET $4
+```
+{% endtab %}
+
+{% tab title="After" %}
+```javascript
+{
+    "dt": "2019-06-26T08:49:40Z",
+    "message": "issuetriage app/postgres.29339:  [DATABASE] [41-1] LOG:  duration: 2406.615 ms  execute <unnamed>: SELECT  "issues".* FROM "issues" WHERE "issues"."repo_id" = $1 AND "issues"."state" = $2 ORDER BY created_at DESC LIMIT $3 OFFSET $4",
+    "sql_query": {
+        "duration_ms": 2406.615
+    }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+## Troubleshooting
+
+To begin, please see our [log delivery troubleshooting guide](../../guides/troubleshooting-log-delivery.md). This covers the most common issues we see with log delivery:
+
+{% page-ref page="../../guides/troubleshooting-log-delivery.md" %}
+
+If the above troubleshooting guide does not resolve the issue then we recommend tailing your Heroku logs within your console, looking specifically for [`L` errors](https://devcenter.heroku.com/articles/error-codes#l10-drain-buffer-overflow). This signals that there are errors with log delivery:
+
+```bash
+heroku logs --tail | grep "L[0-9][0-9]"
+```
 
 
 

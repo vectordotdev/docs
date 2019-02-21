@@ -17,7 +17,7 @@
 * [Integrations](setup/integrations/README.md)
   * [AWS CloudWatch Logs](setup/integrations/aws-cloudwatch/README.md)
     * [AWS Serverless Application](https://serverlessrepo.aws.amazon.com/applications/arn:aws:serverlessrepo:us-east-1:754402436383:applications~timber-logging)
-    * [Github Repo](https://github.com/timberio/timber-cloudwatch-logs-lambda-function)
+    * [Serverless App Repo](https://github.com/timberio/timber-cloudwatch-logs-lambda-function)
   * [AWS Lambda](setup/integrations/aws-lambda.md)
   * [AWS Elastic Bean Stalk](setup/integrations/aws-elastic-beanstalk.md)
   * [Digital Ocean](setup/integrations/digital-ocean.md)
@@ -46,6 +46,7 @@
   * [Ship Logs From Within My App?](setup/guides/ship-logs-from-within-my-app.md)
   * [Sending Logs To Timber's API](setup/guides/sending-logs-to-timbers-api.md)
   * [Structured Logging Best Practices](setup/guides/event-naming.md)
+  * [Troubleshooting Log Delivery](setup/guides/troubleshooting-log-delivery.md)
 
 ## Usage
 

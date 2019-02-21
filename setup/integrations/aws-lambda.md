@@ -84,3 +84,9 @@ REPORT RequestId: 84f70cff-ab16-4f17-a729-91cc92530be4	Duration: 10028.34 ms	Bil
 {% endtab %}
 {% endtabs %}
 
+## Troubleshooting
+
+Because the AWS Lambda integration relies on CloudWatch Logs we recommend viewing the CloudWatch logs troubleshooting guide:
+
+{% page-ref page="aws-cloudwatch/" %}
+

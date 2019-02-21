@@ -83,3 +83,11 @@ Timber accepts the following content types \(ordered by preference\):
 
 If you don't want to do this yourself you can use one of [Timber's language libraries](../../under-the-hood/language-libraries.md).
 
+## Troubleshooting
+
+To begin, please see our [log delivery troubleshooting guide](../guides/troubleshooting-log-delivery.md). This covers the most common issues we see with log delivery:
+
+{% page-ref page="../guides/troubleshooting-log-delivery.md" %}
+
+If the above guide does not resolve your issue please contact support.
+

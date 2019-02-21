@@ -229,3 +229,9 @@ These are the general instructions for forwarding syslog messages to Timber. We 
 
 Please see the [syslog-ng configuration documentation](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.16/administration-guide), especially the [filter conditions](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.16/administration-guide/47#TOPIC-956564) section since you'll want to use that to filter out logs being sent to Timber.
 
+## Troubleshooting
+
+To begin, please see our [log delivery troubleshooting guide](../guides/troubleshooting-log-delivery.md). This covers the most common issues we see with log delivery:
+
+{% page-ref page="../guides/troubleshooting-log-delivery.md" %}
+
