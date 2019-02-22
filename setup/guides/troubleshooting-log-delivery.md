@@ -24,6 +24,7 @@ curl \
     --request POST \
     --header "Content-Type: text/plain" \
     --data 'debug: Testing the pipes' \
+    --verbose \
     https://logs.timber.io/frames
 ```
 

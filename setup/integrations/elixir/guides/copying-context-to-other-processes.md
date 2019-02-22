@@ -2,7 +2,7 @@
 description: Ensure context is carried over to child processes
 ---
 
-# Copying Context To Other Processes
+# Copying Context To Child Processes
 
 As described in the ["Setting Context" section](../#setting-context), Timber's context is local to each process. This ensures that each process can maintain context specific to it's state without conflicting with other processes, but there are times where you'll want to carry context over to child processes, such as when using the [`Task` module](https://hexdocs.pm/elixir/Task.html):
 

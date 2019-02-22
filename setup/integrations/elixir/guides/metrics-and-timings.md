@@ -2,7 +2,7 @@
 description: Capturing metrics & timings with Timber
 ---
 
-# Metrics & Timings
+# Timings
 
 For operational events, it's common to include execution timings. This allows you to use log events to gain insight into your applications' performance. This is especially useful for questions that operate on high cardinality attributes, such as a user's ID. Timber makes capturing and logging timings easy, let's run through an example of timing a HTTP request to an external service:
 

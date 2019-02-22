@@ -2,7 +2,7 @@
 description: 'Write logs to a file, STDOUT, or other backends in addition to Timber'
 ---
 
-# Writing To Multiple Logger Backends
+# Multiple Logger Backends
 
 The [Elixir `Logger`](https://hexdocs.pm/logger/Logger.html) includes [support for logging to multiple backends](https://hexdocs.pm/logger/Logger.html#module-backends). Logging to a file or `:stdout` in addition to Timber is simple.
 

@@ -33,7 +33,7 @@ The [`001_timber.config` file](https://gist.github.com/binarylogic/26f97f4ef3589
 
 ## Troubleshooting
 
-Because the AWS Elastic Bean Stalk integration relies on FluentBit we recommend reviewing the following troubleshooting guides:
+Because the AWS Elastic Bean Stalk integration relies on [Fluent Bit](fluent-bit.md) we recommend reviewing the following troubleshooting guides:
 
 {% page-ref page="../guides/troubleshooting-log-delivery.md" %}
 

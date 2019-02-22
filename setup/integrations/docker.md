@@ -65,7 +65,7 @@ In addition to the log message itself, the above setup will automatically augmen
 
 ## Troubleshooting
 
-Because the Docker integration relies on FluentBit we recommend reviewing the following troubleshooting guides:
+Because the Docker integration relies on [Fluent Bit](fluent-bit.md) we recommend reviewing the following troubleshooting guides:
 
 {% page-ref page="../guides/troubleshooting-log-delivery.md" %}
 
