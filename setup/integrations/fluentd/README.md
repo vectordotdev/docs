@@ -8,7 +8,7 @@ description: Send logs to Timber via FluentD
 
 ## Installation
 
-1. [Install Fluentd.](https://docs.fluentd.org/v1.0/categories/installation) 
+1. [Install Fluentd.](https://docs.fluentd.org/v1.0/categories/installation)
 2. Install the [Timber Fluentd plugin](https://github.com/timberio/fluent-plugin-timber):  
 
 
@@ -32,7 +32,7 @@ description: Send logs to Timber via FluentD
    {% endcode-tabs-item %}
    {% endcode-tabs %}
 
-4. _Optionally_ install [plugins](https://www.fluentd.org/plugins) to capture context for your platform. For example, the [EC2](https://github.com/takus/fluent-plugin-ec2-metadata) and and [Kubernetes](https://github.com/fabric8io/fluent-plugin-kubernetes_metadata_filter) plugins. 
+4. _Optionally_ install [plugins](https://www.fluentd.org/plugins) to capture context for your platform. For example, the [EC2](https://github.com/takus/fluent-plugin-ec2-metadata) and and [Kubernetes](https://github.com/fabric8io/fluent-plugin-kubernetes_metadata_filter) plugins.
 5. Restart the Fluentd agent:  
 
 
