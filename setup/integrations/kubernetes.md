@@ -36,7 +36,7 @@ To forward logs from your kubernetes cluster, we recommend deploying fluentbit a
 
 See the [Fluent Bit configuration docs](https://docs.fluentbit.io/manual/configuration/file) for additional customizations you can make in Fluent Bit to capture more metadata, parse lines into structured messages, and filter the logs you forward.
 
-## Context
+## Automatic Context
 
 Every line emitted from your Kubernetes cluster will contain the following additional context fields. Helping you to segment and search your logs.
 

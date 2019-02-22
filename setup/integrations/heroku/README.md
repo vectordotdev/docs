@@ -24,7 +24,7 @@ Timber offers deep integration with [Heroku](https://heroku.com) through the [Ti
    heroku addons:attach timber-1234 -a my-app
    ```
 
-3. Done! _Optionally_ improve your logs by [configuring Heroku features](./#configuration).
+3. _Optionally_ improve your logs by [configuring Heroku features](./#configuration).
 {% endtab %}
 
 {% tab title="Manual" %}
@@ -66,7 +66,7 @@ Heroku offers a [dyno metadata feature ](https://devcenter.heroku.com/articles/d
 heroku labs:enable runtime-dyno-metadata
 ```
 
-## Context
+## Automatic Context
 
 By default, Timber adds the following context to your Heroku logs:
 
@@ -84,7 +84,7 @@ By default, Timber adds the following context to your Heroku logs:
 | `dyno_id` | The ID of the dyno that emitted the log. |
 | `proc_type` | The process type as defined in your `Procfile` |
 
-## Events
+## Automatic Events
 
 Heroku will log useful platform events within your log stream. Timber recognizes these events and automatically parses them.
 
