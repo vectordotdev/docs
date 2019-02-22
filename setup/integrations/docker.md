@@ -18,7 +18,7 @@ Requires Docker version 1.8.0 or later
 
    {% code-tabs %}
    {% code-tabs-item title="/etc/td-agent-bit/td-agent-bit.conf" %}
-   ```text
+   ```yaml
    [INPUT]                                                                                                                                                                                                            
        Name Forward
        Port 24224

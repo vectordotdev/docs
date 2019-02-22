@@ -16,16 +16,12 @@ Forwarding logs to Timber is highly specific to your HTTP client. Below are a fe
 
 ### Examples
 
-{% hint style="warning" %}
-Your Timber API key must be [Base64 encoded](./#base64-encoding-your-timber-api-key) before including it in the `Authorization` header. Please use the [Base64 version](./#base64-encoding-your-timber-api-key) of your API key!
-{% endhint %}
-
 {% tabs %}
 {% tab title="http" %}
 ```bash
 POST https://logs.timber.io/frames
-Authorization: Bearer {{your-api-key}}
-Timber-Source-ID: {{your-source-id}}
+Authorization: Bearer YOUR_API_KEY
+Timber-Source-ID: YOUR_SOURCE_ID
 Content-Type: application/ndjson
 {"level": "debug", "message": "Testing the pipes"}
 {"level": "debug", "message": "Testing the pipes again"}
@@ -36,8 +32,8 @@ Content-Type: application/ndjson
 ```bash
 curl \
 --request POST \
---header 'Authorization: Bearer {{your-api-key}}' \
---header 'Timber-Source-ID: {{your-source-id}}' \
+--header 'Authorization: Bearer YOUR_API_KEY' \
+--header 'Timber-Source-ID: YOUR_SOURCE_ID' \
 --header "Content-Type: application/ndjson" \
 --data '{"level": "debug", "message": "Testing the pipes"}
 {"level": "debug", "message": "Testing the pipes again"}' \

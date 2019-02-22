@@ -29,7 +29,9 @@ description: Send logs to Timber via Fluent Bit
 
      Format  msgpack
      # Replace with your API key
-     Header  Authorization Basic YOUR_BASE64_ENCODED_API_KEY_HERE
+     Header  Authorization Basic YOUR_API_KEY
+     # Replace with your source ID
+     Header  Timber-Source-ID YOUR_SOURCE_ID
      Header  Content-Type application/msgpack
    ```
    {% endcode-tabs-item %}

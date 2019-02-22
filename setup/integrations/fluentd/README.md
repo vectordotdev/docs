@@ -26,7 +26,8 @@ description: Send logs to Timber via FluentD
    ```markup
    <match *> # will match all inputs; replace with a scope to send subset (https://docs.fluentd.org/v1.0/articles/config-file#(2)-%E2%80%9Cmatch%E2%80%9D:-tell-fluentd-what-to-do!)
      @type timber
-     api_key YOUR_RAW_API_KEY
+     api_key YOUR_API_KEY
+     source_id YOUR_SOURCE_ID
    </match>
    ```
    {% endcode-tabs-item %}

@@ -40,7 +40,8 @@ Timber integrates with [Elixir](https://elixir-lang.org/) through the [`:timber`
      backends: [Timber.LoggerBackends.HTTP],
 
    config :timber,
-     api_key: "{{your-raw-api-key}}"
+     api_key: "YOUR_API_KEY",
+     source_id: "YOUR_SOURCE_ID"
    ```
    {% endcode-tabs-item %}
    {% endcode-tabs %}
