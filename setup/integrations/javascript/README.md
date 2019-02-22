@@ -1,10 +1,10 @@
 ---
-description: Send Javascript & browser logs to Timber
+description: Send Javascript logs to Timber from your Node or Browser environment
 ---
 
 # Javascript
 
-Timber integrates with [Javascript](https://en.wikipedia.org/wiki/JavaScript) through its [Javascript library](https://github.com/timberio/timber-js). The Timber Javascript library features:
+Timber integrates with [Javascript](https://en.wikipedia.org/wiki/JavaScript) through its universal [Javascript library](https://github.com/timberio/timber-js). The Timber Javascript library features:
 
 * **Universal Node/browser support**. Log user/system errors, visits, clicks, events - _anything_ - in Chrome, Safari, Edge, or on a Node.js server, and search logs in real-time via the [Timber.io console](https://timber.io/).
 * **NPM or CDN**. Use natively in your app, Webpack/Rollup into your Node/browser bundle, or just drop in a `<script>` tag to your final HTML. Integrates easily into any app.

@@ -88,9 +88,3 @@ Timber reserves the following fields:
 | `priority` | `int` | [Numeric Syslog 5424 severity.](https://en.wikipedia.org/wiki/Syslog#Severity_level) |
 | `_metadata` | `object` | Namespace for internal Timber metadata. |
 
-## Limitations
-
-1. Strings are truncated to 8192 bytes.
-2. See the [schema limitations](schema-maintenance.md#limitations).
-3. See the [HTTP endpoint limitations](../setup/integrations/http-api/#limitations).
-

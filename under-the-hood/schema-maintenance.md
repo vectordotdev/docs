@@ -64,6 +64,6 @@ Timber keeps track of when a column was last seen. If a column's last seen value
 
 1. Each application is limited to 1000 columns. New columns beyond this limit are dropped. Please be sure not to use high cardinality key names as a result.
 2. While there is no field depth restriction for Timber the resulting `.` delimited column name must be less than 256 characters.
-3. All string values must be less than or equal to 8.,192 bytes.
+3. All string values must be less than or equal to 8,192 bytes.
 4. Column names must only contain the following characters `/^[A-Za-z0-9#$_-\@]*$/`
 
