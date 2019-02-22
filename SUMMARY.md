@@ -69,7 +69,7 @@
 ## Resources
 
 * [App](https://app.timber.io)
-* [API](http://docs.api.timber.io/)
+* [API Docs](http://docs.api.timber.io/)
 * [CLI](https://github.com/timberio/timber-cli)
 * [Feature Requests](https://ideas.timber.io/)
 * [Status](https://status.timber.io/)
