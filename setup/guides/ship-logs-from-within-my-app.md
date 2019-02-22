@@ -1,3 +1,7 @@
+---
+description: When to ship logs from within your app and when to not
+---
+
 # Ship Logs From Within My App?
 
 You'll notice Timber offers [language level integrations](../../under-the-hood/language-libraries.md) that ship logs directly from within your application, we also offer a [platform level integrations](../integrations/) that ship logs outside of your application. Customers often ask which method is best. This document will help clarify the differences between the two methods and help you choose the best for your needs.
