@@ -13,7 +13,7 @@ Requires Docker version 1.8.0 or later
 {% endhint %}
 
 1. [Install Fluent Bit for your platform.](fluent-bit.md#installation)
-2. Enable the [`Forward` input](https://docs.fluentbit.io/manual/input/forward) to collect Fluent Bit formatted logs:  
+2. In `/etc/td-agent-bit/td-agent-bit.conf` , enable the [`Forward` input](https://docs.fluentbit.io/manual/input/forward) to collect Fluent Bit formatted logs:  
 
 
    {% code-tabs %}

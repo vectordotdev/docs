@@ -19,7 +19,7 @@ Timber integrates with [Elixir](https://elixir-lang.org/) through the [`:timber`
 {% tab title="HTTP \(recommended\)" %}
 Ship logs directly to Timber from _within_ your Elixir app. Recommended for its simplicity.
 
-1. In your `mix.exs` file add the `:timber` dependency:  
+1. In `mix.exs`, add the `:timber` dependency:  
 
 
    {% code-tabs %}
@@ -32,7 +32,7 @@ Ship logs directly to Timber from _within_ your Elixir app. Recommended for its 
    {% endcode-tabs-item %}
    {% endcode-tabs %}
 
-2. In your `config.exs` file install the Timber logger backend:  
+2. In `config.exs`, install the Timber logger backend:  
 
 
    {% code-tabs %}

@@ -9,7 +9,7 @@ description: Send logs to Timber via Fluent Bit
 ## Installation
 
 1. [Install Fluent Bit](https://docs.fluentbit.io/manual/installation)
-2. Configure a new output in `/etc/td-agent-bit/td-agent-bit.conf`:  
+2. In `/etc/td-agent-bit/td-agent-bit.conf`, configure a new output:  
 
 
    {% code-tabs %}
@@ -35,7 +35,7 @@ description: Send logs to Timber via Fluent Bit
    {% endcode-tabs-item %}
    {% endcode-tabs %}
 
-3. _Optionally_ install and configure plug-ins to enhance your logs with context.
+3. _Optionally_ install [parser](https://docs.fluentbit.io/manual/parser) and [filter](https://docs.fluentbit.io/manual/filter) plugins to enhance your logs.
 4. Restart your fluent-bit agent:  
 
 
@@ -45,17 +45,7 @@ description: Send logs to Timber via Fluent Bit
 
 ## Configuration
 
-### Adding Context
-
-If applicable, we highly recommend installing one of the below plugins to enhance your logs with context:
-
-1. [Docker metadata](https://github.com/fabric8io/fluent-plugin-docker_metadata_filter)
-2. [EC2 metadata](https://github.com/takus/fluent-plugin-ec2-metadata)
-3. [Kubernetes metadata](https://github.com/fabric8io/fluent-plugin-kubernetes_metadata_filter)
-
-### All Other Options
-
-Please see the FluentD configuration documentation.
+Please see the [Fluent Bit configuration documentation](https://docs.fluentbit.io/manual/configuration).
 
 ## Troubleshooting
 
