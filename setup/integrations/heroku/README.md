@@ -39,7 +39,7 @@ Timber offers deep integration with [Heroku](https://heroku.com) through the [Ti
 {% endtab %}
 {% endtabs %}
 
-### Which installation method should I use?
+**Which installation method should I use?**
 
 For sheer simplicity we recommend the "Add-on" method. It's a one-click install and billing is handled automatically through your Heroku account. Please note that Heroku add-ons are limited to Heroku apps only, if you plan to add non-Heroku apps you'll need to register with Timber directly and use the "Manual" method.
 

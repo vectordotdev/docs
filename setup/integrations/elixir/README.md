@@ -17,8 +17,6 @@ Timber integrates with [Elixir](https://elixir-lang.org/) through the [`:timber`
 
 {% tabs %}
 {% tab title="HTTP \(recommended\)" %}
-Ship logs directly to Timber from _within_ your Elixir app. Recommended for its simplicity.
-
 1. In `mix.exs`, add the `:timber` dependency:  
 
 
@@ -99,7 +97,7 @@ For advanced users we recommend writing logs to `STDOUT` and then shipping logs 
 {% endtab %}
 {% endtabs %}
 
-### Which installation method should I choose?
+**Which installation method should I choose?**
 
 We recommend the "HTTP" method if you are unsure. To understand why you would choose one over the other, please see the ["Ship Logs From Within My App?" guide](../../guides/ship-logs-from-within-my-app.md).
 

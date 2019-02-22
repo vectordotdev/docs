@@ -4,7 +4,7 @@ description: Send Docker Logs to Timber
 
 # Docker
 
-Timber integrates with [Docker](https://www.docker.com/) through Fluent Bit, a light-weight, fast, and battle tested log shipper.
+Timber integrates with [Docker](https://www.docker.com/) through [Fluent Bit](https://fluentbit.io/), a light-weight, fast, and battle tested log shipper.
 
 ## Installation
 
