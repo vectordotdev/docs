@@ -49,16 +49,21 @@ Timber supports the following data types:
 3. `int` - 32-bit integer
 4. `float` - Floating point number
 5. `boolean` - Binary `true` or `false` value
+6. `object` - As noted above, Timber flattens objects into individually typed columns.
+7. `array` - Timber has limited support for arrays. All array values are automatically encoded to JSON and stored as `string` fields
+
+### Why are arrays encoded to JSON?
+
+As noted in our [architecture document](architecture.md), Timber uses a columnar database for log storage that is strictly typed. Maintaining a dynamic schema for lists is impossible because all items must share the same shape and type. This is why we encode arrays to JSON. You can still access this data and [search](../usage/searching.md) this data using our searching tools.
 
 ## Column Expiration & Cleanup
 
-Timber keeps track of when a column was last seen. If a column's last seen value exceeds the length of your plan retention we'll automatically delete the column. This helps to keep your schema tidy, reduce noise, and ensure you stay within the limitations below.
+Timber keeps track of when a column was last seen. If a column's last seen value exceeds the length of your plan retention we'll automatically delete the column. Nothing else is required in your part. This helps to keep your schema tidy, allowing you to freely rename your columns without consequence.
 
 ## Limitations
 
-1. Timber does not support array values. It is recommended to encode array values into JSON string before sending them to Timber.
-2. Each application is limited to 1000 columns. New columns beyond this limit are dropped. Please be sure not to use high cardinality key names as a result.
-3. While there is no field depth restriction for Timber the resulting `.` delimited column name must be less than 256 characters.
-4. All string values must be less than or equal to 8.,192 bytes.
-5. Column names must only contain the following characters `/^[A-Za-z0-9#$_-\@]*$/`
+1. Each application is limited to 1000 columns. New columns beyond this limit are dropped. Please be sure not to use high cardinality key names as a result.
+2. While there is no field depth restriction for Timber the resulting `.` delimited column name must be less than 256 characters.
+3. All string values must be less than or equal to 8.,192 bytes.
+4. Column names must only contain the following characters `/^[A-Za-z0-9#$_-\@]*$/`
 

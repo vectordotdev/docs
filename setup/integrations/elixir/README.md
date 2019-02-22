@@ -6,12 +6,12 @@ description: Send Elixir logs to Timber
 
 Timber integrates with [Elixir](https://elixir-lang.org/) through the [`:timber` Hex package](https://hex.pm/packages/timber). The Timber Elixir library features:
 
-* Works directly with the core [Elixir `Logger`](https://hexdocs.pm/logger/Logger.html) making it easy to integrate without code level changes.
-* [Performant, light-weight, with a thoughtful design.](./#performance)
-* Support for [local](./#local-context-default) and [global](./#global-context) context.
-* [Automatic context](./#context).
-* Support for [structure logging](./#structured-logging).
-* [Integrates with popular 3rd party libraries](./#integrations).
+* **Simple Integration.** Works directly with the core [Elixir `Logger`](https://hexdocs.pm/logger/Logger.html) making it easy to integrate without code level changes.
+* **Fast & light-weight.**  [Designed with performance in mind](./#performance).
+* **Support for** [**local**](./#local-context-default) **and** [**global**](./#global-context) **context.**
+* \*\*\*\*[**Automatic context**](./#context) **capturing.**
+* **Strong** [**structured logging support**](./#structured-logging)**.**
+* \*\*\*\*[**Integrates with popular 3rd party libraries**](./#integrations)**.**
 
 ## Installation
 
@@ -30,7 +30,7 @@ Timber integrates with [Elixir](https://elixir-lang.org/) through the [`:timber`
    {% endcode-tabs-item %}
    {% endcode-tabs %}
 
-2. In `config.exs`, install the Timber logger backend:  
+2. In `config.exs`, install the Timber logger backend with your _**raw**_ API key.  
 
 
    {% code-tabs %}
@@ -40,7 +40,7 @@ Timber integrates with [Elixir](https://elixir-lang.org/) through the [`:timber`
      backends: [Timber.LoggerBackends.HTTP],
 
    config :timber,
-     api_key: "{{your-api-key}}"
+     api_key: "{{your-raw-api-key}}"
    ```
    {% endcode-tabs-item %}
    {% endcode-tabs %}
@@ -117,6 +117,10 @@ Logger.info("Hello world")
 
 ### Structured Logging
 
+{% hint style="info" %}
+If you haven't already, please see our [structured logging best practices guide](../../guides/event-naming.md).
+{% endhint %}
+
 Your `Logger` calls now take an `:event` metadata key where you can pass structured data. We recommend logging data with a root level namespace as shown below to avoid type conflicts with other events. You can read more on this in our [Event Naming guide.](../../guides/event-naming.md)
 
 ```elixir
@@ -149,7 +153,7 @@ In rare cases you'll want to set global context. Global context applies to _all_
 Timber.add_context(build: %{commit_sha: "0529d471fa3e2eeb8556bb400ba8b2b0f497a7e1"}, :global)
 ```
 
-### Deleting Context
+#### Deleting Context
 
 As stated above, you should regularly not have to remove context, as it will die with the process. In cases where you need to explicitly remove context you can do so as follows:
 

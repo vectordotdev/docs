@@ -16,7 +16,7 @@ description: Send logs to Timber via FluentD
    gem install fluent-plugin-timber
    ```
 
-3. In `/etc/td-agent/td-agent.conf` , configure an additional output for Fluentd:
+3. In `/etc/td-agent/td-agent.conf` , configure an additional output for Fluentd with your _**raw**_ API key:
 
   
 
@@ -26,7 +26,7 @@ description: Send logs to Timber via FluentD
    ```markup
    <match *> # will match all inputs; replace with a scope to send subset (https://docs.fluentd.org/v1.0/articles/config-file#(2)-%E2%80%9Cmatch%E2%80%9D:-tell-fluentd-what-to-do!)
      @type timber
-     api_key YOUR_API_KEY_HERE
+     api_key YOUR_RAW_API_KEY
    </match>
    ```
    {% endcode-tabs-item %}

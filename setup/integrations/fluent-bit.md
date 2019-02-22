@@ -8,7 +8,7 @@ description: Send logs to Timber via Fluent Bit
 
 ## Installation
 
-1. [Install Fluent Bit](https://docs.fluentbit.io/manual/installation)
+1. [Intall Fluent Bit at the system level](fluent-bit.md#installation). Fluent Bit has excellent setup instructions, please follow the appropriate ones for your system.
 2. In `/etc/td-agent-bit/td-agent-bit.conf`, configure a new output:  
 
 
@@ -29,7 +29,7 @@ description: Send logs to Timber via Fluent Bit
 
      Format  msgpack
      # Replace with your API key
-     Header  Authorization Basic YOUR_API_KEY_HERE
+     Header  Authorization Basic YOUR_BASE64_ENCODED_API_KEY_HERE
      Header  Content-Type application/msgpack
    ```
    {% endcode-tabs-item %}
@@ -45,7 +45,7 @@ description: Send logs to Timber via Fluent Bit
 
 ## Configuration
 
-Please see the [Fluent Bit configuration documentation](https://docs.fluentbit.io/manual/configuration).
+Please see the [Fluent Bit configuration documentation](https://docs.fluentbit.io/manual/configuration). Specifically the [parsing](https://docs.fluentbit.io/manual/parser) and [filtering](https://docs.fluentbit.io/manual/filter) sections.
 
 ## Troubleshooting
 

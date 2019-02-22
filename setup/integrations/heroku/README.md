@@ -32,7 +32,7 @@ Timber offers deep integration with [Heroku](https://heroku.com) through the [Ti
 
 
    ```bash
-    heroku drains:add https://{{my-timber-api-key}}@logs.timber.io/frames
+    heroku drains:add https://logs.timber.io/frames?bearer_token={{your-api-key}}&source_id={{your-source-id}}
    ```
 
 2.  _Optionally_ improve your logs by [configuring Heroku features](./#configuration).

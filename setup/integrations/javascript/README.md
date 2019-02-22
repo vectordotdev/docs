@@ -33,11 +33,11 @@ Timber integrates with [Javascript](https://en.wikipedia.org/wiki/JavaScript) th
    import { TimberNode } from "@timberio/node";
    ```
 
-3. Create a new logger with your API key:  
+3. Create a new logger with your _**raw**_ API key:  
 
 
    ```javascript
-   const logger = new TimberNode("{{my-timber-api-key}}");
+   const logger = new TimberNode("{{your-raw-api-key}}");
    ```
 {% endtab %}
 

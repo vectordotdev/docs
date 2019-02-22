@@ -2,13 +2,15 @@
 
 Using Timber starts with sending your logs to the Timber service. This guide walks through the various steps to complete that as quickly as possible.
 
-## Setup
+## 1. Create A Source
+
+## 2. Integrate
 
 If you haven't done so already, head over to the integrations section and follow the installation instruction for your desired platform.
 
 {% page-ref page="../setup/integrations/" %}
 
-## Log Formats
+## 3. AdjustLog Formats
 
 Timber recognizes hundreds of log formats, and for most users no changes are necessary, but in some cases it helps to adjust your log format so that Timber can properly parse your logs.
 
