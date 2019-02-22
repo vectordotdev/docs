@@ -47,11 +47,9 @@ Timber makes a best effort to extract and parse log messages that begin with a d
 
 ### Generic level prefixes
 
-
-
 | Format | Description |
 | :--- | :--- |
-| Apache access & error logs | Support for the default |
+| Apache access & error logs | `127.0.0.1 - frank [10/Oct/2000:13:55:36 -0700] "GET /apache_pb.gif HTTP/1.0" 200 2326 [Fri Sep 09 10:42:29.902022 2011] [core:error] [pid 35708:tid 4328636416] [client 72.15.99.187] File does not exist: /usr/local/apache2/htdocs/favicon.ico` |
 | Elixir default log format |  |
 | Generic date prefixes |  |
 | Generic level prefixes |  |
@@ -76,5 +74,5 @@ Timber tries to be unopinionated with log formats since there is such a large va
 ## Limitations
 
 1. Your schema has a number of limitations. If you haven't already, please read the [Dynamic Schema Maintenance doc ](../under-the-hood/schema-maintenance.md)and its [limitations](../under-the-hood/schema-maintenance.md#limitations).
-2. The Timber ingest HTTP endpoint has a number of limitations. If you haven't already, please read the [HTTP documentation](../setup/integrations/http-api.md).
+2. The Timber ingest HTTP endpoint has a number of limitations. If you haven't already, please read the [HTTP documentation](../setup/integrations/http-api/).
 

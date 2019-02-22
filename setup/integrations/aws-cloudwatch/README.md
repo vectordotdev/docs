@@ -26,7 +26,7 @@ Repeat this process for any other CloudWatch log groups you wish to forward.
 {% endtab %}
 {% endtabs %}
 
-## Context
+## Automatic Context
 
 The [`timber-logging` Lambda function](%20https://serverlessrepo.aws.amazon.com/applications/arn:aws:serverlessrepo:us-east-1:754402436383:applications~timber-logging) automatically adds context to your logs, helping you to search and use your logs. The following is merged into every log line shipped to Timber:
 

@@ -169,7 +169,7 @@ Deleting global context is similar but with a second explicit argument:
 Timber.delete_context(:user, :global)
 ```
 
-## Context
+## Automatic Context
 
 `:timber` automatically captures [context](../../../under-the-hood/concepts.md#context) to enrich your logs. If you're shipping logs from within your app you'll want to keep context enabled. If you're shipping logs external from your app you'll want to disable context that is redundant to your log shipper.
 
@@ -231,6 +231,10 @@ Timber integrates with popular 3rd party libraries to enhance the logs they emit
 | \`\`[`:timber_exceptions`](https://github.com/timberio/timber-elixir-exceptions) | Upgrade your exception logs to include useful metadata. |
 | \`\`[`:timber_phoenix`](https://github.com/timberio/timber-elixir-phoenix) | Update your `Phoenix` logs with context and metadata. |
 | \`\`[`:timber_plug`](https://github.com/timberio/timber-elixir-plug) | Upgrade your `Plug` logs with context and metadata. |
+
+## Guides
+
+{% page-ref page="guides/" %}
 
 ## Performance
 

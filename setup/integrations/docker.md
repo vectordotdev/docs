@@ -12,7 +12,7 @@ Timber integrates with [Docker](https://www.docker.com/) through Fluent Bit, a l
 Requires Docker version 1.8.0 or later
 {% endhint %}
 
-1. [Install Fluent Bit for your platform.](fluent-bit.md)
+1. [Install Fluent Bit for your platform.](fluent-bit.md#installation)
 2. Enable the [`Forward` input](https://docs.fluentbit.io/manual/input/forward) to collect Fluent Bit formatted logs:  
 
 
@@ -59,7 +59,7 @@ Logs from any containers run after this point will be forwarded to Timber.
 
 Please see [https://docs.docker.com/config/containers/logging/fluentd/](https://docs.docker.com/config/containers/logging/fluentd/) for additional log driver configuration.
 
-## Context
+## Automatic Context
 
 In addition to the log message itself, the above setup will automatically augment your logs with the following context keys.
 
