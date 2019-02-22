@@ -8,8 +8,6 @@ Timber integrates with [AWS CloudWatch Logs](https://docs.aws.amazon.com/AmazonC
 
 ## Installation
 
-{% tabs %}
-{% tab title="Manual" %}
 1. First, deploy Timber's Lambda function to forward your logs by following these instructions: 
    1. Navigate to the [`timber-logging` lambda function deploy page](%20https://console.aws.amazon.com/lambda/home#/create/app?applicationId=arn:aws:serverlessrepo:us-east-1:754402436383:applications/timber-logging).
    2. In the "Application Settings" panel enter your Timber API key and Timber source ID.
@@ -22,8 +20,6 @@ Timber integrates with [AWS CloudWatch Logs](https://docs.aws.amazon.com/AmazonC
    5. For the "Log Format" field, select "other" and leave the rest of the fields blank. Click "Next".
    6. Review the details and click "Start Streaming". 
 3. Repeat this process for any other CloudWatch log groups you wish to forward.
-{% endtab %}
-{% endtabs %}
 
 ## Automatic Context
 
