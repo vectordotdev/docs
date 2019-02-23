@@ -43,6 +43,16 @@ The [`timber-logging` Lambda function](%20https://serverlessrepo.aws.amazon.com/
 | `context.cloudwatch.log_stream` | The log stream name of the originating log data. |
 | `context.cloudwatch.owner` | The AWS account ID of the originating log data. |
 
+## FAQs
+
+### Is it possible to automatically forward all CloudWatch logs to Timber?
+
+Unfortunately, AWS requires an individual [log subscription](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Subscriptions.html) for each CloudWatch Logs group. Fortunately, infrastructure management tools like [Terraform](https://www.terraform.io/docs/providers/aws/r/cloudwatch_log_subscription_filter.html) make this process much easier, and we highly recommending adopting one if possible.
+
+### How do I filter log messages sent to Timber?
+
+AWS provide [log subscription filters](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/SubscriptionFilters.html) that make this process easy.
+
 ## Troubleshooting
 
 To begin, please see our [log delivery troubleshooting guide](../../guides/troubleshooting-log-delivery.md). This covers the most common issues we see with log delivery:

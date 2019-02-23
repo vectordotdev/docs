@@ -31,6 +31,22 @@ Timber integrates with [AWS Elastic Beanstalk](https://aws.amazon.com/elasticbea
 
 The [`001_timber.config` file](https://gist.github.com/binarylogic/26f97f4ef3589bdbdd14e65fd4c002a8) installs [FluentBit](http://fluentbit.org/) as a log forwarder. As such, please refer to [FluentBit's configuration documentation](https://docs.fluentbit.io/manual/configuration) on the various options available. All of the options can be modified in the `"/tmp/td-agent-bit.conf":` section of the `001_timber.config` file.
 
+## FAQs
+
+### Which log files should I forward?
+
+This depends on your use-case, but we've typically found the following log files to be valuable:
+
+1. Apache HTTP Access Log - `/var/log/httpd/access_log`
+2. Apache HTTP Error Log - `/var/log/httpd/error_log`
+3. Nginx Access Log - `/var/log/nginx/access.log`
+4. Nginx Error Log - `/var/log/nginx/error.log`
+5. Nodejs - `/var/log/nodejs/nodejs.log`
+6. Passenger - `/var/app/support/logs/passenger.log`
+7. Rails - `/var/app/support/logs/production.log`
+
+Please refer to the [AWS docs on Elastic Beanstalk log locations](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.logging.html#health-logs-instancelocation) for a comprehensive guide and list. If you are unsure, it is recommended that you SSH onto the server to locate the actual paths of your log files.
+
 ## Troubleshooting
 
 Because the AWS Elastic Bean Stalk integration relies on [Fluent Bit](fluent-bit.md) we recommend reviewing the following troubleshooting guides:
