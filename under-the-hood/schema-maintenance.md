@@ -50,12 +50,12 @@ As you send more data, and more columns, we'll continue to add to this list. It'
 4. `float` - Floating point number
 5. `boolean` - Binary `true` or `false` value
 
-### Special Types
+### Compound Types
 
 1. `object` - Timber supports objects by flattening them into a list of individually typed columns.
 2. `array` - Timber supports arrays by encoding them to JSON and storing them as `string` fields.
 
-### Why are arrays encoded to JSON?
+#### Why are arrays encoded to JSON?
 
 As noted in our [architecture document](architecture.md), Timber uses a columnar database for log storage that is strictly typed. Maintaining a dynamic schema for lists is impossible because all items must share the same shape and type. This is why we encode arrays to JSON. You can still access this data and [search](../usage/searching.md) this data using our searching tools.
 
