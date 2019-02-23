@@ -8,7 +8,7 @@ Timber integrates with [Docker](https://www.docker.com/) through [Fluent Bit](ht
 
 ## Installation
 
-{% hint style="warning" %}
+{% hint style="info" %}
 Requires Docker version 1.8.0 or later
 {% endhint %}
 
@@ -80,6 +80,16 @@ Please see [t](https://docs.docker.com/config/containers/logging/fluentd/)he [Fl
 ## Automatic Context
 
 In addition to the log message itself, the above setup will automatically augment your logs with the following context keys.
+
+## FAQs
+
+### Why do use Fluent Bit instead of your own agent?
+
+Fluent Bit is a battle tested, performant, log forwarding utility written in C. It is actively maintained and always improving. It allows Timber to focus on the user experience and not the low level plumbing.
+
+### What about Fluent Bit Docker images?
+
+Fluent Bit maintains Docker images which you can find [here](https://docs.fluentbit.io/manual/installation/docker). Although, we do not recommend running them without a supervisor of some kind.
 
 ## Troubleshooting
 

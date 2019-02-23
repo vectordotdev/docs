@@ -4,6 +4,10 @@ description: Send logs to Timber via FluentD
 
 # Fluentd
 
+{% hint style="info" %}
+If possible, we recommend using [Fluent Bit](../fluent-bit.md) for its superior performance.
+{% endhint %}
+
 [Fluentd](https://www.fluentd.org/) is a general purpose log forwarder that can forward logs from multiple sources to Timber.
 
 ## Installation
@@ -47,6 +51,12 @@ description: Send logs to Timber via FluentD
 ## Configuration
 
 Please refer to the [FluentD configuration documentation](https://docs.fluentd.org/v0.12/articles/config-file).
+
+## FAQs
+
+### What is the difference between Fluentd and Fluent Bit
+
+[Fluent Bit](../fluent-bit.md) is the new, faster, re-written version of Fluentd. Because it is relatively early in its development it lacking in features & plugins compared to Fluentd.
 
 ## Troubleshooting
 

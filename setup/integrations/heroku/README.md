@@ -70,6 +70,10 @@ Heroku offers a [dyno metadata feature ](https://devcenter.heroku.com/articles/d
 heroku labs:enable runtime-dyno-metadata
 ```
 
+### Filtering Logs
+
+Because Heroku is a hosted platform you can't filter logs directly on Heroku. For this reason, Timber offers filtering capabilities within the Timber service itself. Head over to the "Log Filtering" section for more information.
+
 ## Automatic Context
 
 By default, Timber adds the following context to your Heroku logs:
@@ -232,6 +236,16 @@ Jun 26 08:49:40 issuetriage app/postgres.29339:  [DATABASE] [41-1] LOG:  duratio
 ```
 {% endtab %}
 {% endtabs %}
+
+## FAQs
+
+### Can I invite non-Heroku users to my Timber organization?
+
+Yes, you can invite members to your organization just like any other Timber account. [See the "Team Management" document](../../../usage/account-management/team-management.md).
+
+### Should I add the Timber addon for each app or attach it?
+
+We highly recommend [attaching a single Timber add-on to all of your apps](https://devcenter.heroku.com/articles/add-ons#sharing-an-add-on-between-apps). This makes capacity and billing management much easier. Plus, Timber has first-class support for Heroku's add-on attachments, making it easy to switch between apps from within the Timber console.
 
 ## Troubleshooting
 
