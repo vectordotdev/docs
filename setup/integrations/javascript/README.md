@@ -109,7 +109,9 @@ timber.info("Order #1234 placed, total: $500.23", {
 });
 ```
 
-### Adding Middleware
+### Middleware
+
+#### Adding middleware
 
 You can add your own middleware functions, which act as transforms on the [`ITimberLog` log object](https://github.com/timberio/timber-js/tree/master/packages/types#itimberlog). This is useful for augmenting the log prior to syncing with Timber, or even pushing the log to another service.
 
@@ -237,8 +239,4 @@ To begin, please see our [log delivery troubleshooting guide](../../guides/troub
 {% page-ref page="../../guides/troubleshooting-log-delivery.md" %}
 
 If the above troubleshooting guide does not resolve your issue then we recommend enabling debug logging with
-
-## Additional Resources
-
-
 
