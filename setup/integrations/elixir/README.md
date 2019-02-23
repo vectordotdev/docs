@@ -115,7 +115,7 @@ All configuration options for the Elixir `Logger` can be found in the [`Logger` 
 #### Log to STDOUT in addition to Timber
 
 {% hint style="warning" %}
-If you have the means to log to `STDOUT` we highly recommend that you redirect STDOUT to Timber through one of our [integrations](../) instead of shipping logs from within your app. You can read more about that [here](../../guides/ship-logs-from-within-my-app.md). 
+If you have the means to log to `STDOUT,` we highly recommend that you redirect STDOUT to Timber through one of our [integrations](../) instead of shipping logs from within your app. You can read more about that [here](../../guides/ship-logs-from-within-my-app.md). 
 {% endhint %}
 
 Logging to `:stdout` uses the Elixir provided `:console` backend. You can read more about configuring the `:console`backend [here](https://hexdocs.pm/logger/Logger.html#module-console-backend).

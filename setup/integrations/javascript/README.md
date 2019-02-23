@@ -109,6 +109,80 @@ timber.info("Order #1234 placed, total: $500.23", {
 });
 ```
 
+### Adding Middleware
+
+You can add your own middleware functions, which act as transforms on the [`ITimberLog` log object](https://github.com/timberio/timber-js/tree/master/packages/types#itimberlog). This is useful for augmenting the log prior to syncing with Timber, or even pushing the log to another service.
+
+Here's what a middleware function looks like:
+
+```javascript
+import { ITimberLog } from "@timberio/types";
+
+// In this example function, we'll add a custom `context` to the log
+// representing the currently logged in user.
+//
+// Note: a middleware function is any function that takes an `ITimberLog`
+// and returns a `Promise<ITimberLog>`
+async function addCurrentUser(log: ITimberLog): Promise<ITimberLog> {
+  return {
+    ...log, // <-- copy the existing log
+    context: {
+      // ... and add our own `context` data
+      user: {
+        id: 1000,
+        name: "Lee",
+      },
+    },
+  };
+}
+```
+
+Then just attach to the Timber instance with `.use`:
+
+```javascript
+timber.use(addCurrentUser);
+```
+
+You can add any number of pipeline functions to your logger instance, and they'll run in order.
+
+Middleware functions run _before_ the final sync to Timber.io. Pipeline functions should return a `Promise<ITimberLog>`, making it possible to augment logs with asynchronous data from external sources.
+
+{% hint style="warning" %}
+If an exception is thrown anywhere in the pipeline chain, the log _won't_ be synced. Wrap an async `try/catch`block around your call to `.log|info|debug|warn|error()` or tack on a `.catch()` to ensure your errors are handled.
+{% endhint %}
+
+#### Removing middleware
+
+If you wish to remove middleware, pass in the original middleware function to `.remove()`:
+
+```javascript
+// `addCurrentUser` will no longer be used to transform logs
+timber.remove(addCurrentUser);
+```
+
+This will remove the middleware function from _all_ future calls to `.log|info|debug|warn|error()`.
+
+To re-add middleware, pass it to `.use()`
+
+### Setting Context
+
+Because Node / Javacsript do not have a concept of local thread storage, it is impossible to maintain context at the language level. Instead, you'll need to handle this at the application level by manually injecting context into your logs or using [Timber's middleware](./#adding-middleware). Here are a couple of examples of application level context solutions:
+
+1. [Express framework context.](https://github.com/skonves/express-http-context)
+2. [Koa framework context.](https://github.com/koajs/koa/blob/master/docs/api/context.md)
+
+Depending on your application your solution may vary.
+
+### Tying Logs To Users
+
+A common practice for Timber users is to tie their logs to users by setting user context. Depending on your application setup your solution for this will vary. We recommend [adding middleware](./#adding-middleware) immediately after authenticating your user, and then [removing the middleware](./#removing-middleware) when the transaction is complete.
+
+You can see an example of this in the ["Adding Middleware" section](./#adding-middleware).
+
+### Tying Logs To HTTP Requests
+
+Another common practice for Timber users is to tie their logs to HTTP requests through the HTTP request ID. That's makes it easy to logs relating to an entire HTTP transaction. We recommend [adding middleware](./#adding-middleware) at the top of your callback chain, and then [removing the middleware](./#removing-middleware) immediately after.
+
 ## Integrations
 
 Timber integrates with popular 3rd party libraries allowing you to customize how you use Timber:
