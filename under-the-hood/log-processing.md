@@ -55,6 +55,10 @@ Timber looks for common modifiers to help parsing accuracy:
 
 In addition to the above formats, Timber parses known integration specific events. Each integration will list any event it parses within [it's own documentation](../setup/integrations/).
 
+## Types
+
+All types, and their behavior, are documented in the ["Types" section within the Dynamic Schema Maintenance doc](schema-maintenance.md#supported-types).
+
 ## Magic Fields
 
 ### \*\_json

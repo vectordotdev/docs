@@ -63,6 +63,14 @@ As noted in our [architecture document](architecture.md), Timber uses a columnar
 
 Timber keeps track of when a column was last seen. If a column's last seen value exceeds the length of your plan retention we'll automatically delete the column. Nothing else is required in your part. This helps to keep your schema tidy, allowing you to freely rename your columns without consequence.
 
+## Using Your Schema
+
+The following documents describe different ways to take advantage of your schema:
+
+{% page-ref page="../usage/searching.md" %}
+
+{% page-ref page="../usage/graphing.md" %}
+
 ## Limitations
 
 1. Each source is limited to 1000 columns. New columns beyond this limit are dropped. Please be sure not to use high cardinality key names as a result.
