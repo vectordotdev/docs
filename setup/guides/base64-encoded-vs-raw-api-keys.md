@@ -18,6 +18,10 @@ By default, an API is created with your organization. Head over to the [API keys
 
 Timber's "sources" are a container for log data. It allows you to segment your logs around your natural boundaries. Each source has a [schema](../../under-the-hood/schema-maintenance.md), [alerts](../../usage/alerting.md), [views](../../usage/saved-views.md), etc.
 
+### Creating a source
+
+Head over to the [sending logs guide](../../usage/sending-logs.md) for information on creating and setting up a source.
+
 ## Why do I need both?
 
 Because an organization can have many sources, and an API key works across your entire organization, Timber requires an explicit source ID to properly route the data. Otherwise Timber has no way to know which source you want to write your log data to. In additional, this makes API key management simple since you do not need to store and manage source specific API keys.
