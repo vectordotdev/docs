@@ -42,7 +42,7 @@ As you send more data, and more columns, we'll continue to add to this list. It'
 
 ## Supported Types
 
-Timber supports the following data types:
+### Scalar Types
 
 1. `datetime` - A timestamp in the UTC format. Timber normalizes all values to UTC.
 2. `string` - A binary value no more than 8,192 bytes.
