@@ -16,9 +16,12 @@ description: Send logs to Timber via FluentD
    gem install fluent-plugin-timber
    ```
 
-3. In `/etc/td-agent/td-agent.conf` , configure an additional output for Fluentd with your _**raw**_ API key:
+3. In `/etc/td-agent/td-agent.conf` , configure the Timber output:  
 
-  
+
+   _**Be sure to replace `YOUR_API_KEY` and `YOUR_SOURCE_ID` appropriately!**_  
+   \(these are displayed on your source's installation page\).
+
 
 
    {% code-tabs %}

@@ -47,10 +47,10 @@
   * [Ruby](setup/integrations/ruby.md)
   * [Syslog](setup/integrations/syslog.md)
 * [Guides](setup/guides/README.md)
+  * [API Keys & Source IDs](setup/guides/base64-encoded-vs-raw-api-keys.md)
   * [Structured Logging Best Practices](setup/guides/event-naming.md)
   * [Ship Logs From Within My App?](setup/guides/ship-logs-from-within-my-app.md)
   * [Sending Logs To Timber's API](setup/guides/sending-logs-to-timbers-api.md)
-  * [API Keys & Source IDs](setup/guides/base64-encoded-vs-raw-api-keys.md)
   * [Troubleshooting Log Delivery](setup/guides/troubleshooting-log-delivery.md)
 
 ## Usage

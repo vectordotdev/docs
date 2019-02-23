@@ -37,7 +37,7 @@ Timber integrates with [Javascript](https://en.wikipedia.org/wiki/JavaScript) th
 
 
    ```javascript
-   const logger = new TimberNode("{{your-raw-api-key}}");
+   const logger = new TimberNode(YOUR_SOURCE_ID, "YOUR_API_KEY");
    ```
 {% endtab %}
 
@@ -60,7 +60,7 @@ Timber integrates with [Javascript](https://en.wikipedia.org/wiki/JavaScript) th
 
 
    ```javascript
-   const logger = new TimberBrowser("{{my-timber-api-key}}");
+   const logger = new TimberBrowser(YOUR_SOURCE_ID, "YOUR_API_KEY");
    ```
 {% endtab %}
 {% endtabs %}

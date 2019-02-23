@@ -13,7 +13,10 @@ Requires Docker version 1.8.0 or later
 {% endhint %}
 
 1. [Install Fluent Bit at the system level](fluent-bit.md#installation). Fluent Bit has excellent setup instructions, please follow the appropriate ones for your system.
-2. In `/etc/td-agent-bit/td-agent-bit.conf` , add the following. Be sure to replace `YOUR_API_KEY` and `YOUR_SOURCE_ID` appropriately \(these are displayed on your source's installation page\).  
+2. In `/etc/td-agent-bit/td-agent-bit.conf` , add the following.  
+  
+   _**Be sure to replace `YOUR_API_KEY` and `YOUR_SOURCE_ID` appropriately!**_  
+   \(these are displayed on your source's installation page\).  
 
 
    {% code-tabs %}
@@ -25,22 +28,18 @@ Requires Docker version 1.8.0 or later
 
    [OUTPUT]
      Name    http
-     # will match all inputs, replace with your match if you want to send a subset
+     # Will match all inputs, replace with your match if you want to send a subset
      Match   *
-
+     tls     On
      Host    logs.timber.io
      Port    443
-     URI     /frames
-     tls     On
-     # recommended
-     Retry_Limit 5
-
-     Format  msgpack
-     # Replace with your API key
+     # !!!!! Replace with your Timber source ID!
+     URI     /sources/YOUR_SOURCE_ID
+     # !!!!! Replace with your Timber API key!
      Header  Authorization Basic YOUR_API_KEY
-     # Replace with your source ID
-     Header  Timber-Source-ID YOUR_SOURCE_ID
      Header  Content-Type application/msgpack
+     Format  msgpack
+     Retry_Limit 5
    ```
    {% endcode-tabs-item %}
    {% endcode-tabs %}

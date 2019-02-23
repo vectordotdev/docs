@@ -8,13 +8,17 @@ Throughout Timber's integration installation instructions you'll notice we requi
 
 ## What are Timber API keys?
 
-[API keys](../../usage/account-management/api-keys.md) provide access to [Timber's API](http://docs.api.timber.io/) for your account. All API keys are scoped to the organization they belong. You use them in the `Authorization` header within your requests to the Timber API.
+[API keys](../../usage/account-management/api-keys.md) provide access to [Timber's API](http://docs.api.timber.io/) for your account. All API keys are scoped to the organization they belong to. You use them in the `Authorization` header within your requests to the Timber API \(more details in the [HTTP instruction](../integrations/http-api/#examples)\).
+
+### Obtaining an API Key
+
+By default, an API is created with your organization. Head over to the [API keys section](../../usage/account-management/api-keys.md) within your organization settings to manage them.
 
 ## What are Timber source IDs?
 
-Timber has a concept of "sources". A source is simply a container for log data. It allows you to segment your logs aligning the boundaries with your services. This helps to reduce noise and maintain a clean schema for each source. Making it easier to search and use your log data.
+Timber's "sources" are a container for log data. It allows you to segment your logs around your natural boundaries. Each source has a [schema](../../under-the-hood/schema-maintenance.md), [alerts](../../usage/alerting.md), [views](../../usage/saved-views.md), etc.
 
 ## Why do I need both?
 
-Because an organization can have many sources Timber requires an explicit source ID to properly route the data. Otherwise Timber has no way to know which source you want to write your log data to. In additional, this makes API key management simple since you do not need to store and manage source specific API keys.
+Because an organization can have many sources, and an API key works across your entire organization, Timber requires an explicit source ID to properly route the data. Otherwise Timber has no way to know which source you want to write your log data to. In additional, this makes API key management simple since you do not need to store and manage source specific API keys.
 

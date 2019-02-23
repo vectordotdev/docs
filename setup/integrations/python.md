@@ -13,7 +13,7 @@ Timber integrates with [Python](https://www.python.org/) through the [`timber` P
 
 ## Installation
 
-1. Install the `timber` library:  
+1. Install the [`timber` library](https://pypi.org/project/timber/):  
 
 
    ```bash
@@ -28,9 +28,10 @@ Timber integrates with [Python](https://www.python.org/) through the [`timber` P
    import timber
 
    logger = logging.getLogger(__name__)
+   # Set to logging.DEBUG if you want all logs
    logger.setLevel(logging.INFO)
 
-   timber_handler = timber.TimberHandler(api_key='{{my-timber-api-key}}')
+   timber_handler = timber.TimberHandler(source_id=YOUR_SOURCE_ID, api_key='YOUR_API_KEY')
    logger.addHandler(timber_handler)
    ```
 

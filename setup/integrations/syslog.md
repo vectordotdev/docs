@@ -38,7 +38,11 @@ The following are general instructions for integrating rsyslog v8+ with Timber. 
    --output /etc/rsyslog.d/keys/ca.d/io.timber-wildcard.pem
    ```
 
-4. Copy the following into `/etc/rsyslog.d/60-timber.conf`, replacing the `{{timber_api_key}}` as appropriate:  
+4. Copy the following into `/etc/rsyslog.d/60-timber.conf`  
+
+
+   _**Be sure to replace `YOUR_API_KEY` and `YOUR_SOURCE_ID` appropriately!**_
+
 
 
    ```text
@@ -61,7 +65,7 @@ The following are general instructions for integrating rsyslog v8+ with Timber. 
     property(name="msgid")
     constant(value=" ")
     property(name="structured-data" regex.expression="[^-]" regex.nomatchmode="BLANK" regex.submatch="0")
-    constant(value="[authentication@51576 api_key=\"{{timber_api_key}}\"]")
+    constant(value="[authentication@51576 source_id=\"YOUR_SOURCE_ID\" api_key=\"YOUR_API_KEY\"]")
     constant(value=" ")
     property(name="msg" droplastlf="on")
    }
@@ -146,7 +150,11 @@ The following are general instructions for integrating syslog-ng v3.5+ with Timb
    /etc/syslog-ng/keys/ca.d/351323f.0
    ```
 
-6. Copy the following into `/etc/syslog-ng/conf.d/timber.conf`, replacing `{{timber_api_key}}` as appropriate:  
+6. Copy the following into `/etc/syslog-ng/conf.d/timber.conf`:  
+
+
+   _**Be sure to replace `YOUR_API_KEY` and `YOUR_SOURCE_ID` appropriately!**_
+
 
 
    ```bash
@@ -163,13 +171,14 @@ The following are general instructions for integrating syslog-ng v3.5+ with Timb
     );
    };
 
-   rewrite add_timber_api_key {
-    set("{{timber_api_key}}" value(".SDATA.authentication@51576.api_key"));
+   rewrite add_timber_credentials {
+    set("YOUR_SOURCE_ID" value(".SDATA.authentication@51576.source_id"));
+    set("YOUR_API_KEY" value(".SDATA.authentication@51576.api_key"));
    };
 
    log {
     source(s_src);
-    rewrite(add_timber_api_key);
+    rewrite(add_timber_credentials);
     destination(d_timber);
    };
    ```
@@ -188,11 +197,15 @@ These are the general instructions for forwarding syslog messages to Timber. We 
 {% endhint %}
 
 1. Configure your Syslog system to forward logs to Timber. Timber's syslog collection service is available at `logs.timber.io` on port `6514`.
-2. Ensure that your Syslog messages include the following within the structured data portion of the message, replacing `{{timber_api_key}}` with your Timber API key:  
+2. Ensure that your Syslog messages include the following within the structured data portion of the message:  
+  
+   _**Be sure to replace `YOUR_SOURCE_ID` and `YOUR_API_KEY` appropriately**_  
+   \(these are displayed on your source's installation page\)
+
 
 
    ```text
-   [authentication@51576 api_key="{{timber_api_key}}"]
+   [authentication@51576 source_id="YOUR_SOURCE_ID" api_key="YOUR_API_KEY"]
    ```
 
 3. Ensure that your TLS ciphers are configured properly. The Timber service expects TLS v1.2 and recognizes the following ciphers \(in OpenSSL notation\): 
