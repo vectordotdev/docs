@@ -247,6 +247,10 @@ Yes, you can invite members to your organization just like any other Timber acco
 
 We highly recommend [attaching a single Timber add-on to all of your apps](https://devcenter.heroku.com/articles/add-ons#sharing-an-add-on-between-apps). This makes capacity and billing management much easier. Plus, Timber has first-class support for Heroku's add-on attachments, making it easy to switch between apps from within the Timber console.
 
+### Can I use the Timber libraries on Heroku?
+
+Yes! We highly recommend using our [libraries](../../../under-the-hood/language-libraries.md) to add context and metadata to your logs \(see our [Structured Logging Best Practices guide](../../guides/event-naming.md)\). When setting up our libraries be sure to choose the `STDOUT` installation method.
+
 ## Troubleshooting
 
 To begin, please see our [log delivery troubleshooting guide](../../guides/troubleshooting-log-delivery.md). This covers the most common issues we see with log delivery:

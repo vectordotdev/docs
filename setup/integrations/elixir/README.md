@@ -334,6 +334,16 @@ Extreme care was taken into the design of `:timber` to be fast and reliable:
 6. [Msgpack](https://msgpack.org/index.html) is used for payload encoding for it's superior performance and memory management.
 7. The Timber service ingest endpoint is a HA servce designed to handle extreme fluctuations of volume, it responds in under 50ms to reduce back pressure.
 
+## FAQs
+
+### Will installing Timber affect my application's performance?
+
+No. Timber was designed with a [keen focus on performance](./#performance). It leans heavily on Elixir's `Logger` delegating asynchronous log processing to the `Logger` processes. Timber is also battle tested on hundreds of Elixir apps. For example, we use Timber internally at Timber in the most performance sensitive areas of our log ingestion pipeline without any issue.
+
+### Can Timber crash my app?
+
+No, Timber is installed as an [Elixir `Logger` backend](https://hexdocs.pm/logger/Logger.html#module-backends), which are protected from failures, back pressure, and the like. You can read more about the Elixir / Erlang logger and it's design in the [docs](https://hexdocs.pm/logger/Logger.html).
+
 ## Troubleshooting
 
 To begin, please see our [log delivery troubleshooting guide](../../guides/troubleshooting-log-delivery.md). This covers the most common issues we see with log delivery:

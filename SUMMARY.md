@@ -52,7 +52,7 @@
 ## Usage
 
 * [Sending Logs](usage/sending-logs.md)
-* [Filtering Logs](usage/filtering-logs.md)
+* [Filtering](usage/filtering-logs.md)
 * [Searching](usage/searching.md)
 * [Graphing](usage/graphing.md)
 * [Saved Views](usage/saved-views.md)
