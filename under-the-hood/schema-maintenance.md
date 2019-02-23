@@ -49,8 +49,11 @@ Timber supports the following data types:
 3. `int` - 32-bit integer
 4. `float` - Floating point number
 5. `boolean` - Binary `true` or `false` value
-6. `object` - As noted above, Timber flattens objects into individually typed columns.
-7. `array` - Timber has limited support for arrays. All array values are automatically encoded to JSON and stored as `string` fields.
+
+### Special Types
+
+1. `object` - Timber supports objects by flattening them into a list of individually typed columns.
+2. `array` - Timber supports arrays by encoding them to JSON and storing them as `string` fields.
 
 ### Why are arrays encoded to JSON?
 
