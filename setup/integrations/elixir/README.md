@@ -104,7 +104,31 @@ We recommend the "HTTP" method if you are unsure. To understand why you would ch
 
 ## Configuration
 
-All configuration options for Timber can be found in the [`Timber.Config` documentation](https://hexdocs.pm/timber/Timber.Config.html#content).
+### Timber Configuration
+
+All configuration options for `:timber` can be found in the [`Timber.Config` documentation](https://hexdocs.pm/timber/Timber.Config.html#content).
+
+### Elixir Logger Configuration
+
+All configuration options for the Elixir `Logger` can be found in the [`Logger` documentation](https://hexdocs.pm/logger/Logger.html#module-configuration).
+
+#### Log to STDOUT in addition to Timber
+
+{% hint style="warning" %}
+If you have the means to log to `STDOUT` we highly recommend that you redirect STDOUT to Timber through one of our [integrations](../) instead of shipping logs from within your app. You can read more about that [here](../../guides/ship-logs-from-within-my-app.md). 
+{% endhint %}
+
+Logging to `:stdout` uses the Elixir provided `:console` backend. You can read more about configuring the `:console`backend [here](https://hexdocs.pm/logger/Logger.html#module-console-backend).
+
+{% code-tabs %}
+{% code-tabs-item title="config/config.exs" %}
+```elixir
+config :logger, backends: [Timber.LoggerBackends.HTTP, :console]
+```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
+
+From here you can redirect `STDOUT` to a [file](../fluent-bit.md), [Syslog](../syslog.md), or any device of your choice.
 
 ## Usage
 
@@ -172,6 +196,69 @@ Deleting global context is similar but with a second explicit argument:
 Timber.delete_context(:user, :global)
 ```
 
+### Tying Logs To Users
+
+A very common use-case for context is tying logs to users, you can accomplish this by setting user context immediately after you log the user in. This is typically done in an authentication [plug](https://hexdocs.pm/plug/readme.html):
+
+{% code-tabs %}
+{% code-tabs-item title="auth\_plug.ex" %}
+```elixir
+defmodule AuthPlug
+    @behaviour Plug
+    
+    def call(conn, _default, opts \\ []) do
+        # ...
+        Timber.add_context(user: %{id: "abcd1234"})
+        # ...
+    end
+end
+```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
+
+Be careful not to include personally identifiable information for privacy reasons.
+
+### Tying Logs To HTTP Requests
+
+{% hint style="info" %}
+Timber offers a [`Plug` and `Phoenix` integration](../) that does this automatically.
+{% endhint %}
+
+Another common use-case for context is tying logs to HTTP requests through the request ID. You can see an example of this in the [`:timber_plug` 's `HTTPContext` module](https://github.com/timberio/timber-elixir-plug/blob/master/lib/timber_plug/http_context.ex).
+
+### Timing Code Execution
+
+Timber offers utilities for timing code execution and including those timings in your logs. Timing in Erlang should not be done using wall clock time, instead, it should use monotonic time:
+
+```elixir
+timer = Timber.start_timer()
+
+# ... issue the HTTP request ...
+
+duration_ms = Timber.duration_ms(timer)
+
+Logger.info(
+  event = %{http_response_received: %{method: "GET", host: "api.payments.com", path: "/payment", duration_ms: duration_ms}}
+  message = "Received POST https://api.payments.com/payment in 56.7ms",
+  {message, event: event}
+)
+```
+
+### Copying Context To Child Processes
+
+As described in the ["Setting Context" section](./#setting-context), Timber's context is local to each process. This ensures that each process can maintain context specific to it's state without conflicting with other processes, but there are times where you'll want to carry context over to child processes, such as when using the [`Task` module](https://hexdocs.pm/elixir/Task.html):
+
+```elixir
+current_context = Timber.LocalContext.load()
+
+Task.async fn ->
+  Timber.LocalContext.save(current_context)
+  Logger.info("Logs from a separate process")
+end
+```
+
+The new process spawned with `Task.async/1` will now contain the same Timber context as its parent. Please note, that the [runtime context's](./#runtime) `vm_pid` will be overridden and remain true to the local process.
+
 ## Automatic Context
 
 `:timber` automatically captures [context](../../../under-the-hood/concepts.md#context) to enrich your logs. If you're shipping logs from within your app you'll want to keep context enabled. If you're shipping logs external from your app you'll want to disable context that is redundant to your log shipper.
@@ -234,10 +321,6 @@ Timber integrates with popular 3rd party libraries to enhance the logs they emit
 | \`\`[`:timber_exceptions`](https://github.com/timberio/timber-elixir-exceptions) | Upgrade your exception logs to include useful metadata. |
 | \`\`[`:timber_phoenix`](https://github.com/timberio/timber-elixir-phoenix) | Update your `Phoenix` logs with context and metadata. |
 | \`\`[`:timber_plug`](https://github.com/timberio/timber-elixir-plug) | Upgrade your `Plug` logs with context and metadata. |
-
-## Guides
-
-{% page-ref page="guides/" %}
 
 ## Performance
 
