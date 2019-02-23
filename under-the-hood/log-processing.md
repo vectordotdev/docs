@@ -17,6 +17,8 @@ If your log message is prefixed with a date, Timber will attempt to parse it and
 3. `YYYY/MM/DDTHH:MM:SS.SSSSSS`
 4. `YYYY/MM/DD HH:MM:SS.SSSSSS`
 
+If given the choice, please format your logs in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) \(UTC\). For example, `2019-02-04T22:12:54.223354Z` , nanosecond precision is highly recommended.
+
 #### Modifiers
 
 Timber looks for common modifiers to help parsing accuracy:

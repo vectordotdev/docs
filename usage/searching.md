@@ -23,6 +23,10 @@ description: Learn how to search your logs within Timber
 ## SQL Querying
 
 {% tabs %}
+{% tab title="App" %}
+
+{% endtab %}
+
 {% tab title="CLI" %}
 
 {% endtab %}
