@@ -8,7 +8,7 @@ When you send log data to Timber, Timber maintains a dynamic schema of all the f
 
 ## How It Works
 
-When you send a log to Timber we track and persist all of the column names and types that you send us. This is what we call a "schema". The schema is specific to each individual [source](concepts.md#source) that you setup, it is not organization wide. This gives you boundaries to reduce noise and create nice clean schemas depending on the source of your log data. Let's look at an example:
+When you send a log to Timber we track and persist all of the column names and types that you send us. This is what we call a "schema". The schema is specific to each individual [source](concepts.md#source) that you setup, it is not organization wide. This gives you boundaries to reduce noise and create clean schemas depending on the source of your log data. Let's look at an example:
 
 ```javascript
 {
@@ -50,7 +50,7 @@ Timber supports the following data types:
 4. `float` - Floating point number
 5. `boolean` - Binary `true` or `false` value
 6. `object` - As noted above, Timber flattens objects into individually typed columns.
-7. `array` - Timber has limited support for arrays. All array values are automatically encoded to JSON and stored as `string` fields
+7. `array` - Timber has limited support for arrays. All array values are automatically encoded to JSON and stored as `string` fields.
 
 ### Why are arrays encoded to JSON?
 
@@ -62,7 +62,7 @@ Timber keeps track of when a column was last seen. If a column's last seen value
 
 ## Limitations
 
-1. Each application is limited to 1000 columns. New columns beyond this limit are dropped. Please be sure not to use high cardinality key names as a result.
+1. Each source is limited to 1000 columns. New columns beyond this limit are dropped. Please be sure not to use high cardinality key names as a result.
 2. While there is no field depth restriction for Timber the resulting `.` delimited column name must be less than 256 characters.
 3. All string values must be less than or equal to 8,192 bytes.
 4. Column names must only contain the following characters `/^[A-Za-z0-9#$_-\@]*$/`
