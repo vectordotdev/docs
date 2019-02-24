@@ -17,6 +17,8 @@ Timber offers deep integration with [Heroku](https://heroku.com) through the [Ti
    heroku addons:create timber-logging:free
    ```
 
+   _The `free` plan is limited, alternative plans are available_ [_here_](https://elements.heroku.com/addons/timber-logging#pricing)_._  
+
 2. _Optionally_ [attach](https://devcenter.heroku.com/articles/managing-add-ons#using-the-command-line-interface-attaching-an-add-on-to-another-app) the Timber add-on to other apps \(repeat for all apps\):  
 
 

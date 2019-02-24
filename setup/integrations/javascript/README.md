@@ -18,7 +18,7 @@ Timber integrates with [Javascript](https://en.wikipedia.org/wiki/JavaScript) th
 ## Installation
 
 {% tabs %}
-{% tab title="Node" %}
+{% tab title="Node \(HTTP\)" %}
 1. Install the Timber Node library:  
 
 
@@ -39,6 +39,10 @@ Timber integrates with [Javascript](https://en.wikipedia.org/wiki/JavaScript) th
    ```javascript
    const logger = new TimberNode(YOUR_SOURCE_ID, "YOUR_API_KEY");
    ```
+{% endtab %}
+
+{% tab title="Node \(STDOUT\)" %}
+
 {% endtab %}
 
 {% tab title="Browser" %}
