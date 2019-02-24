@@ -16,7 +16,7 @@ Timber integrates with [Elixir](https://elixir-lang.org/) through the [`:timber`
 ## Installation
 
 {% tabs %}
-{% tab title="HTTP \(recommended\)" %}
+{% tab title="HTTP" %}
 1. In `mix.exs`, add the `:timber` dependency:  
 
 
@@ -116,7 +116,7 @@ All configuration options for the Elixir `Logger` can be found in the [`Logger` 
 If you have the means to log to `STDOUT,` we highly recommend that you redirect STDOUT to Timber through one of our [integrations](../) instead of shipping logs from within your app. You can read more about that [here](../../guides/ship-logs-from-within-my-app.md). 
 {% endhint %}
 
-Logging to `:stdout` uses the Elixir provided `:console` backend. You can read more about configuring the `:console`backend [here](https://hexdocs.pm/logger/Logger.html#module-console-backend).
+Logging to `:stdout` uses the Elixir provided `:console` backend. You can read more about configuring the `:console`backend [here](https://hexdocs.pm/logger/Logger.html#module-console-backend). Simply add it as a Logger backend:
 
 {% code-tabs %}
 {% code-tabs-item title="config/config.exs" %}
