@@ -19,7 +19,7 @@ Forwarding logs to Timber is highly specific to your HTTP client. Below are a fe
 {% tabs %}
 {% tab title="http" %}
 ```bash
-POST https://logs.timber.io/sources/YOUR_SOURCE_ID
+POST https://logs.timber.io/sources/YOUR_SOURCE_ID/frames
 Authorization: Bearer YOUR_API_KEY
 Content-Type: application/ndjson
 {"level": "debug", "message": "Testing the pipes"}
@@ -35,7 +35,7 @@ curl \
 --header "Content-Type: application/ndjson" \
 --data '{"level": "debug", "message": "Testing the pipes"}
 {"level": "debug", "message": "Testing the pipes again"}' \
-https://logs.timber.io/sources/YOUR_SOURCE_ID
+https://logs.timber.io/sources/YOUR_SOURCE_ID/frames
 ```
 {% endtab %}
 {% endtabs %}

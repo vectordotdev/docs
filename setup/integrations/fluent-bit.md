@@ -27,7 +27,7 @@ description: Send logs to Timber via Fluent Bit
      Host    logs.timber.io
      Port    443
      # !!!!! Replace with your Timber source ID!
-     URI     /sources/YOUR_SOURCE_ID
+     URI     /sources/YOUR_SOURCE_ID/frames
      # !!!!! Replace with your Timber API key!
      Header  Authorization Basic YOUR_API_KEY
      Header  Content-Type application/msgpack

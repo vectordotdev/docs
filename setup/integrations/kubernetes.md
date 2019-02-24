@@ -24,11 +24,11 @@ To forward logs from your kubernetes cluster, we recommend deploying fluentbit a
 
 
    ```bash
-   kubectl create -f https://gist.githubusercontent.com/binarylogic/f6b9ff62058dd5bf5d4b7a6ba760af19/raw/cd2f8154865247a52885e169c3921abe86a9ca9e/fluent-but-configmap.yaml
+   kubectl create -f https://gist.githubusercontent.com/binarylogic/951ea32ed462933fa70c439f9cab06f3/raw/fe6b761770f1ccd9b44c96421d4892b8e96927d6/fluent-bit-configmap.yaml
    ```
 
 3. Finally, deploy the daemonset to start forwarding logs: 
-   1. [Download the Timber daemonset file: `fluent-bit-ds.yaml`](https://gist.githubusercontent.com/binarylogic/951ea32ed462933fa70c439f9cab06f3/raw/407205c7333b483236b57c52b8bc9a5cd75f5416/fluent-bit-ds.yaml)\`\`
+   1. [Download the Timber daemonset file: `fluent-bit-ds.yaml`](https://gist.githubusercontent.com/binarylogic/951ea32ed462933fa70c439f9cab06f3/raw/fe6b761770f1ccd9b44c96421d4892b8e96927d6/fluent-bit-ds.yaml)\`\`
    2. _**Replace `YOUR_API_KEY` and `YOUR_SOURCE_ID` appropriately**_ \(these are displayed on your source's installation page\)
    3. Run `kubectl create -f path/to/fluent-bit-ds.yaml`
 
