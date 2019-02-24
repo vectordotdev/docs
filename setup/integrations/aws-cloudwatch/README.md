@@ -33,7 +33,8 @@ If you're using [Terraform](https://www.terraform.io/), Timber provides a [Terra
    ```coffeescript
    module "timber_log_forwarding" {
      source = "git::git@github.com:timberio/timber-cloudwatch-logs-lambda-function.git//terraform"
-
+     enable_logging = "false"
+  
      log_group_names = [
        "aws/lambda/hello_world"
      ]

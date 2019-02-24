@@ -41,7 +41,7 @@ This method is more advanced, and requires system level understanding of concept
 
 For serious production systems we _highly_ recommend shipping logs external from your application, following the [12 factor methodology](https://12factor.net/) and using one of our [integrations](../integrations/). It is worth the time and effort to invest in this method to ensure you have log data when you need it.
 
-For everyone else, our [language libraries](../../under-the-hood/language-libraries.md) should are sufficient, especially for applications just starting out. This allows you to get up and running with very little time.
+For everyone else, our [language libraries](../../under-the-hood/language-libraries.md) should be sufficient, especially for applications just starting out. This allows you to get up and running with very little effort and time.
 
 
 

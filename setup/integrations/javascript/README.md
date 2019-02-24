@@ -33,7 +33,7 @@ Timber integrates with [Javascript](https://en.wikipedia.org/wiki/JavaScript) th
    import { TimberNode } from "@timberio/node";
    ```
 
-3. Create a new logger with your _**raw**_ API key:  
+3. Create a new logger with your source ID and API key:  
 
 
    ```javascript
@@ -42,7 +42,11 @@ Timber integrates with [Javascript](https://en.wikipedia.org/wiki/JavaScript) th
 {% endtab %}
 
 {% tab title="Node \(STDOUT\)" %}
+{% hint style="warning" %}
+This method is more advanced and requires a separate step to ship logs to Timber. Basic knowledge of `STDOUT` and log management is required. For more information on the advantages of this method please see [this guide](../../guides/ship-logs-from-within-my-app.md).
+{% endhint %}
 
+dsfsd
 {% endtab %}
 
 {% tab title="Browser" %}
@@ -60,7 +64,7 @@ Timber integrates with [Javascript](https://en.wikipedia.org/wiki/JavaScript) th
    import { TimberBrowser } from "@timberio/browser";
    ```
 
-3. Create a new logger with your API key:  
+3. Create a new logger with your source ID and API key:  
 
 
    ```javascript
@@ -68,6 +72,10 @@ Timber integrates with [Javascript](https://en.wikipedia.org/wiki/JavaScript) th
    ```
 {% endtab %}
 {% endtabs %}
+
+**Which Node installation method should I choose?**
+
+We recommend the "HTTP" method if you are unsure. To understand why you would choose one over the other, please see the ["Ship Logs From Within My App?" guide](../../guides/ship-logs-from-within-my-app.md).
 
 ## Configuration
 

@@ -58,10 +58,8 @@ Timber integrates with [Elixir](https://elixir-lang.org/) through the [`:timber`
 
 {% tab title="STDOUT" %}
 {% hint style="warning" %}
-This method is more advanced and requires a separate step to ship logs to Timber. Basic knowledge of `STDOUT` and log management is required.
+This method is more advanced and requires a separate step to ship logs to Timber. Basic knowledge of `STDOUT` and log management is required. For more information on the advantages of this method please see [this guide](../../guides/ship-logs-from-within-my-app.md).
 {% endhint %}
-
-For advanced users we recommend writing logs to `STDOUT` and then shipping logs separately to Timber. This is a more complicated process but offers [reliability and durability advantages](../../guides/ship-logs-from-within-my-app.md), it also follows the widely practiced [Twelve-Factor methodology](https://12factor.net/). In this type of setup, `:timber` is not responsible for log delivery, it's only purpose is to capture context and structure your logs.
 
 1. In your `mix.exs` file add the `:timber` dependency:  
 
