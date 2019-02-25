@@ -15,7 +15,7 @@
 
 ## Setup
 
-* [Integrations](setup/integrations/README.md)
+* [Sources](setup/integrations/README.md)
   * [AWS CloudWatch Logs](setup/integrations/aws-cloudwatch/README.md)
     * [AWS Serverless Application](https://serverlessrepo.aws.amazon.com/applications/arn:aws:serverlessrepo:us-east-1:754402436383:applications~timber-logging)
     * [Serverless App Repo](https://github.com/timberio/timber-cloudwatch-logs-lambda-function)
