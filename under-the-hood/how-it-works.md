@@ -8,9 +8,9 @@ Timber is a hosted, maintenance free, log aggregation service. It aims to be as 
 
 ## 1. Data Collection
 
-Before you can begin using Timber you must [send your log data](../usage/sending-logs.md) to it. Timber invests heavily in it's [integrations](../setup/integrations/) and aims to be as easy as possible to integrate with your platform or application. To get started, head over to our [integrations](../setup/integrations/) and [language libraries](language-libraries.md) section \(depending on your integration type\)
+Before you can begin using Timber you must [send your log data](../usage/sending-logs.md) to it. Timber invests heavily in it's [integrations](../setup/sources/) and aims to be as easy as possible to integrate with your platform or application. To get started, head over to our [integrations](../setup/sources/) and [language libraries](language-libraries.md) section \(depending on your integration type\)
 
-{% page-ref page="../setup/integrations/" %}
+{% page-ref page="../setup/sources/" %}
 
 {% page-ref page="language-libraries.md" %}
 

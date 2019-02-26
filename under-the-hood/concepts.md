@@ -18,7 +18,7 @@ Archiving refers to the archival of your log data on an external system. Learn m
 
 ## Context
 
-Contextual information that further describes the environment [log](concepts.md#log) data was written in. Timber invests heavily in capturing this information within our [integrations](../setup/integrations/). For example, the "hostname" of the server the log originated from is a piece of context.
+Contextual information that further describes the environment [log](concepts.md#log) data was written in. Timber invests heavily in capturing this information within our [integrations](../setup/sources/). For example, the "hostname" of the server the log originated from is a piece of context.
 
 ## ElasticSearch
 

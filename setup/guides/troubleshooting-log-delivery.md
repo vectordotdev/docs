@@ -47,11 +47,11 @@ You should see the following response:
 Accepted logs
 ```
 
-If you do not receive a `202` response then there is an issue with your account or the Timber service as a whole. You can refer to the [response codes documentation](../integrations/http-api/#expected-response-codes) for explanation on each code. Although, Timber should respond with a body that describes the error.
+If you do not receive a `202` response then there is an issue with your account or the Timber service as a whole. You can refer to the [response codes documentation](../sources/http-api/#expected-response-codes) for explanation on each code. Although, Timber should respond with a body that describes the error.
 
 ## 3. Enable Debug Logs
 
-Head back to your [integration's page](../integrations/), at the bottom of every page is a "Troubleshooting" section that walks through enabling debug logs for that specific integration \(if possible\).
+Head back to your [integration's page](../sources/), at the bottom of every page is a "Troubleshooting" section that walks through enabling debug logs for that specific integration \(if possible\).
 
 ## 4. Contact Support
 
