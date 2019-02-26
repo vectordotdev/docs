@@ -6,9 +6,7 @@ Using Timber starts with sending your logs to the Timber service. This guide wal
 
 ## 2. Integrate
 
-If you haven't done so already, head over to the [integrations section](../setup/sources/) and follow the installation instruction for your platform.
-
-{% page-ref page="../setup/sources/" %}
+If you haven't done so already, head over to the [integrations section]() and follow the installation instruction for your platform.
 
 ## 3. Format Your Logs
 
@@ -24,5 +22,5 @@ Timber recognizes [many log formats](../under-the-hood/log-processing.md#log-for
 
 If you're having trouble getting logs to show up in your Timber account, please see the following guid:
 
-{% page-ref page="../setup/guides/troubleshooting-log-delivery.md" %}
+{% page-ref page="../guides/troubleshooting-log-delivery.md" %}
 

@@ -92,7 +92,7 @@ This method is more advanced and requires a separate step to ship logs to Timber
    {% endcode-tabs-item %}
    {% endcode-tabs %}
 
-3. At this point your application is writing logs to `STDOUT` in JSON format. Please choose the [appropriate platform integration instructions](../) to ship your log data.
+3. At this point your application is writing logs to `STDOUT` in JSON format. Please choose the [appropriate platform integration instructions]() to ship your log data.
 {% endtab %}
 {% endtabs %}
 
@@ -113,7 +113,7 @@ All configuration options for the Elixir `Logger` can be found in the [`Logger` 
 #### Log to STDOUT in addition to Timber
 
 {% hint style="warning" %}
-If you have the means to log to `STDOUT,` we highly recommend that you redirect STDOUT to Timber through one of our [integrations](../) instead of shipping logs from within your app. You can read more about that [here](../../guides/ship-logs-from-within-my-app.md). 
+If you have the means to log to `STDOUT,` we highly recommend that you redirect STDOUT to Timber through one of our [integrations]() instead of shipping logs from within your app. You can read more about that [here](../../guides/ship-logs-from-within-my-app.md). 
 {% endhint %}
 
 Logging to `:stdout` uses the Elixir provided `:console` backend. You can read more about configuring the `:console`backend [here](https://hexdocs.pm/logger/Logger.html#module-console-backend). Simply add it as a Logger backend:
@@ -219,7 +219,7 @@ Be careful not to include personally identifiable information for privacy reason
 ### Tying Logs To HTTP Requests
 
 {% hint style="info" %}
-Timber offers a [`Plug` and `Phoenix` integration](../) that does this automatically.
+Timber offers a [`Plug` and `Phoenix` integration]() that does this automatically.
 {% endhint %}
 
 Another common use-case for context is tying logs to HTTP requests through the request ID. You can see an example of this in the [`:timber_plug` 's `HTTPContext` module](https://github.com/timberio/timber-elixir-plug/blob/master/lib/timber_plug/http_context.ex).
@@ -259,7 +259,7 @@ The new process spawned with `Task.async/1` will now contain the same Timber con
 
 ## Automatic Context
 
-`:timber` automatically captures [context](../../../under-the-hood/concepts.md#context) to enrich your logs. If you're shipping logs from within your app you'll want to keep context enabled. If you're shipping logs external from your app you'll want to disable context that is redundant to your log shipper.
+`:timber` automatically captures [context](../../under-the-hood/concepts.md#context) to enrich your logs. If you're shipping logs from within your app you'll want to keep context enabled. If you're shipping logs external from your app you'll want to disable context that is redundant to your log shipper.
 
 ### System 
 

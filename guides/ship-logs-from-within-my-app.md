@@ -4,11 +4,11 @@ description: When to ship logs from within your app and when to not
 
 # Ship Logs From Within My App?
 
-You'll notice Timber offers [language level integrations](../../under-the-hood/language-libraries.md) that ship logs directly from within your application, we also offer a [platform level integrations](../sources/) that ship logs outside of your application. Customers often ask which method is best. This document will help clarify the differences between the two methods and help you choose the best for your needs.
+You'll notice Timber offers [language level integrations](../under-the-hood/language-libraries.md) that ship logs directly from within your application, we also offer a [platform level integrations]() that ship logs outside of your application. Customers often ask which method is best. This document will help clarify the differences between the two methods and help you choose the best for your needs.
 
 ## Option 1: Sending Logs From Within Your App
 
-This method requires that you install one of Timber's [language level integrations](../../under-the-hood/language-libraries.md). Logs generated from within your app will be sent over HTTP to the Timber service.
+This method requires that you install one of Timber's [language level integrations](../under-the-hood/language-libraries.md). Logs generated from within your app will be sent over HTTP to the Timber service.
 
 ### Pros
 
@@ -39,9 +39,9 @@ This method is more advanced, and requires system level understanding of concept
 
 ## What Timber Recommends
 
-For serious production systems we _highly_ recommend shipping logs external from your application, following the [12 factor methodology](https://12factor.net/) and using one of our [integrations](../sources/). It is worth the time and effort to invest in this method to ensure you have log data when you need it.
+For serious production systems we _highly_ recommend shipping logs external from your application, following the [12 factor methodology](https://12factor.net/) and using one of our [integrations](). It is worth the time and effort to invest in this method to ensure you have log data when you need it.
 
-For everyone else, our [language libraries](../../under-the-hood/language-libraries.md) should be sufficient, especially for applications just starting out. This allows you to get up and running with very little effort and time.
+For everyone else, our [language libraries](../under-the-hood/language-libraries.md) should be sufficient, especially for applications just starting out. This allows you to get up and running with very little effort and time.
 
 
 

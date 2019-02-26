@@ -7,12 +7,12 @@ description: Send logs to Timber via the Timber HTTP API
 Timber has a rich [HTTP API](http://docs.api.timber.io/) that you can use to send logs to the Timber platform.
 
 {% hint style="info" %}
-Timber offers [language level libraries](../../../under-the-hood/language-libraries.md) and [integrations](../) that handle the efficient and reliable delivery of your log data. We _highly_ recommend using those when possible.
+Timber offers [language level libraries](../../under-the-hood/language-libraries.md) and [integrations]() that handle the efficient and reliable delivery of your log data. We _highly_ recommend using those when possible.
 {% endhint %}
 
 ## Installation
 
-Forwarding logs to Timber is highly specific to your HTTP client. Below are a few examples, as well as best practices. If possible, we recommend using one of [Timber's libraries](../../../under-the-hood/language-libraries.md) as all of the intricate details of sending data to Timber are handled for you.
+Forwarding logs to Timber is highly specific to your HTTP client. Below are a few examples, as well as best practices. If possible, we recommend using one of [Timber's libraries](../../under-the-hood/language-libraries.md) as all of the intricate details of sending data to Timber are handled for you.
 
 ### Examples
 
@@ -42,7 +42,7 @@ https://logs.timber.io/sources/YOUR_SOURCE_ID/frames
 
 ### Getting Your API Key And Source ID
 
-If you haven't already, please create a Timber source by following the [Sending Logs guide](../../../usage/sending-logs.md). Timber will display your API key and source ID immediately after you create a source.
+If you haven't already, please create a Timber source by following the [Sending Logs guide](../../usage/sending-logs.md). Timber will display your API key and source ID immediately after you create a source.
 
 ### Headers
 
@@ -74,7 +74,7 @@ Timber accepts the following content types \(ordered by preference\):
 
 ### Timber Libraries
 
-If you don't want to do this yourself you can use one of [Timber's language libraries](../../../under-the-hood/language-libraries.md).
+If you don't want to do this yourself you can use one of [Timber's language libraries](../../under-the-hood/language-libraries.md).
 
 ## Limitations
 

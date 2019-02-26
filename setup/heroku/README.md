@@ -243,7 +243,7 @@ Jun 26 08:49:40 issuetriage app/postgres.29339:  [DATABASE] [41-1] LOG:  duratio
 
 ### Can I invite non-Heroku users to my Timber organization?
 
-Yes, you can invite members to your organization just like any other Timber account. [See the "Team Management" document](../../../usage/account-management/team-management.md).
+Yes, you can invite members to your organization just like any other Timber account. [See the "Team Management" document](../../usage/account-management/team-management.md).
 
 ### Should I add the Timber addon for each app or attach it?
 
@@ -251,7 +251,7 @@ We highly recommend [attaching a single Timber add-on to all of your apps](https
 
 ### Can I use the Timber libraries on Heroku?
 
-Yes! We highly recommend using our [libraries](../../../under-the-hood/language-libraries.md) to add context and metadata to your logs \(see our [Structured Logging Best Practices guide](../../guides/event-naming.md)\). When setting up our libraries be sure to choose the `STDOUT` installation method.
+Yes! We highly recommend using our [libraries](../../under-the-hood/language-libraries.md) to add context and metadata to your logs \(see our [Structured Logging Best Practices guide](../../guides/event-naming.md)\). When setting up our libraries be sure to choose the `STDOUT` installation method.
 
 ## Troubleshooting
 

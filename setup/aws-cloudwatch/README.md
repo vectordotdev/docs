@@ -41,7 +41,7 @@ If you're using [Terraform](https://www.terraform.io/), Timber provides a [Terra
 
      # Obtain both of these at https://app.timber.io
      api_key = "YOUR_API_KEY"
-     source_id = "YOUR_SPURCE_ID"
+     source_id = "YOUR_SOURCE_ID"
    }
    ```
 

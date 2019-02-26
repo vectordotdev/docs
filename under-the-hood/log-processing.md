@@ -53,7 +53,7 @@ Timber looks for common modifiers to help parsing accuracy:
 6. Ruby `Logger` default format
 7. Syslog5424
 
-In addition to the above formats, Timber parses known integration specific events. Each integration will list any event it parses within [it's own documentation](../setup/sources/).
+In addition to the above formats, Timber parses known integration specific events. Each integration will list any event it parses within [it's own documentation]().
 
 ## Types
 
