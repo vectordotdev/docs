@@ -50,13 +50,12 @@
 
 ## Usage
 
-* [Sending Logs](usage/sending-logs.md)
-* [Filtering](usage/filtering-logs.md)
 * [Searching](usage/searching.md)
 * [Graphing](usage/graphing.md)
 * [Saved Views](usage/saved-views.md)
 * [Alerting](usage/alerting.md)
 * [Archiving](usage/archiving.md)
+* [Filtering](usage/filtering-logs.md)
 * [Account Management](usage/account-management/README.md)
   * [API Keys](usage/account-management/api-keys.md)
   * [Billing](usage/account-management/billing.md)

@@ -42,7 +42,7 @@ https://logs.timber.io/sources/YOUR_SOURCE_ID/frames
 
 ### Getting Your API Key And Source ID
 
-If you haven't already, please create a Timber source by following the [Sending Logs guide](../../usage/sending-logs.md). Timber will display your API key and source ID immediately after you create a source.
+If you haven't already, please create a Timber source by following the [Sending Logs guide](). Timber will display your API key and source ID immediately after you create a source.
 
 ### Headers
 
