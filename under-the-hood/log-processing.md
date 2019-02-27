@@ -43,7 +43,15 @@ Timber looks for common modifiers to help parsing accuracy:
 2. Trailing `-` delimiters are stripped
 3. Trailing `:` delimiters are stripped
 
-### Standard Formats
+### JSON
+
+Timber will parse JSON in your messages as long as it starts with a `{` character. JSON can live anywhere in your message. The following are all valid messages that Timber will parse:
+
+1. `{"key": "val"}`
+2. `Message: {"key": "val"}`
+3. `{"key": "val"} - message`
+
+### Common Formats
 
 1. Apache access and error logs
 2. Elixir `Logger` default format
