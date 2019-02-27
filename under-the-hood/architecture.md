@@ -38,6 +38,10 @@ Timber's fast query speeds are very much a result of this architectural decision
 2. We only hold the last 24 hours of data on Elasticsearch. This also allows us to more aggressively tune Elasticsearch towards performance while capping the total cost an individual query can have on the cluster.
 3. We use [Amazon's Athena service](https://aws.amazon.com/athena/) to query data on S3. Athena is an on-demand distributed query engine that uses thousands of CPU cores to efficiently search data on S3.
 
+### ANSI Compliant SQL Querying
+
+Because Timber uses Presto / Athena to query data on S3 you get [full ANSI compliant SQL query capabilities](../usage/searching.md#sql-querying). There is no limited proprietary query language to learn.
+
 ### Affordability
 
 This architecture is also cheaper, and we pass those costs saving onto our competitors. This is why our pricing is generally much cheaper than our competition. And as we improve we plan to pass those cost saving onto our customers.

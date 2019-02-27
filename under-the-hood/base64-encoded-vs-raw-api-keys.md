@@ -16,7 +16,7 @@ By default, an API is created with your organization. Head over to the [API keys
 
 ## What are Timber source IDs?
 
-Timber's "sources" are a container for log data. It allows you to segment your logs around your natural boundaries. Each source has a [schema](../under-the-hood/schema-maintenance.md), [alerts](../usage/alerting.md), [views](../usage/saved-views.md), etc.
+Timber's "sources" are a container for log data. It allows you to segment your logs around your natural boundaries. Each source has a [schema](schema-maintenance.md), [alerts](../usage/alerting.md), [views](../usage/saved-views.md), etc.
 
 ### Creating a source
 
