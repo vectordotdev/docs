@@ -4,6 +4,7 @@
 * [Getting Started](getting-started.md)
 * [Guides](guides/README.md)
   * [API Keys & Source IDs](guides/base64-encoded-vs-raw-api-keys.md)
+  * [Reducing Log Volume](guides/reducing-log-volume.md)
   * [Structured Logging Best Practices](guides/event-naming.md)
   * [Ship Logs From Within My App?](guides/ship-logs-from-within-my-app.md)
   * [Sending Logs To Timber's API](guides/sending-logs-to-timbers-api.md)
