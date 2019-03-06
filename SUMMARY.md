@@ -33,6 +33,7 @@
   * [Github Repo](https://github.com/timberio/timber-elixir)
   * [Changelog](https://github.com/timberio/timber-elixir/blob/master/CHANGELOG.md)
   * [Library Documentation](https://hexdocs.pm/timber/readme.html)
+* [File](setup/file.md)
 * [Fluent Bit](setup/fluent-bit.md)
 * [Fluentd](setup/fluentd/README.md)
   * [Fluentd Plugin Repo](https://github.com/timberio/fluent-plugin-timber)

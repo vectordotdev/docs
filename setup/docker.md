@@ -36,7 +36,7 @@ Requires Docker version 1.8.0 or later
      # !!!!! Replace with your Timber source ID!
      URI     /sources/YOUR_SOURCE_ID/frames
      # !!!!! Replace with your Timber API key!
-     Header  Authorization Basic YOUR_API_KEY
+     Header  Authorization Bearer YOUR_API_KEY
      Header  Content-Type application/msgpack
      Format  msgpack
      Retry_Limit 5

@@ -8,8 +8,9 @@ description: Send logs to Timber via Fluent Bit
 
 ## Installation
 
-1. [Intall Fluent Bit at the system level](fluent-bit.md#installation). Fluent Bit has excellent setup instructions, please follow the appropriate ones for your system.
-2. In `/etc/td-agent-bit/td-agent-bit.conf`, configure a new output.  
+1. [Install Fluent Bit at the system level](https://docs.fluentbit.io/manual/installation), following instructions for your platform, such as [Debian](https://docs.fluentbit.io/manual/installation/debian), [Ubuntu](https://docs.fluentbit.io/manual/installation/ubuntu), [CentOS](https://docs.fluentbit.io/manual/installation/redhat_centos), or [building directly](https://docs.fluentbit.io/manual/installation/build_install).
+2. Install your desired input plugins, such as [file tailing](https://docs.fluentbit.io/manual/input/tail), [STDIN](https://docs.fluentbit.io/manual/input/stdin), [Syslog](https://docs.fluentbit.io/manual/input/syslog), or [TCP](https://docs.fluentbit.io/manual/input/tcp).
+3. In `/etc/td-agent-bit/td-agent-bit.conf`, configure a new output.  
 
 
    _**Be sure to replace `YOUR_API_KEY` and `YOUR_SOURCE_ID` appropriately!**_  
@@ -29,7 +30,7 @@ description: Send logs to Timber via Fluent Bit
      # !!!!! Replace with your Timber source ID!
      URI     /sources/YOUR_SOURCE_ID/frames
      # !!!!! Replace with your Timber API key!
-     Header  Authorization Basic YOUR_API_KEY
+     Header  Authorization Bearer YOUR_API_KEY
      Header  Content-Type application/msgpack
      Format  msgpack
      Retry_Limit 5
@@ -37,8 +38,8 @@ description: Send logs to Timber via Fluent Bit
    {% endcode-tabs-item %}
    {% endcode-tabs %}
 
-3. _Optionally_ install [parser](https://docs.fluentbit.io/manual/parser) and [filter](https://docs.fluentbit.io/manual/filter) plugins to enhance your logs.
-4. Restart your fluent-bit agent:  
+4. _Optionally_ install [parser](https://docs.fluentbit.io/manual/parser) and [filter](https://docs.fluentbit.io/manual/filter) plugins to enhance your logs.
+5. Restart your fluent-bit agent:  
 
 
    ```bash
