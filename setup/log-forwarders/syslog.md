@@ -38,10 +38,7 @@ The following are general instructions for integrating rsyslog v8+ with Timber. 
    --output /etc/rsyslog.d/keys/ca.d/io.timber-wildcard.pem
    ```
 
-4. Copy the following into `/etc/rsyslog.d/60-timber.conf`  
-
-
-   _**Be sure to replace `YOUR_API_KEY` and `YOUR_SOURCE_ID` appropriately!**_
+4. Copy the following into `/etc/rsyslog.d/60-timber.conf`, _**replace `YOUR_API_KEY` and `YOUR_SOURCE_ID` accordingly:**_
 
 
 
@@ -150,10 +147,7 @@ The following are general instructions for integrating syslog-ng v3.5+ with Timb
    /etc/syslog-ng/keys/ca.d/351323f.0
    ```
 
-6. Copy the following into `/etc/syslog-ng/conf.d/timber.conf`:  
-
-
-   _**Be sure to replace `YOUR_API_KEY` and `YOUR_SOURCE_ID` appropriately!**_
+6. Copy the following into `/etc/syslog-ng/conf.d/timber.conf`_**, replace `YOUR_API_KEY` and `YOUR_SOURCE_ID` accordingly:**_
 
 
 
@@ -197,10 +191,7 @@ These are the general instructions for forwarding syslog messages to Timber. We 
 {% endhint %}
 
 1. Configure your Syslog system to forward logs to Timber. Timber's syslog collection service is available at `logs.timber.io` on port `6514`.
-2. Ensure that your Syslog messages include the following within the structured data portion of the message:  
-  
-   _**Be sure to replace `YOUR_SOURCE_ID` and `YOUR_API_KEY` appropriately**_  
-   \(these are displayed on your source's installation page\)
+2. Ensure that your Syslog messages include the following within the structured data portion of the message. _**Replace `YOUR_SOURCE_ID` and `YOUR_API_KEY` accordingly:**_
 
 
 

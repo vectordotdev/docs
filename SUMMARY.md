@@ -53,6 +53,7 @@
 * [Protocols](setup/protocols/README.md)
   * [HTTP](setup/protocols/http/README.md)
     * [API Documentation](http://docs.api.timber.io/)
+  * [TCP](setup/protocols/tcp.md)
 
 ## Usage
 
