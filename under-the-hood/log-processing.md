@@ -61,7 +61,7 @@ Timber will parse JSON in your messages as long as it starts with a `{` characte
 6. Ruby `Logger` default format
 7. Syslog5424
 
-In addition to the above formats, Timber parses known integration specific events. Each integration will list any event it parses within [it's own documentation]().
+In addition to the above formats, Timber parses known integration specific events. Each integration will list any event it parses within it's own documentation.
 
 ## Types
 

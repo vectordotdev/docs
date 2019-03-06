@@ -8,13 +8,9 @@ description: Send logs to Timber via Fluent Bit
 
 ## Installation
 
-1. [Install Fluent Bit at the system level](https://docs.fluentbit.io/manual/installation), following instructions for your platform, such as [Debian](https://docs.fluentbit.io/manual/installation/debian), [Ubuntu](https://docs.fluentbit.io/manual/installation/ubuntu), [CentOS](https://docs.fluentbit.io/manual/installation/redhat_centos), or [building directly](https://docs.fluentbit.io/manual/installation/build_install).
-2. Install your desired input plugins, such as [file tailing](https://docs.fluentbit.io/manual/input/tail), [STDIN](https://docs.fluentbit.io/manual/input/stdin), [Syslog](https://docs.fluentbit.io/manual/input/syslog), or [TCP](https://docs.fluentbit.io/manual/input/tcp).
-3. In `/etc/td-agent-bit/td-agent-bit.conf`, configure a new `http` output.  
-
-
-   _**Be sure to replace `YOUR_API_KEY` and `YOUR_SOURCE_ID` appropriately!**_  
-   \(these are displayed on your source's installation page\).  
+1. [Install Fluent Bit](https://docs.fluentbit.io/manual/installation), following the instructions for your platform, such as [Debian](https://docs.fluentbit.io/manual/installation/debian), [Ubuntu](https://docs.fluentbit.io/manual/installation/ubuntu), [CentOS](https://docs.fluentbit.io/manual/installation/redhat_centos), or [building directly](https://docs.fluentbit.io/manual/installation/build_install).
+2. Install your desired [input plugins](https://docs.fluentbit.io/manual/input), such as [file tailing](https://docs.fluentbit.io/manual/input/tail), [STDIN](https://docs.fluentbit.io/manual/input/stdin), [Syslog](https://docs.fluentbit.io/manual/input/syslog), or [TCP](https://docs.fluentbit.io/manual/input/tcp).
+3. In `/etc/td-agent-bit/td-agent-bit.conf`, configure a new `http` output. _**Replace `YOUR_API_KEY` and `YOUR_SOURCE_ID` accordingly:**_  
 
 
    {% code-tabs %}

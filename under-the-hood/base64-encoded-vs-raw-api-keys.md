@@ -20,7 +20,7 @@ Timber's "sources" are a container for log data. It allows you to segment your l
 
 ### Creating a source
 
-Head over to the [sending logs guide]() for information on creating and setting up a source.
+Head over to the [sending logs guide](../guides/sending-logs-to-timber.md) for information on creating and setting up a source.
 
 ## Why do I need both?
 

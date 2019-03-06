@@ -4,7 +4,7 @@ description: Send Javascript logs to Timber from your Node or Browser environmen
 
 # Javascript
 
-Timber integrates with [Javascript](https://en.wikipedia.org/wiki/JavaScript) through its universal [Javascript library](https://github.com/timberio/timber-js). The Timber Javascript library features:
+Timber integrates with [Javascript](https://en.wikipedia.org/wiki/JavaScript) through its universal [Javascript library](https://github.com/timberio/timber-js), enabling you to send Javascript logs to your Timber account. The Timber Javascript library features:
 
 * **Universal Node/browser support**. Log user/system errors, visits, clicks, events - _anything_ - in Chrome, Safari, Edge, or on a Node.js server, and search logs in real-time via the [Timber.io console](https://timber.io/).
 * **NPM or CDN**. Use natively in your app, Webpack/Rollup into your Node/browser bundle, or just drop in a `<script>` tag to your final HTML. Integrates easily into any app.
@@ -16,6 +16,8 @@ Timber integrates with [Javascript](https://en.wikipedia.org/wiki/JavaScript) th
 * **Plays nicely with other loggers**. Plays well with [Winston](https://github.com/timberio/timber-js/blob/master/packages/winston) and [Bunyan](https://github.com/timberio/timber-js/blob/master/packages/bunyan).
 
 ## Installation
+
+We recommend the "HTTP" method if you are unsure. To understand why you would choose one over the other, please see the ["Ship Logs From Within My App?" guide](../../../guides/sending-logs-to-timber.md).
 
 {% tabs %}
 {% tab title="Node \(HTTP\)" %}
@@ -33,7 +35,8 @@ Timber integrates with [Javascript](https://en.wikipedia.org/wiki/JavaScript) th
    import { TimberNode } from "@timberio/node";
    ```
 
-3. Create a new logger with your source ID and API key:  
+3. Create a new logger, _**replace `YOUR_API_KEY` and `YOUR_SOURCE_ID` accordingly**_:
+
 
 
    ```javascript
@@ -43,7 +46,7 @@ Timber integrates with [Javascript](https://en.wikipedia.org/wiki/JavaScript) th
 
 {% tab title="Node \(STDOUT\)" %}
 {% hint style="warning" %}
-This method is more advanced and requires a separate step to ship logs to Timber. Basic knowledge of `STDOUT` and log management is required. For more information on the advantages of this method please see [this guide](../../../guides/ship-logs-from-within-my-app.md).
+This method is more advanced and requires a separate step to ship logs to Timber. Basic knowledge of `STDOUT` and log management is required. For more information on the advantages of this method please see [this guide](../../../guides/sending-logs-to-timber.md).
 {% endhint %}
 
 dsfsd
@@ -72,10 +75,6 @@ dsfsd
    ```
 {% endtab %}
 {% endtabs %}
-
-**Which Node installation method should I choose?**
-
-We recommend the "HTTP" method if you are unsure. To understand why you would choose one over the other, please see the ["Ship Logs From Within My App?" guide](../../../guides/ship-logs-from-within-my-app.md).
 
 ## Configuration
 
@@ -107,7 +106,7 @@ logger.info("Hello world").then(log => {
 ### Structured Logging
 
 {% hint style="info" %}
-If you haven't already, please read our [structured logging best practices guide](../../../guides/event-naming.md).
+If you haven't already, please read our [structured logging best practices guide](../../../guides/structured-logging-best-practices.md).
 {% endhint %}
 
 Augment your logs with structured data:

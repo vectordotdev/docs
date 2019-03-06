@@ -51,7 +51,7 @@ If you do not receive a `202` response then there is an issue with your account 
 
 ## 3. Enable Debug Logs
 
-Head back to your [integration's page](), at the bottom of every page is a "Troubleshooting" section that walks through enabling debug logs for that specific integration \(if possible\).
+Head back to your [i]()ntegration's page, at the bottom of every page is a "Troubleshooting" section that walks through enabling debug logs for that specific integration \(if possible\). For example, the [Elixir integration](../setup/languages/elixir/) has a [Troubleshooting section](../setup/languages/elixir/#troubleshooting) at the bottom.
 
 ## 4. Contact Support
 

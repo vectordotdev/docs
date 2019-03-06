@@ -12,19 +12,16 @@ If possible, we recommend using [Fluent Bit](../fluent-bit.md) for its superior 
 
 ## Installation
 
-1. [Install Fluentd.](https://docs.fluentd.org/v1.0/categories/installation)
-2. Install the [Timber Fluentd plugin](https://github.com/timberio/fluent-plugin-timber):  
+1. [Install Fluentd](https://docs.fluentd.org/v1.0/categories/installation), following instructions for your desired platform.
+2. Install the appropriate FluentD [input plugins](https://docs.fluentd.org/v1.0/articles/input-plugin-overview#list-of-input-plugins).
+3. Install the [Timber Fluentd output plugin](https://github.com/timberio/fluent-plugin-timber):  
 
 
    ```bash
    gem install fluent-plugin-timber
    ```
 
-3. In `/etc/td-agent/td-agent.conf` , configure the Timber output:  
-
-
-   _**Be sure to replace `YOUR_API_KEY` and `YOUR_SOURCE_ID` appropriately!**_  
-   \(these are displayed on your source's installation page\).
+4. In `/etc/td-agent/td-agent.conf` , configure the Timber output, _**eeplace `YOUR_API_KEY` and `YOUR_SOURCE_ID` accordingly:**_
 
 
 
@@ -40,8 +37,8 @@ If possible, we recommend using [Fluent Bit](../fluent-bit.md) for its superior 
    {% endcode-tabs-item %}
    {% endcode-tabs %}
 
-4. _Optionally_ install [plugins](https://www.fluentd.org/plugins) to capture context for your platform. For example, the [EC2](https://github.com/takus/fluent-plugin-ec2-metadata) and and [Kubernetes](https://github.com/fabric8io/fluent-plugin-kubernetes_metadata_filter) plugins.
-5. Restart the Fluentd agent:  
+5. _Optionally_ install [plugins](https://www.fluentd.org/plugins) to capture context for your platform. For example, the [EC2](https://github.com/takus/fluent-plugin-ec2-metadata) and and [Kubernetes](https://github.com/fabric8io/fluent-plugin-kubernetes_metadata_filter) plugins.
+6. Restart the Fluentd agent:  
 
 
    ```text

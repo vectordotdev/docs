@@ -4,7 +4,7 @@ description: Sends logs to Timber via Syslog
 
 # Syslog
 
-Timber offers first-class native support for the various types of Syslog, avoiding the need to install an additional log forwarder. Just point Syslog to Timber and go.
+Timber offers first-class native support for the various types of Syslog, avoiding the need to install additional log forwarders. Just point Syslog to Timber and go.
 
 ## Installation
 

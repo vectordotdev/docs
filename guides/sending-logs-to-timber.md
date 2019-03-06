@@ -4,11 +4,11 @@ description: How to effectively send logs to Timber
 
 # Sending Logs To Timber
 
-You'll notice Timber offers a variety of methods for sending logs to Timber. While flexible, this can be confusing, and often it's hard to understand which method is best. This guides serves to help in that process, helping you to walk away with the best integration method for your scenario.
+You'll notice Timber offers a [variety of methods](sending-logs-to-timber.md#integration-methods) for sending logs to Timber. While flexible, this can be confusing, and often it's hard to understand which method is best. This guides serves to help in that process, helping you to walk away with the best integration method for your scenario.
 
 ## Integration Methods
 
-Timber attempts to be as flexible as possible, attempting to integrate with a variety of platforms, systems and languages. You can send log data to Timber by choosing your preferred integration method:
+Timber attempts to be as flexible as possible, attempting to integrate with a variety of platforms, systems and languages. You can send log data to Timber by choosing your preferred integration method. To better understand which method you should use please continue reading.
 
 {% page-ref page="../setup/languages/" %}
 
@@ -50,9 +50,9 @@ Platform & system log delivery refers to the process of sending log data to Timb
 1. Difficult. This method involves more steps and requires system-level operational experience to connect all of the pieces.
 2. Slower. This method is slower since there are more steps and configuration.
 
-## Which One Is Best?
+## Which Method Is Best?
 
 For serious production systems we _highly_ recommend shipping logs external from your application by integrating directly with your platform or system. It is worth the time and effort to invest in this method to ensure you have log data when you need it.
 
-For everyone else, our [language libraries]() should be sufficient, especially for applications just starting out. This allows you to get up and running with very little effort and time.
+For everyone else, our [language libraries](../setup/languages/) should be sufficient, especially for applications just starting out. This allows you to get up and running with very little effort and time.
 

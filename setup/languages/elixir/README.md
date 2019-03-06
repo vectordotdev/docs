@@ -4,7 +4,7 @@ description: Send Elixir logs to Timber
 
 # Elixir
 
-Timber integrates with [Elixir](https://elixir-lang.org/) through the [`:timber` Hex package](https://hex.pm/packages/timber), allowing you to send Elixir log data to your Timber account. The Timber Elixir library features:
+Timber integrates with [Elixir](https://elixir-lang.org/) through the [`:timber` Hex package](https://hex.pm/packages/timber), enabling you to send Elixir logs to your Timber account. The Timber Elixir library features:
 
 * \*\*\*\*[**Simple Integration.** Works directly with the core Elixir `Logger`.](./#installation)
 * \*\*\*\*[**Fast & light-weight.**  Designed with performance in mind.](./#performance)
@@ -15,7 +15,7 @@ Timber integrates with [Elixir](https://elixir-lang.org/) through the [`:timber`
 
 ## Installation
 
-If you're unsure, we recommend installing via the "HTTP" method. To understand why you would choose one over the other, please see the ["Ship Logs From Within My App?" guide](../../../guides/ship-logs-from-within-my-app.md).
+If you're unsure, we recommend installing via the "HTTP" method. To understand why you would choose one over the other, please see the ["Sending Logs To Timber" guide](../../../guides/sending-logs-to-timber.md).
 
 {% tabs %}
 {% tab title="HTTP" %}
@@ -32,7 +32,7 @@ If you're unsure, we recommend installing via the "HTTP" method. To understand w
    {% endcode-tabs-item %}
    {% endcode-tabs %}
 
-2. In `config.exs`, install the Timber logger backend with your API key and source ID:  
+2. In `config.exs`, install the Timber logger backend, _**replace `YOUR_API_KEY` and `YOUR_SOURCE_ID` accordingly**_:  
 
 
    {% code-tabs %}
@@ -60,7 +60,7 @@ If you're unsure, we recommend installing via the "HTTP" method. To understand w
 
 {% tab title="STDOUT" %}
 {% hint style="warning" %}
-This method is more advanced and requires a separate step to ship logs to Timber. Basic knowledge of `STDOUT` and log management is required. For more information on the advantages of this method please see [this guide](../../../guides/ship-logs-from-within-my-app.md).
+This method is more advanced and requires a separate step to ship logs to Timber. Basic knowledge of `STDOUT` and log management is required. For more information on the advantages of this method please see [this guide](../../../guides/sending-logs-to-timber.md).
 {% endhint %}
 
 1. In your `mix.exs` file add the `:timber` dependency:  
@@ -111,7 +111,7 @@ All configuration options for the Elixir `Logger` can be found in the [`Logger` 
 #### Log to STDOUT in addition to Timber
 
 {% hint style="warning" %}
-If you have the means to log to `STDOUT,` we highly recommend that you redirect STDOUT to Timber through one of our [integrations]() instead of shipping logs from within your app. You can read more about that [here](../../../guides/ship-logs-from-within-my-app.md). 
+If you have the means to log to `STDOUT,` we highly recommend that you redirect STDOUT to Timber through one of our [integrations]() instead of shipping logs from within your app. You can read more about that [here](../../../guides/sending-logs-to-timber.md). 
 {% endhint %}
 
 Logging to `:stdout` uses the Elixir provided `:console` backend. You can read more about configuring the `:console`backend [here](https://hexdocs.pm/logger/Logger.html#module-console-backend). Simply add it as a Logger backend:
@@ -139,10 +139,10 @@ Logger.info("Hello world")
 ### Structured Logging
 
 {% hint style="info" %}
-If you haven't already, please see our [structured logging best practices guide](../../../guides/event-naming.md).
+If you haven't already, please see our [structured logging best practices guide](../../../guides/structured-logging-best-practices.md).
 {% endhint %}
 
-Your `Logger` calls now take an `:event` metadata key where you can pass structured data. We recommend logging data with a root level namespace as shown below to avoid type conflicts with other events. You can read more on this in our [Event Naming guide.](../../../guides/event-naming.md)
+Your `Logger` calls now take an `:event` metadata key where you can pass structured data. We recommend logging data with a root level namespace as shown below to avoid type conflicts with other events. You can read more on this in our [Event Naming guide.](../../../guides/structured-logging-best-practices.md)
 
 ```elixir
 Logger.info(fn ->

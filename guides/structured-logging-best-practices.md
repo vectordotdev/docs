@@ -5,7 +5,7 @@ description: Best practices when writing structured logs
 # Structured Logging Best Practices
 
 {% hint style="info" %}
-Timber provides [language level libraries ]()that make structured logging a breeze. If you haven't already, please [check them out]().
+Timber provides [language level libraries ](../setup/languages/)that make structured logging a breeze. If you haven't already, please [check them out](../setup/languages/).
 {% endhint %}
 
 Timber has a strong focus on structured logging; modern developers are starting to see their logs as structured events not text. And while the benefits of structured logs are obvious, it's not always obvious how to get started. After working with thousands of companies, and using Timber heavily within Timber itself, this document collates the our structured logging best practices.
@@ -122,7 +122,7 @@ Produces the following log events:
 {"message": "Second log", "context": {"user": {"id": "abcd1234"}}}
 ```
 
-You can see how this can be incredibly useful to capture context like [user](event-naming.md#tie-your-logs-to-users) or [request](event-naming.md#tie-your-logs-to-requests-via-the-request-id) context.
+You can see how this can be incredibly useful to capture context like [user](structured-logging-best-practices.md#tie-your-logs-to-users) or [request](structured-logging-best-practices.md#tie-your-logs-to-requests-via-the-request-id) context.
 
 ### Keep it lightweight
 

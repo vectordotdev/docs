@@ -4,9 +4,9 @@ description: Send Python logs to Timber
 
 # Python
 
-Timber integrates with [Python](https://www.python.org/) through the [`timber` Python library](https://pypi.org/project/timber/). The Timber Python library features:
+Timber integrates with [Python](https://www.python.org/) through the [`timber` Python library](https://pypi.org/project/timber/), enabling you to send Python logs to your Timber account. The Timber Python library features:
 
-* **Simple integration**. Integrates with the [Python `logging` library](https://docs.python.org/3/library/logging.html), making it easy to integrate without code level changes.
+* \*\*\*\*[**Simple integration**. Integrates with the Python `logging` library.](python.md#installation)
 * \*\*\*\*[**Support for structured logging and events**](python.md#structured-logging)**.**
 * [**Support for context**](python.md#setting-context)**.**
 * [**Performant, light weight, with a thoughtful design**](python.md#performance)**.**
@@ -20,7 +20,8 @@ Timber integrates with [Python](https://www.python.org/) through the [`timber` P
    pip install timber
    ```
 
-2. Instantiate the Timber logger:  
+2. Install the Timber logger, _**replace `YOUR_API_KEY` and `YOUR_SOURCE_ID` accordingly**_:
+
 
 
    ```python
@@ -52,7 +53,7 @@ logger.info('Info message')
 ### Structured Logging
 
 {% hint style="info" %}
-If you haven't already, please read our [structured logging best practices guide](../../guides/event-naming.md).
+If you haven't already, please read our [structured logging best practices guide](../../guides/structured-logging-best-practices.md).
 {% endhint %}
 
 ```python
