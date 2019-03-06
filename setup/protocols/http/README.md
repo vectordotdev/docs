@@ -7,7 +7,7 @@ description: Send logs to Timber via the Timber HTTP API
 Timber has a rich [HTTP API](http://docs.api.timber.io/) that you can use to send logs to the Timber platform.
 
 {% hint style="info" %}
-Timber offers [language level libraries]() and [integrations]() that handle the efficient and reliable delivery of your log data. We _highly_ recommend using those when possible.
+Timber offers [language level libraries](../../languages/) and support for [log forwarders](../../log-forwarders/) that handle the efficient and reliable delivery of your log data. We _highly_ recommend using those when possible.
 {% endhint %}
 
 ## Installation
