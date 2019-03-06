@@ -2,17 +2,17 @@
 description: Send logs to Timber via the Timber HTTP API
 ---
 
-# HTTP API
+# HTTP
 
 Timber has a rich [HTTP API](http://docs.api.timber.io/) that you can use to send logs to the Timber platform.
 
 {% hint style="info" %}
-Timber offers [language level libraries](../../under-the-hood/language-libraries.md) and [integrations]() that handle the efficient and reliable delivery of your log data. We _highly_ recommend using those when possible.
+Timber offers [language level libraries](../../../under-the-hood/language-libraries.md) and [integrations]() that handle the efficient and reliable delivery of your log data. We _highly_ recommend using those when possible.
 {% endhint %}
 
 ## Installation
 
-Forwarding logs to Timber is highly specific to your HTTP client. Below are a few examples, as well as best practices. If possible, we recommend using one of [Timber's libraries](../../under-the-hood/language-libraries.md) as all of the intricate details of sending data to Timber are handled for you.
+Forwarding logs to Timber is highly specific to your HTTP client. Below are a few examples, as well as best practices. If possible, we recommend using one of [Timber's libraries](../../../under-the-hood/language-libraries.md) as all of the intricate details of sending data to Timber are handled for you.
 
 ### Examples
 
@@ -74,7 +74,7 @@ Timber accepts the following content types \(ordered by preference\):
 
 ### Timber Libraries
 
-If you don't want to do this yourself you can use one of [Timber's language libraries](../../under-the-hood/language-libraries.md).
+If you don't want to do this yourself you can use one of [Timber's language libraries](../../../under-the-hood/language-libraries.md).
 
 ## Limitations
 
@@ -83,9 +83,9 @@ If you don't want to do this yourself you can use one of [Timber's language libr
 
 ## Troubleshooting
 
-To begin, please see our [log delivery troubleshooting guide](../../guides/troubleshooting-log-delivery.md). This covers the most common issues we see with log delivery:
+To begin, please see our [log delivery troubleshooting guide](../../../guides/troubleshooting-log-delivery.md). This covers the most common issues we see with log delivery:
 
-{% page-ref page="../../guides/troubleshooting-log-delivery.md" %}
+{% page-ref page="../../../guides/troubleshooting-log-delivery.md" %}
 
 If the above guide does not resolve your issue please contact support.
 

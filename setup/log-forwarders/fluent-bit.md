@@ -10,7 +10,7 @@ description: Send logs to Timber via Fluent Bit
 
 1. [Install Fluent Bit at the system level](https://docs.fluentbit.io/manual/installation), following instructions for your platform, such as [Debian](https://docs.fluentbit.io/manual/installation/debian), [Ubuntu](https://docs.fluentbit.io/manual/installation/ubuntu), [CentOS](https://docs.fluentbit.io/manual/installation/redhat_centos), or [building directly](https://docs.fluentbit.io/manual/installation/build_install).
 2. Install your desired input plugins, such as [file tailing](https://docs.fluentbit.io/manual/input/tail), [STDIN](https://docs.fluentbit.io/manual/input/stdin), [Syslog](https://docs.fluentbit.io/manual/input/syslog), or [TCP](https://docs.fluentbit.io/manual/input/tcp).
-3. In `/etc/td-agent-bit/td-agent-bit.conf`, configure a new output.  
+3. In `/etc/td-agent-bit/td-agent-bit.conf`, configure a new `http` output.  
 
 
    _**Be sure to replace `YOUR_API_KEY` and `YOUR_SOURCE_ID` appropriately!**_  
@@ -52,9 +52,9 @@ Please see the [Fluent Bit configuration documentation](https://docs.fluentbit.i
 
 ## Troubleshooting
 
-To begin, please see our [log delivery troubleshooting guide](../guides/troubleshooting-log-delivery.md). This covers the most common issues we see with log delivery:
+To begin, please see our [log delivery troubleshooting guide](../../guides/troubleshooting-log-delivery.md). This covers the most common issues we see with log delivery:
 
-{% page-ref page="../guides/troubleshooting-log-delivery.md" %}
+{% page-ref page="../../guides/troubleshooting-log-delivery.md" %}
 
 If the above troubleshooting guide does not resolve your issue then we recommend enabling logging for the FluentBit service itself. You can do so by adding the following section to your FluentBit configuration file, typically located at:
 

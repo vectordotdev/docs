@@ -43,7 +43,7 @@ Timber integrates with [Javascript](https://en.wikipedia.org/wiki/JavaScript) th
 
 {% tab title="Node \(STDOUT\)" %}
 {% hint style="warning" %}
-This method is more advanced and requires a separate step to ship logs to Timber. Basic knowledge of `STDOUT` and log management is required. For more information on the advantages of this method please see [this guide](../../guides/ship-logs-from-within-my-app.md).
+This method is more advanced and requires a separate step to ship logs to Timber. Basic knowledge of `STDOUT` and log management is required. For more information on the advantages of this method please see [this guide](../../../guides/ship-logs-from-within-my-app.md).
 {% endhint %}
 
 dsfsd
@@ -75,7 +75,7 @@ dsfsd
 
 **Which Node installation method should I choose?**
 
-We recommend the "HTTP" method if you are unsure. To understand why you would choose one over the other, please see the ["Ship Logs From Within My App?" guide](../../guides/ship-logs-from-within-my-app.md).
+We recommend the "HTTP" method if you are unsure. To understand why you would choose one over the other, please see the ["Ship Logs From Within My App?" guide](../../../guides/ship-logs-from-within-my-app.md).
 
 ## Configuration
 
@@ -107,7 +107,7 @@ logger.info("Hello world").then(log => {
 ### Structured Logging
 
 {% hint style="info" %}
-If you haven't already, please read our [structured logging best practices guide](../../guides/event-naming.md).
+If you haven't already, please read our [structured logging best practices guide](../../../guides/event-naming.md).
 {% endhint %}
 
 Augment your logs with structured data:
@@ -246,9 +246,9 @@ Instead, simply use [`@timberio/js`](https://github.com/timberio/timber-js/blob/
 
 ## Troubleshooting
 
-To begin, please see our [log delivery troubleshooting guide](../../guides/troubleshooting-log-delivery.md). This covers the most common issues we see with log delivery:
+To begin, please see our [log delivery troubleshooting guide](../../../guides/troubleshooting-log-delivery.md). This covers the most common issues we see with log delivery:
 
-{% page-ref page="../../guides/troubleshooting-log-delivery.md" %}
+{% page-ref page="../../../guides/troubleshooting-log-delivery.md" %}
 
 If the above troubleshooting guide does not resolve your issue then we recommend enabling debug logging with
 

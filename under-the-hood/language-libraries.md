@@ -6,15 +6,15 @@ description: Timber's language libraries & integrations
 
 The Timber service extends beyond just a hosted log service. Instead of being an observer of your log data, Timber is an active participant. This is why we invest in language level libraries that capture useful context and metadata to make your logs more useful. To get started, select your language below:
 
-{% page-ref page="../setup/elixir/" %}
+{% page-ref page="../setup/languages/elixir/" %}
 
-{% page-ref page="../setup/javascript/" %}
+{% page-ref page="../setup/languages/javascript/" %}
 
-{% page-ref page="../setup/node.md" %}
+{% page-ref page="../setup/languages/node.md" %}
 
-{% page-ref page="../setup/python.md" %}
+{% page-ref page="../setup/languages/python.md" %}
 
-{% page-ref page="../setup/ruby.md" %}
+{% page-ref page="../setup/languages/ruby.md" %}
 
 **Don't see your language?**
 

@@ -49,9 +49,9 @@ Please refer to the [AWS docs on Elastic Beanstalk log locations](http://docs.aw
 
 ## Troubleshooting
 
-Because the AWS Elastic Bean Stalk integration relies on [Fluent Bit](fluent-bit.md) we recommend reviewing the following troubleshooting guides:
+Because the AWS Elastic Bean Stalk integration relies on [Fluent Bit](../log-forwarders/fluent-bit.md) we recommend reviewing the following troubleshooting guides:
 
-{% page-ref page="../guides/troubleshooting-log-delivery.md" %}
+{% page-ref page="../../guides/troubleshooting-log-delivery.md" %}
 
-{% page-ref page="fluent-bit.md" %}
+{% page-ref page="../log-forwarders/fluent-bit.md" %}
 

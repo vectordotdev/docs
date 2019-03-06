@@ -1,14 +1,14 @@
 ---
-description: When to ship logs from within your app and when to not
+description: How to effectively send logs to Timber
 ---
 
-# Ship Logs From Within My App?
+# Sending Logs To Timber
 
-You'll notice Timber offers [language level integrations](../under-the-hood/language-libraries.md) that ship logs directly from within your application, we also offer a [platform level integrations]() that ship logs outside of your application. Customers often ask which method is best. This document will help clarify the differences between the two methods and help you choose the best for your needs.
+You'll notice Timber offers a variety of methods for sending logs to Timber. While flexible, this can be confusing, and often it's hard to understand which method is best. This guides serves to help in that process, helping you to walk away with the best integration method for your scenario.
 
-## Option 1: Sending Logs From Within Your App
+## In-App Log Delivery
 
-This method requires that you install one of Timber's [language level integrations](../under-the-hood/language-libraries.md). Logs generated from within your app will be sent over HTTP to the Timber service.
+In-app log delivery refers to the process of sending application log data to Timber directly within your app. For example, using [Timber's Ruby library](../setup/languages/ruby.md), you can send your Ruby app's logs directly to Timber without writing to `STDOUT` or a file. While simple, this method has a number of drawbacks:
 
 ### Pros
 
@@ -21,9 +21,9 @@ This method requires that you install one of Timber's [language level integratio
 2. Less reliable. Delivery failures are retried 3 times and then discarded to handle back-pressure. This ensures Timber does not disrupt your application's performance, but it also means that this log data is lost.
 3. Less stable. Because you're coupling log delivery with your application there is the possibility that log delivery will disrupt your application's stability. While Timber has taken every measure possible to prevent this, many times it it outside of our control.
 
-## Option 2: Sending Logs Outside Of Your App
+## Platform & System Log Delivery
 
-This method is more advanced, and requires system level understanding of concepts like `STDOUT` , log file management, disk buffering, and installing binaries / utilities.
+Platform & system log delivery refers to the process of sending log data to Timber outside of an application, such as tailing a file or forwarding Syslog logs to Timber.
 
 ### Pros
 
@@ -37,11 +37,9 @@ This method is more advanced, and requires system level understanding of concept
 1. Difficult. This method involves more steps and requires system-level operational experience to connect all of the pieces.
 2. Slower. This method is slower since there are more steps and configuration.
 
-## What Timber Recommends
+## Which One Is Best?
 
-For serious production systems we _highly_ recommend shipping logs external from your application, following the [12 factor methodology](https://12factor.net/) and using one of our [integrations](). It is worth the time and effort to invest in this method to ensure you have log data when you need it.
+For serious production systems we _highly_ recommend shipping logs external from your application by integrating directly with your platform or system. It is worth the time and effort to invest in this method to ensure you have log data when you need it.
 
 For everyone else, our [language libraries](../under-the-hood/language-libraries.md) should be sufficient, especially for applications just starting out. This allows you to get up and running with very little effort and time.
-
-
 

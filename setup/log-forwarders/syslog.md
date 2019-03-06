@@ -4,7 +4,7 @@ description: Sends logs to Timber via Syslog
 
 # Syslog
 
-Timber offers first-class encrypted support for the various types of Syslog, enabling you to configure Syslog to forward messages to Timber.
+Timber offers first-class native support for the various types of Syslog, avoiding the need to install an additional log forwarder. Just point Syslog to Timber and go.
 
 ## Installation
 
@@ -244,7 +244,7 @@ Please see the [syslog-ng configuration documentation](https://www.syslog-ng.com
 
 ## Troubleshooting
 
-To begin, please see our [log delivery troubleshooting guide](../guides/troubleshooting-log-delivery.md). This covers the most common issues we see with log delivery:
+To begin, please see our [log delivery troubleshooting guide](../../guides/troubleshooting-log-delivery.md). This covers the most common issues we see with log delivery:
 
-{% page-ref page="../guides/troubleshooting-log-delivery.md" %}
+{% page-ref page="../../guides/troubleshooting-log-delivery.md" %}
 

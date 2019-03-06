@@ -4,7 +4,7 @@ description: Send Kubernetes logs to Timber
 
 # Kubernetes
 
-Timber integrates with [Kubernetes](https://kubernetes.io/) through the [Fluent Bit](fluent-bit.md) log forwarder.
+Timber integrates with [Kubernetes](https://kubernetes.io/) through the [Fluent Bit](../log-forwarders/fluent-bit.md) log forwarder.
 
 ## Installation
 
@@ -76,5 +76,5 @@ Every line emitted from your Kubernetes cluster will contain the following addit
 
 ## Troubleshooting
 
-Because the Kubernetes integration relies on [Fluent Bit](fluent-bit.md) we recommend reviewing the [FluentBit troubleshooting section](fluentd/#troubleshooting).
+Because the Kubernetes integration relies on [Fluent Bit](../log-forwarders/fluent-bit.md) we recommend reviewing the [FluentBit troubleshooting section](../log-forwarders/fluentd/#troubleshooting).
 

@@ -52,7 +52,7 @@ logger.info('Info message')
 ### Structured Logging
 
 {% hint style="info" %}
-If you haven't already, please read our [structured logging best practices guide](../guides/event-naming.md).
+If you haven't already, please read our [structured logging best practices guide](../../guides/event-naming.md).
 {% endhint %}
 
 ```python
@@ -104,9 +104,9 @@ Extreme care was taken into the design of `timber` to be fast and reliable:
 
 ## Troubleshooting
 
-To begin, please see our [log delivery troubleshooting guide](../guides/troubleshooting-log-delivery.md). This covers the most common issues we see with log delivery:
+To begin, please see our [log delivery troubleshooting guide](../../guides/troubleshooting-log-delivery.md). This covers the most common issues we see with log delivery:
 
-{% page-ref page="../guides/troubleshooting-log-delivery.md" %}
+{% page-ref page="../../guides/troubleshooting-log-delivery.md" %}
 
 If the above troubleshooting guide does not resolve your issue then we recommend [enabling the `raise_exceptions` option](https://github.com/timberio/timber-python#raise_exceptions). This should surface any delivery errors.
 

@@ -87,9 +87,9 @@ AWS provide [log subscription filters](https://docs.aws.amazon.com/AmazonCloudWa
 
 ## Troubleshooting
 
-To begin, please see our [log delivery troubleshooting guide](../../guides/troubleshooting-log-delivery.md). This covers the most common issues we see with log delivery:
+To begin, please see our [log delivery troubleshooting guide](../../../guides/troubleshooting-log-delivery.md). This covers the most common issues we see with log delivery:
 
-{% page-ref page="../../guides/troubleshooting-log-delivery.md" %}
+{% page-ref page="../../../guides/troubleshooting-log-delivery.md" %}
 
 If the above troubleshooting guide does not resolve your issue we recommend enabling debug logging on the Timber Lambda forwarder function. You can do this by setting the `TIMBER_DEBUG` environment variable to `true` . The the Timber logging function will begin emitting debug logs which you can analyze in the AWS CloudWatch Logs console.
 

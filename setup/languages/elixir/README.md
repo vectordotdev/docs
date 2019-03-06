@@ -4,16 +4,18 @@ description: Send Elixir logs to Timber
 
 # Elixir
 
-Timber integrates with [Elixir](https://elixir-lang.org/) through the [`:timber` Hex package](https://hex.pm/packages/timber). The Timber Elixir library features:
+Timber integrates with [Elixir](https://elixir-lang.org/) through the [`:timber` Hex package](https://hex.pm/packages/timber), allowing you to send Elixir log data to your Timber account. The Timber Elixir library features:
 
-* **Simple Integration.** Works directly with the core [Elixir `Logger`](https://hexdocs.pm/logger/Logger.html) making it easy to integrate without code level changes.
-* **Fast & light-weight.**  [Designed with performance in mind](./#performance).
+* \*\*\*\*[**Simple Integration.** Works directly with the core Elixir `Logger`.](./#installation)
+* \*\*\*\*[**Fast & light-weight.**  Designed with performance in mind.](./#performance)
 * **Support for** [**local**](./#local-context-default) **and** [**global**](./#global-context) **context.**
-* \*\*\*\*[**Automatic context**](./#context) **capturing.**
-* **Strong** [**structured logging support**](./#structured-logging)**.**
-* \*\*\*\*[**Integrates with popular 3rd party libraries**](./#integrations)**.**
+* \*\*\*\*[**Automatic context capturing.**](./#automatic-context)\*\*\*\*
+* \*\*\*\*[**Strong structured logging support.**](./#structured-logging)\*\*\*\*
+* \*\*\*\*[**Integrates with popular 3rd party libraries.**](./#integrations)\*\*\*\*
 
 ## Installation
+
+If you're unsure, we recommend installing via the "HTTP" method. To understand why you would choose one over the other, please see the ["Ship Logs From Within My App?" guide](../../../guides/ship-logs-from-within-my-app.md).
 
 {% tabs %}
 {% tab title="HTTP" %}
@@ -30,7 +32,7 @@ Timber integrates with [Elixir](https://elixir-lang.org/) through the [`:timber`
    {% endcode-tabs-item %}
    {% endcode-tabs %}
 
-2. In `config.exs`, install the Timber logger backend with your _**raw**_ API key.  
+2. In `config.exs`, install the Timber logger backend with your API key and source ID:  
 
 
    {% code-tabs %}
@@ -58,7 +60,7 @@ Timber integrates with [Elixir](https://elixir-lang.org/) through the [`:timber`
 
 {% tab title="STDOUT" %}
 {% hint style="warning" %}
-This method is more advanced and requires a separate step to ship logs to Timber. Basic knowledge of `STDOUT` and log management is required. For more information on the advantages of this method please see [this guide](../../guides/ship-logs-from-within-my-app.md).
+This method is more advanced and requires a separate step to ship logs to Timber. Basic knowledge of `STDOUT` and log management is required. For more information on the advantages of this method please see [this guide](../../../guides/ship-logs-from-within-my-app.md).
 {% endhint %}
 
 1. In your `mix.exs` file add the `:timber` dependency:  
@@ -96,10 +98,6 @@ This method is more advanced and requires a separate step to ship logs to Timber
 {% endtab %}
 {% endtabs %}
 
-**Which installation method should I choose?**
-
-We recommend the "HTTP" method if you are unsure. To understand why you would choose one over the other, please see the ["Ship Logs From Within My App?" guide](../../guides/ship-logs-from-within-my-app.md).
-
 ## Configuration
 
 ### Timber Configuration
@@ -113,7 +111,7 @@ All configuration options for the Elixir `Logger` can be found in the [`Logger` 
 #### Log to STDOUT in addition to Timber
 
 {% hint style="warning" %}
-If you have the means to log to `STDOUT,` we highly recommend that you redirect STDOUT to Timber through one of our [integrations]() instead of shipping logs from within your app. You can read more about that [here](../../guides/ship-logs-from-within-my-app.md). 
+If you have the means to log to `STDOUT,` we highly recommend that you redirect STDOUT to Timber through one of our [integrations]() instead of shipping logs from within your app. You can read more about that [here](../../../guides/ship-logs-from-within-my-app.md). 
 {% endhint %}
 
 Logging to `:stdout` uses the Elixir provided `:console` backend. You can read more about configuring the `:console`backend [here](https://hexdocs.pm/logger/Logger.html#module-console-backend). Simply add it as a Logger backend:
@@ -126,7 +124,7 @@ config :logger, backends: [Timber.LoggerBackends.HTTP, :console]
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-From here you can redirect `STDOUT` to a [file](../fluent-bit.md), [Syslog](../syslog.md), or any device of your choice.
+From here you can redirect `STDOUT` to a [file](../../log-forwarders/fluent-bit.md), [Syslog](../../log-forwarders/syslog.md), or any device of your choice.
 
 ## Usage
 
@@ -141,10 +139,10 @@ Logger.info("Hello world")
 ### Structured Logging
 
 {% hint style="info" %}
-If you haven't already, please see our [structured logging best practices guide](../../guides/event-naming.md).
+If you haven't already, please see our [structured logging best practices guide](../../../guides/event-naming.md).
 {% endhint %}
 
-Your `Logger` calls now take an `:event` metadata key where you can pass structured data. We recommend logging data with a root level namespace as shown below to avoid type conflicts with other events. You can read more on this in our [Event Naming guide.](../../guides/event-naming.md)
+Your `Logger` calls now take an `:event` metadata key where you can pass structured data. We recommend logging data with a root level namespace as shown below to avoid type conflicts with other events. You can read more on this in our [Event Naming guide.](../../../guides/event-naming.md)
 
 ```elixir
 Logger.info(fn ->
@@ -259,7 +257,7 @@ The new process spawned with `Task.async/1` will now contain the same Timber con
 
 ## Automatic Context
 
-`:timber` automatically captures [context](../../under-the-hood/concepts.md#context) to enrich your logs. If you're shipping logs from within your app you'll want to keep context enabled. If you're shipping logs external from your app you'll want to disable context that is redundant to your log shipper.
+`:timber` automatically captures [context](../../../under-the-hood/concepts.md#context) to enrich your logs. If you're shipping logs from within your app you'll want to keep context enabled. If you're shipping logs external from your app you'll want to disable context that is redundant to your log shipper.
 
 ### System 
 
@@ -344,9 +342,9 @@ No, Timber is installed as an [Elixir `Logger` backend](https://hexdocs.pm/logge
 
 ## Troubleshooting
 
-To begin, please see our [log delivery troubleshooting guide](../../guides/troubleshooting-log-delivery.md). This covers the most common issues we see with log delivery:
+To begin, please see our [log delivery troubleshooting guide](../../../guides/troubleshooting-log-delivery.md). This covers the most common issues we see with log delivery:
 
-{% page-ref page="../../guides/troubleshooting-log-delivery.md" %}
+{% page-ref page="../../../guides/troubleshooting-log-delivery.md" %}
 
 If the above troubleshooting guide does not resolve your issue then we recommend enabling debug logging within the `:timber` library itself by adding this to your `config/config.ex` file:
 

@@ -12,7 +12,7 @@ Timber integrates with [Docker](https://www.docker.com/) through [Fluent Bit](ht
 Requires Docker version 1.8.0 or later
 {% endhint %}
 
-1. [Install Fluent Bit at the system level](fluent-bit.md#installation). Fluent Bit has excellent setup instructions, please follow the appropriate ones for your system.
+1. [Install Fluent Bit at the system level](../log-forwarders/fluent-bit.md#installation). Fluent Bit has excellent setup instructions, please follow the appropriate ones for your system.
 2. In `/etc/td-agent-bit/td-agent-bit.conf` , add the following.  
   
    _**Be sure to replace `YOUR_API_KEY` and `YOUR_SOURCE_ID` appropriately!**_  
@@ -71,11 +71,11 @@ Requires Docker version 1.8.0 or later
    sudo service docker restart
    ```
 
-Logs from all containers will be forwarded to Timber. We highly recommend configuring filtering and parsing as needed. Please see the [Fluent Bit configuration section](fluent-bit.md#configuration) for more information.
+Logs from all containers will be forwarded to Timber. We highly recommend configuring filtering and parsing as needed. Please see the [Fluent Bit configuration section](../log-forwarders/fluent-bit.md#configuration) for more information.
 
 ## Configuration
 
-Please see [t](https://docs.docker.com/config/containers/logging/fluentd/)he [Fluent Bit configuration section](fluent-bit.md#configuration) for more information.
+Please see [t](https://docs.docker.com/config/containers/logging/fluentd/)he [Fluent Bit configuration section](../log-forwarders/fluent-bit.md#configuration) for more information.
 
 ## Automatic Context
 
@@ -93,9 +93,9 @@ Fluent Bit maintains Docker images which you can find [here](https://docs.fluent
 
 ## Troubleshooting
 
-Because the Docker integration relies on [Fluent Bit](fluent-bit.md) we recommend reviewing the following troubleshooting guides:
+Because the Docker integration relies on [Fluent Bit](../log-forwarders/fluent-bit.md) we recommend reviewing the following troubleshooting guides:
 
-{% page-ref page="../guides/troubleshooting-log-delivery.md" %}
+{% page-ref page="../../guides/troubleshooting-log-delivery.md" %}
 
-{% page-ref page="fluent-bit.md" %}
+{% page-ref page="../log-forwarders/fluent-bit.md" %}
 

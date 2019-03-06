@@ -8,7 +8,7 @@ Throughout Timber's integration installation instructions you'll notice we requi
 
 ## What are Timber API keys?
 
-[API keys](../usage/account-management/api-keys.md) provide access to [Timber's API](http://docs.api.timber.io/) for your account. All API keys are scoped to the organization they belong to. You use them in the `Authorization` header within your requests to the Timber API \(more details in the [HTTP instruction](../setup/http-api/#examples)\).
+[API keys](../usage/account-management/api-keys.md) provide access to [Timber's API](http://docs.api.timber.io/) for your account. All API keys are scoped to the organization they belong to. You use them in the `Authorization` header within your requests to the Timber API \(more details in the [HTTP instruction](../setup/protocols/http/#examples)\).
 
 ### Obtaining an API Key
 
