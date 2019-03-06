@@ -102,3 +102,5 @@ Timber reserves the following fields:
 | `priority` | `int` | [Numeric Syslog 5424 severity.](https://en.wikipedia.org/wiki/Syslog#Severity_level) |
 | `_metadata` | `object` | Namespace for internal Timber metadata. |
 
+
+

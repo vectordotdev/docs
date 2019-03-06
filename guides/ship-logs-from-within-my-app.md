@@ -6,6 +6,18 @@ description: How to effectively send logs to Timber
 
 You'll notice Timber offers a variety of methods for sending logs to Timber. While flexible, this can be confusing, and often it's hard to understand which method is best. This guides serves to help in that process, helping you to walk away with the best integration method for your scenario.
 
+## Integration Methods
+
+Timber attempts to be as flexible as possible, attempting to integrate with a variety of platforms, systems and languages. You can send log data to Timber by choosing your preferred integration method:
+
+{% page-ref page="../setup/languages/" %}
+
+{% page-ref page="../setup/log-forwarders/" %}
+
+{% page-ref page="../setup/operating-systems/" %}
+
+{% page-ref page="../setup/platforms/" %}
+
 ## In-App Log Delivery
 
 In-app log delivery refers to the process of sending application log data to Timber directly within your app. For example, using [Timber's Ruby library](../setup/languages/ruby.md), you can send your Ruby app's logs directly to Timber without writing to `STDOUT` or a file. While simple, this method has a number of drawbacks:
@@ -14,6 +26,7 @@ In-app log delivery refers to the process of sending application log data to Tim
 
 1. Simple to setup.
 2. Does not require system level changes or installations.
+3. If you're using one of [Timber's libraries](../setup/languages/) we'll automatically capture context and structure your logs.
 
 ### Cons
 
@@ -41,5 +54,5 @@ Platform & system log delivery refers to the process of sending log data to Timb
 
 For serious production systems we _highly_ recommend shipping logs external from your application by integrating directly with your platform or system. It is worth the time and effort to invest in this method to ensure you have log data when you need it.
 
-For everyone else, our [language libraries](../under-the-hood/language-libraries.md) should be sufficient, especially for applications just starting out. This allows you to get up and running with very little effort and time.
+For everyone else, our [language libraries]() should be sufficient, especially for applications just starting out. This allows you to get up and running with very little effort and time.
 

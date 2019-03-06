@@ -5,7 +5,7 @@ description: Best practices when writing structured logs
 # Structured Logging Best Practices
 
 {% hint style="info" %}
-Timber provides [language level libraries ](../under-the-hood/language-libraries.md)that make structured logging a breeze. If you haven't already, please [check them out](../under-the-hood/language-libraries.md).
+Timber provides [language level libraries ]()that make structured logging a breeze. If you haven't already, please [check them out]().
 {% endhint %}
 
 Timber has a strong focus on structured logging; modern developers are starting to see their logs as structured events not text. And while the benefits of structured logs are obvious, it's not always obvious how to get started. After working with thousands of companies, and using Timber heavily within Timber itself, this document collates the our structured logging best practices.
