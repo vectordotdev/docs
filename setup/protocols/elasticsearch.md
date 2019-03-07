@@ -6,6 +6,10 @@ description: Point existing Elasticsearch clients to Timber
 
 Timber supports the Elasticsearch [`/_bulk` endpoint](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-bulk.html) protocol, allowing you to point existing Elasticsearch clients to Timber. This makes Timber a drop in replacement for Elasticsearch ingestion.
 
+{% hint style="info" %}
+Timber supports popular Elasticsearch clients, such as [Filebeat](../log-forwarders/filebeat.md) and Logstash. We recommend following those instructions if you're using one of those clients.
+{% endhint %}
+
 ## Installation
 
 1. Configure your client's URL to be `https://logs.timber.io/sources/YOUR_SOURCE_ID/frames`, _**replacing `YOUR_SOURCE_ID` accordingly**_.

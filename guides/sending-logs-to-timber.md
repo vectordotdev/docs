@@ -20,7 +20,7 @@ Timber attempts to be as flexible as possible, attempting to integrate with a va
 
 ## In-App Log Delivery
 
-In-app log delivery refers to the process of sending application log data to Timber directly within your app. For example, using [Timber's Ruby library](../setup/languages/ruby.md), you can send your Ruby app's logs directly to Timber without writing to `STDOUT` or a file. While simple, this method has a number of drawbacks:
+In-app log delivery refers to the process of sending application log data to Timber directly within your app. For example, using [Timber's Ruby library](../setup/languages/ruby/), you can send your Ruby app's logs directly to Timber without writing to `STDOUT` or a file. While simple, this method has a number of drawbacks:
 
 ### Pros
 

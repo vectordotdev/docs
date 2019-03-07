@@ -6,10 +6,10 @@ description: Send Python logs to Timber
 
 Timber integrates with [Python](https://www.python.org/) through the [`timber` Python library](https://pypi.org/project/timber/), enabling you to send Python logs to your Timber account. The Timber Python library features:
 
-* \*\*\*\*[**Simple integration**. Integrates with the Python `logging` library.](python.md#installation)
-* \*\*\*\*[**Support for structured logging and events**](python.md#structured-logging)**.**
-* [**Support for context**](python.md#setting-context)**.**
-* [**Performant, light weight, with a thoughtful design**](python.md#performance)**.**
+* \*\*\*\*[**Simple integration**. Integrates with the Python `logging` library.](./#installation)
+* \*\*\*\*[**Support for structured logging and events**](./#structured-logging)**.**
+* [**Support for context**](./#setting-context)**.**
+* [**Performant, light weight, with a thoughtful design**](./#performance)**.**
 
 ## Installation
 
@@ -53,7 +53,7 @@ logger.info('Info message')
 ### Structured Logging
 
 {% hint style="info" %}
-If you haven't already, please read our [structured logging best practices guide](../../guides/structured-logging-best-practices.md).
+If you haven't already, please read our [structured logging best practices guide](../../../guides/structured-logging-best-practices.md).
 {% endhint %}
 
 ```python
@@ -105,9 +105,9 @@ Extreme care was taken into the design of `timber` to be fast and reliable:
 
 ## Troubleshooting
 
-To begin, please see our [log delivery troubleshooting guide](../../guides/troubleshooting-log-delivery.md). This covers the most common issues we see with log delivery:
+To begin, please see our [log delivery troubleshooting guide](../../../guides/troubleshooting-log-delivery.md). This covers the most common issues we see with log delivery:
 
-{% page-ref page="../../guides/troubleshooting-log-delivery.md" %}
+{% page-ref page="../../../guides/troubleshooting-log-delivery.md" %}
 
 If the above troubleshooting guide does not resolve your issue then we recommend [enabling the `raise_exceptions` option](https://github.com/timberio/timber-python#raise_exceptions). This should surface any delivery errors.
 
