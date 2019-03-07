@@ -21,7 +21,7 @@ If you're unsure, we recommend installing via the "HTTP" method. To understand w
 
 {% tabs %}
 {% tab title="Rails \(HTTP\)" %}
-1. In your `Gemfile`, add the `timber` gem:  
+1. In your `Gemfile`, add the `timber` gems:  
 
 
    {% code-tabs %}
@@ -68,13 +68,15 @@ http_device.verify_delivery!
 This method is more advanced and requires a separate step to ship logs to Timber. Basic knowledge of `STDOUT` and log management is required. For more information on the advantages of this method please see [this guide](../../../guides/sending-logs-to-timber.md).
 {% endhint %}
 
-1. In your `Gemfile`, add the `timber` gem:  
+1. In your `Gemfile`, add the `timber` gems:  
 
 
    {% code-tabs %}
    {% code-tabs-item title="Gemfile" %}
    ```ruby
    gem 'timber', '~> 3.0'
+   gem 'timber-rack', '~> 1.0' # optional
+   gem 'timber-rails', '~> 1.0' # optional
    ```
    {% endcode-tabs-item %}
    {% endcode-tabs %}
@@ -96,13 +98,14 @@ This method is more advanced and requires a separate step to ship logs to Timber
 {% endtab %}
 
 {% tab title="Non-Rails \(HTTP\)" %}
-1. In your `Gemfile`, add the `timber` gem:  
+1. In your `Gemfile`, add the `timber` gems:  
 
 
    {% code-tabs %}
    {% code-tabs-item title="Gemfile" %}
    ```ruby
    gem 'timber', '~> 3.0'
+   gem 'timber-rack', '~> 1.0' # optional
    ```
    {% endcode-tabs-item %}
    {% endcode-tabs %}
@@ -140,13 +143,14 @@ This method is more advanced and requires a separate step to ship logs to Timber
 This method is more advanced and requires a separate step to ship logs to Timber. Basic knowledge of `STDOUT` and log management is required. For more information on the advantages of this method please see [this guide](../../../guides/sending-logs-to-timber.md).
 {% endhint %}
 
-1. In your `Gemfile`, add the `timber` gem:  
+1. In your `Gemfile`, add the `timber` gems:  
 
 
    {% code-tabs %}
    {% code-tabs-item title="Gemfile" %}
    ```ruby
    gem 'timber', '~> 3.0'
+   gem 'timber-rack', '~> 1.0' # optional
    ```
    {% endcode-tabs-item %}
    {% endcode-tabs %}

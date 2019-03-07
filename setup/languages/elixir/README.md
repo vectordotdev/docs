@@ -28,7 +28,14 @@ If you're unsure, we recommend installing via the "HTTP" method. To understand w
    {% code-tabs-item title="mix.exs" %}
    ```elixir
    defp deps do
-     [{:timber, "~> 3.0"}]
+     [
+       {:timber, "~> 3.0"},
+       # Choose your integrations:
+       {:timber_ecto, "~> 2.1"}, # optional
+       {:timber_exceptions, "~> 2.1"}, # optional
+       {:timber_phoenix, "~> 1.1"}, # optional
+       {:timber_plug, "~> 1.1"} # optional
+     ]
    end
    ```
    {% endcode-tabs-item %}
@@ -50,14 +57,11 @@ If you're unsure, we recommend installing via the "HTTP" method. To understand w
    {% endcode-tabs-item %}
    {% endcode-tabs %}
 
-3. In your `shell`, verify installation by running:  
+#### Test The Pipes
 
-
-   ```bash
-   mix timber.test_the_pipes
-   ```
-
-4. _Optionally_ [install integrations](./#integrations) with `Plug`, `Phoenix`, `Ecto`, and more.
+```bash
+mix timber.test_the_pipes
+```
 {% endtab %}
 
 {% tab title="STDOUT" %}
@@ -72,7 +76,14 @@ This method is more advanced and requires a separate step to ship logs to Timber
    {% code-tabs-item title="mix.exs" %}
    ```elixir
    defp deps do
-     [{:timber, "~> 3.0"}]
+     [
+       {:timber, "~> 3.0"},
+       # Choose your integrations:
+       {:timber_ecto, "~> 2.1"}, # optional
+       {:timber_exceptions, "~> 2.1"}, # optional
+       {:timber_phoenix, "~> 1.1"}, # optional
+       {:timber_plug, "~> 1.1"} # optional
+     ]
    end
    ```
    {% endcode-tabs-item %}
