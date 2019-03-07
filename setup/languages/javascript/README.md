@@ -40,7 +40,7 @@ We recommend the "HTTP" method if you are unsure. To understand why you would ch
 
 
    ```javascript
-   const logger = new TimberNode(YOUR_SOURCE_ID, "YOUR_API_KEY");
+   const logger = new TimberNode("YOUR_SOURCE_ID", "YOUR_API_KEY");
    ```
 {% endtab %}
 
@@ -71,7 +71,7 @@ dsfsd
 
 
    ```javascript
-   const logger = new TimberBrowser(YOUR_SOURCE_ID, "YOUR_API_KEY");
+   const logger = new TimberBrowser("YOUR_SOURCE_ID", "YOUR_API_KEY");
    ```
 {% endtab %}
 {% endtabs %}

@@ -4,7 +4,7 @@ description: Send logs to Timber via Fluent Bit
 
 # Fluent Bit
 
-[Fluent Bit](https://fluentbit.io/) is a general purpose log forwarder that can forward logs from multiple destinations to Timber.
+[Fluent Bit](https://fluentbit.io/) is a general purpose log forwarder that can forward logs from multiple destinations to Timber. You can use Fluent Bit to send logs to your Timber account.
 
 ## Installation
 

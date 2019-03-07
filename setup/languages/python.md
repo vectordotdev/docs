@@ -32,7 +32,7 @@ Timber integrates with [Python](https://www.python.org/) through the [`timber` P
    # Set to logging.DEBUG if you want all logs
    logger.setLevel(logging.INFO)
 
-   timber_handler = timber.TimberHandler(source_id=YOUR_SOURCE_ID, api_key='YOUR_API_KEY')
+   timber_handler = timber.TimberHandler(source_id='YOUR_SOURCE_ID', api_key='YOUR_API_KEY')
    logger.addHandler(timber_handler)
    ```
 
