@@ -112,14 +112,10 @@ This method is more advanced and requires a separate step to ship logs to Timber
 3. Instantiate the Timber logger for global use, _**replace `YOUR_API_KEY` and `YOUR_SOURCE_ID` accordingly**_:  
 
 
-   {% code-tabs %}
-   {% code-tabs-item title="config/initializers/timber.rb" %}
    ```ruby
    http_device = Timber::LogDevices::HTTP.new("YOUR_API_KEY", "YOUR_SOURCE_ID")
    LOGGER = Timber::Logger.new(http_device)
    ```
-   {% endcode-tabs-item %}
-   {% endcode-tabs %}
 
 4. _Optionally_ [install integrations](./#integrations) with `Rack`, and more.
 5. Verify installation by testing the pipes:  
@@ -138,6 +134,30 @@ This method is more advanced and requires a separate step to ship logs to Timber
    logger.info("Order #1234 placed", order_placed: {id: 1234, total: 100.54})
    http_device.verify_delivery!
    ```
+{% endtab %}
+
+{% tab title="Non-Rails \(STDOUT\)" %}
+1. In your `Gemfile`, add the `timber` gem:  
+
+
+   {% code-tabs %}
+   {% code-tabs-item title="Gemfile" %}
+   ```ruby
+   gem 'timber', '~> 3.0'
+   ```
+   {% endcode-tabs-item %}
+   {% endcode-tabs %}
+
+2. In your `shell` run `bundle install`
+3. Instantiate the Timber logger for global use, _**replace `YOUR_API_KEY` and `YOUR_SOURCE_ID` accordingly**_:  
+
+
+   ```ruby
+   LOGGER = Timber::Logger.new(STDOUT)
+   ```
+
+4. _Optionally_ [install integrations](./#integrations) with `Rack`, and more.
+5. At this point your application is writing logs to `STDOUT` in JSON format. Please choose the appropriate [platform](../../platforms/), [log forwarder](../../log-forwarders/), or [operating system](../../operating-systems/).
 {% endtab %}
 {% endtabs %}
 
