@@ -121,7 +121,7 @@ All configuration options for `:timber` can be found in the [`Timber.Config` doc
 
 All configuration options for the Elixir `Logger` can be found in the [`Logger` documentation](https://hexdocs.pm/logger/Logger.html#module-configuration).
 
-#### Log to STDOUT in addition to Timber
+### Log to STDOUT in addition to Timber
 
 {% hint style="warning" %}
 If you have the means to log to `STDOUT,` we highly recommend that you redirect STDOUT to Timber through one of our [integrations]() instead of shipping logs from within your app. You can read more about that [here](../../../guides/sending-logs-to-timber.md). 
@@ -167,7 +167,7 @@ end)
 
 ### Setting Context
 
-Before capturing context, please make sure Timber does not already capture the context you want \([see the Context section](./#context)\).
+Before capturing context, please make sure Timber does not already capture the context you want \([see the Automatic Context section](./#context)\).
 
 #### Local Context \(default\)
 
