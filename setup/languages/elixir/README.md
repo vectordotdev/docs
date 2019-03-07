@@ -15,7 +15,9 @@ Timber integrates with [Elixir](https://elixir-lang.org/) through the [`:timber`
 
 ## Installation
 
+{% hint style="info" %}
 If you're unsure, we recommend installing via the "HTTP" method. To understand why you would choose one over the other, please see the ["Sending Logs To Timber" guide](../../../guides/sending-logs-to-timber.md).
+{% endhint %}
 
 {% tabs %}
 {% tab title="HTTP" %}
@@ -94,7 +96,7 @@ This method is more advanced and requires a separate step to ship logs to Timber
    {% endcode-tabs-item %}
    {% endcode-tabs %}
 
-3. At this point your application is writing logs to `STDOUT` in JSON format. Please choose the [appropriate platform integration instructions]() to ship your log data.
+3. At this point your application is writing logs to `STDOUT` in JSON format. Please choose the appropriate [platform](../../platforms/), [log forwarder](../../log-forwarders/), or [operating system](../../operating-systems/).
 {% endtab %}
 {% endtabs %}
 
@@ -309,7 +311,11 @@ Runtime context captures information about the originator of the log line. By de
 
 ## Integrations
 
-Timber integrates with popular 3rd party libraries to enhance the logs they emit. Instead of emitting raw text logs, Timber's integrations augment their logs with structured data, turning them into rich structured events.
+Timber _optionally_ integrates with popular 3rd party libraries to enhance the logs they emit. Instead of emitting raw text logs, Timber's integrations augment their logs with structured data, turning them into rich structured events.
+
+{% hint style="info" %}
+These integrations are entirely optional. While we recommend them, they are not required to use Timber. The Timber service is designed to work with all types of logs, text or structured.
+{% endhint %}
 
 | Name | Description |
 | :--- | :--- |

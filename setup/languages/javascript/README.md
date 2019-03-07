@@ -17,7 +17,9 @@ Timber integrates with [Javascript](https://en.wikipedia.org/wiki/JavaScript) th
 
 ## Installation
 
+{% hint style="info" %}
 We recommend the "HTTP" method if you are unsure. To understand why you would choose one over the other, please see the ["Ship Logs From Within My App?" guide](../../../guides/sending-logs-to-timber.md).
+{% endhint %}
 
 {% tabs %}
 {% tab title="Node \(HTTP\)" %}
