@@ -4,7 +4,7 @@ description: Send Ruby logs to Timber
 
 # Ruby
 
-Timber integrates with Ruby through its [`timber` Ruby gem](https://rubygems.org/gems/timber), enabling you to send R logs to your Timber account The Timber Ruby library features:
+Timber integrates with Ruby through its [`timber` Ruby gem](https://rubygems.org/gems/timber), enabling you to send Ruby logs to your Timber account The Timber Ruby library features:
 
 * Simple integration. Exposes the same API as the Ruby `Logger`.
 * Performant, light-weight, and thoughtful design.
@@ -137,6 +137,10 @@ This method is more advanced and requires a separate step to ship logs to Timber
 {% endtab %}
 
 {% tab title="Non-Rails \(STDOUT\)" %}
+{% hint style="warning" %}
+This method is more advanced and requires a separate step to ship logs to Timber. Basic knowledge of `STDOUT` and log management is required. For more information on the advantages of this method please see [this guide](../../../guides/sending-logs-to-timber.md).
+{% endhint %}
+
 1. In your `Gemfile`, add the `timber` gem:  
 
 
