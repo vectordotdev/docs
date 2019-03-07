@@ -294,7 +294,40 @@ These integrations are entirely optional. While we recommend them, they are not 
 
 ## Performance
 
+Extreme care was taken into the design of `timber` to be fast and reliable:
+
+1. Log data is buffered and flushed on an interval to optimize performance and delivery.
+2. The `timber` HTTP backend uses a controlled [multi-buffer](https://en.wikipedia.org/wiki/Multiple_buffering) design to efficiently ship data to the Timber service.
+3. Connections are re-used and rotated to ensure efficient delivery of log data.
+4. Delivery failures are retried with an exponential backoff, maximizing successful delivery.
+5. [Msgpack](https://msgpack.org/index.html) is used for payload encoding for it's superior performance and memory management.
+6. The Timber service ingest endpoint is a HA service designed to handle extreme fluctuations of volume, it responds in under 50ms to reduce back pressure.
+
 ## FAQs
 
 ## Troubleshooting
+
+To begin, please see our [log delivery troubleshooting guide](../../../guides/troubleshooting-log-delivery.md). This covers the most common issues we see with log delivery:
+
+{% page-ref page="../../../guides/troubleshooting-log-delivery.md" %}
+
+If the above troubleshooting guide does not resolve your issue then we recommend enabling debug logging within the `timber` library itself by adding this to your `config/initializers/timber.rb` file:
+
+{% code-tabs %}
+{% code-tabs-item title="config/initializers/timber.rb" %}
+```elixir
+Timber::Config.instance.debug_to_stdout!()
+```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
+
+This will print internal debug messages to `STDOUT`. Alternatively, you can debug to a file instead:
+
+{% code-tabs %}
+{% code-tabs-item title="config/initializers/timber.rb" %}
+```ruby
+Timber::Config.instance.debug_to_file!("/var/log/timber.log")
+```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
