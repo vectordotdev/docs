@@ -270,7 +270,7 @@ The new process spawned with `Task.async/1` will now contain the same Timber con
 
 ## Automatic Context
 
-`:timber` automatically captures [context](../../../under-the-hood/concepts.md#context) to enrich your logs. If you're shipping logs from within your app you'll want to keep context enabled. If you're shipping logs external from your app you'll want to disable context that is redundant to your log shipper.
+`:timber` automatically captures [context](../../../under-the-hood/concepts.md#context) to enrich your logs.
 
 ### System 
 

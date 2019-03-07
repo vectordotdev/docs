@@ -293,6 +293,46 @@ logger.info(
 
 ## Automatic Context
 
+`timber` automatically captures [context](../../../under-the-hood/concepts.md#context) to enrich your logs.
+
+### System 
+
+System context captures system level information such as hostname and pid:
+
+```javascript
+{
+    "context": {
+        "system": {
+            "hostname": "ec2-44-125-241-8",
+            "pid": 20643
+        }
+    }
+}
+```
+
+| Field | Description |
+| :--- | :--- |
+| `context.system.hostname` | System level hostname, value of `Socket.gethostname` |
+| `context.system.pid` | System level process ID, value of `Process.pid` |
+
+### Runtime
+
+Runtime context captures information about the origin of the log line:
+
+```javascript
+{
+    "context": {
+        "runtime": {
+            "thread_id": "70179740727560"
+        }
+    }
+}
+```
+
+| Field | Description |
+| :--- | :--- |
+| `context.runtime.thread_id` | The result of `Thread.current.object_id`, helping you to segment logs by thread. |
+
 ## Integrations
 
 Timber _optionally_ integrates with popular 3rd party libraries to enhance the logs they emit. Instead of emitting raw text logs, Timber's integrations augment their logs with structured data, turning them into rich structured events.
