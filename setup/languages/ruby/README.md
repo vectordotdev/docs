@@ -228,6 +228,15 @@ logger.info(
 
 Before capturing context, please make sure Timber does not already capture the context you want \([see the Automatic Context section](../elixir/#context)\).
 
+```ruby
+Timber.with_context(organization: {id: "abcd1234"}) do
+    logger.info(
+        "Subscription #1234 upgraded to $100",
+        subscription_upgraded: {id: 1234, total: 100.0}
+    )
+end
+```
+
 ### Tying Logs To Users
 
 {% tabs %}
