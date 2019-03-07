@@ -4,7 +4,7 @@ description: Send Ruby logs to Timber
 
 # Ruby
 
-Timber integrates with Ruby through its [`timber` Ruby gem](https://rubygems.org/gems/timber), enabling you to send Ruby logs to your Timber account The Timber Ruby library features:
+Timber integrates with [Ruby](https://www.ruby-lang.org) through its [`timber` Ruby gem](https://rubygems.org/gems/timber), enabling you to send Ruby logs to your Timber account The Timber Ruby library features:
 
 * Simple integration. Exposes the same API as the Ruby `Logger`.
 * Performant, light-weight, and thoughtful design.
@@ -28,6 +28,8 @@ If you're unsure, we recommend installing via the "HTTP" method. To understand w
    {% code-tabs-item title="Gemfile" %}
    ```ruby
    gem 'timber', '~> 3.0'
+   gem 'timber-rack', '~> 1.0' # optional
+   gem 'timber-rails', '~> 1.0' # optional
    ```
    {% endcode-tabs-item %}
    {% endcode-tabs %}
@@ -45,23 +47,20 @@ If you're unsure, we recommend installing via the "HTTP" method. To understand w
    {% endcode-tabs-item %}
    {% endcode-tabs %}
 
-4. _Optionally_ [install integrations](./#integrations) with `Rails`, `Rack`, and more.
-5. Verify installation by testing the pipes:  
+#### Test The Pipes
 
+```bash
+bundle exec rails console
+```
 
-   ```bash
-   bundle exec rails console
-   ```
+Then run the following code:
 
-   Then run the following code:  
-
-
-   ```ruby
-   http_device = Timber::LogDevices::HTTP.new("YOUR_API_KEY", "YOUR_SOURCE_ID")
-   logger = Timber::Logger.new(http_device)
-   Rails.logger.info("Order #1234 placed", order_placed: {id: 1234, total: 100.54})
-   http_device.verify_delivery!
-   ```
+```ruby
+http_device = Timber::LogDevices::HTTP.new("YOUR_API_KEY", "YOUR_SOURCE_ID")
+logger = Timber::Logger.new(http_device)
+Rails.logger.info("Order #1234 placed", order_placed: {id: 1234, total: 100.54})
+http_device.verify_delivery!
+```
 {% endtab %}
 
 {% tab title="Rails \(STDOUT\)" %}
