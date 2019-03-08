@@ -311,9 +311,9 @@ logger.info(
 
 `timber` automatically captures [context](../../../under-the-hood/concepts.md#context) to enrich your logs.
 
-### System 
+### system 
 
-System context captures system level information such as hostname and pid:
+The `system` context captures system level information such as hostname and pid:
 
 ```javascript
 {
@@ -331,9 +331,9 @@ System context captures system level information such as hostname and pid:
 | `context.system.hostname` | System level hostname, value of `Socket.gethostname` |
 | `context.system.pid` | System level process ID, value of `Process.pid` |
 
-### Runtime
+### runtime
 
-Runtime context captures information about the origin of the log line:
+The `runtime` context captures information about the origin of the log line:
 
 ```javascript
 {

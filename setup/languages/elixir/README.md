@@ -287,10 +287,10 @@ The `system` context captures system level information such as hostname and pid:
 }
 ```
 
-| Field | Description |
-| :--- | :--- |
-| `context.system.hostname` | System level hostname, value of [`:inet.gethostname()`](http://erlang.org/doc/man/inet.html#gethostname-0)\`\` |
-| `context.system.pid` | System level process ID, value of [`System.get_pid()`](https://hexdocs.pm/elixir/System.html#get_pid/0)\`\` |
+| Field | Type | Description |
+| :--- | :--- | :--- |
+| `context.system.hostname` | `string` | System level hostname, value of [`:inet.gethostname()`](http://erlang.org/doc/man/inet.html#gethostname-0)\`\` |
+| `context.system.pid` | `int` | System level process ID, value of [`System.get_pid()`](https://hexdocs.pm/elixir/System.html#get_pid/0)\`\` |
 
 ### runtime
 
@@ -311,29 +311,20 @@ The `runtime` context captures information about the originator of the log line.
 }
 ```
 
-| Field | Description |
-| :--- | :--- |
-| `context.runtime.vm_pid` | The Elixir VM pid \(not the operating system level pid\) |
-| `context.runtime.module_name` | The name of the module where the log statement originated. |
-| `context.runtime.line` | The line number where the log statement originated. |
-| `context.runtime.file` | The file where the log statement originated. |
-| `context.runtime.function` | The function where the log statement originated. |
-| `content.runtime.application` | The Elixir component app where the log statement originated. |
+| Field | Type | Description |
+| :--- | :--- | :--- |
+| `context.runtime.vm_pid` | `string` | The Elixir VM pid \(not the operating system level pid\) |
+| `context.runtime.module_name` | `string` | The name of the module where the log statement originated. |
+| `context.runtime.line` | `int` | The line number where the log statement originated. |
+| `context.runtime.file` | \`string | The file where the log statement originated. |
+| `context.runtime.function` |  | The function where the log statement originated. |
+| `content.runtime.application` |  | The Elixir component app where the log statement originated. |
 
 ## Integrations
 
-Timber _optionally_ integrates with popular 3rd party libraries to enhance the logs they emit. Instead of emitting raw text logs, Timber's integrations augment their logs with structured data, turning them into rich structured events.
+Timber integrates with 3rd party libraries a la carte style, allowing you to pick and choose the integrations you want. Integrations with timber are entirely optional and serve to upgrade your logs with rich context and metadata if you choose to use them:
 
-{% hint style="info" %}
-These integrations are entirely optional. While we recommend them, they are not required to use Timber. The Timber service is designed to work with all types of logs, text or structured.
-{% endhint %}
-
-| Name | Description |
-| :--- | :--- |
-| \`\`[`:timber_ecto`](https://github.com/timberio/timber-elixir-ecto) | Upgrade your `Ecto` logs with context and metadata. |
-| \`\`[`:timber_exceptions`](https://github.com/timberio/timber-elixir-exceptions) | Upgrade your exception logs to include useful metadata. |
-| \`\`[`:timber_phoenix`](https://github.com/timberio/timber-elixir-phoenix) | Update your `Phoenix` logs with context and metadata. |
-| \`\`[`:timber_plug`](https://github.com/timberio/timber-elixir-plug) | Upgrade your `Plug` logs with context and metadata. |
+{% page-ref page="integrations/" %}
 
 ## Performance
 

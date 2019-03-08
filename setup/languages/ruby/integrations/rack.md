@@ -50,12 +50,12 @@ HTTP context captures structured data on incoming HTTP requests:
 }
 ```
 
-| Field | Description |
-| :--- | :--- |
-| `context.http.request_id` | Unique identifier for the request |
-| `context.http.method` | Method of the HTTP request |
-| `context.http.host` | Host of the HTTP request |
-| `context.http.path` | Path of the HTTP request |
+| Field | Type | Description |
+| :--- | :--- | :--- |
+| `context.http.request_id` | `string` | Unique identifier for the request |
+| `context.http.method` | `string` | Method of the HTTP request |
+| `context.http.host` | `string` | Host of the HTTP request |
+| `context.http.path` | `string` | Path of the HTTP request |
 
 ## Events
 
@@ -74,13 +74,13 @@ The `http_request_received` event is emitted when a HTTP request is received.
 }
 ```
 
-| Field | Description |
-| :--- | :--- |
-| `http_request_received.method` | Method of the HTTP request |
-| `http_request.scheme` | Scheme of the HTTP request \(`http` or `https`\) |
-| `http_request_received.host` | Host of the HTTP request |
-| `http_request_received.path` | Path of the HTTP request |
-| `http_request_received.params_json` | JSON representation of the incoming parameters. See [this guide](../../../../guides/structured-logging-best-practices.md#keeping-your-schema-clean) to understand why we encode this data. |
+| Field | Type | Description |
+| :--- | :--- | :--- |
+| `http_request_received.method` | `string` | Method of the HTTP request |
+| `http_request.scheme` | `string` | Scheme of the HTTP request \(`http` or `https`\) |
+| `http_request_received.host` | `string` | Host of the HTTP request |
+| `http_request_received.path` | `string` | Path of the HTTP request |
+| `http_request_received.params_json` | `string` | JSON representation of the incoming parameters. See [this guide](../../../../guides/structured-logging-best-practices.md#keeping-your-schema-clean) to understand why we encode this data. |
 
 {% hint style="info" %}
 Where's the body? Timber purposefully leaves out the HTTP request body because it can be represented in many different formats. Instead, [we log the parameters in the `controller_called` event](rails.md#controller_called) which will be in a normalized structured.
@@ -99,8 +99,8 @@ The `http_response_sent` event is emitted when a HTTP response is sent back to t
 }
 ```
 
-| Field | Description |
-| :--- | :--- |
-| `http_response_sent.status` | HTTP status code of the response |
-| `http_response_sent.duration_ms` | Duration of processing the entire request |
+| Field | Type | Description |
+| :--- | :--- | :--- |
+| `http_response_sent.status` | `string` | HTTP status code of the response |
+| `http_response_sent.duration_ms` | `float` | Duration of processing the entire request |
 
