@@ -19,6 +19,6 @@ Timber supports popular Elasticsearch clients, such as [Filebeat](../log-forward
 ## Limitations
 
 1. Timber does not support the `delete` and `update` Elasticsearch bulk actions. Your log data in Timber is immutable.
-2. The `_index`, `_type`, and `_id` fields for the `create` and `index` actions are ignored. Timber handles all of this for you.
+2. The `_index`, `_type`, and `_id` fields for the `create` and `index` actions are ignored. Timber handles the values of these attributes for you.
 3. Timber does not accept request payloads larger than `1mb` in size, including headers. Timber is a real-time platform, providing real-time insight, and is designed for streaming ingestion of data.
 

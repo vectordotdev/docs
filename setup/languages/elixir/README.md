@@ -66,7 +66,7 @@ mix timber.test_the_pipes
 
 {% tab title="STDOUT" %}
 {% hint style="warning" %}
-This method is more advanced and requires a separate step to ship logs to Timber. Basic knowledge of `STDOUT` and log management is required. For more information on the advantages of this method please see [this guide](../../../guides/sending-logs-to-timber.md).
+This method is more advanced and requires a separate step to ship logs to Timber. Basic knowledge of `STDOUT` and log management is required. If you are unsure, please use the "HTTP" method. For more information on the advantages of this method please see [this guide](../../../guides/sending-logs-to-timber.md).
 {% endhint %}
 
 1. In your `mix.exs` file add the `:timber` dependency:  

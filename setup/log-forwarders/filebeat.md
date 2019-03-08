@@ -4,7 +4,7 @@ description: Send logs to Timber via Filebeat
 
 # Filebeat
 
-[Filebeat](https://www.elastic.co/guide/en/beats/filebeat/current/index.html) is a general purpose log forwarder that can forward log files to your Timber account.
+[Filebeat](https://www.elastic.co/guide/en/beats/filebeat/current/index.html) is a general purpose log forwarder that can tail and forward log files to your Timber account.
 
 {% hint style="info" %}
 If given the choice, we recommend [Fluent Bit](fluent-bit.md) for it's superior performance and flexibility.

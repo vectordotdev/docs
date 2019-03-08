@@ -65,7 +65,7 @@ http_device.verify_delivery!
 
 {% tab title="Rails \(STDOUT\)" %}
 {% hint style="warning" %}
-This method is more advanced and requires a separate step to ship logs to Timber. Basic knowledge of `STDOUT` and log management is required. For more information on the advantages of this method please see [this guide](../../../guides/sending-logs-to-timber.md).
+This method is more advanced and requires a separate step to ship logs to Timber. Basic knowledge of `STDOUT` and log management is required. If you are unsure, please use the "HTTP" method. For more information on the advantages of this method please see [this guide](../../../guides/sending-logs-to-timber.md).
 {% endhint %}
 
 1. In your `Gemfile`, add the `timber` gems:  
@@ -140,7 +140,7 @@ This method is more advanced and requires a separate step to ship logs to Timber
 
 {% tab title="Non-Rails \(STDOUT\)" %}
 {% hint style="warning" %}
-This method is more advanced and requires a separate step to ship logs to Timber. Basic knowledge of `STDOUT` and log management is required. For more information on the advantages of this method please see [this guide](../../../guides/sending-logs-to-timber.md).
+This method is more advanced and requires a separate step to ship logs to Timber. Basic knowledge of `STDOUT` and log management is required. If you are unsure, please use the "HTTP" method. For more information on the advantages of this method please see [this guide](../../../guides/sending-logs-to-timber.md).
 {% endhint %}
 
 1. In your `Gemfile`, add the `timber` gems:  
