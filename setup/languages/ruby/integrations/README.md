@@ -1,5 +1,5 @@
 ---
-description: Ruby integrations
+description: Timber for Ruby integrations
 ---
 
 # Integrations

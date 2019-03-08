@@ -272,9 +272,9 @@ The new process spawned with `Task.async/1` will now contain the same Timber con
 
 `:timber` automatically captures [context](../../../under-the-hood/concepts.md#context) to enrich your logs.
 
-### System 
+### system 
 
-System context captures system level information such as hostname and pid:
+The `system` context captures system level information such as hostname and pid:
 
 ```javascript
 {
@@ -292,9 +292,9 @@ System context captures system level information such as hostname and pid:
 | `context.system.hostname` | System level hostname, value of [`:inet.gethostname()`](http://erlang.org/doc/man/inet.html#gethostname-0)\`\` |
 | `context.system.pid` | System level process ID, value of [`System.get_pid()`](https://hexdocs.pm/elixir/System.html#get_pid/0)\`\` |
 
-### Runtime
+### runtime
 
-Runtime context captures information about the originator of the log line. By default, the Elixir `Logger` includes [runtime metadata](https://hexdocs.pm/logger/Logger.html#module-metadata) that Timber simply takes advantage of.
+The `runtime` context captures information about the originator of the log line. By default, the Elixir `Logger` includes [runtime metadata](https://hexdocs.pm/logger/Logger.html#module-metadata) that Timber simply takes advantage of.
 
 ```javascript
 {

@@ -1,27 +1,35 @@
 ---
-description: Integrate Timber with Rails
+description: Integrate Timber with Rack
 ---
 
-# Rails
+# Rack
 
-Timber integrates with [Rails](https://rubyonrails.org/) through the `timber_rails` Ruby gem which automatically captures useful context and metadata, turning your Rails logs into rich structured events.
+Timber integrates with [Rack](https://rack.github.io/) through the `timber_rack` Ruby gem which automatically captures useful context and metadata, turning your Rack logs into rich structured events.
+
+{% hint style="warning" %}
+If your application is a Rails app please see the [Rails integration](rails.md) which includes the Rack integration.
+{% endhint %}
 
 ## Installation
 
-1. In your `Gemfile`, add the `timber-rails` gem:  
+1. In your `Gemfile`, add the `timber-rack` gem:  
 
 
    {% code-tabs %}
    {% code-tabs-item title="Gemfile" %}
    ```ruby
-   gem 'timber-rails', '~> 1.0'
+   gem 'timber-rack', '~> 1.0'
    ```
    {% endcode-tabs-item %}
    {% endcode-tabs %}
 
 2. In your `shell` run `bundle install`
+3. Use the Rack middleware:  
 
-That's it! Timber automatically installs itself through a [Rails initializer](https://api.rubyonrails.org/v2.3.8/classes/Rails/Initializer.html). There is nothing else you need to do.
+
+   ```ruby
+   use Timber::Integrations::Rack::Middleware
+   ```
 
 ## Automatic Context
 
@@ -50,28 +58,6 @@ HTTP context captures structured data on incoming HTTP requests:
 | `context.http.path` | Path of the HTTP request |
 
 ## Events
-
-### controller\_called
-
-The `controller_called` event is emitted when a controller received a request.
-
-```javascript
-{
-    "controller_called": {
-        "controller": "MyController",
-        "action": "action",
-        "format": "html",
-        "params_json": "{\"key\":\"val\"}"
-    }
-}
-```
-
-| Field | Description |
-| :--- | :--- |
-| `controller_called.controller` | Class name of the controller being called |
-| `controller_called.action` | Action name of the action being called |
-| `controller_called.format` | Format being request such as `html` or `json` |
-| `controller_called.params_json` | JSON representation of the incoming parameters. See [this guide](../../../../guides/structured-logging-best-practices.md#keeping-your-schema-clean) to understand why we encode this data. |
 
 ### http\_request\_received
 
@@ -117,42 +103,4 @@ The `http_response_sent` event is emitted when a HTTP response is sent back to t
 | :--- | :--- |
 | `http_response_sent.status` | HTTP status code of the response |
 | `http_response_sent.duration_ms` | Duration of processing the entire request |
-
-### sql\_query\_executed
-
-The `sql_query_executed` event is emitted when `ActiveRecord` executes a query:
-
-```javascript
-{
-    "sql_query_executed": {
-        "query": "SELECT * FROM users",
-        "duration_ms": 50.4
-    }
-}
-```
-
-| Field | Description |
-| :--- | :--- |
-| `sql_query_executed.query` | The SQL query executed |
-| `sql_query_executed.duration_ms` | Duration of executing the query |
-
-### template\_rendered
-
-The `template_rendered` event is emitted when `ActionView` renders a template:
-
-```javascript
-{
-    "template_rendered": {
-        "name": "/path/to/template.html.erb",
-        "duration_ms": 50.4
-    }
-}
-```
-
-| Field | Description |
-| :--- | :--- |
-| `template_rendered.name` | Name of the template |
-| `template_rendered.duration_ms` | Duration taken rendering the template |
-
-
 
