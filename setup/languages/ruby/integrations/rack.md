@@ -4,11 +4,11 @@ description: Integrate Timber with Rack
 
 # Rack
 
-Timber integrates with [Rack](https://rack.github.io/) through the `timber_rack` Ruby gem which automatically captures useful context and metadata, turning your Rack logs into rich structured events.
-
 {% hint style="warning" %}
-If your application is a Rails app please see the [Rails integration](rails.md) which includes the Rack integration.
+The Timber Rails integration requires [installation of the base `timber` Ruby gem](../#installation) first. Additionally, if your application is a Rails app please see the [Rails integration](rails.md) which includes the Rack integration.
 {% endhint %}
+
+Timber integrates with [Rack](https://rack.github.io/) through the `timber_rack` Ruby gem which automatically captures useful context and metadata, turning your Rack logs into rich structured events.
 
 ## Installation
 

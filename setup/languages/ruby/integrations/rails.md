@@ -4,6 +4,10 @@ description: Integrate Timber with Rails
 
 # Rails
 
+{% hint style="warning" %}
+The Timber Rails integration requires [installation of the base `timber` Ruby gem](../#installation) first.
+{% endhint %}
+
 Timber integrates with [Rails](https://rubyonrails.org/) through the `timber_rails` Ruby gem which automatically captures useful context and metadata, turning your Rails logs into rich structured events.
 
 ## Installation
