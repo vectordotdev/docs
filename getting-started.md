@@ -6,7 +6,7 @@ description: Simple getting start guide
 
 Timber is designed to be intuitive. When you first log in, Timber will guide you through setting up your account; a guide is not necessary. For those that prefer explicit instructions please follow the steps below.
 
-## 1. Create An Account
+## 1. Create A Personal Account
 
 Navigate to the [Timber app](https://app.timber.io) and create your personal account. You can signup through a social integration, such as Github or Google, or create a Timber specific account.
 
