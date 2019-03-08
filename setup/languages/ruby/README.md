@@ -354,6 +354,14 @@ Extreme care was taken into the design of `timber` to be fast and reliable:
 
 ## FAQs
 
+### Will installing Timber affect my application's performance?
+
+No. Timber was designed with a [keen focus on performance](../elixir/#performance). It leans heavily on a light-weight asynchronous log processing design. Timber is also battle tested on hundreds of Ruby apps since it launched multiple years ago.
+
+### Can Timber crash my app?
+
+No, Timber is wrapped in a `try` / `catch` block to ensure exceptions do not bubble up to your app.
+
 ## Troubleshooting
 
 To begin, please see our [log delivery troubleshooting guide](../../../guides/troubleshooting-log-delivery.md). This covers the most common issues we see with log delivery:
