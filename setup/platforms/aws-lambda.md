@@ -12,7 +12,7 @@ By default, your AWS Lambda function will create a dedicated CloudWatch Logs str
 
 {% page-ref page="aws-cloudwatch/" %}
 
-## Automatic Events
+## Events
 
 AWS Lambda logs platform events that contain useful information about the execution of your Lambda function. Timber automatically parses these events making them easier to search and graph.
 

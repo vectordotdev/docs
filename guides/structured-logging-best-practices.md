@@ -74,6 +74,13 @@ Creating a consistent naming scheme for your events is important since it makes 
 * `sql_query_executed`
 * `template_rendered`
 
+## Keeping Your Schema Clean
+
+Timber limits to number of tracked columns to 1,000. Setting this aside, having a schema with that many columns is very difficult for a human to use, so it's important to think carefully about the column you send to Timber. We recommend the following best practices:
+
+* Only send columns you want to search [search](../usage/live-tailing.md) or [graph](../usage/graphing.md).
+* Encode structured values to JSON that are only meant to be read. For example, incoming request parameters should be encoded to JSON in a single field instead of sending them as individual fields to Timber \(all of Timber's libraries do this automatically\).
+
 ## Classifying Your Events
 
 As you start to add events to your application you'll start to question where you draw the line. For example, let's say you have an online store application and you want to determine how many orders were placed each day. To answer this question, you could explicitly add an `order_placed` event or you could use the `http_response_sent` event with the following conditions: `method=POST path=/orders status=201`. Which one is correct? Do you log one or both? Our answer is both, here's why:
@@ -100,7 +107,7 @@ These events are for business intelligence and should be used by your sales, mar
 
 Logging both business and operational events allows you to work backwards when debugging. Very often customer issues begin with a business event. For example, if a customer is complaining that their order never shipped, you could search for the `order_shipped` business event and then work backwards to your operational events to see what went wrong.
 
-## Use Context
+## Using Context
 
 Context is shared structured data that is automatically merged into your logs. It represents your application's current state and allows you to relate logs. Think of it like join data for your logs. Context, is by far, the most useful thing you can do with your logs because it allows you to segment and reduce noise. Let's look at a psuedo example:
 

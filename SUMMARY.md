@@ -34,6 +34,8 @@
     * [Github Repo](https://github.com/timberio/timber-python)
     * [Python Package](https://pypi.org/project/timber/)
   * [Ruby](setup/languages/ruby/README.md)
+    * [Integrations](setup/languages/ruby/integrations/README.md)
+      * [Rails](setup/languages/ruby/integrations/rails.md)
     * [Github Repo](https://github.com/timberio/timber-ruby)
     * [Ruby Gem](https://rubygems.org/gems/timber)
     * [Library Documentation](https://www.rubydoc.info/gems/timber)

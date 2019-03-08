@@ -28,26 +28,34 @@ If you're unsure, we recommend installing via the "HTTP" method. To understand w
    {% code-tabs-item title="Gemfile" %}
    ```ruby
    gem 'timber', '~> 3.0'
-   gem 'timber-rack', '~> 1.0' # optional
    gem 'timber-rails', '~> 1.0' # optional
    ```
    {% endcode-tabs-item %}
    {% endcode-tabs %}
 
 2. In your `shell` run `bundle install`
-3. Add the `config/initializers/timber.rb` file with the following contents, _**replace `YOUR_API_KEY` and `YOUR_SOURCE_ID` accordingly**_:  
+3. Add the `config/initializers/timber.rb` file, _**replace `YOUR_API_KEY` and `YOUR_SOURCE_ID` accordingly**_:  
 
 
    {% code-tabs %}
    {% code-tabs-item title="config/initializers/timber.rb" %}
    ```ruby
-   http_device = Timber::LogDevices::HTTP.new("YOUR_API_KEY", "YOUR_SOURCE_ID")
-   Rails.logger = Timber::Logger.new(http_device)
+   # Install the Timber.io logger
+   # Documentation: https://docs.timber.io/setup/languages/ruby
+
+   if Rails.env.production?
+       http_device = Timber::LogDevices::HTTP.new("YOUR_API_KEY", "YOUR_SOURCE_ID")
+       Rails.logger = Timber::Logger.new(http_device)
+   else
+       Rails.logger = Timber::Logger.new(STDOUT)
+   end
    ```
    {% endcode-tabs-item %}
    {% endcode-tabs %}
 
 #### Test The Pipes
+
+Verify installation by testing the pipe. Start by entering your rails console:
 
 ```bash
 bundle exec rails console
@@ -88,13 +96,15 @@ This method is more advanced and requires a separate step to ship logs to Timber
    {% code-tabs %}
    {% code-tabs-item title="config/initializers/timber.rb" %}
    ```ruby
+   # Install the Timber.io logger
+   # Documentation: https://docs.timber.io/setup/languages/ruby
+
    Rails.logger = Timber::Logger.new(STDOUT)
    ```
    {% endcode-tabs-item %}
    {% endcode-tabs %}
 
-4. _Optionally_ [install integrations](./#integrations) with `Rails`, `Rack`, and more.
-5. At this point your application is writing logs to `STDOUT` in JSON format. Please choose the appropriate [platform](../../platforms/), [log forwarder](../../log-forwarders/), or [operating system](../../operating-systems/).
+4. At this point your application is writing logs to `STDOUT` in JSON format. Please choose the appropriate [platform](../../platforms/), [log forwarder](../../log-forwarders/), or [operating system](../../operating-systems/).
 {% endtab %}
 
 {% tab title="Non-Rails \(HTTP\)" %}
@@ -105,7 +115,9 @@ This method is more advanced and requires a separate step to ship logs to Timber
    {% code-tabs-item title="Gemfile" %}
    ```ruby
    gem 'timber', '~> 3.0'
-   gem 'timber-rack', '~> 1.0' # optional
+
+   # Optionally install integrations
+   gem 'timber-rack', '~> 1.0' # See "Integrations"
    ```
    {% endcode-tabs-item %}
    {% endcode-tabs %}
@@ -115,12 +127,14 @@ This method is more advanced and requires a separate step to ship logs to Timber
 
 
    ```ruby
+   # Install the Timber.io logger
+   # Documentation: https://docs.timber.io/setup/languages/ruby
+
    http_device = Timber::LogDevices::HTTP.new("YOUR_API_KEY", "YOUR_SOURCE_ID")
    LOGGER = Timber::Logger.new(http_device)
    ```
 
-4. _Optionally_ [install integrations](./#integrations) with `Rack`, and more.
-5. Verify installation by testing the pipes:  
+4. Verify installation by testing the pipes:  
 
 
    ```bash
@@ -156,15 +170,17 @@ This method is more advanced and requires a separate step to ship logs to Timber
    {% endcode-tabs %}
 
 2. In your `shell` run `bundle install`
-3. Instantiate the Timber logger for global use, _**replace `YOUR_API_KEY` and `YOUR_SOURCE_ID` accordingly**_:  
+3. Instantiate the Timber logger for global use:  
 
 
    ```ruby
+   # Install the Timber.io logger
+   # Documentation: https://docs.timber.io/setup/languages/ruby
+
    LOGGER = Timber::Logger.new(STDOUT)
    ```
 
-4. _Optionally_ [install integrations](./#integrations) with `Rack`, and more.
-5. At this point your application is writing logs to `STDOUT` in JSON format. Please choose the appropriate [platform](../../platforms/), [log forwarder](../../log-forwarders/), or [operating system](../../operating-systems/).
+4. At this point your application is writing logs to `STDOUT` in JSON format. Please choose the appropriate [platform](../../platforms/), [log forwarder](../../log-forwarders/), or [operating system](../../operating-systems/).
 {% endtab %}
 {% endtabs %}
 
@@ -335,11 +351,9 @@ Runtime context captures information about the origin of the log line:
 
 ## Integrations
 
-Timber _optionally_ integrates with popular 3rd party libraries to enhance the logs they emit. Instead of emitting raw text logs, Timber's integrations augment their logs with structured data, turning them into rich structured events.
+Timber integrates with 3rd party libraries a la carte style, allowing you to pick and choose the integrations you want. Integrations with timber are entirely optional and serve to upgrade your logs with rich context and metadata if you choose to use them:
 
-{% hint style="info" %}
-These integrations are entirely optional. While we recommend them, they are not required to use Timber. The Timber service is designed to work with all types of logs, text or structured.
-{% endhint %}
+{% page-ref page="integrations/" %}
 
 ## Performance
 
