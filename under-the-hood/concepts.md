@@ -46,7 +46,7 @@ Refers to your application's log schema. Learn more in our [Dynamic Schema Maint
 
 ## Search
 
-A search represents a search of your log data. Learn more in our [Search docs](../usage/searching.md).
+A search represents a search of your log data. Learn more in our [Search docs]().
 
 ## Source
 

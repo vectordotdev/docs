@@ -57,7 +57,7 @@ As you send more data, and more columns, we'll continue to add to this list. It'
 
 #### Why are arrays encoded to JSON?
 
-As noted in our [architecture document](architecture.md), Timber uses a columnar database for log storage that is strictly typed. Maintaining a dynamic schema for lists is impossible because all items must share the same shape and type. This is why we encode arrays to JSON. You can still access this data and [search](../usage/searching.md) this data using our searching tools.
+As noted in our [architecture document](architecture.md), Timber uses a columnar database for log storage that is strictly typed. Maintaining a dynamic schema for lists is impossible because all items must share the same shape and type. This is why we encode arrays to JSON. You can still access this data and [search]() this data using our searching tools.
 
 ## Column Expiration & Cleanup
 
@@ -66,8 +66,6 @@ Timber keeps track of when a column was last seen. If a column's last seen value
 ## Using Your Schema
 
 The following documents describe different ways to take advantage of your schema:
-
-{% page-ref page="../usage/searching.md" %}
 
 {% page-ref page="../usage/graphing.md" %}
 

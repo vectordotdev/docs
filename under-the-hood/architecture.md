@@ -40,7 +40,7 @@ Timber's fast query speeds are very much a result of this architectural decision
 
 ### ANSI Compliant SQL Querying
 
-Because Timber uses Presto / Athena to query data on S3 you get [full ANSI compliant SQL query capabilities](../usage/searching.md#sql-querying). There is no limited proprietary query language to learn.
+Because Timber uses Presto / Athena to query data on S3 you get [full ANSI compliant SQL query capabilities](). There is no limited proprietary query language to learn.
 
 ### Affordability
 
