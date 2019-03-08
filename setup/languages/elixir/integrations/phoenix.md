@@ -58,17 +58,19 @@ Emitted when a controller is called:
 
 ```javascript
 {
-    // ...
     "controller_called": {
-        "controller": "MyApp.MyController",
-        "action": "index"
+        "controller": "MyController",
+        "action": "action",
+        "format": "html",
+        "params_json": "{\"key\":\"val\"}"
     }
-    // ...
 }
 ```
 
 | Name | Type | Description |
 | :--- | :--- | :--- |
-| `sql_query_executed.query` | `string` | SQL query |
-| `sql_query_executed.duration_ms` | `float` | Execution duration of the query |
+| `controller_called.controller` | `string` | The name of the controller receiving the call. |
+| `controller_called.action` | `float` | The name of the controller action receiving the call. |
+| `controller_called.format` | `string` | The format of the request such as `html` or `json` |
+| `controller_called.params_json` |  | The parameters being sent to the controller encoded in JSON. See [this guide](../../../../guides/structured-logging-best-practices.md#keeping-your-schema-clean) on why we encode this data to JSON. |
 

@@ -46,13 +46,6 @@ HTTP context captures structured data on incoming HTTP requests:
 }
 ```
 
-| Field | Description |
-| :--- | :--- |
-| `context.http.request_id` | Unique identifier for the request |
-| `context.http.method` | Method of the HTTP request |
-| `context.http.host` | Host of the HTTP request |
-| `context.http.path` | Path of the HTTP request |
-
 ## Events
 
 ### controller\_called
@@ -70,13 +63,6 @@ The `controller_called` event is emitted when a controller received a request.
 }
 ```
 
-| Field | Description |
-| :--- | :--- |
-| `controller_called.controller` | Class name of the controller being called |
-| `controller_called.action` | Action name of the action being called |
-| `controller_called.format` | Format being request such as `html` or `json` |
-| `controller_called.params_json` | JSON representation of the incoming parameters. See [this guide](../../../../guides/structured-logging-best-practices.md#keeping-your-schema-clean) to understand why we encode this data. |
-
 ### http\_request\_received
 
 The `http_request_received` event is emitted when a HTTP request is received.
@@ -91,14 +77,6 @@ The `http_request_received` event is emitted when a HTTP request is received.
     }
 }
 ```
-
-| Field | Description |
-| :--- | :--- |
-| `http_request_received.method` | Method of the HTTP request |
-| `http_request.scheme` | Scheme of the HTTP request \(`http` or `https`\) |
-| `http_request_received.host` | Host of the HTTP request |
-| `http_request_received.path` | Path of the HTTP request |
-| `http_request_received.params_json` | JSON representation of the incoming parameters. See [this guide](../../../../guides/structured-logging-best-practices.md#keeping-your-schema-clean) to understand why we encode this data. |
 
 {% hint style="info" %}
 Where's the body? Timber purposefully leaves out the HTTP request body because it can be represented in many different formats. Instead, [we log the parameters in the `controller_called` event](rails.md#controller_called) which will be in a normalized structured.
@@ -117,11 +95,6 @@ The `http_response_sent` event is emitted when a HTTP response is sent back to t
 }
 ```
 
-| Field | Description |
-| :--- | :--- |
-| `http_response_sent.status` | HTTP status code of the response |
-| `http_response_sent.duration_ms` | Duration of processing the entire request |
-
 ### sql\_query\_executed
 
 The `sql_query_executed` event is emitted when `ActiveRecord` executes a query:
@@ -134,11 +107,6 @@ The `sql_query_executed` event is emitted when `ActiveRecord` executes a query:
     }
 }
 ```
-
-| Field | Description |
-| :--- | :--- |
-| `sql_query_executed.query` | The SQL query executed |
-| `sql_query_executed.duration_ms` | Duration of executing the query |
 
 ### template\_rendered
 
@@ -153,9 +121,5 @@ The `template_rendered` event is emitted when `ActionView` renders a template:
 }
 ```
 
-| Field | Description |
-| :--- | :--- |
-| `template_rendered.name` | Name of the template |
-| `template_rendered.duration_ms` | Duration taken rendering the template |
 
 
