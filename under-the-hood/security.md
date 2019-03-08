@@ -60,6 +60,15 @@ Critically important to platform security are the practices and development cycl
 
 We subscribe to all security bulletins for the services we use. If an issue is relevant we will seek to resolve it as quickly as possible. If the security incidence affects customers, we will follow industry best practices for disclosure and notification to all of our clients. If you have identified a vulnerability or what more information on specific vulnerabilities please contact us. Your issue will be escalated to our security team.
 
+## Bug Bounties
+
+If you found:
+
+* A serious vulnerability \(not something low risk\), and
+* It was found during routine use of Timber
+
+Then we would very much consider a reward. Please contact support@timber.io to report your bug.
+
 ## Trusting Timber
 
 Beyond implementing best-in-class security practices, cultivating trust with our clients is among the top values at Timber. Security is only as good as the employees that enforce it, and we strive to be open, straight-forward, honest, and operate with integrity. Timber secures the data for thousands of companies across all industries. If you have any additional questions about our security practices please do not hesitate to [contact us](mailto:support@timber.io).
