@@ -121,24 +121,6 @@ All configuration options for `:timber` can be found in the [`Timber.Config` doc
 
 All configuration options for the Elixir `Logger` can be found in the [`Logger` documentation](https://hexdocs.pm/logger/Logger.html#module-configuration).
 
-### Log to STDOUT in addition to Timber
-
-{% hint style="warning" %}
-If you have the means to log to `STDOUT,` we highly recommend that you redirect STDOUT to Timber through one of our [integrations]() instead of shipping logs from within your app. You can read more about that [here](../../../guides/sending-logs-to-timber.md). 
-{% endhint %}
-
-Logging to `:stdout` uses the Elixir provided `:console` backend. You can read more about configuring the `:console`backend [here](https://hexdocs.pm/logger/Logger.html#module-console-backend). Simply add it as a Logger backend:
-
-{% code-tabs %}
-{% code-tabs-item title="config/config.exs" %}
-```elixir
-config :logger, backends: [Timber.LoggerBackends.HTTP, :console]
-```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
-
-From here you can redirect `STDOUT` to a [file](../../log-forwarders/fluent-bit.md), [Syslog](../../log-forwarders/syslog.md), or any device of your choice.
-
 ## Usage
 
 ### Basic Logging
@@ -205,6 +187,8 @@ Deleting global context is similar but with a second explicit argument:
 Timber.delete_context(:user, :global)
 ```
 
+## Guides
+
 ### Tying Logs To Users
 
 A very common use-case for context is tying logs to users, you can accomplish this by setting user context immediately after you log the user in. This is typically done in an authentication [plug](https://hexdocs.pm/plug/readme.html):
@@ -267,6 +251,24 @@ end
 ```
 
 The new process spawned with `Task.async/1` will now contain the same Timber context as its parent. Please note, that the [runtime context's](./#runtime) `vm_pid` will be overridden and remain true to the local process.
+
+### Log to STDOUT in addition to Timber
+
+{% hint style="warning" %}
+If you have the means to log to `STDOUT,` we highly recommend that you redirect STDOUT to Timber through one of our [platform](../../platforms/), [log forwarder](../../log-forwarders/), or [operating system](../../operating-systems/) integrations instead of shipping logs from within your app. You can read more about that [here](../../../guides/sending-logs-to-timber.md). 
+{% endhint %}
+
+Logging to `:stdout` uses the Elixir provided `:console` backend. You can read more about configuring the `:console`backend [here](https://hexdocs.pm/logger/Logger.html#module-console-backend). Simply add it as a Logger backend:
+
+{% code-tabs %}
+{% code-tabs-item title="config/config.exs" %}
+```elixir
+config :logger, backends: [Timber.LoggerBackends.HTTP, :console]
+```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
+
+From here you can redirect `STDOUT` to a [file](../../log-forwarders/fluent-bit.md), [Syslog](../../log-forwarders/syslog.md), or any device of your choice.
 
 ## Automatic Context
 

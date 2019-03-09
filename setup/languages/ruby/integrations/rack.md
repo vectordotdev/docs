@@ -24,12 +24,75 @@ Timber integrates with [Rack](https://rack.github.io/) through the `timber_rack`
    {% endcode-tabs %}
 
 2. In your `shell` run `bundle install`
-3. Use the Rack middleware:  
+3. Install the Rack middleware:  
 
 
    ```ruby
-   use Timber::Integrations::Rack::Middleware
+   use Timber::Integrations::Rack::HTTPContext
+   use Timber::Integrations::Rack::UserContext
+   use Timber::Integrations::Rack::HTTPEvents
+   use Timber::Integrations::Rack::ErrorEvent
    ```
+
+## Configuration
+
+### collapse\_into\_single\_event
+
+If you're a fan of [lograge](https://github.com/roidrage/lograge), you'll appreciate this setting which reduces the HTTP log events into a single event.
+
+{% code-tabs %}
+{% code-tabs-item title="config/initializers/timber.rb" %}
+```ruby
+Timber.config.integrations.rack.http_events.collapse_into_single_event = true
+```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
+
+It turns this:
+
+```text
+Started GET "/"
+Completed 200 OK in 1.2ms
+```
+
+Into this:
+
+```text
+GET / completed with 200 OK in 1.2ms
+```
+
+### silence\_request
+
+Silencing noisy requests can be helpful for silencing load balance health checks, bot scanning, or activity that generally is not meaningful to you. The following will silence all `[GET] /_health` requests:
+
+```ruby
+Timber.config.integrations.rack.http_events.silence_request = lambda do |rack_env, rack_request|
+  rack_request.path == "/_health"
+end
+```
+
+We require a block because it gives you complete control over how you want to silence requests. The first parameter being the traditional Rack env hash, the second being a [Rack Request](http://www.rubydoc.info/gems/rack/Rack/Request) object.
+
+### customer\_user\_hash
+
+By default Timber automatically captures user context for most of the popular authentication libraries \(Devise, and Clearance\). See [Timber::Integrations::Rack::UserContext](http://www.rubydoc.info/github/timberio/timber-rack/Timber/Integrations/Rack/UserContext) for a complete list.
+
+In cases where you Timber doesn't support your strategy, or you want to customize it further, you can do so like:
+
+```ruby
+Timber.config.integrations.rack.user_context.custom_user_hash = lambda do |rack_env|
+  user = rack_env['warden'].user
+  if user
+    {
+      id: user.id, # unique identifier for the user, can be an integer or string,
+      name: user.name, # identifiable name for the user,
+      email: user.email, # user's email address
+    }
+  else
+    nil
+  end
+end
+```
 
 ## Automatic Context
 

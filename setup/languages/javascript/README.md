@@ -4,7 +4,7 @@ description: Send Javascript logs to Timber from your Node or Browser environmen
 
 # Javascript
 
-Timber integrates with [Javascript](https://en.wikipedia.org/wiki/JavaScript) through its universal [Javascript library](https://github.com/timberio/timber-js), enabling you to send Javascript logs to your Timber account. The Timber Javascript library features:
+Timber integrates with [Javascript](https://en.wikipedia.org/wiki/JavaScript) through its _universal_ [Javascript library](https://github.com/timberio/timber-js), enabling you to send Javascript logs to your Timber account. The Timber Javascript library features:
 
 * **Universal Node/browser support**. Log user/system errors, visits, clicks, events - _anything_ - in Chrome, Safari, Edge, or on a Node.js server, and search logs in real-time via the [Timber.io console](https://timber.io/).
 * **NPM or CDN**. Use natively in your app, Webpack/Rollup into your Node/browser bundle, or just drop in a `<script>` tag to your final HTML. Integrates easily into any app.
@@ -37,12 +37,15 @@ We recommend the "HTTP" method if you are unsure. To understand why you would ch
    import { TimberNode } from "@timberio/node";
    ```
 
-3. Create a new logger, _**replace `YOUR_API_KEY` and `YOUR_SOURCE_ID` accordingly**_:
+3. Create a new logger, _**replace `YOUR_API_KEY` and `YOUR_SOURCE_ID` accordingly**_:  
+
+
+   Note: Timber integrates with [Bunyan](integrations/bunyan.md) and [Winston](integrations/winston.md), if you prefer to use those loggers instead. See the [integrations section](integrations/).
 
 
 
    ```javascript
-   const logger = new TimberNode("YOUR_SOURCE_ID", "YOUR_API_KEY");
+   const logger = new TimberNode("YOUR_API_KEY", "YOUR_SOURCE_ID", {ignoreExceptions: true});
    ```
 {% endtab %}
 
@@ -51,10 +54,38 @@ We recommend the "HTTP" method if you are unsure. To understand why you would ch
 This method is more advanced and requires a separate step to ship logs to Timber. Basic knowledge of `STDOUT` and log management is required. For more information on the advantages of this method please see [this guide](../../../guides/sending-logs-to-timber.md).
 {% endhint %}
 
-dsfsd
+1. Install the Timber Node library:  
+
+
+   ```bash
+   npm i @timberio/node
+   ```
+
+2. Import the Node logger:  
+
+
+   ```javascript
+   import { TimberNode } from "@timberio/node";
+   ```
+
+3. Create a new logger, _**replace `YOUR_API_KEY` and `YOUR_SOURCE_ID` accordingly**_:  
+  
+   Note: Timber integrates with [Bunyan](integrations/bunyan.md) and [Winston](integrations/winston.md), if you prefer to use those loggers instead. See the [integrations section](integrations/).
+
+
+
+   ```javascript
+   const logger = new TimberNode("YOUR_API_KEY", "YOUR_SOURCE_ID", {ignoreExceptions: true});
+   timber.setSync(async logs => {
+       logs.forEach(log => console.log(log));
+       return logs;
+   })
+   ```
+
+4. At this point your application is writing logs to `STDOUT` in JSON format. Please choose the appropriate [platform](../../platforms/), [log forwarder](../../log-forwarders/), or [operating system](../../operating-systems/).
 {% endtab %}
 
-{% tab title="Browser" %}
+{% tab title="Browser \(HTTP\)" %}
 1. Install the Timber browser library:  
 
 
@@ -72,8 +103,12 @@ dsfsd
 3. Create a new logger with your source ID and API key:  
 
 
+   Note: Timber integrates with [Bunyan](integrations/bunyan.md) and [Winston](integrations/winston.md), if you prefer to use those loggers instead. See the [integrations section](integrations/).
+
+
+
    ```javascript
-   const logger = new TimberBrowser("YOUR_SOURCE_ID", "YOUR_API_KEY");
+   const logger = new TimberBrowser("YOUR_API_KEY", "YOUR_SOURCE_ID", {ignoreExceptions: true});
    ```
 {% endtab %}
 {% endtabs %}
@@ -188,6 +223,8 @@ Because Node / Javacsript do not have a concept of local thread storage, it is i
 
 Depending on your application your solution may vary.
 
+## Guides
+
 ### Tying Logs To Users
 
 A common practice for Timber users is to tie their logs to users by setting user context. Depending on your application setup your solution for this will vary. We recommend [adding middleware](./#adding-middleware) immediately after authenticating your user, and then [removing the middleware](./#removing-middleware) when the transaction is complete.
@@ -198,18 +235,105 @@ You can see an example of this in the ["Adding Middleware" section](./#adding-mi
 
 Another common practice for Timber users is to tie their logs to HTTP requests through the HTTP request ID. That's makes it easy to logs relating to an entire HTTP transaction. We recommend [adding middleware](./#adding-middleware) at the top of your callback chain, and then [removing the middleware](./#removing-middleware) immediately after.
 
+### Log to STDOUT _in addition_ to Timber
+
+{% hint style="warning" %}
+If you have the means to log to `STDOUT,` we highly recommend that you redirect STDOUT to Timber through one of our [platform](../../platforms/), [log forwarder](../../log-forwarders/), or [operating system](../../operating-systems/) integrations instead of shipping logs from within your app. You can read more about that [here](../../../guides/sending-logs-to-timber.md). 
+{% endhint %}
+
+Logging to `STDOUT` is as simple as piping output to another stream. You can do this with any stream:
+
+```javascript
+const timber = new Timber("YOUR_API_KEY", "YOUR_SOURCE_ID");
+timber.pipe(process.stdout); // <-- this will send a copy to `STDOUT`
+
+timber.log("This will also show up in the console...");
+```
+
 ## Integrations
 
-Timber integrates with popular 3rd party libraries allowing you to customize how you use Timber:
+Timber integrates with popular 3rd party libraries allowing you to customize how you use Timber. Please see the Javascript integrations section:
 
-| Name |  |
-| :--- | :--- |
-| \`\`[`@timberio/winston`](https://github.com/timberio/timber-js/tree/master/packages/winston)\`\` | Winston 3.x transport |
-| \`\`[`@timberio/bunyan`](https://github.com/timberio/timber-js/tree/master/packages/bunyan)\`\` | Bunyan writable stream |
+{% page-ref page="integrations/" %}
 
 ## Performance
 
-The Timber javascript library was designed with a _keen_ focus on performance since we know how important this is in Node and browser environments. Please [see the docs on performance](https://github.com/timberio/timber-js#performance) for more information.
+The Timber library provides out-the-box defaults for [batching](https://github.com/timberio/timber-js/tree/master/packages/tools#makebatchsize-number-flushtimeout-number) calls to `.log()` and [throttling](https://github.com/timberio/timber-js/tree/master/packages/tools#makethrottletmax-number) synchronization with Timber.io, aiming to provide a balance between strong performance and sensible resource usage.
+
+We believe a logging library should be a good citizen of your stack - avoiding unnecessary slow-downs in your app due to excessive network I/O or large memory usage.
+
+By default, the library will batch up to **1,000** logs at a time \(syncing after **1,000ms**, whichever is sooner\), and open up to **5**concurrent network requests to [Timber.io](https://timber.io/) for syncing.
+
+These defaults can be tweaked by passing [custom options](https://github.com/timberio/timber-js/tree/master/packages/types#itimberoptions) when creating your `Timber` instance:
+
+```javascript
+const timber = new Timber("timber-organization-key", "timber-source-key", {
+  // Maximum number of logs to sync in a single request to Timber.io
+  batchSize: 1000,
+
+  // Max interval (in milliseconds) before a batch of logs proceeds to syncing
+  batchInterval: 1000,
+
+  // Maximum number of sync requests to make concurrently (useful to limit
+  // network I/O)
+  syncMax: 100, // <-- we've increased concurrent network connections up to 100
+
+  // Boolean to specify whether thrown errors/failed logs should be ignored
+  ignoreExceptions: false,
+});
+```
+
+### Metrics
+
+This table shows the time to synchronize **10,000 logs** raised by calling `.log()` 10,000x on a 2.2Ghz Intel Core i7 Macbook Pro with 16GB of RAM based in the UK, calling the Timber.io service hosted in US-East, based on various `syncMax`connections:
+
+| Connections | Time to sync 10k logs \(in ms\) | Improvement vs. last |
+| :--- | :--- | :--- |
+| 1 | 72506.09 | - |
+| 2 | 34852.11 | 108.04% |
+| 5 | 14488.63 | 140.55% |
+| 10 | 7501.31 | 93.15% |
+| 20 | 3876.49 | 93.51% |
+| 50 | 2150.37 | 80.27% |
+| 100 | 1736.81 | 23.81% |
+| 200 | 1706.66 | 1.77% |
+
+In general, a higher `syncMax` number \(i.e. number of concurrent throttled connections made to [Timber.io](https://timber.io/)\) will provide linear improvements in total time to sync logs vs. lower numbers.
+
+Bear in mind:
+
+1. This simple benchmark was performed on 10,000 immediate calls to `.log()`, which is unlikely to represent typical usage. A more common pattern in a typical app would be periodic log events, followed by periods of inactivity.
+2. Although higher numbers naturally synchronize more quickly \(due to concurrent network calls to timber.io\), most apps will run sufficiently with just 1-2 open network requests since it's likely that the default `batchSize: 1000` will be enough to capture 99.9% of logging workloads within the default `batchInterval: 1000`ms time period before proceeding to sync with Timber servers.
+3. Performance drops sharply after 50 concurrent connections \(and infers almost no extra benefit after 100\), likely due to the latency between the test machine and the Timber.io server.
+4. A typical app won't need to consider performance; the defaults will be be sufficient.
+
+### Recommendations
+
+Based on your logging use-case, the following base-line recommendations can be considered when instantiating a new `Timber` instance:
+
+| If you have... | Recommendations |
+| :--- | :--- |
+| A large number of logs, fired frequently, and want them to sync very quickly | Increase `syncMax` \(`50`-`100` is a good default\); lower `batchInterval` to `200`ms to emit faster |
+| Logs events that occur less frequently | Decrease `batchInterval` to `100`ms, so synchronization with Timber will start within 1/10th of a second |
+| An app that needs to preserve network I/O or limit outgoing requests | Drop `syncMax` to `5`; increase `batchInterval` to `2000`ms to fire less often |
+| Intermittent periods of large logging activity \(and you want fast syncing\), followed by inactivity | Increase `syncMax` to `20` to 'burst' connections as needed; lower `batchSize` to match your typical log activity to emit faster |
+| Low log activity, that you want to sync with Timber ASAP | Lower `batchInterval` to `10`ms, so synchronization with Timber occurs very quickly |
+
+Or, you can simply leave the default settings in place, which will be adequate for the vast majority of applications.
+
+### Log limits
+
+When you log via `.log()`, you're creating a Promise that resolves when the log has been synchronized with [Timber.io](https://timber.io/)
+
+This provides a mechanism for guaranteed consistency in your application.
+
+While there are no hard limits on firing `.log()` events, the effective limit of concurrent logs will be determined by memory available to your Node.js V8 process \(or in the user's browser, for browser logging.\) to create a new stack for each Promise executed.
+
+As a general rule, you might run into stack size limits beyond 100,000 - 500,000 concurrent logs -- therefore, we recommend adjusting your `syncMax`, `batchSize` and `batchInterval` settings to ensure that logs aren't sitting around in memory for long periods of time, awaiting synchronization with Timber.io.
+
+This is a sensible strategy regardless of memory limits, to ensure logs are being written consistently to Timber and are not at risk of loss due to an app crash or server downtime.
+
+Note: This only applies if you are working with an application that emits a large number of logs \(100,000+\) at short intervals \(within a 5-10 second window.\) 99%+ of apps will see adequate performance with the default settings.
 
 ## FAQs
 

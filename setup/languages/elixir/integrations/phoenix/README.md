@@ -5,7 +5,7 @@ description: Integration Timber with the Phoenix framework
 # Phoenix
 
 {% hint style="warning" %}
-The Timber Phoenix integration requires [installation of the base `timber` Hex package](../#installation) first.
+The Timber Phoenix integration requires [installation of the base `timber` Hex package](../../#installation) first.
 {% endhint %}
 
 Timber integrates with [Phoenix](https://phoenixframework.org/) through the [`timber_phoenix` Hex package](https://hex.pm/packages/timber_phoenix) which automatically captures useful context and metadata, turning your Phoenix logs into rich structured events.
@@ -25,7 +25,7 @@ When integrating Timber with Phoenix for an umbrella application, the `:timber_p
    def deps do
      [
        {:timber, "~> 3.1"},
-       {:timber_ecto, "~> 1.0"}
+       {:timber_phoenix, "~> 1.0"}
      ]
    end
    ```
@@ -54,7 +54,7 @@ For more information, see the documentation for the [Timber.Ecto](https://hexdoc
 
 ### controller\_called
 
-Emitted when a controller is called:
+The `controller_called` event is emitted when a controller received a request.
 
 ```javascript
 {
@@ -72,5 +72,23 @@ Emitted when a controller is called:
 | `controller_called.controller` | `string` | The name of the controller receiving the call. |
 | `controller_called.action` | `float` | The name of the controller action receiving the call. |
 | `controller_called.format` | `string` | The format of the request such as `html` or `json` |
-| `controller_called.params_json` |  | The parameters being sent to the controller encoded in JSON. See [this guide](../../../../guides/structured-logging-best-practices.md#keeping-your-schema-clean) on why we encode this data to JSON. |
+| `controller_called.params_json` |  | The parameters being sent to the controller encoded in JSON. See [this guide](../../../../../guides/structured-logging-best-practices.md#keeping-your-schema-clean) on why we encode this data to JSON. |
+
+### template\_rendered
+
+The `template_rendered` event is emitted when `ActionView` renders a template:
+
+```javascript
+{
+    "template_rendered": {
+        "name": "/path/to/template.html.erb",
+        "duration_ms": 50.4
+    }
+}
+```
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| `template_rendered.name` | `string` | The name of the template rendered. |
+| `template_rendered.duration_ms` | `float` | The duration, in milliseconds, that it took to render the template. |
 

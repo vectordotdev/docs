@@ -253,6 +253,8 @@ Timber.with_context(organization: {id: "abcd1234"}) do
 end
 ```
 
+## Guides
+
 ### Tying Logs To Users
 
 {% tabs %}

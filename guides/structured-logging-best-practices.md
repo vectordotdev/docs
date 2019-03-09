@@ -8,7 +8,7 @@ description: Best practices when writing structured logs
 Timber provides [language level libraries ](../setup/languages/)that make structured logging a breeze. If you haven't already, please [check them out](../setup/languages/).
 {% endhint %}
 
-Timber has a strong focus on structured logging; modern developers are starting to see their logs as structured events not text. And while the benefits of structured logs are obvious, it's not always obvious how to get started. After working with thousands of companies, and using Timber heavily within Timber itself, this document collates the our structured logging best practices.
+Timber has a strong focus on structured logging; modern developers are starting to see their logs as structured events not text. And while the benefits of structured logs are obvious, it's not always obvious how to get started. After working with thousands of companies, and using Timber heavily within Timber itself, this document collates our structured logging best practices.
 
 ## What Is Structured Logging?
 
@@ -62,11 +62,11 @@ So how did we come up with the structure above? Why did we add a `"context"` key
 
 ## Namespace Your Events
 
-In the example above, you'll notice we namespace our HTTP response event with a `"http_response_sent"` root key. This creates a dedicated namespace for this event, preventing type conflicts from other events with similar key names. For example, if another event used the `"status"` key, but included a string value this would create a type conflict since our event uses an integer value. Moral of the story: namespace your event structured data with a root key.
+In the example above, you'll notice we namespace our HTTP response event with a `"http_response_sent"` root key. This creates a dedicated namespace for this event, preventing type conflicts from other events with similar key names. For example, if another event used the `"status"` key, but included a string value, this would create a type conflict since our event uses an integer value. Timber allows [up to 1000 fields](../under-the-hood/schema-maintenance.md#limitations), which gives you plenty of room for all events and keys
 
 ## Naming Your Events
 
-Creating a consistent naming scheme for your events is important since it makes understanding the resulting schema much easier. We highly recommend adopting the past-tense verb naming schema. Instead of `http_response` use `http_response_sent` . This more descriptive of the fact that this is an immutable event that happened in the past. Some other examples:
+Creating a consistent naming scheme for your events is important since it makes understanding the resulting schema much easier. We highly recommend adopting the past-tense verb naming schema. Instead of `http_response` use `http_response_sent` . This is more descriptive of the fact that the data represents an immutable event that occurred in the past. Some other examples for clarity:
 
 * `order_placed`
 * `order_updated`
