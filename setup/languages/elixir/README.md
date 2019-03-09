@@ -29,12 +29,7 @@ If you're unsure, we recommend installing via the "HTTP" method. To understand w
    ```elixir
    defp deps do
      [
-       {:timber, "~> 3.0"},
-       # Choose your integrations:
-       {:timber_ecto, "~> 2.1"}, # optional
-       {:timber_exceptions, "~> 2.1"}, # optional
-       {:timber_phoenix, "~> 1.1"}, # optional
-       {:timber_plug, "~> 1.1"} # optional
+       {:timber, "~> 3.0"}
      ]
    end
    ```
@@ -57,6 +52,8 @@ If you're unsure, we recommend installing via the "HTTP" method. To understand w
    {% endcode-tabs-item %}
    {% endcode-tabs %}
 
+3. _Optionally_ install [integrations](integrations/) for [Plug](integrations/plug.md), [Phoenix](integrations/phoenix/), [Ecto](integrations/ecto.md), and [more](integrations/)!
+
 #### Test The Pipes
 
 ```bash
@@ -77,12 +74,7 @@ This method is more advanced and requires a separate step to ship logs to Timber
    ```elixir
    defp deps do
      [
-       {:timber, "~> 3.0"},
-       # Choose your integrations:
-       {:timber_ecto, "~> 2.1"}, # optional
-       {:timber_exceptions, "~> 2.1"}, # optional
-       {:timber_phoenix, "~> 1.1"}, # optional
-       {:timber_plug, "~> 1.1"} # optional
+       {:timber, "~> 3.0"}
      ]
    end
    ```
@@ -107,7 +99,8 @@ This method is more advanced and requires a separate step to ship logs to Timber
    {% endcode-tabs-item %}
    {% endcode-tabs %}
 
-3. At this point your application is writing logs to `STDOUT` in JSON format. Please choose the appropriate [platform](../../platforms/), [log forwarder](../../log-forwarders/), or [operating system](../../operating-systems/).
+3. _Optionally_ install [integrations](integrations/) for [Plug](integrations/plug.md), [Phoenix](integrations/phoenix/), [Ecto](integrations/ecto.md), and [more](integrations/)!
+4. At this point your application is writing logs to `STDOUT` in JSON format. Please choose the appropriate [platform](../../platforms/), [log forwarder](../../log-forwarders/), or [operating system](../../operating-systems/).
 {% endtab %}
 {% endtabs %}
 

@@ -4,7 +4,7 @@ description: Send Heroku logs to Timber
 
 # Heroku
 
-Timber offers deep integration with [Heroku](https://heroku.com) through the [Timber Heroku add-on](https://elements.heroku.com/addons/timber-logging), supporting add-on attachments, automatic log parsing, recognition of various Heroku platform events, and more.
+Timber offers deep integration with [Heroku](https://heroku.com) through the [Timber Heroku add-on](https://elements.heroku.com/addons/timber-logging), supporting add-on attachments, automatic log parsing, recognition of Heroku platform events, and more.
 
 ## Installation
 
@@ -84,11 +84,11 @@ By default, Timber adds the following context to your Heroku logs:
 }
 ```
 
-| Field | Description |
-| :--- | :--- |
-| `source` | The source of the log, will be `heroku` or `app` |
-| `dyno_id` | The ID of the dyno that emitted the log. |
-| `proc_type` | The process type as defined in your `Procfile` |
+| Field | Type | Description |
+| :--- | :--- | :--- |
+| `source` | `string` | The source of the log, will be `heroku` or `app` |
+| `dyno_id` | `int` | The ID of the dyno that emitted the log. |
+| `proc_type` | `string` | The process type as defined in your `Procfile` |
 
 ## Automatic Events
 
@@ -247,7 +247,7 @@ We highly recommend [attaching a single Timber add-on to all of your apps](https
 
 ### Can I use the Timber libraries on Heroku?
 
-Yes! We highly recommend using our [libraries]() to add context and metadata to your logs \(see our [Structured Logging Best Practices guide](../../../guides/structured-logging-best-practices.md)\). When setting up our libraries be sure to choose the `STDOUT` installation method.
+Yes! We highly recommend using our [libraries](../../languages/) to add context and metadata to your logs \(see our [Structured Logging Best Practices guide](../../../guides/structured-logging-best-practices.md)\). When setting up our libraries be sure to choose the `STDOUT` installation method.
 
 ## Troubleshooting
 

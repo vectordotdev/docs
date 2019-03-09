@@ -126,12 +126,12 @@ Please refer to the following helper libraries and their associated documentatio
 ## Usage
 
 {% hint style="info" %}
-Timber integrates with popular Node logging libraries, allowing you to use their interfaces for logging. Please see the [integrations section](./#integrations) for more information.
+Timber integrates with popular Node logging libraries, allowing you to use their interfaces for logging. Please see the [integrations section](integrations/) for more information.
 {% endhint %}
 
 ### Basic Logging
 
-Basic leveled logging statements can be made using the appropriate method:
+Basic leveled logging statements can be made using the appropriate method \(`debug`, `info`, `warn`, or `error`\):
 
 ```javascript
 // You can log by .debug, .info, .warn or .error -- returns a Promise
@@ -154,65 +154,10 @@ timber.info("Order #1234 placed, total: $500.23", {
     id: 1234,
     total: 500.23
   },
+}).then(log => {
+  // At this point, your log is synced with Timber.io!
 });
 ```
-
-### Middleware
-
-#### Adding middleware
-
-You can add your own middleware functions, which act as transforms on the [`ITimberLog` log object](https://github.com/timberio/timber-js/tree/master/packages/types#itimberlog). This is useful for augmenting the log prior to syncing with Timber, or even pushing the log to another service.
-
-Here's what a middleware function looks like:
-
-```javascript
-import { ITimberLog } from "@timberio/types";
-
-// In this example function, we'll add a custom `context` to the log
-// representing the currently logged in user.
-//
-// Note: a middleware function is any function that takes an `ITimberLog`
-// and returns a `Promise<ITimberLog>`
-async function addCurrentUser(log: ITimberLog): Promise<ITimberLog> {
-  return {
-    ...log, // <-- copy the existing log
-    context: {
-      // ... and add our own `context` data
-      user: {
-        id: 1000,
-        name: "Lee",
-      },
-    },
-  };
-}
-```
-
-Then just attach to the Timber instance with `.use`:
-
-```javascript
-timber.use(addCurrentUser);
-```
-
-You can add any number of pipeline functions to your logger instance, and they'll run in order.
-
-Middleware functions run _before_ the final sync to Timber.io. Pipeline functions should return a `Promise<ITimberLog>`, making it possible to augment logs with asynchronous data from external sources.
-
-{% hint style="warning" %}
-If an exception is thrown anywhere in the pipeline chain, the log _won't_ be synced. Wrap an async `try/catch`block around your call to `.log|info|debug|warn|error()` or tack on a `.catch()` to ensure your errors are handled.
-{% endhint %}
-
-#### Removing middleware
-
-If you wish to remove middleware, pass in the original middleware function to `.remove()`:
-
-```javascript
-// `addCurrentUser` will no longer be used to transform logs
-timber.remove(addCurrentUser);
-```
-
-This will remove the middleware function from _all_ future calls to `.log|info|debug|warn|error()`.
-
-To re-add middleware, pass it to `.use()`
 
 ### Setting Context
 
@@ -375,5 +320,5 @@ To begin, please see our [log delivery troubleshooting guide](../../../guides/tr
 
 {% page-ref page="../../../guides/troubleshooting-log-delivery.md" %}
 
-If the above troubleshooting guide does not resolve your issue then we recommend enabling debug logging with
+If the above troubleshooting guide does not resolve your issue please contact support.
 
