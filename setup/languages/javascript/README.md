@@ -33,8 +33,18 @@ We recommend the "HTTP" method if you are unsure. To understand why you would ch
 2. Import the Node logger:  
 
 
+   In ES6/Typescript, import the `Timber` class:  
+
+
    ```javascript
-   import { TimberNode } from "@timberio/node";
+   import { Timber } from "@timberio/node";
+   ```
+
+   For CommonJS, require the package:  
+
+
+   ```javascript
+   const { Timber } = require("@timberio/node");
    ```
 
 3. Create a new logger, _**replace `YOUR_API_KEY` and `YOUR_SOURCE_ID` accordingly**_:  
@@ -64,8 +74,18 @@ This method is more advanced and requires a separate step to ship logs to Timber
 2. Import the Node logger:  
 
 
+   In ES6/Typescript, import the `Timber` class:  
+
+
    ```javascript
-   import { TimberNode } from "@timberio/node";
+   import { Timber } from "@timberio/node";
+   ```
+
+   For CommonJS, require the package:  
+
+
+   ```javascript
+   const { Timber } = require("@timberio/node");
    ```
 
 3. Create a new logger, _**replace `YOUR_API_KEY` and `YOUR_SOURCE_ID` accordingly**_:  
@@ -85,7 +105,9 @@ This method is more advanced and requires a separate step to ship logs to Timber
 4. At this point your application is writing logs to `STDOUT` in JSON format. Please choose the appropriate [platform](../../platforms/), [log forwarder](../../log-forwarders/), or [operating system](../../operating-systems/).
 {% endtab %}
 
-{% tab title="Browser \(HTTP\)" %}
+{% tab title="Browser \(Webpack\)" %}
+If you're using a module bundler like Webpack or Rollup, you can install the package directly from NPM:
+
 1. Install the Timber browser library:  
 
 
@@ -93,11 +115,20 @@ This method is more advanced and requires a separate step to ship logs to Timber
    npm i @timberio/browser
    ```
 
-2. Import the Browser logger:  
+2. Import the `Timber` class:  
+  
+   In ES6/Typescript, import the `Timber` class:  
 
 
    ```javascript
-   import { TimberBrowser } from "@timberio/browser";
+   import { Timber } from "@timberio/browser";
+   ```
+
+   For CommonJS, require the package:  
+
+
+   ```javascript
+   const { Timber } = require("@timberio/browser");
    ```
 
 3. Create a new logger with your source ID and API key:  
@@ -108,7 +139,28 @@ This method is more advanced and requires a separate step to ship logs to Timber
 
 
    ```javascript
-   const logger = new TimberBrowser("YOUR_API_KEY", "YOUR_SOURCE_ID", {ignoreExceptions: true});
+   const logger = new Timber("YOUR_API_KEY", "YOUR_SOURCE_ID", {ignoreExceptions: true});
+   ```
+{% endtab %}
+
+{% tab title="Browser \(CDN\)" %}
+If you're not using a Node.js module bundler, you can log in any client-side app by dropping in a `<script>` tag:
+
+1. Install the Timber browser library:  
+
+
+   ```markup
+   <script src="https://unpkg.com/@timberio/browser@0.X/dist/umd/timber.js"></script>
+   ```
+
+   This will place the `Timber` class on `window.Timber`  
+
+2. Create a new logger with your source ID and API key:
+
+
+
+   ```javascript
+   const logger = new window.Timber("YOUR_API_KEY", "YOUR_SOURCE_ID", {ignoreExceptions: true});
    ```
 {% endtab %}
 {% endtabs %}
