@@ -4,16 +4,18 @@ description: Send Javascript logs to Timber from your Node or Browser environmen
 
 # Javascript
 
-Timber integrates with [Javascript](https://en.wikipedia.org/wiki/JavaScript) through its _universal_ [Javascript library](https://github.com/timberio/timber-js), enabling you to send Javascript logs to your Timber account. The Timber Javascript library features:
+Timber integrates with [Javascript](https://en.wikipedia.org/wiki/JavaScript) through its _universal_ [Javascript library](https://github.com/timberio/timber-js), enabling you to send Javascript logs from your Node Or Browser environment to your Timber account.
 
-* **Universal Node/browser support**. Log user/system errors, visits, clicks, events - _anything_ - in Chrome, Safari, Edge, or on a Node.js server, and search logs in real-time via the [Timber.io console](https://timber.io/).
+## Features
+
+* **Universal Node/browser support**. Log user/system errors, visits, clicks, events - _anything_ - in Chrome, Safari, Edge, or on a Node.js server.
 * **NPM or CDN**. Use natively in your app, Webpack/Rollup into your Node/browser bundle, or just drop in a `<script>` tag to your final HTML. Integrates easily into any app.
 * **Written in Typescript; runs anywhere**. Enjoy a fully typed API, whether you use Typescript or plain JS. Plays nicely with any view engine \(React, Angular, Vue, jQuery, etc\), any web server \(Express, Koa, HAPI, a static SPA, etc\), and any back-end stack you can think of.
-* **Blazing fast**. Queue 100 logs in ~1.5ms, with automatic background syncing, batching and throttling with Timber.io, optimizing network I/O and reducing CPU load.
-* **Guaranteed consistency**. `timber.log()` returns a Promise that resolves when the log has been ACK'd by Timber, so you know your log has been stored safely.
+* \*\*\*\*[**Blazing fast**](./#performance). Queue 100 logs in ~1.5ms, with automatic background syncing, batching and throttling with Timber.io, optimizing network I/O and reducing CPU load.
+* \*\*\*\*[**Guaranteed consistency**](./#basic-logging). `timber.log()` returns a Promise that resolves when the log has been ACK'd by Timber, so you know your log has been stored safely.
 * **Easy logging middleware**. Pass an async func to `timber.use()` to chain your own transforms or log middleware; `.log()` only resolves when all middleware complete!
 * **Light as a feather.** The gzipped browser bundle weighs in at just **4.3kb**!
-* **Plays nicely with other loggers**. Plays well with [Winston](https://github.com/timberio/timber-js/blob/master/packages/winston) and [Bunyan](https://github.com/timberio/timber-js/blob/master/packages/bunyan).
+* \*\*\*\*[**Plays nicely with other loggers**](integrations/). Plays well with [Winston](integrations/winston.md) and [Bunyan](integrations/bunyan.md).
 
 ## Installation
 
@@ -40,7 +42,7 @@ We recommend the "HTTP" method if you are unsure. To understand why you would ch
    import { Timber } from "@timberio/node";
    ```
 
-   For CommonJS, require the package:  
+   Or, for CommonJS, require the package:  
 
 
    ```javascript
@@ -81,7 +83,7 @@ This method is more advanced and requires a separate step to ship logs to Timber
    import { Timber } from "@timberio/node";
    ```
 
-   For CommonJS, require the package:  
+   Or, for CommonJS, require the package:  
 
 
    ```javascript
@@ -105,7 +107,7 @@ This method is more advanced and requires a separate step to ship logs to Timber
 4. At this point your application is writing logs to `STDOUT` in JSON format. Please choose the appropriate [platform](../../platforms/), [log forwarder](../../log-forwarders/), or [operating system](../../operating-systems/).
 {% endtab %}
 
-{% tab title="Browser \(Webpack\)" %}
+{% tab title="Browser \(NPM\)" %}
 If you're using a module bundler like Webpack or Rollup, you can install the package directly from NPM:
 
 1. Install the Timber browser library:  
@@ -124,7 +126,7 @@ If you're using a module bundler like Webpack or Rollup, you can install the pac
    import { Timber } from "@timberio/browser";
    ```
 
-   For CommonJS, require the package:  
+   Or, for CommonJS, require the package:  
 
 
    ```javascript
