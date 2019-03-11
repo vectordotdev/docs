@@ -25,6 +25,8 @@ We recommend the "HTTP" method if you are unsure. To understand why you would ch
 
 {% tabs %}
 {% tab title="Node \(HTTP\)" %}
+Send logs directly from within your app over HTTP:
+
 1. Install the Timber Node library:  
 
 
@@ -57,11 +59,13 @@ We recommend the "HTTP" method if you are unsure. To understand why you would ch
 
 
    ```javascript
-   const logger = new TimberNode("YOUR_API_KEY", "YOUR_SOURCE_ID", {ignoreExceptions: true});
+   const logger = new Timber("YOUR_API_KEY", "YOUR_SOURCE_ID", {ignoreExceptions: true});
    ```
 {% endtab %}
 
 {% tab title="Node \(STDOUT\)" %}
+Write logs to `STDOUT` and ship them external from your app:
+
 {% hint style="warning" %}
 This method is more advanced and requires a separate step to ship logs to Timber. Basic knowledge of `STDOUT` and log management is required. For more information on the advantages of this method please see [this guide](../../../guides/sending-logs-to-timber.md).
 {% endhint %}
@@ -97,7 +101,7 @@ This method is more advanced and requires a separate step to ship logs to Timber
 
 
    ```javascript
-   const logger = new TimberNode("YOUR_API_KEY", "YOUR_SOURCE_ID", {ignoreExceptions: true});
+   const logger = new Timber("YOUR_API_KEY", "YOUR_SOURCE_ID", {ignoreExceptions: true});
    timber.setSync(async logs => {
        logs.forEach(log => console.log(log));
        return logs;
@@ -108,7 +112,7 @@ This method is more advanced and requires a separate step to ship logs to Timber
 {% endtab %}
 
 {% tab title="Browser \(NPM\)" %}
-If you're using a module bundler like Webpack or Rollup, you can install the package directly from NPM:
+For browser based environments. If you're using a module bundler like Webpack or Rollup, you can install the package directly from [NPM](https://www.npmjs.com/package/@timberio/browser):
 
 1. Install the Timber browser library:  
 
@@ -146,7 +150,7 @@ If you're using a module bundler like Webpack or Rollup, you can install the pac
 {% endtab %}
 
 {% tab title="Browser \(CDN\)" %}
-If you're not using a Node.js module bundler, you can log in any client-side app by dropping in a `<script>` tag:
+For Browser based environments. If you're not using a Node.js module bundler, you can log in any client-side app by dropping in a `<script>` tag:
 
 1. Install the Timber browser library:  
 
@@ -169,7 +173,7 @@ If you're not using a Node.js module bundler, you can log in any client-side app
 
 ## Configuration
 
-Please refer to the following helper libraries and their associated documentation for configuration options:
+Please refer to the following libraries and their associated documentation for configuration options:
 
 | Package | What's it for? |
 | :--- | :--- |
@@ -188,9 +192,16 @@ Timber integrates with popular Node logging libraries, allowing you to use their
 Basic leveled logging statements can be made using the appropriate method \(`debug`, `info`, `warn`, or `error`\):
 
 ```javascript
-// You can log by .debug, .info, .warn or .error -- returns a Promise
-logger.info("Hello world").then(log => {
-  // At this point, your log is synced with Timber.io!
+// Use any level debug, info, warn, or error
+logger.info("Hello world")
+```
+
+All log levels return a Promise that will resolve once the log has been synced with Timber:
+
+```javascript
+// Will resolve when synced with Timber.io (or reject if there's an error)
+timber.log("some log message").then(log => {
+  // `log` is the transformed log, after going through middleware
 });
 ```
 

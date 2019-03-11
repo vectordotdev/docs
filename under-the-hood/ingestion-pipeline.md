@@ -1,12 +1,12 @@
 ---
-description: Timber's internal architecture
+description: Timber's internal log processing pipeline
 ---
 
-# Architecture
+# Ingestion Pipeline
 
 As developers ourselves, we always have more confidence in systems that are transparent with their architecture since it helps to build confidence in the system. The purpose of this document is to give you a peek under the hood and do exactly that.
 
-## Architectural Diagram
+## Architecture
 
 Let's start with a high-level architectural diagram of Timber's ingestion pipeline:
 
@@ -40,7 +40,7 @@ Timber's fast query speeds are very much a result of this architectural decision
 
 ### ANSI Compliant SQL Querying
 
-Because Timber uses Presto / Athena to query data on S3 you get [full ANSI compliant SQL query capabilities](). There is no limited proprietary query language to learn.
+Because Timber uses Presto / Athena to query data on S3 you get [full ANSI compliant SQL query capabilities](../usage/sql-querying.md). There is no limited proprietary query language to learn.
 
 ### Affordability
 
