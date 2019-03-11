@@ -23,6 +23,8 @@ If you're unsure, we recommend installing via the "HTTP" method. To understand w
 
 {% tabs %}
 {% tab title="HTTP" %}
+Send logs directly from within your app over HTTP:
+
 1. In `mix.exs`, add the `:timber` dependency:  
 
 
@@ -64,6 +66,8 @@ mix timber.test_the_pipes
 {% endtab %}
 
 {% tab title="STDOUT" %}
+Write logs to `STDOUT` and ship them external from your app:
+
 {% hint style="warning" %}
 This method is more advanced and requires a separate step to ship logs to Timber. Basic knowledge of `STDOUT` and log management is required. If you are unsure, please use the "HTTP" method. For more information on the advantages of this method please see [this guide](../../../guides/sending-logs-to-timber.md).
 {% endhint %}
