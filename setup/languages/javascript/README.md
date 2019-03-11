@@ -20,7 +20,7 @@ Timber integrates with [Javascript](https://en.wikipedia.org/wiki/JavaScript) th
 ## Installation
 
 {% hint style="info" %}
-We recommend the "HTTP" method if you are unsure. To understand why you would choose one over the other, please see the ["Ship Logs From Within My App?" guide](../../../guides/sending-logs-to-timber.md).
+We recommend the "HTTP" method for your environment if you are unsure. To understand why you would choose one over the other, please see the ["Ship Logs From Within My App?" guide](../../../guides/sending-logs-to-timber.md).
 {% endhint %}
 
 {% tabs %}
@@ -51,15 +51,12 @@ Send logs directly from within your app over HTTP:
    const { Timber } = require("@timberio/node");
    ```
 
-3. Create a new logger, _**replace `YOUR_API_KEY` and `YOUR_SOURCE_ID` accordingly**_:  
-
-
-   Note: Timber integrates with [Bunyan](integrations/bunyan.md) and [Winston](integrations/winston.md), if you prefer to use those loggers instead. See the [integrations section](integrations/).
+3. Create a new logger, _**replace `YOUR_API_KEY` and `YOUR_SOURCE_ID` accordingly**_:
 
 
 
    ```javascript
-   const logger = new Timber("YOUR_API_KEY", "YOUR_SOURCE_ID", {ignoreExceptions: true});
+   const logger = new Timber("YOUR_API_KEY", "YOUR_SOURCE_ID");
    ```
 {% endtab %}
 
@@ -94,14 +91,12 @@ This method is more advanced and requires a separate step to ship logs to Timber
    const { Timber } = require("@timberio/node");
    ```
 
-3. Create a new logger, _**replace `YOUR_API_KEY` and `YOUR_SOURCE_ID` accordingly**_:  
-  
-   Note: Timber integrates with [Bunyan](integrations/bunyan.md) and [Winston](integrations/winston.md), if you prefer to use those loggers instead. See the [integrations section](integrations/).
+3. Create a new logger, _**replace `YOUR_API_KEY` and `YOUR_SOURCE_ID` accordingly**_:
 
 
 
    ```javascript
-   const logger = new Timber("YOUR_API_KEY", "YOUR_SOURCE_ID", {ignoreExceptions: true});
+   const logger = new Timber("YOUR_API_KEY", "YOUR_SOURCE_ID");
    timber.setSync(async logs => {
        logs.forEach(log => console.log(log));
        return logs;
@@ -137,15 +132,12 @@ For browser based environments. If you're using a module bundler like Webpack or
    const { Timber } = require("@timberio/browser");
    ```
 
-3. Create a new logger with your source ID and API key:  
-
-
-   Note: Timber integrates with [Bunyan](integrations/bunyan.md) and [Winston](integrations/winston.md), if you prefer to use those loggers instead. See the [integrations section](integrations/).
+3. Create a new logger with your source ID and API key:
 
 
 
    ```javascript
-   const logger = new Timber("YOUR_API_KEY", "YOUR_SOURCE_ID", {ignoreExceptions: true});
+   const logger = new Timber("YOUR_API_KEY", "YOUR_SOURCE_ID");
    ```
 {% endtab %}
 
@@ -166,20 +158,26 @@ For Browser based environments. If you're not using a Node.js module bundler, yo
 
 
    ```javascript
-   const logger = new window.Timber("YOUR_API_KEY", "YOUR_SOURCE_ID", {ignoreExceptions: true});
+   const logger = new window.Timber("YOUR_API_KEY", "YOUR_SOURCE_ID");
    ```
+{% endtab %}
+
+{% tab title="Other Loggers" %}
+Timber integrates with other popular loggers, such as [Bunyan](integrations/bunyan.md), [Pino](integrations/pino.md), and [Winston](integrations/winston.md). See the [Integrations section](integrations/) for a complete list.
 {% endtab %}
 {% endtabs %}
 
 ## Configuration
 
-Please refer to the following libraries and their associated documentation for configuration options:
+The `Timber` constructor takes a list of options as defined by [`ITimberOptions` type](https://github.com/timberio/timber-js/tree/master/packages/types#itimberoptions) in the [`@timberio/types` package](https://github.com/timberio/timber-js/tree/master/packages/types). Please see the [`@timber/type` docs](https://github.com/timberio/timber-js/tree/master/packages/types) for a full list of options.
 
-| Package | What's it for? |
-| :--- | :--- |
-| [`@timberio/core`](https://github.com/timberio/timber-js/blob/master/packages/core) | Core library to extend for custom loggers |
-| [`@timberio/tools`](https://github.com/timberio/timber-js/blob/master/packages/tools) | Tools/utils used by loggers for throttling, batching, queuing logs |
-| [`@timberio/types`](https://github.com/timberio/timber-js/blob/master/packages/types) | Shared Typescript types |
+#### Example: Passing configuration options
+
+Here we pass the `ignoreExceptions` option which is a boolean to specify whether thrown errors/failed logs should be ignored:
+
+```javascript
+const logger = new Timber("YOUR_API_KEY", "YOUR_SOURCE_ID", {ignoreExceptions: true});
+```
 
 ## Usage
 
@@ -226,7 +224,7 @@ timber.info("Order #1234 placed, total: $500.23", {
 
 ### Adding Context
 
-For completeness with our other libraries we added this section. Adding context is achieved by [adding middleware](./#adding-middleware). Please see the ["Adding Middleware" section](./#adding-middleware) below.
+For completeness with our other libraries, we added this section. Adding context is achieved by [adding middleware](./#adding-middleware). Please see the ["Adding Middleware" section](./#adding-middleware) below and the included example.
 
 ### Adding Middleware
 
@@ -267,7 +265,7 @@ You can add any number of pipeline functions to your `logger` instance, and they
 Middleware functions run _before_ the final sync to Timber.io. Pipeline functions should return a `Promise<ITimberLog>`, making it possible to augment logs with asynchronous data from external sources.
 
 {% hint style="danger" %}
-**If an exception is thrown anywhere in the pipeline chain, the log** _**won't**_ **be synced. Wrap an async `try/catch`block around your call to `.log|info|debug|warn|error()` or tack on a `.catch()` to ensure your errors are handled.**
+If an exception is thrown anywhere in the pipeline chain the log won't be synced! Wrap an async `try/catch` block around your call to `.log|info|debug|warn|error()` or tack on a `catch()` to ensure your errors are handled.
 {% endhint %}
 
 ### Removing Middleware
@@ -287,11 +285,33 @@ To re-add middleware, pass it to `.use()`
 
 ### Tying Logs To Users
 
-A common practice for Timber users is to tie their logs to users by setting user context. Depending on your application setup your solution for this will vary. We recommend [adding middleware](./#adding-middleware) immediately after authenticating your user, and then [removing the middleware](./#removing-middleware) when the transaction is complete.
+You can associate your logs to users by adding user context. This is achieved by adding a middle immediately after logging the user in:
 
-You can see an example of this in the ["Adding Middleware" section](./#adding-middleware).
+```javascript
+import { ITimberLog } from "@timberio/types";
+
+// In this example function, we'll add custom 'context' meta to the log
+// representing the currently logged in user.
+//
+// Note: a middleware function is any function that takes an `ITimberLog`
+// and returns a `Promise<ITimberLog>`
+async function addCurrentUser(log: ITimberLog): Promise<ITimberLog> {
+  return {
+    ...log, // <-- copy the existing log
+    user: {
+      // ... and add our own `context` data
+      id: 1000,
+      name: "Lee",
+    },
+  };
+}
+
+timber.use(addCurrentUser);
+```
 
 ### Tying Logs To HTTP Requests
+
+You can associate your logs to HTTP requests by adding HTTP context. This is achieved by adding a Timber middleware within your HTTP processing pipeline:
 
 Another common practice for Timber users is to tie their logs to HTTP requests through the HTTP request ID. That's makes it easy to logs relating to an entire HTTP transaction. We recommend [adding middleware](./#adding-middleware) at the top of your callback chain, and then [removing the middleware](./#removing-middleware) immediately after.
 
@@ -314,9 +334,33 @@ timber.pipe(process.stdout); // <-- this will send a copy to `STDOUT`
 timber.log("This will also show up in the console...");
 ```
 
+## Packages
+
+Timber is a universal logging library and ships with the following pages. 
+
+### Environment Libraries
+
+Logging works in Node.js or the browser. Choose the appropriate lib for installation instructions. Please see the ["Which package should I install?" FAQ](./#which-package-should-i-install-to-start-logging) for more information.
+
+| Package | What's it for? |
+| :--- | :--- |
+| [`@timberio/node`](https://github.com/timberio/timber-js/blob/master/packages/node) | Node.js logger |
+| [`@timberio/browser`](https://github.com/timberio/timber-js/blob/master/packages/browser) | Browser logger |
+| [`@timberio/js`](https://github.com/timberio/timber-js/blob/master/packages/js) | Node.js/browser logging, in a single package |
+
+### Helper Libraries
+
+There are a few helper libraries available that you typically won't need to use directly:
+
+| Package | What's it for? |
+| :--- | :--- |
+| [`@timberio/core`](https://github.com/timberio/timber-js/blob/master/packages/core) | Core library to extend for custom loggers |
+| [`@timberio/tools`](https://github.com/timberio/timber-js/blob/master/packages/tools) | Tools/utils used by loggers for throttling, batching, queuing logs |
+| [`@timberio/types`](https://github.com/timberio/timber-js/blob/master/packages/types) | Shared Typescript types |
+
 ## Integrations
 
-Timber integrates with popular 3rd party libraries allowing you to customize how you use Timber. Please see the Javascript integrations section:
+Timber integrates with popular 3rd party libraries such as `Winston`, `Bunyan`, `Express`, and `Koa`. Please see the Javascript integrations section:
 
 {% page-ref page="integrations/" %}
 
