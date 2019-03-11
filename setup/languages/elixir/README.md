@@ -146,9 +146,11 @@ Logger.info(fn ->
 end)
 ```
 
-### Setting Context
+### Adding Context
 
+{% hint style="info" %}
 Before capturing context, please make sure Timber does not already capture the context you want \([see the Automatic Context section](./#context)\).
+{% endhint %}
 
 #### Local Context \(default\)
 
@@ -165,22 +167,24 @@ If you are spawning processes and wish to copy context to that process see the [
 In rare cases you'll want to set global context. Global context applies to _all_ processes and should be used with care. Setting global context follows the same pattern as local context except it must be explicitly specified as the second argument:
 
 ```elixir
-Timber.add_context(build: %{commit_sha: "0529d471fa3e2eeb8556bb400ba8b2b0f497a7e1"}, :global)
+Timber.add_context(user: %{id: "d23f6h7ffx", email: "paul@bunyan.com"}, :global)
 ```
 
-#### Deleting Context
+### Deleting Context
 
-As stated above, you should regularly not have to remove context, as it will die with the process. In cases where you need to explicitly remove context you can do so as follows:
+{% hint style="warning" %}
+As stated above, you should not have to remove context except in rare cases. Context should die with the local process.
+{% endhint %}
+
+Given the above `:user` context, context can be deleted by passing the key:
+
+#### Local Context
 
 ```elixir
-# Add context with a :user root key
-Timber.add_context(user: %{id: "abcd1234"})
-
-# Delete the entire :user key
 Timber.delete_context(:user)
 ```
 
-Deleting global context is similar but with a second explicit argument:
+#### Global Context
 
 ```elixir
 Timber.delete_context(:user, :global)
@@ -251,13 +255,17 @@ end
 
 The new process spawned with `Task.async/1` will now contain the same Timber context as its parent. Please note, that the [runtime context's](./#runtime) `vm_pid` will be overridden and remain true to the local process.
 
-### Log to STDOUT in addition to Timber
+### Log to an additional IO Device
 
-{% hint style="warning" %}
+Writing to an additional IO device is as simple as installing a `Logger` backend for your desired device.
+
+#### Logging to STDOUT
+
+{% hint style="info" %}
 If you have the means to log to `STDOUT,` we highly recommend that you redirect STDOUT to Timber through one of our [platform](../../platforms/), [log forwarder](../../log-forwarders/), or [operating system](../../operating-systems/) integrations instead of shipping logs from within your app. You can read more about that [here](../../../guides/sending-logs-to-timber.md). 
 {% endhint %}
 
-Logging to `:stdout` uses the Elixir provided `:console` backend. You can read more about configuring the `:console`backend [here](https://hexdocs.pm/logger/Logger.html#module-console-backend). Simply add it as a Logger backend:
+Logging to `:stdout` uses the Elixir provided [`:console` backend](https://hexdocs.pm/logger/Logger.html#module-console-backend). You can read more about configuring the `:console`backend [here](https://hexdocs.pm/logger/Logger.html#module-console-backend). Simply add it as a `Logger` backend:
 
 {% code-tabs %}
 {% code-tabs-item title="config/config.exs" %}
@@ -268,6 +276,14 @@ config :logger, backends: [Timber.LoggerBackends.HTTP, :console]
 {% endcode-tabs %}
 
 From here you can redirect `STDOUT` to a [file](../../log-forwarders/fluent-bit.md), [Syslog](../../log-forwarders/syslog.md), or any device of your choice.
+
+#### Logging to a File
+
+{% hint style="warning" %}
+We highly recommend that you log to `STDOUT` and redirect the output to a file when starting your Elixir application. As this follows the 12 Factor methodolgy.
+{% endhint %}
+
+If you cannot redirect `STDOUT` to a file you can install the [`logger_file_backend` library](https://github.com/onkel-dirtus/logger_file_backend). Information on installing that can be found [here](https://github.com/onkel-dirtus/logger_file_backend#configuration).
 
 ## Automatic Context
 

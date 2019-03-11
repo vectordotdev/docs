@@ -200,31 +200,6 @@ This method is more advanced and requires a separate step to ship logs to Timber
 
 All configuration options are available in the [`Timber::Config` module documentation](https://www.rubydoc.info/github/timberio/timber-ruby/Timber/Config).
 
-### Log to STDOUT or a file in addition to Timber
-
-{% hint style="info" %}
-If you are choosing to write logs to `STDOUT` or a file we highly recommend following the "STDOUT" installation instructions and integrating Timber with your [platform](../../platforms/) or [operating system](../../operating-systems/).
-{% endhint %}
-
-#### STDOUT
-
-Simply pass `STDOUT` as the second argument to `Timber::Logger.new`:
-
-```ruby
-http_device = Timber::LogDevices::HTTP.new("YOUR_API_KEY", "YOUR_SOURCE_ID")
-logger = Timber::Logger.new(http_device, STDOUT)
-```
-
-#### File
-
-Simply pass a file logger as the second argument to `Timber::Logger.new` :
-
-```ruby
-http_device = Timber::LogDevices::HTTP.new("YOUR_API_KEY", "YOUR_SOURCE_ID")
-file_logger = Logger.new("#{Rails.root}/log/#{Rails.env}.log")
-logger = Timber::Logger.new(http_device, file_logger)
-```
-
 ## Usage
 
 ### Basic Logging
@@ -317,6 +292,31 @@ logger.info(
     "Processed background job",
     background_job: {duration_ms: timer}
 )
+```
+
+### Log to an additional IO device
+
+{% hint style="info" %}
+If you are choosing to write logs to `STDOUT` or a file we highly recommend following the "STDOUT" installation instructions and integrating Timber with your [platform](../../platforms/) or [operating system](../../operating-systems/).
+{% endhint %}
+
+#### STDOUT
+
+Simply pass `STDOUT` as the second argument to `Timber::Logger.new`:
+
+```ruby
+http_device = Timber::LogDevices::HTTP.new("YOUR_API_KEY", "YOUR_SOURCE_ID")
+logger = Timber::Logger.new(http_device, STDOUT)
+```
+
+#### File
+
+Simply pass a file logger as the second argument to `Timber::Logger.new` :
+
+```ruby
+http_device = Timber::LogDevices::HTTP.new("YOUR_API_KEY", "YOUR_SOURCE_ID")
+file_logger = Logger.new("#{Rails.root}/log/#{Rails.env}.log")
+logger = Timber::Logger.new(http_device, file_logger)
 ```
 
 ## Automatic Context

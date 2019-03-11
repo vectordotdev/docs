@@ -38,6 +38,8 @@
   * [Javascript](setup/languages/javascript/README.md)
     * [Integrations](setup/languages/javascript/integrations/README.md)
       * [Bunyan](setup/languages/javascript/integrations/bunyan.md)
+      * [Express](setup/languages/javascript/integrations/express.md)
+      * [React](setup/languages/javascript/integrations/react.md)
       * [Winston](setup/languages/javascript/integrations/winston.md)
     * [Github Repo](https://github.com/timberio/timber-js)
     * [NPM Package](https://www.npmjs.com/package/@timberio/js)
