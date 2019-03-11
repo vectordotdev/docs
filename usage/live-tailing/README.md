@@ -8,7 +8,7 @@ Timber's live-tail feature lets you access and search your logs in real-time. Th
 
 ## Interface
 
-Timber offers live tailing on both the Timber app as well as the Timber CLI. Please choose your interface:
+Timber offers live tailing on both the [Timber app](app.md) as well as the [Timber CLI](cli.md):
 
 {% page-ref page="app.md" %}
 
@@ -20,7 +20,7 @@ Timber's live tail implements a limited Lucene style syntax:
 
 ### Reserved Characters
 
-Timber reserves characters to implement our query syntax. Literal search can be achieved by escaping the character with a `\` or wrapping the query in quotes.
+Timber reserves the following characters to implement our query syntax. Reserved characters can be escaped with a `\` or wrapped in `"` to be treated literally.
 
 | Character\(s\) | Description |
 | :--- | :--- |
@@ -34,6 +34,7 @@ Timber reserves characters to implement our query syntax. Literal search can be 
 | `AND` | Both conditions, on each side of `AND`, must evaluate to true |
 | `OR` | One condition, on either side of `OR`, must evaluate to true |
 | `:` | Attribute on the left must equal the value on the right |
+| `:-` | Attribute on the left does not equal the value on the right |
 | `:>` | Attribute on the left must be greater than the value on the right |
 | `:>=` | Attribute on the left must be greater than or equal to the value on the right |
 | `:<` | Attribute on the left must be less than the value on the right |
@@ -51,7 +52,7 @@ Timber reserves characters to implement our query syntax. Literal search can be 
 | `pau?` | Contains any word starting with `pau` followed by 1 character |
 | `pau??` | Contains any word starting with `pau` followed by 2 characters |
 
-#### Attribute Examples
+#### Attributes
 
 | Example | Description |
 | :--- | :--- |
@@ -59,7 +60,7 @@ Timber reserves characters to implement our query syntax. Literal search can be 
 | `http_response.status:>=500` | The `http_response.status` field is greater than `500` |
 |  |  |
 
-#### Operator Examples
+#### Operators
 
 | Example | Description |
 | :--- | :--- |
@@ -69,4 +70,7 @@ Timber reserves characters to implement our query syntax. Literal search can be 
 | `NOT paul` | Does not contain `paul` |
 | `paul OR bunyan` | One condition, on either side of `OR`, must evaluate to true |
 | `(paul OR bunyan) AND ox` | Contains `paul` or `bunyan` and `ox` |
+| `-(paul OR bunyan) AND ox` | Does not contain `paul` or `bunyan` and contains `ox` |
+
+
 
