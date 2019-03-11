@@ -40,7 +40,77 @@ Timber integrates with [Python](https://www.python.org/) through the [`timber` P
 
 ## Configuration
 
-Please see the [Configuration section](https://github.com/timberio/timber-python#configuration) within the Timber Python library README.
+The `TimberHandler` takes a variety of parameters that allow for fine-grained control over its behavior.
+
+### `level`
+
+Like any other `logger.Handler`, the `TimberHandler` can be configured to only respond to log events of a specific level:
+
+```python
+# Only respond to events as least as important as `warning`
+timber_handler = timber.TimberHandler(api_key='...', level=logging.WARNING)
+```
+
+You can also set the level as a whole on the logger itself:
+
+```python
+logger.setLevel(logging.INFO)
+```
+
+### `buffer_capacity` and `flush_interval`
+
+Timber buffers log events and sends them in the background for maximum performance. All outstanding log events are sent when the buffer is full or a certain amount of time has passed since any events were sent. To control the size of the buffer, pass the `buffer_capacity` argument:
+
+```python
+# Never allow more than 50 outstanding log events
+timber_handler = timber.TimberHandler(api_key='...', buffer_capacity=50)
+```
+
+To control the maximum amount of time between buffer flushes, pass the `flush_interval` argument:
+
+```python
+# Send any outstanding log events at most every 60 seconds
+timber_handler = timber.TimberHandler(api_key='...', flush_interval=60)
+```
+
+### `raise_exceptions`
+
+Logging should never break your application, which is why the `TimberHandler` suppresses all internal exceptions by default. To change this behavior:
+
+```python
+# Allow exceptions from internal log handling to propagate to the application,
+# instead of suppressing them.
+timber_handler = timber.TimberHandler(api_key='...', raise_exceptions=True)
+```
+
+### `drop_extra_events`
+
+As soon as the internal log event buffer is full, Timber flushes all of the events to the server, but while that occurs any incoming log events are dropped by default. To make your application block in this case to ensure that all log statements are sent to Timber:
+
+```python
+# Make log statements block until the internal log event buffer is no longer full.
+timber_handler = timber.TimberHandler(api_key='...', drop_extra_events=False)
+```
+
+### `context`
+
+By default all `TimberHandler` instances use the same context object \(`timber.context`\), but if you'd like to use multiple loggers and multiple handlers, each with a different context, it is possible to explicitly create and pass your own:
+
+```python
+import logging
+import timber
+
+logger = logging.getLogger(__name__)
+
+context = timber.TimberContext()
+timber_handler = timber.TimberHandler(api_key='...', context=context)
+logger.addHandler(timber_handler)
+
+with context(job={'id': 123}):
+  logger.critical('Background job execution started')
+  # ... code here
+  logger.critical('Background job execution completed')
+```
 
 ## Usage
 

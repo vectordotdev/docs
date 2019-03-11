@@ -51,7 +51,7 @@ Timber provides facilities to add custom context to your logs. This is helpful t
 
 ### Using Context
 
-What good is context if you can't use it in meaningful ways? Timber provides a few ways to take advantage of context. For example the [structured searching](../usage/live-tailing.md#query-syntax) in our [live-tail](../usage/live-tailing.md) feature, [SQL querying](../usage/sql-querying.md), and [graphing](../usage/graphing.md) all take advantage of context and structured data.
+What good is context if you can't use it in meaningful ways? Timber provides a few ways to take advantage of context. For example the [structured searching](../usage/live-tailing/#query-syntax) in our [live-tail](../usage/live-tailing/) feature, [SQL querying](../usage/sql-querying.md), and [graphing](../usage/graphing.md) all take advantage of context and structured data.
 
 
 

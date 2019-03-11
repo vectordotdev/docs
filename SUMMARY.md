@@ -85,7 +85,9 @@
 
 ## Usage
 
-* [Live Tailing](usage/live-tailing.md)
+* [Live Tailing](usage/live-tailing/README.md)
+  * [App](usage/live-tailing/app.md)
+  * [CLI](usage/live-tailing/cli.md)
 * [SQL Querying](usage/sql-querying.md)
 * [Graphing](usage/graphing.md)
 * [Saved Views](usage/saved-views.md)
