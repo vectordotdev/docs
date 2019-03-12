@@ -85,9 +85,7 @@
 
 ## Usage
 
-* [Live Tailing](usage/live-tailing/README.md)
-  * [App](usage/live-tailing/app.md)
-  * [CLI](usage/live-tailing/cli.md)
+* [Live Tailing](usage/live-tailing.md)
 * [SQL Querying](usage/sql-querying.md)
 * [Graphing](usage/graphing.md)
 * [Saved Views](usage/saved-views.md)
@@ -106,11 +104,16 @@
   * [Team Management](usage/account-management/team-management.md)
   * [Deleting Your Account](usage/account-management/deleting-your-account.md)
 
+## Clients
+
+* [Web App](clients/web-app/README.md)
+  * [app.timber.io](https://app.timber.io)
+* [CLI](clients/cli/README.md)
+  * [Github Repo](https://github.com/timberio/cli)
+
 ## Resources
 
-* [App](https://app.timber.io)
 * [API Docs](http://docs.api.timber.io/)
-* [CLI](https://github.com/timberio/timber-cli)
 * [Feature Requests](https://ideas.timber.io/)
 * [Status](https://status.timber.io/)
 
