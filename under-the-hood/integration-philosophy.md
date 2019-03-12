@@ -4,6 +4,15 @@ description: How Timber integrates with log sources
 
 # Integrations
 
+## Principles
+
+Timber operates on the following principles with our integrations:
+
+1. Quality over quantity.
+2. Unopinionated. [Any platform](../setup/platforms/), [any language](../setup/languages/), [any forwarder](../setup/log-forwarders/), [any protocol](../setup/protocols/), [any type](../setup/protocols/http/#accepted-content-types), [any format](log-processing.md#log-formats).
+3. Leverage high-quality active open-source alternatives when possible.
+4. [Invest in capturing context at the source.](integration-philosophy.md#context)
+
 ## Context
 
 Timber treats context as a _key_ component of the Timber service. This guide will outline, in more detail, what context is and how Timber helps you take advantage of it.
