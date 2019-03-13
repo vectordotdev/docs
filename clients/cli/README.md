@@ -51,9 +51,19 @@ We recommend moving `timber` into your `$PATH`.
 
 ## Configuration
 
-### Authenticating
+### Authentication
 
-fdsf
+To use the Timber CLI you'll need to [create an API key](../../usage/account-management/api-keys.md#creating). Simply copy your API key and run, replacing `YOUR_API_KEY` with your new API key value:
+
+```bash
+timber auth YOUR_API_KEY
+```
+
+This will store your API key in `~/.timber` where it will be read and used for each command. Alternatively, you can supply the `--api-key` flag with each command or set the `TIMBER_API_KEY` environment variable.
+
+### ANSI Coloring
+
+By default, Timber will use [ANSI coloring](https://en.wikipedia.org/wiki/ANSI_escape_code#Colors), you can disable this with the `--monochrome-output` flag or by setting the `TIMBER_NO_COLOR` env var.
 
 ## Updating
 
@@ -80,9 +90,10 @@ USAGE:
    timber [global options] command [command options] [arguments...]
 
 COMMANDS:
+     auth     Authenticate with Timber and persist your API key
      tail, t  Live tails logs
      orgs     List organizations that you are a part of
-     apps     List applications that you have access to
+     sources  List sources that you have access to
      views    List saved views that you have access to (currently only console views are displayed)
      api      Make authenticated requests to the Timber API (http://docs.api.timber.io)
      help, h  Shows a list of commands or help for one command
