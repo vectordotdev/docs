@@ -47,6 +47,8 @@ go build
 ./timber help
 ```
 
+We recommend moving `timber` into your `$PATH`.
+
 ## Updating
 
 ### Mac OS
@@ -60,9 +62,9 @@ brew upgrade timber
 
 Simply delete the `timber` binary and [re-install it](./#installation).
 
-## Usage
+## Commands
 
-Options and flags can be accessed with the `timber help` command:
+Commands and options can be accessed with the `timber help` command:
 
 ```text
 NAME:
@@ -89,7 +91,11 @@ GLOBAL OPTIONS:
    --version, -v              print the version
 ```
 
-## Guides
+## Usage
 
-This documentation is designed top-down, focusing on the task first and the medium second. Head over to the [Usage section](../../usage/live-tailing.md) to get started. Simply select the "CLI" tab when reading the guides.
+{% page-ref page="../../usage/live-tailing.md" %}
+
+{% page-ref page="../../usage/sql-querying.md" %}
+
+...and more. Checkout out the [main usage section](../../usage/live-tailing.md) for more guides and tutorials.
 

@@ -57,7 +57,7 @@ Timber reserves the following characters to implement the our query syntax:
 | :--- | :--- | :--- |
 | Wildcards | `*` | Wildcard matching 0 or more characters |
 |  | `?` | Wildcard matching _exactly_ 1 character |
-| Equality | `:` | The field on the left equals the value on the right |
+| Comparison | `:` | The field on the left equals the value on the right |
 |  | `:-` | The field on the left does not equal the value on the right |
 |  | `:>` | The field on the left is greater than the value on the right |
 |  | `:>=` | The field on the left is greater than or equal to the value on the right |

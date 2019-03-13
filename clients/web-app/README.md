@@ -4,25 +4,39 @@ description: Timber's web application
 
 # Web App
 
-The Timber web app is accessible from any modern browser by accessing [https://app.timber.io](https://app.timber.io).
+Use Timber within any modern browser.
 
-{% hint style="info" %}
-This guide focuses on the web app itself, usage guides can be found in the [Usage section](../../usage/live-tailing.md).
-{% endhint %}
+## Accessing
+
+In your browser, navigate to [**https://app.timber.io**](https://app.timber.io).
 
 ## Layout
 
-### Organization Switcher
+\[insert numbered screenshot\]
 
-### Main Navigation
+### 1. Organization Switcher
 
-### Your Account
+### 2. Main Navigation
+
+### 3. Your Account
 
 ## The Console
 
-### Tabs
+### 1. Tabs
 
-### Preferences
+### 2. Preferences
+
+## Usage
+
+{% page-ref page="../../usage/live-tailing.md" %}
+
+{% page-ref page="../../usage/sql-querying.md" %}
+
+{% page-ref page="../../usage/graphing.md" %}
+
+{% page-ref page="../../usage/saved-views.md" %}
+
+...and more. Checkout out the [main usage section](../../usage/live-tailing.md) for more guides and tutorials.
 
 
 
