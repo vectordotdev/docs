@@ -25,8 +25,26 @@ This feature is designed for simple, fast, real-time access to your logs. For co
 
 {% tab title="CLI" %}
 1. [Install the `timber` CLI.](../clients/cli/#installation)
-2. Execute the `timber tail --source-id 1234`  command.
-3. Optionally specify a `--query "my query"` flag to filter your results.
+2. List your available sources:  
+
+
+   ```bash
+   timber sources
+   ```
+
+3. Execute the `tail` command by providing your chosen source ID:  
+
+
+   ```bash
+   timber tail -id 1234
+   ```
+
+4. Optionally specify a `-q "my query"` option to filter your results:  
+
+
+   ```bash
+   timber tail -id 1234 -q "condition"
+   ```
 {% endtab %}
 {% endtabs %}
 

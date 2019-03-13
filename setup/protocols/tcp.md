@@ -4,7 +4,7 @@ description: Send logs to Timber over TCP
 
 # TCP
 
-Timber accepts log data over the TCP protocol on port `6514`. All messages must conform to the Syslog 5424 message format. For this reason, we recommend using a Syslog system for forward your log data over TCP. If you prefer low-level integration please see the installation section below.
+Timber accepts log data over the [TCP protocol](https://en.wikipedia.org/wiki/Transmission_Control_Protocol) on port `6514`. All messages must conform to the [Syslog 5424 message format](https://tools.ietf.org/html/rfc5424). For this reason, we recommend using a [Syslog system](../log-forwarders/syslog.md) to forward your log data over TCP. If you prefer to implement a low-level TCP integration please see the installation section below.
 
 ## Installation
 
@@ -26,7 +26,7 @@ Timber integrates with [Syslog](../log-forwarders/syslog.md), which handles effi
 
 Start by testing the pipes with a simple TCP request, replace `YOUR_API_KEY` and `YOUR_SOURCE_ID` accordingly:
 
-```text
+```bash
 echo '<34>1 2019-02-06T19:20:50.52-05:00 my.host.com su - ID47 [authentication@51576 source_id="YOUR_SOURCE_ID" api_key="YOUR_API_KEY"] Hello world' | nc "logs.timber.io" 6514
 ```
 
