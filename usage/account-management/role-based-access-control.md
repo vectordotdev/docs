@@ -1,3 +1,7 @@
+---
+description: Granular access control to your Timber resources
+---
+
 # Role Based Access Control
 
 Timber implements a [role based access control system](https://en.wikipedia.org/wiki/Role-based_access_control) \(RBAC\) providing for granular access control across your Timber account. Currently, Timber only offers two pre-built roles -- `admin` and `member`.

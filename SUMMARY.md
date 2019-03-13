@@ -106,7 +106,6 @@
   * [Organization Settings](usage/account-management/organization-settings.md)
   * [Notification Preferences](usage/account-management/notification-preferences.md)
   * [Role Based Access Control](usage/account-management/role-based-access-control.md)
-  * [SSO With SAML](usage/account-management/sso-with-saml.md)
   * [Switching Between Orgs](usage/account-management/switching-between-orgs.md)
   * [Team Management](usage/account-management/team-management.md)
   * [Deleting Your Account](usage/account-management/deleting-your-account.md)
