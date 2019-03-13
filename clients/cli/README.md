@@ -49,6 +49,12 @@ go build
 
 We recommend moving `timber` into your `$PATH`.
 
+## Configuration
+
+### Authenticating
+
+fdsf
+
 ## Updating
 
 ### Mac OS
