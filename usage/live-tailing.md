@@ -15,10 +15,10 @@ This feature is designed for simple, fast, real-time access to your logs. For co
 {% tabs %}
 {% tab title="Web App" %}
 1. [Open the Timber web app](https://app.timber.io).
-2. Navigate to the Console using the [main navigation](../clients/web-app/#main-navigation).
+2. Navigate to the [Console](../clients/web-app/#the-console) using the [main navigation](../clients/web-app/#2-main-navigation).
 3. Select the desired source that you want to tail.
 4. A new [tab](../clients/web-app/#tabs) will open and live tailing will begin automatically.
-5. Optionally enter a [search](live-tailing.md#query-syntax) to filter your results.
+5. Optionally enter a [query](live-tailing.md#query-syntax) to filter your results.
 
 ![Timber Web App Live Tail Demo](../.gitbook/assets/live-tailing.gif)
 {% endtab %}
@@ -39,7 +39,7 @@ This feature is designed for simple, fast, real-time access to your logs. For co
    timber tail -id 1234
    ```
 
-4. Optionally specify a `-q "my query"` option to filter your results:  
+4. Optionally specify the `-q` option to provide a [query](live-tailing.md#query-syntax) and filter your results:  
 
 
    ```bash
