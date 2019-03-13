@@ -1,5 +1,5 @@
 ---
-description: Simple getting start guide
+description: Get started with Timber quickly and easily
 ---
 
 # Getting Started

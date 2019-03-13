@@ -6,7 +6,7 @@ description: Integrate the Pino Node logger with Timber
 
 ## Installation
 
-Pino does not offer in-process transports, which you can read more about [here](https://github.com/pinojs/pino/blob/master/docs/transports.md#in-process-transports). This is technically better but requires a separate out-of-process step to ship logs to Timber. You can read about the tradeoffs of this approach in our [Sending Logs To Timber guide](../../../../guides/sending-logs-to-timber.md). Because of this, we recommend piping `STDOUT` from your Node app to one of our [platform](../../../platforms/), [log forwarder](../../../log-forwarders/), or [operating system](../../../operating-systems/) integrations:
+[Pino](https://github.com/pinojs/pino) does not offer in-process transports, which you can read more about [here](https://github.com/pinojs/pino/blob/master/docs/transports.md#in-process-transports). This is technically better but requires a separate out-of-process step to ship logs to Timber. You can read about the tradeoffs of this approach in our [Sending Logs To Timber guide](../../../../guides/sending-logs-to-timber.md). Because of this, we recommend piping `STDOUT` from your Node app to one of our [platform](../../../platforms/), [log forwarder](../../../log-forwarders/), or [operating system](../../../operating-systems/) integrations:
 
 {% page-ref page="../../../platforms/" %}
 
