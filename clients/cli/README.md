@@ -1,10 +1,10 @@
 ---
-description: Access and use Timber from your command line
+description: Timber's command line interface
 ---
 
 # CLI
 
-Timber integrates with the command line through the [`timber` command line utility](https://github.com/timberio/cli), allowing you to access and searching your logs directly from your terminal.
+Timber integrates with the command line through the [`timber` command line utility](https://github.com/timberio/cli), allowing you to access and search your logs directly from your terminal.
 
 ## Features
 
@@ -18,13 +18,15 @@ Timber integrates with the command line through the [`timber` command line utili
 
 ### Mac OS
 
+Timber is easily installed through the [homebrew package manager](https://brew.sh/):
+
 ```bash
 brew tap timberio/brew && brew install timber
 ```
 
 ### Pre-built binaries
 
-Pre-built binaries can be found in the [releases section](https://github.com/timberio/cli/releases) of the [`cli` repository](https://github.com/timberio/cli):
+If you're not on Mac, or prefer not to use [homebrew](https://brew.sh/), you can install one of our pre-built binaries. These can be found in the [releases section](https://github.com/timberio/cli/releases) of the [`cli` repository](https://github.com/timberio/cli):
 
 * [Darwin AMD64](https://github.com/timberio/cli/blob/master)
 * [FreeBSD AMD64](https://github.com/timberio/cli/blob/master)
@@ -36,7 +38,7 @@ Pre-built binaries can be found in the [releases section](https://github.com/tim
 
 ### Building From Source
 
-Building from source requires the [`go` runtime](https://golang.org/doc/install):
+If all else fails, you can build `timber` from source. Building from source requires the [`go` runtime](https://golang.org/doc/install):
 
 ```bash
 git clone git@github.com:timberio/cli.git timber
@@ -56,7 +58,7 @@ brew upgrade timber
 
 ### Other
 
-Simply remove the `timber` binary and [re-install it](./#installation).
+Simply delete the `timber` binary and [re-install it](./#installation).
 
 ## Usage
 

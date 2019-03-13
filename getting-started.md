@@ -11,7 +11,7 @@ Timber is designed to be intuitive. When you first log in, Timber will guide you
 Navigate to the [Timber app](https://app.timber.io) and create your personal account. You can signup through a social integration, such as Github or Google, or create a Timber specific account.
 
 {% hint style="info" %}
-This should be your personal account, you do not need to create organization specific accounts unless you prefer. Timber offers the ability to create multiple organizations and [switch between them](usage/account-management/switching-between-orgs.md) all within the same account. 
+This should be your _personal_ account, you do not need to create organization specific accounts unless you prefer. Timber offers the ability to create multiple organizations and [switch between them](usage/account-management/switching-between-orgs.md) all within the same account. 
 {% endhint %}
 
 ## 2. Create An Organization
@@ -32,5 +32,13 @@ Once you've integrated your source with Timber you'll want to verify log deliver
 
 ## 5. Use Your Log Data
 
-Your done! You can start using your log data. We recommend exploring the rest of this documentation further so you can fully understand the capabilities of Timber and take advantage of the available features.
+All done! Time to start using your log data:
+
+{% page-ref page="usage/live-tailing.md" %}
+
+{% page-ref page="usage/sql-querying.md" %}
+
+{% page-ref page="usage/graphing.md" %}
+
+{% page-ref page="usage/alerting.md" %}
 

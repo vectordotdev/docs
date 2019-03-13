@@ -1,5 +1,5 @@
 ---
-description: Language level integrations
+description: Language runtime level integrations
 ---
 
 # Languages

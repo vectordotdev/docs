@@ -1,5 +1,5 @@
 ---
-description: Access and use Timber in your browser
+description: Timber's web application
 ---
 
 # Web App

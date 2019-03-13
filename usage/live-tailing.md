@@ -2,7 +2,7 @@
 description: Access and search your logs in real-time
 ---
 
-# Live Tailing
+# Live Tailing & Searching
 
 Timber's live-tail feature lets you access and search your logs in real-time. Log will automatically appear within seconds of being sent to Timber.
 
@@ -17,14 +17,14 @@ This feature is designed for simple, fast, real-time access to your logs. For co
 1. [Open the Timber web app](https://app.timber.io).
 2. Navigate to the Console using the [main navigation](../clients/web-app/#main-navigation).
 3. Select the desired source that you want to tail.
-4. A new tab will open and live tailing will begin automatically.
+4. A new [tab](../clients/web-app/#tabs) will open and live tailing will begin automatically.
 5. Optionally enter a [search](live-tailing.md#query-syntax) to filter your results.
 
-![](../.gitbook/assets/live-tailing.gif)
+![Timber Web App Live Tail Demo](../.gitbook/assets/live-tailing.gif)
 {% endtab %}
 
 {% tab title="CLI" %}
-1. Download and install the `timber` CLI
+1. [Install the `timber` CLI.](../clients/cli/#installation)
 2. Execute the `timber tail --source-id 1234`  command.
 3. Optionally specify a `--query "my query"` flag to filter your results.
 {% endtab %}
@@ -114,7 +114,7 @@ Attributes are any field you send with your log data. Nested fields accessed wit
 
 ## Viewing Context
 
-## Changing The Line Format
+## Changing The Log Line Format
 
 ## 
 

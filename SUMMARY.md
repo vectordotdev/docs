@@ -83,9 +83,16 @@
     * [API Documentation](http://docs.api.timber.io/)
   * [TCP](setup/protocols/tcp.md)
 
+## Clients
+
+* [Web App](clients/web-app/README.md)
+  * [Open](https://app.timber.io)
+* [CLI](clients/cli/README.md)
+  * [Github Repo](https://github.com/timberio/cli)
+
 ## Usage
 
-* [Live Tailing](usage/live-tailing.md)
+* [Live Tailing & Searching](usage/live-tailing.md)
 * [SQL Querying](usage/sql-querying.md)
 * [Graphing](usage/graphing.md)
 * [Saved Views](usage/saved-views.md)
@@ -103,13 +110,6 @@
   * [Switching Between Orgs](usage/account-management/switching-between-orgs.md)
   * [Team Management](usage/account-management/team-management.md)
   * [Deleting Your Account](usage/account-management/deleting-your-account.md)
-
-## Clients
-
-* [Web App](clients/web-app/README.md)
-  * [app.timber.io](https://app.timber.io)
-* [CLI](clients/cli/README.md)
-  * [Github Repo](https://github.com/timberio/cli)
 
 ## Resources
 
