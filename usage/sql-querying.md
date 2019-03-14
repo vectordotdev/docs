@@ -46,6 +46,10 @@ Your table name is formatted as `source_{id}`. Where `{id}` is replaced by your 
 
 Any column you send as part of your log data is automatically made available for querying. If you haven't already, please read out [Dynamic Schema Maintenance document](../under-the-hood/schema-maintenance.md).
 
+### Functions
+
+Please see the [Presto `SELECT` docs](https://prestodb.github.io/docs/current/sql/select.html) for a comprehensive overview of al functions available.
+
 ### Best Practices
 
 1. Supply a date range on the `dt` column to limi the amount of data scanned.
