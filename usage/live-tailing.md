@@ -36,15 +36,19 @@ This feature is designed for simple, fast, real-time access to your logs. For co
 
 
    ```bash
-   timber tail -id 1234
+   timber tail --source-id 1234
    ```
 
-4. Optionally specify the `-q` option to provide a [query](live-tailing.md#query-syntax) and filter your results:  
+4. Optionally specify the `--query` option to provide a [query](live-tailing.md#query-syntax) and filter your results:  
 
 
    ```bash
-   timber tail -id 1234 -q "condition"
+   timber tail --source-id 1234 --query "query"
    ```
+
+   Type `timber help tail` for a full list of command options and `timber help` for global options. See the [CLI docs](../clients/cli/) for more information.
+
+![Timber CLI Live Tail Demo](../.gitbook/assets/screen-recording-2019-03-13-at-08.50-pm.gif)
 {% endtab %}
 {% endtabs %}
 
