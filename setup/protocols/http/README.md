@@ -12,7 +12,7 @@ Timber offers [language level libraries](../../languages/) and support for [log 
 
 ## Installation
 
-Forwarding logs to Timber is highly specific to your HTTP client. Below are a few examples, as well as best practices. If possible, we recommend using one of [Timber's libraries]() as all of the intricate details of sending data to Timber are handled for you.
+Forwarding logs to Timber is highly specific to your HTTP client. Below are a few examples, as well as best practices. If possible, we recommend following our [language](../../languages/), [log forwarder](../../log-forwarders/), [operating system](../../operating-systems/), or [platform](../../platforms/) integrations, as log delivery is handled for you in all of these.
 
 ### Examples
 
@@ -42,13 +42,15 @@ https://logs.timber.io/sources/YOUR_SOURCE_ID/frames
 
 ### Getting Your API Key And Source ID
 
-If you haven't already, please create a Timber source by following the [Sending Logs guide](). Timber will display your API key and source ID immediately after you create a source.
+If you haven't already, please create a Timber source by following the [Sending Logs guide](../../../guides/sending-logs-to-timber.md). Timber will display your API key and source ID immediately after you create a source.
 
-### Headers
+### Authorization
 
-Timber requires 2 headers to properly send log data, the `Authorization` and `Timber-Source-ID` headers. Both are displayed on your source's installation page. This pay is displayed immediately after creating a source and can also be found by viewing your source's settings.
+{% hint style="warning" %}
+Be sure to use the `Bearer` strategy. Do _not_ encode your API key in any way.
+{% endhint %}
 
-The `Timber-Source-ID` header is required so that we can properly route your log data. Your sources serve as "containers" for logs, so you must specify which source the log data belongs to.
+Timber requires the `Authorization` header using the `Bearer` strategy as shown above in the example. Your API key does _not_ need to be base64 encoded, you can simply copy and paste it as shown above.
 
 ### Buffering & Batching
 

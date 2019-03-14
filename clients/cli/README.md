@@ -53,13 +53,22 @@ We recommend moving `timber` into your `$PATH`.
 
 ### Authentication
 
-To use the Timber CLI you'll need to [create an API key](../../usage/account-management/api-keys.md#creating). Simply copy your API key and run, replacing `YOUR_API_KEY` with your new API key value:
+To use the Timber CLI you'll need to [create an API key](../../usage/account-management/api-keys.md#creating). Simply copy your API key and run `timber auth [api_key]`, replacing `[api_key]` with your new API key value.
 
 ```bash
-timber auth YOUR_API_KEY
+timber auth [api_key]
 ```
 
-This will store your API key in `~/.timber` where it will be read and used for each command. Alternatively, you can supply the `--api-key` flag with each command or set the `TIMBER_API_KEY` environment variable.
+This will store your API key in the `~/.timber` folder. Going forward, this key will be used for all timber commands. Alternatively, you can supply the `--api-key` flag with each command or set the `TIMBER_API_KEY` environment variable.
+
+### Switching Between Organizations
+
+The Timber CLI offers support for switching between multiple organizations:
+
+1. Run `timber auth list` to list your API keys
+2. Run `timber auth switch [org_id]` to switch to another API key.
+
+If you don't see your API key, [add it as described above](./#authentication).
 
 ### ANSI Coloring
 

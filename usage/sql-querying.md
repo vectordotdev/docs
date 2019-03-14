@@ -6,6 +6,10 @@ description: Powerful SQL querying against your structured log data
 
 Timber offers [full ANSI compliant SQL querying](https://prestodb.github.io/docs/current/sql/select.html) against your structured log data, providing you with powerful unrestricted access to your log data. Query your log data just as you would any SQL compliant database.
 
+{% hint style="info" %}
+This feature is designed for complex long-term querying. Data is made available on 15 minute intervals. For real-time access please see the [Live Tailing & Searching feature](live-tailing.md).
+{% endhint %}
+
 ## Getting Started
 
 {% tabs %}
@@ -37,17 +41,9 @@ SQL Querying within the Timber web app is not currently available. Please use th
 {% endtab %}
 {% endtabs %}
 
-## How It Works
-
-{% hint style="info" %}
-If you haven't already, please read our [Log Ingestion document](../under-the-hood/ingestion-pipeline.md) for a deeper dive into our log ingestion pipeline.
-{% endhint %}
-
-Timber persists your data in an efficient [columnar format](https://en.wikipedia.org/wiki/Column-oriented_DBMS) \([ORC](https://orc.apache.org/)\) on [S3](https://aws.amazon.com/s3/) and uses [Athena](https://aws.amazon.com/athena/) \([Presto](https://prestodb.github.io/)\) to query that data. Athena utilizes thousands of CPU cores to query your data, resulting in [incredibly fast query speeds](https://tech.marksblogg.com/billion-nyc-taxi-rides-aws-athena.html).
-
-Because SQL queries can vary in complexity, they are executed asynchronously, and the status of the query is polled. This is due to the fact that SQL queries can sometimes take a while to complete. Again, this is entirely dependent on the complexity of your query and the amount of data scanned. Performance is _largely_ correlated with the amount of data scanned. You can reduce the execution time by following our [best practices](sql-querying.md#best-practices).
-
 ## Query Syntax
+
+### Definition
 
 Timber only supports the [Presto `SELECT` syntax](https://prestodb.github.io/docs/current/sql/select.html):
 
@@ -129,7 +125,7 @@ This query assumes you have a `http_response_sent.duration_ms` field.
 ```sql
 SELECT
     floor(dt - mod(dt, 60)) AS interval,
-    AVG(http_response_sent.duration_ms) AS response_avg
+    AVG(`http_response_sent.duration_ms`) AS response_avg
 FROM source_{id}
 WHERE dt >= (now() - interval '24' hours)
 GROUP BY floor(dt - mod(dt, 60))
@@ -178,6 +174,32 @@ It is very easy to write a query that will scan all of your data and exhaust you
 
 {% endtab %}
 {% endtabs %}
+
+## How It Works
+
+{% hint style="info" %}
+If you haven't already, please read our [Log Ingestion document](../under-the-hood/ingestion-pipeline.md) for a deeper dive into our log ingestion pipeline.
+{% endhint %}
+
+### Architecture
+
+Timber persists your data in an efficient [columnar format](https://en.wikipedia.org/wiki/Column-oriented_DBMS) \([ORC](https://orc.apache.org/)\) on [S3](https://aws.amazon.com/s3/) and uses [Athena](https://aws.amazon.com/athena/) \([Presto](https://prestodb.github.io/)\) to query that data. Athena utilizes thousands of CPU cores to query your data, resulting in [incredibly fast query speeds](https://tech.marksblogg.com/billion-nyc-taxi-rides-aws-athena.html).
+
+### Performance
+
+Timber's S3 / SQL querying pipeline is built to extract every possible performance benefit. This is the result of hard won experience building and maintaining big data S3 pipelines. With Timber you get all of this as part of your account:
+
+1. Timber [dynamically maintains a schema](../under-the-hood/schema-maintenance.md) for each of your sources.
+2. Because we maintains a consistent schema we're able to write your data in compressed ORC columnar format for efficient data retrieval.
+3. Hourly partitions are used for high-level granular access, helping to reduce the amount of data scanned for each query.
+
+### Asynchronous Processing
+
+Because SQL queries can vary in complexity, they are executed asynchronously, and the status of the query is polled. This is due to the fact that SQL queries can sometimes take a while to complete. This is entirely dependent on the complexity of your query and the amount of data scanned. Performance is _largely_ correlated with the amount of data scanned. You can reduce the execution time by following our [best practices](sql-querying.md#best-practices).
+
+### Data Availability
+
+Timber's S3 / SQL Querying pipeline flushes data on 15 minute intervals, meaning data can be delayed up to 15 minutes before being made available for SQL querying. If you need real-time access please see the [Live Tailing & Search feature](live-tailing.md).
 
 ## Limitations
 
