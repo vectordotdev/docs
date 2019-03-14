@@ -4,7 +4,7 @@ description: Access and search your logs in real-time
 
 # Live Tailing & Searching
 
-Timber's live-tail feature lets you access and search your logs in real-time. Log will automatically appear within seconds of being sent to Timber.
+Timber's live-tail feature lets you access and search your logs in real-time. Logs will automatically appear within seconds of being sent to Timber.
 
 {% hint style="info" %}
 This feature is designed for simple, fast, real-time access to your logs. For complex querying please see our [SQL Querying feature](sql-querying.md).

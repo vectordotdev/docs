@@ -4,13 +4,30 @@ description: Powerful SQL querying against your structured log data
 
 # SQL Querying
 
-Timber offers [full ANSI compliant SQL querying](https://prestodb.github.io/docs/current/sql/select.html) against your structured log data. Timber utilizes [Athena](https://aws.amazon.com/athena/) \([Presto](https://prestodb.github.io/)\) under the hood, providing you with powerful SQL querying.
+Timber offers [full ANSI compliant SQL querying](https://prestodb.github.io/docs/current/sql/select.html) against your structured log data, providing you with powerful unrestricted access to your log data. Query your log data just as you would any SQL compliant database.
 
 ## Getting Started
 
 {% tabs %}
 {% tab title="CLI" %}
+1. [Install the `timber` CLI.](../clients/cli/#installation)
+2. List your available sources:  
 
+
+   ```bash
+   timber sources
+   ```
+
+3. Execute the `sql-query` command using your chosen source ID as the [table name](sql-querying.md#tables):  
+
+
+   ```bash
+   timber sql-query execute "
+   SELECT dt, message
+   FROM source_{source_id}
+   LIMIT 10
+   "
+   ```
 {% endtab %}
 
 {% tab title="Web App" %}
@@ -26,9 +43,9 @@ SQL Querying within the Timber web app is not currently available. Please use th
 If you haven't already, please read our [Log Ingestion document](../under-the-hood/ingestion-pipeline.md) for a deeper dive into our log ingestion pipeline.
 {% endhint %}
 
-Timber persists your data in an efficient columnar format \([ORC](https://orc.apache.org/)\) on [S3](https://aws.amazon.com/s3/) and uses [Athena](https://aws.amazon.com/athena/) \([Presto](https://prestodb.github.io/)\) to query that data. Athena utilizes thousands of CPU cores to query your data, resulting in [incredibly fast query speeds](https://tech.marksblogg.com/billion-nyc-taxi-rides-aws-athena.html).
+Timber persists your data in an efficient [columnar format](https://en.wikipedia.org/wiki/Column-oriented_DBMS) \([ORC](https://orc.apache.org/)\) on [S3](https://aws.amazon.com/s3/) and uses [Athena](https://aws.amazon.com/athena/) \([Presto](https://prestodb.github.io/)\) to query that data. Athena utilizes thousands of CPU cores to query your data, resulting in [incredibly fast query speeds](https://tech.marksblogg.com/billion-nyc-taxi-rides-aws-athena.html).
 
-Because SQL queries can vary in complexity they are executed asynchronously, and the status of the query is polled. This is due to the fact that SQL queries can sometimes take a while to complete. Again, this is entirely dependent on the complexity of your query and the amount of data scanned. Performance is _largely_ correlated with the amount of data scanned. You can reduce the execution time by following our [best practices](sql-querying.md#best-practices).
+Because SQL queries can vary in complexity, they are executed asynchronously, and the status of the query is polled. This is due to the fact that SQL queries can sometimes take a while to complete. Again, this is entirely dependent on the complexity of your query and the amount of data scanned. Performance is _largely_ correlated with the amount of data scanned. You can reduce the execution time by following our [best practices](sql-querying.md#best-practices).
 
 ## Query Syntax
 
@@ -48,13 +65,21 @@ SELECT [ ALL | DISTINCT ] select_expr [, ...]
 
 Please see the [Presto `SELECT` docs](https://prestodb.github.io/docs/current/sql/select.html) for a comprehensive syntax overview.
 
-### Tables
+### Table Names
 
 Your table name is formatted as `source_{id}`. Where `{id}` is replaced by your actual source ID. For example: `SELECT * FROM source_1234 LIMIT 100` would select data from source ID `1234`.
 
-### Columns
+### Column Names
 
 Any column you send as part of your log data is automatically made available for querying. If you haven't already, please read out [Dynamic Schema Maintenance document](../under-the-hood/schema-maintenance.md).
+
+Nested columns are delimited by a `.`. For example `context.user.id` . When specifying columns with a `.` be sure to quote the name with \` characters. For example:
+
+```sql
+SELECT `context.user.id`
+FROM source_{id}
+LIMIT 10
+```
 
 ### Functions
 
@@ -122,7 +147,7 @@ LIMIT 50
 
 `normalized_message` is a special field that Timber provides. It is a downcased and ANSI formatted stripped version of the `message` field, providing for case-insensitive searching.
 
-## Special Fields
+## Special Columns
 
 * `dt` - Log date in fractional [Unix timestamp format](https://en.wikipedia.org/wiki/Unix_time) \(float\). The timestamp represents seconds and the fractions represent fractions of a second. Use this to efficiently narrow your queries to a specific date range.
 * `normalized_message` - Down-cased and [ANSI formatting](https://en.wikipedia.org/wiki/ANSI_escape_code) stripped. Convenient for searching.
@@ -131,15 +156,15 @@ LIMIT 50
 
 ## Usage Calculation
 
-Each SQL query scans data in order to execute and return its result. The amount of data scanned is entirely dependent on the query and the data within account and will be displayed in your client after the query has finished executing.
+Each SQL query scans data in order to execute and return its result. The amount of data scanned is entirely dependent on the query and the data within your account. The data scanned will be displayed in your client after the query has finished executing.
 
-It is very easy to write a query that will scan all of your data and exhaust your limit. Additionally, it is just as easy to write efficient queries that only scan the data necessary. Please see our querying best practices on how to do this.
+It is very easy to write a query that will scan all of your data and exhaust your limit. Additionally, it is just as easy to write efficient queries that only scan the smallest amount of data necessary. Please see our [querying best practices](sql-querying.md#best-practices) on how to do this.
 
 ## Best Practices
 
-1. Supply a date range on the `dt` column to limit the amount of data scanned:
+1. Supply a date range on the `dt` column to limit the amount of data scanned, otherwise all data within your account will be scanned.
 2. Supply a `LIMIT` to return early and reduce the amount of data returned.
-3. Specify individual columns within the `SELECT` clause to reduce the amount of data scanned and returned.
+3. Specify individual columns within the `SELECT` clause to reduce the amount of data scanned and returned. Avoid `*`.
 4. Avoid `JOIN`s if possible.
 
 ## Downloading Results
@@ -157,7 +182,8 @@ It is very easy to write a query that will scan all of your data and exhaust you
 ## Limitations
 
 1. SQL queries are read-only, only `SELECT` queries are allowed.
-2. Only 400% of your [billing plan's volume](account-management/billing.md#volume) can be scanned within a given billing period. See the Usage Calculation section for more information.
+2. Execution time cannot exceed 10 minutes. Beyond this the query will be canceled.
+3. Only 10 X your [billing plan's volume](account-management/billing.md#volume) can be scanned within a given billing period. For example, if you have a 10gb [volume billing plan](account-management/billing.md#volume), you can only execute up to 100GB in cumulative data scanned within a [single billing period](account-management/billing.md#billing-period). See the [Usage Calculation section](sql-querying.md#usage-calculation) for more information.
 
-Please contact support for a limit increase.
+Please contact support if you want to inquire about a limit increase.
 
