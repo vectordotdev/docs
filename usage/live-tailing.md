@@ -130,6 +130,18 @@ Attributes are any field you send with your log data. Nested fields accessed wit
 
 ## Date Ranges
 
+Timber offers the ability to search within a date range.
+
+{% tabs %}
+{% tab title="Web App" %}
+
+{% endtab %}
+
+{% tab title="CLI" %}
+
+{% endtab %}
+{% endtabs %}
+
 ## Jumping To A Date
 
 ## Faceting
