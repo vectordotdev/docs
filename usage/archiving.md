@@ -40,7 +40,7 @@ Use Timber's default S3 bucket for quick easy setup. Use your own S3 bucket for 
 {% endtab %}
 
 {% tab title="Your Own S3 Bucket" %}
-1. [Create your S3 bucket](https://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html) .
+1. [Create your S3 bucket](https://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html) in the `us-east-1` region.
 2. Add a the [Timber bucket policy](archiving.md#permissions).
 3. [Open the Timber web app.](https://app.timber.io)
 4. Navigate to the Settings section using the [main navigation](../clients/web-app/#2-main-navigation).
@@ -53,7 +53,7 @@ Use Timber's default S3 bucket for quick easy setup. Use your own S3 bucket for 
 {% endtab %}
 {% endtabs %}
 
-### Downloading Archives
+### Downloading
 
 {% tabs %}
 {% tab title="Timber\'s S3 Bucket" %}
@@ -77,7 +77,7 @@ Because you've elected to use your own S3 bucket you'll need to use the S3 conso
 {% endtab %}
 {% endtabs %}
 
-### Expiring Archives
+### Expiring
 
 {% tabs %}
 {% tab title="Timber\'s S3 Bucket" %}
@@ -131,7 +131,7 @@ Because you've elected to use your own S3 bucket you have full control over dele
 
 ## Configuration
 
-### Own S3 Bucket
+### Your Own S3 Bucket
 
 {% hint style="warning" %}
 Only S3 buckets in the `us-east-1` region are supported.
@@ -192,8 +192,6 @@ Archive contents are _full_ dumps of your log data in in [`ndjson` format](http:
 ### Compression
 
 Final archive files are [gzipped](https://en.wikipedia.org/wiki/Gzip).
-
-
 
 ## FAQs
 

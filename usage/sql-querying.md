@@ -12,7 +12,7 @@ This feature is designed for complex long-term querying. Data is made available 
 
 ## Getting Started
 
-{% hint style="info" %}
+{% hint style="warning" %}
 SQL Querying within the [Timber web app](../clients/web-app/) is not currently available. The instructions below use the [Timber CLI](../clients/cli/) which does support SQL querying.
 {% endhint %}
 
