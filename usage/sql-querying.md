@@ -35,11 +35,13 @@ SQL Querying within the [Timber web app](../clients/web-app/) is not currently a
    "
    ```
 
-## Query Syntax
+## Usage
 
-### Definition
+### Executing Queries
 
-Timber only supports the [Presto `SELECT` syntax](https://prestodb.github.io/docs/current/sql/select.html):
+#### SQL Query Syntax
+
+Timber supports the [Presto `SELECT` syntax](https://prestodb.github.io/docs/current/sql/select.html):
 
 ```text
 [ WITH with_query [, ...] ]
@@ -55,11 +57,11 @@ SELECT [ ALL | DISTINCT ] select_expr [, ...]
 
 Please see the [Presto `SELECT` docs](https://prestodb.github.io/docs/current/sql/select.html) for a comprehensive syntax overview.
 
-### Table Names
+#### Tables
 
 Your table name is formatted as `source_{id}`. Where `{id}` is replaced by your actual source ID. For example: `SELECT * FROM source_1234 LIMIT 100` would select data from source ID `1234`.
 
-### Column Names
+#### Columns
 
 Any column you send as part of your log data is automatically made available for querying. If you haven't already, please read out [Dynamic Schema Maintenance document](../under-the-hood/schema-maintenance.md).
 
@@ -71,13 +73,18 @@ FROM source_{id}
 LIMIT 10
 ```
 
-### Functions
+#### Special Columns
+
+* `dt` - Log date in fractional [Unix timestamp format](https://en.wikipedia.org/wiki/Unix_time) \(float\). The timestamp represents seconds and the fractions represent fractions of a second. Use this to efficiently narrow your queries to a specific date range.
+* `normalized_message` - Down-cased and [ANSI formatting](https://en.wikipedia.org/wiki/ANSI_escape_code) stripped. Convenient for searching.
+* `application_id` - The ID of the source.
+* `severity` - Numerical representation of the `level` field. The value follows the [Syslog 5424 severities](https://en.wikipedia.org/wiki/Syslog#Severity_level).
+
+#### Functions
 
 Please see the [Presto `SELECT` docs](https://prestodb.github.io/docs/current/sql/select.html) for a comprehensive overview of all functions available.
 
-### Examples
-
-#### 1. Retrieve the last 50 logs logs:
+#### Example 1: Retrieve the last 50 logs logs:
 
 ```sql
 SELECT dt, message
@@ -86,7 +93,7 @@ ORDER BY `dt.desc`
 LIMIT 50
 ```
 
-#### 2. Count logs over the past 24 hours:
+#### Example 2: Count logs over the past 24 hours:
 
 ```sql
 SELECT COUNT(*) AS count
@@ -94,7 +101,7 @@ FROM source_{id}
 WHERE dt >= (now() - interval '24' hour)
 ```
 
-#### 3. Count errors by user over the last week
+#### Example 3: Count errors by user over the last week
 
 {% hint style="info" %}
 This query assumes you have a `user.id` field.
@@ -110,7 +117,7 @@ WHERE
     dt >= (now() - interval '1' week)
 ```
 
-#### 4. Average HTTP server response times over the last 24 hours \(1 minute intervals\):
+#### Example 4: Average HTTP server response times over the last 24 hours \(1 minute intervals\):
 
 {% hint style="info" %}
 This query assumes you have a `http_response_sent.duration_ms` field.
@@ -125,7 +132,7 @@ WHERE dt >= (now() - interval '24' hours)
 GROUP BY floor(dt - mod(dt, 60))
 ```
 
-#### 5. Search logs by a phrase
+#### Example 5: Search logs by a phrase
 
 ```sql
 SELECT dt, message
@@ -137,12 +144,65 @@ LIMIT 50
 
 `normalized_message` is a special field that Timber provides. It is a downcased and ANSI formatted stripped version of the `message` field, providing for case-insensitive searching.
 
-## Special Columns
+### Getting Query Statuses
 
-* `dt` - Log date in fractional [Unix timestamp format](https://en.wikipedia.org/wiki/Unix_time) \(float\). The timestamp represents seconds and the fractions represent fractions of a second. Use this to efficiently narrow your queries to a specific date range.
-* `normalized_message` - Down-cased and [ANSI formatting](https://en.wikipedia.org/wiki/ANSI_escape_code) stripped. Convenient for searching.
-* `application_id` - The ID of the source.
-* `severity` - Numerical representation of the `level` field. The value follows the [Syslog 5424 severities](https://en.wikipedia.org/wiki/Syslog#Severity_level).
+1. [Execute a query.](sql-querying.md#executing-queries)
+2. Run the `status` sub-command to get a queries status:  
+
+
+   ```bash
+   timber sql-queries status [sql_query_id]
+   ```
+
+Please see the [Query Statuses section](sql-querying.md#query-statuses) for status explanations.
+
+### Downloading Results
+
+1. [Execute a query.](sql-querying.md#executing-queries)
+2. Run the `sql-queries` command to list all queries:  
+
+
+   ```bash
+   timber sql-queries
+   ```
+
+3. Run the `results` sub-command to displaying the results, replacing `[sql_query_id]` with the ID of your query:  
+
+
+   ```bash
+   timber sql-queries results [sql_query_id]
+   ```
+
+4. Run the `download` sub-command to download the result, replacing `[sql_query_id]` with the ID of your query:  
+
+
+   ```bash
+   timber sql-queries download [sql_query_id]
+   ```
+
+### Cancelling Queries
+
+{% hint style="info" %}
+You cannot cancel queries that are not RUNNING.
+{% endhint %}
+
+You can cancel running queries by issuing the `cancel` sub-command:
+
+```text
+timber sql-queries cancel [sql_query_id]
+```
+
+## Query Statuses
+
+SQL queries can have any of the following statuses:
+
+| Status | Description |
+| :--- | :--- |
+| `QUEUED` | The query is queued for running. Typically queries run immediately or within minutes if they are queued. Queueing should not last longer than 5 minutes. |
+| `RUNNING` | The query is currently running. |
+| `SUCCEEDED` | The query successfully completed. |
+| `FAILED` | The query failed due to an error. Get the status to view error details. |
+| `CANCELLED` | The query was [manually cancelled](sql-querying.md#cancelling-queries). |
 
 ## Usage Calculation
 
@@ -156,18 +216,6 @@ It is very easy to write a query that will scan all of your data and exhaust you
 2. Supply a `LIMIT` to return early and reduce the amount of data returned.
 3. Specify individual columns within the `SELECT` clause to reduce the amount of data scanned and returned. Avoid `*`.
 4. Avoid `JOIN`s if possible.
-
-## Downloading Results
-
-{% tabs %}
-{% tab title="CLI" %}
-
-{% endtab %}
-
-{% tab title="Web App" %}
-
-{% endtab %}
-{% endtabs %}
 
 ## How It Works
 
