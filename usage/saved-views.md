@@ -70,3 +70,9 @@ When you save a view you're saving all of the parameters of your view:
 * The date range / live-tail status
 * [The log line format](live-tailing.md#changing-the-log-line-format)
 
+## FAQs
+
+### Can other members on my team see my views?
+
+Yes. When you create a view it is available for the whole team.
+
