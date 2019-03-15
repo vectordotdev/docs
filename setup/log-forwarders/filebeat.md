@@ -27,5 +27,5 @@ If given the choice, we recommend [Fluent Bit](fluent-bit.md) for it's superior 
 
 ## Limitations
 
-Because Filebeat does not support generic HTTP endpoints we use the Elasticsearch output since [Timber supports the Elasticsearch /\_bulk protocol](../protocols/elasticsearch.md). As such, [all limitations outlined in the Elasticsearch protocol](../protocols/elasticsearch.md#limitations) apply here.
+Because Filebeat does not support generic HTTP endpoints we use the Elasticsearch output since [Timber supports the Elasticsearch /\_bulk protocol](../protocols/elasticsearch-bulk.md). As such, [all limitations outlined in the Elasticsearch protocol](../protocols/elasticsearch-bulk.md#limitations) apply here.
 

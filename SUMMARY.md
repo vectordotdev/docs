@@ -78,7 +78,7 @@
     * [Heroku Addon](https://elements.heroku.com/addons/timber-logging)
   * [Kubernetes](setup/platforms/kubernetes.md)
 * [Protocols](setup/protocols/README.md)
-  * [Elasticsearch Bulk](setup/protocols/elasticsearch.md)
+  * [Elasticsearch Bulk](setup/protocols/elasticsearch-bulk.md)
   * [HTTP](setup/protocols/http/README.md)
     * [API Documentation](http://docs.api.timber.io/)
   * [TCP](setup/protocols/tcp.md)
