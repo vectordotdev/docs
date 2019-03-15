@@ -136,7 +136,7 @@ Timber offers the ability to search within a date range. This is useful since it
 
 In the top right of the console you'll see a clickable date input. Clicking that will open the date range input box with a singe input field:
 
-![](../.gitbook/assets/date_picker.gif)
+![Applying A Date Range](../.gitbook/assets/date_picker.gif)
 
 You can enter both a range and a single date. Entering a single date will [jump to that date](live-tailing.md#jumping-to-a-date) \(more on that below\). Timber accepts a wide range of semantic date ranges and is powered by the [chrono javascript library](https://github.com/wanasit/chrono). Some examples include:
 
@@ -150,7 +150,7 @@ You can enter both a range and a single date. Entering a single date will [jump 
 
 Additionally, Timber displays a timeline at the top of the console. This is an interactive timeline that you can use to generally select dates:
 
-![Live Tail Time Line](../.gitbook/assets/timeline.gif)
+![Applying A Date Range](../.gitbook/assets/timeline.gif)
 
 ### Jumping To A Date
 
@@ -160,7 +160,7 @@ Similar to applying a date range, you can jump to a date using the date range pi
 
 In the top right of the console you'll see a clickable date input. Clicking that will open the date range input box with a singe input field:
 
-![](../.gitbook/assets/date_picker.gif)
+![Jumping To A Date](../.gitbook/assets/date_picker.gif)
 
 You can enter both a range and a single date. Entering a range will [apply that date range](live-tailing.md#applying-date-ranges) \(more on that above\). Timber accepts a wide range of semantic dates and is powered by the [chrono javascript library](https://github.com/wanasit/chrono). Some examples include:
 
@@ -174,13 +174,13 @@ You can enter both a range and a single date. Entering a range will [apply that 
 
 Additionally, Timber displays a timeline at the top of the console. This is an interactive timeline that you can use to generally select dates. Simply click on the timeline to jump to that date:
 
-![](../.gitbook/assets/timline-jump-to-date.gif)
+![Jumping To A Date](../.gitbook/assets/timline-jump-to-date.gif)
 
 ### Faceting
 
 Facets provide a high-level overview of your log data. It's a great place to start if you need to quickly narrow by specific facets. To view available facets simply click on the facet icon on the right side of the console:
 
-![Timber Facets Demo](../.gitbook/assets/facets.gif)
+![Faceting Logs](../.gitbook/assets/facets.gif)
 
 ### Saving Searches / Views
 
@@ -194,19 +194,19 @@ Timber displays your line in a human readable format. This makes using and readi
 When you view context for a line the URL updates creating a unique link to that log. If you send that URL to a colleague thy will also see the log's metadata / context.
 {% endhint %}
 
-![](../.gitbook/assets/viewing-context.gif)
+![Viewing Context](../.gitbook/assets/viewing-context.gif)
 
 ### Linking To A Log / Sharing
 
 You can link directly to a log for easy sharing. Next to each log is a "link" icon that will copy it's URL to your clipboard. When you send a link to someone the console will open with that log's context / metadata open.
 
-![](../.gitbook/assets/link-to-log.gif)
+![Linking To A Log](../.gitbook/assets/link-to-log.gif)
 
 ## Configuration
 
 Main console preferences are available by click on the "preferences" button in the bottom right. Your preferences are saved as they're changed and will be remembered if you leave and come back.
 
-![](../.gitbook/assets/preferences.gif)
+![Timber&apos;s Console Preferences](../.gitbook/assets/preferences.gif)
 
 ### Themes
 
@@ -216,15 +216,52 @@ Timber offers both a light and a dark themes. Your chosen theme will be used acr
 
 ### Line Styling
 
-You can customize the font size, weight, line height, wrapping, and more in the line style tab
+You can customize the font size, weight, line height, wrapping, and more in the "Line Style" tab:
+
+![Timber Console Line Style Preferences](../.gitbook/assets/line-style.png)
 
 ### Time Zones
 
+You can switch between local and UTC time zones in the same preferences panel by click on the "Time" tab:
+
+![Timber&apos;s Console Time Preference](../.gitbook/assets/time-preferences.png)
+
 ### Log Line Format
 
+You can customize log line format by clicking on the cog icon next to each line. This will adjust how the line is displayed within the console:
 
+![Timber&apos;s Console Line Format Preference](../.gitbook/assets/line-format.gif)
 
-## 
+#### Format Syntax
 
+The format uses a simple `{{...}}` syntax to denote a field name. The field names are based on the fields present in the log line. For example, given the following
 
+**Log line:**
+
+```text
+{
+    "dt": "2019-03-12T12:22:24.223Z",
+    "level": "info",
+    "message": "Hello world",
+    "context": {
+        "user": {
+            "id": "af33tGeds2"
+        }
+    }
+}
+```
+
+**Line format:** 
+
+```text
+{{date}} {{level}} {{context.user.id}} {{message}}
+```
+
+**Results In:**
+
+```text
+2019-03-12T12:22:24.223Z info af33tGeds2 Hello world
+```
+
+Note that nested fields are delimited with a `.` .
 
