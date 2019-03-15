@@ -4,16 +4,19 @@ description: Saved log data views for fast and easy access
 
 # Saved Views
 
-The Timber console implements a tab based interface, allowing you save tabs as "views".
+The Timber console implements a tab based interface, allowing you save tabs as "views", making it quick and easy to load previously saved views.
 
 ## Getting Started
 
-### Saving A View
+[Open the Timber web app.](https://app.timber.io)
 
-1. [Open the Timber web app.](https://app.timber.io)
-2. Navigate to the Console using the [main navigation](../clients/web-app/#2-main-navigation).
-3. Open a new tab and customize it as you please, such as [entering a search query](live-tailing.md#query-syntax), [changing the line format](live-tailing.md#changing-the-log-line-format), and [more](live-tailing.md).
-4. In the bottom right of the interface click "Save View".
+1. Navigate to the Console using the [main navigation](../clients/web-app/#2-main-navigation).
+2. Open a new tab and customize it as you please, such as [entering a search query](live-tailing.md#query-syntax), [changing the line format](live-tailing.md#changing-the-log-line-format), and [more](live-tailing.md).
+3. In the bottom right of the interface click "Save View".
+
+![](../.gitbook/assets/saved_views.gif)
+
+## Usage
 
 ### Loading A View
 
@@ -45,6 +48,18 @@ The Timber console implements a tab based interface, allowing you save tabs as "
    ```
 {% endtab %}
 {% endtabs %}
+
+### Updating A View
+
+1. Load your saved view
+2. Make changes to your view as necessary.
+3. Re-save the view using by clicking "Save View" in the bottom right.
+
+### Deleting A View
+
+1. Navigate to the Console using the [main navigation](../clients/web-app/#2-main-navigation).
+2. Open a new tab.
+3. In the second column you'll see a list of saved views. Click the trash can icon to delete it.
 
 ## How It Works
 

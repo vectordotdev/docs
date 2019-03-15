@@ -19,7 +19,9 @@ Timber offers the ability to graph and visualize your log data.
 
 ## Usage
 
-### Fields
+### Adjusting Your Chart
+
+You can adjust your chart using the left panel with the following fields:
 
 #### Chart Type
 
