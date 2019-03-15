@@ -40,7 +40,7 @@ Use Timber's default S3 bucket for quick easy setup. Use your own S3 bucket for 
 {% endtab %}
 
 {% tab title="Your Own S3 Bucket" %}
-1. [Create your S3 bucket](https://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html) .
+1. [Create your S3 bucket](https://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html) in the `us-east-1` region.
 2. Add a the [Timber bucket policy](archiving.md#permissions).
 3. [Open the Timber web app.](https://app.timber.io)
 4. Navigate to the Settings section using the [main navigation](../clients/web-app/#2-main-navigation).

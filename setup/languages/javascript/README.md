@@ -8,14 +8,14 @@ Timber integrates with [Javascript](https://en.wikipedia.org/wiki/JavaScript) th
 
 ## Features
 
-* **Universal Node/browser support**. Log user/system errors, visits, clicks, events - _anything_ - in Chrome, Safari, Edge, or on a Node.js server.
-* **NPM or CDN**. Use natively in your app, Webpack/Rollup into your Node/browser bundle, or just drop in a `<script>` tag to your final HTML. Integrates easily into any app.
-* **Written in Typescript; runs anywhere**. Enjoy a fully typed API, whether you use Typescript or plain JS. Plays nicely with any view engine \(React, Angular, Vue, jQuery, etc\), any web server \(Express, Koa, HAPI, a static SPA, etc\), and any back-end stack you can think of.
-* \*\*\*\*[**Blazing fast**](./#performance). Queue 100 logs in ~1.5ms, with automatic background syncing, batching and throttling with Timber.io, optimizing network I/O and reducing CPU load.
-* \*\*\*\*[**Guaranteed consistency**](./#basic-logging). `timber.log()` returns a Promise that resolves when the log has been ACK'd by Timber, so you know your log has been stored safely.
-* **Easy logging middleware**. Pass an async func to `timber.use()` to chain your own transforms or log middleware; `.log()` only resolves when all middleware complete!
+* \*\*\*\*[**Universal Node/browser support**.](./#installation)
+* \*\*\*\*[**NPM or CDN.**](./#installation)
+* \*\*\*\*[**Written in Typescript; runs anywhere**.](./#are-typescript-types-available)
+* \*\*\*\*[**Blazing fast**](./#performance).
+* \*\*\*\*[**Guaranteed consistency**](./#basic-logging).
+* \*\*\*\*[**Easy logging middleware**.](./#adding-middleware)
 * **Light as a feather.** The gzipped browser bundle weighs in at just **4.3kb**!
-* \*\*\*\*[**Plays nicely with other loggers**](integrations/). Plays well with [Winston](integrations/winston.md) and [Bunyan](integrations/bunyan.md).
+* \*\*\*\*[**Plays nicely with other loggers**](integrations/).
 
 ## Installation
 
