@@ -12,14 +12,14 @@ Timber implements a [role based access control system](https://en.wikipedia.org/
 {% tab title="Account" %}
 | Resource | Permission | Member | Admin |
 | :--- | :--- | :---: | :---: |
-| API Keys | `create_api_keys` | ✔ | ✔ |
-|  | `delete_api_keys` | ✔ | ✔ |
-|  | `read_api_keys` | ✔ | ✔ |
-|  | `update_api_keys` | ✔ | ✔ |
-| Memberships | `create_memberships` |  | ✔ |
-|  | `delete_memberships` |  | ✔ |
-|  | `read_memberships` |  | ✔ |
-|  | `update_memberships` |  | ✔ |
+| API Keys | `create_api_keys` | X | ✔ |
+|  | `delete_api_keys` | X | ✔ |
+|  | `read_api_keys` | X | ✔ |
+|  | `update_api_keys` | X | ✔ |
+| Memberships | `create_memberships` | X | ✔ |
+|  | `delete_memberships` | X | ✔ |
+|  | `read_memberships` | X | ✔ |
+|  | `update_memberships` | X | ✔ |
 {% endtab %}
 
 {% tab title="Billing" %}
@@ -50,6 +50,7 @@ Timber implements a [role based access control system](https://en.wikipedia.org/
 |  | `read_applications` | ✔ | ✔ |
 |  | `update_applications` | ✔ | ✔ |
 | [Archives](../archiving.md) | `read_log_archives` | ✔ | ✔ |
+| [Log Lines](../live-tailing.md) | `read_log_lines` | ✔ | ✔ |
 | [Notification Destinations](../alerting.md#notification-destinations) | `create_notification_destinations` | ✔ | ✔ |
 |  | `delete_notification_destinations` | ✔ | ✔ |
 |  | `read_notification_destinations` | ✔ | ✔ |
@@ -58,53 +59,18 @@ Timber implements a [role based access control system](https://en.wikipedia.org/
 |  | `delete_saved_views` | ✔ | ✔ |
 |  | `read_saved_views` | ✔ | ✔ |
 |  | `update_saved_views` | ✔ | ✔ |
+| [SQL Queries](../sql-querying.md) | `create_sql_queries` | ✔ | ✔ |
+|  | `delete_sql_queries` | ✔ | ✔ |
+|  | `read_sql_queries` | ✔ | ✔ |
+|  | `update_sql_queries` | ✔ | ✔ |
 {% endtab %}
 {% endtabs %}
 
-
-
-| Permission | Member | Admin |
-| :--- | :--- | :--- |
-| `create_alerts` | ✔ | ✔ |
-| `delete_alerts` | ✔ | ✔ |
-| `read_alerts` | ✔ | ✔ |
-| `update_alerts` | ✔ | ✔ |
-| `create_api_keys` | ✔ | ✔ |
-| `delete_api_keys` | X | ✔ |
-| `read_api_keys` | ✔ | ✔ |
-| `update_api_keys` | ✔ | ✔ |
-| `create_applications` | ✔ | ✔ |
-| `delete_applications` | ✔ | ✔ |
-| `read_applications` | ✔ | ✔ |
-| `update_applications` | ✔ | ✔ |
-| `read_billing_accounts` | X | ✔ |
-| `update_billing_accounts` | X | ✔ |
-| `read_billing_invoices` | X | ✔ |
-| `create_billing_payment_methods` | X | ✔ |
-| `delete_billing_payment_methods` | X | ✔ |
-| `read_billing_payment_methods` | X | ✔ |
-| `update_billing_payment_methods` | X | ✔ |
-| `create_billing_subscriptions` | X | ✔ |
-| `delete_billing_subscriptions` | X | ✔ |
-| `read_billing_subscriptions` | X | ✔ |
-| `update_billing_subscriptions` | X | ✔ |
-| `read_log_line_archives` | ✔ | ✔ |
-| `create_memberships` | X | ✔ |
-| `delete_memberships` | X | ✔ |
-| `read_memberships` | X | ✔ |
-| `update_memberships` | X | ✔ |
-| `create_notification_destinations` | ✔ | ✔ |
-| `delete_notification_destinations` | ✔ | ✔ |
-| `read_notification_destinations` | ✔ | ✔ |
-| `update_notification_destinations` | ✔ | ✔ |
-| `create_saved_views` | ✔ | ✔ |
-| `delete_saved_views` | ✔ | ✔ |
-| `read_saved_iews` | ✔ | ✔ |
-| `update_saved_views` | ✔ | ✔ |
-
 ## API Keys
 
-### 
+[API keys](api-keys.md) are created on the organization level and have `admin` level access. This is why API keys can only be created by other `admin`. For more information on API keys please see the [API keys section](api-keys.md).
 
 ## Changing Roles
+
+`admin` can change the role of other members within their organization. Head over to the [Team Management section](team-management.md) for more information on managing your team.
 
