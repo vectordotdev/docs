@@ -52,11 +52,13 @@ This feature is designed for simple, fast, real-time access to your logs. For co
 {% endtab %}
 {% endtabs %}
 
-## Query Syntax
+## Usage
+
+### Searching
+
+#### Query Syntax
 
 Timber's live-tail query syntax follows a limited [Lucene style syntax](https://lucene.apache.org/core/2_9_4/queryparsersyntax.html). For more complex queries please see the [SQL Querying guide](sql-querying.md).
-
-### Definition
 
 ```text
 [ [ negation ], condition ] [ delimiter ] [ ... ]
@@ -71,7 +73,7 @@ delimiter = " " | "AND" | "OR" ;
 all characters = ? all visible characters ? ;
 ```
 
-### Reserved Characters
+#### Reserved Characters
 
 Timber reserves the following characters to implement the our query syntax:
 
@@ -94,9 +96,7 @@ Timber reserves the following characters to implement the our query syntax:
 | Escaping | `\` | Escapes the following character, treating it as literal |
 |  | `"`, `"` | Treats the following sequence of characters as literal, must be terminated with a final `"` |
 
-### Examples
-
-#### Text Search Examples
+#### Text Examples
 
 | Example | Description |
 | :--- | :--- |
@@ -106,7 +106,7 @@ Timber reserves the following characters to implement the our query syntax:
 | `pau?` | Contains any word starting with `pau` followed by 1 character |
 | `pau??` | Contains any word starting with `pau` followed by 2 characters |
 
-#### Attribute Search Example
+#### Attribute Examples
 
 Attributes are any field you send with your log data. Nested fields accessed with a `.` delimited path:
 
@@ -128,27 +128,97 @@ Attributes are any field you send with your log data. Nested fields accessed wit
 | `(paul OR bunyan) AND ox` | Contains `paul` or `bunyan,` and `ox` |
 | `-(paul OR bunyan) AND ox` | Does not contain `paul` or `bunyan,` and contains `ox` |
 
-## Date Ranges
+### Applying Date Ranges
 
-Timber offers the ability to search within a date range.
+Timber offers the ability to search within a date range. This is useful since it helps reduce noise and improves search speeds. You can use the semantic date range input or the timeline to accomplish this,.
 
-{% tabs %}
-{% tab title="Web App" %}
+#### Using The Date Input
 
-{% endtab %}
+In the top right of the console you'll see a clickable date input. Clicking that will open the date range input box with a singe input field:
 
-{% tab title="CLI" %}
+![](../.gitbook/assets/date_picker.gif)
 
-{% endtab %}
-{% endtabs %}
+You can enter both a range and a single date. Entering a single date will [jump to that date](live-tailing.md#jumping-to-a-date) \(more on that below\). Timber accepts a wide range of semantic date ranges and is powered by the [chrono javascript library](https://github.com/wanasit/chrono). Some examples include:
 
-## Jumping To A Date
+| Example | Description |
+| :--- | :--- |
+| `last 24 hours` | Will narrow your search to the last 24 hours. |
+| `24 hours ago to now` | Will narrow your search to the last 24 hours. |
+| `2019-03-02T12:00:00Z to 2019-03-04T12:00:00Z` | Will narrow your search to the exact range supplied. |
 
-## Faceting
+#### Using The Timeline
 
-## Viewing Context
+Additionally, Timber displays a timeline at the top of the console. This is an interactive timeline that you can use to generally select dates:
 
-## Changing The Log Line Format
+![Live Tail Time Line](../.gitbook/assets/timeline.gif)
+
+### Jumping To A Date
+
+Similar to applying a date range, you can jump to a date using the date range picker or the timeline:
+
+#### Using The Date Input
+
+In the top right of the console you'll see a clickable date input. Clicking that will open the date range input box with a singe input field:
+
+![](../.gitbook/assets/date_picker.gif)
+
+You can enter both a range and a single date. Entering a range will [apply that date range](live-tailing.md#applying-date-ranges) \(more on that above\). Timber accepts a wide range of semantic dates and is powered by the [chrono javascript library](https://github.com/wanasit/chrono). Some examples include:
+
+| `last 24 hours` | Will narrow your search to the last 24 hours. |
+| :--- | :--- |
+| `2019-03-14T12:22:12.123Z` | ISO8601. Jumps to the exact date. |
+| `March 2, 2019` | Jumps to March 2, 2019 at 12am. |
+| `12:31pm` | Jumps to `12:31pm` \(local\) for the current day. |
+
+#### Using The Timeline
+
+Additionally, Timber displays a timeline at the top of the console. This is an interactive timeline that you can use to generally select dates. Simply click on the timeline to jump to that date:
+
+![](../.gitbook/assets/timline-jump-to-date.gif)
+
+### Faceting
+
+Facets provide a high-level overview of your log data. It's a great place to start if you need to quickly narrow by specific facets. To view available facets simply click on the facet icon on the right side of the console:
+
+![Timber Facets Demo](../.gitbook/assets/facets.gif)
+
+### Viewing Context / Metadata
+
+Timber displays your line in a human readable format. This makes using and reading your logs much easier, but many times you need to view the metadata / context attached to the log line. You can achieve this by clicking on the "eye" icon next to each line.
+
+{% hint style="info" %}
+When you view context for a line the URL updates creating a unique link to that log. If you send that URL to a colleague thy will also see the log's metadata / context.
+{% endhint %}
+
+![](../.gitbook/assets/viewing-context.gif)
+
+### Linking To A Log / Sharing
+
+You can link directly to a log for easy sharing. Next to each log is a "link" icon that will copy it's URL to your clipboard. When you send a link to someone the console will open with that log's context / metadata open.
+
+![](../.gitbook/assets/link-to-log.gif)
+
+## Configuration
+
+Main console preferences are available by click on the "preferences" button in the bottom right. Your preferences are saved as they're changed and will be remembered if you leave and come back.
+
+![](../.gitbook/assets/preferences.gif)
+
+### Themes
+
+Timber offers both a light and a dark themes. Your chosen theme will be used across the entire console, they are not view specific.
+
+![](../.gitbook/assets/themes.gif)
+
+### Line Styling
+
+You can customize the font size, weight, line height, wrapping, and more in the line style tab
+
+### Time Zones
+
+### Log Line Format
+
+
 
 ## 
 

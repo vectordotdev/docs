@@ -8,9 +8,9 @@ Timber integrates with [AWS Lambda](https://aws.amazon.com/lambda/) through the 
 
 ## Installation
 
-By default, your AWS Lambda function will create a dedicated CloudWatch Logs stream. You can simply forward this stream to Timber by following the [AWS CloudWatch Logs instructions](aws-cloudwatch/#installation). Be sure to select your AWS Lambda function's stream during the process:
+By default, your AWS Lambda function will create a dedicated CloudWatch Logs stream. You can simply forward this stream to Timber by following the [AWS CloudWatch Logs instructions](aws-cloudwatch-logs/#installation). Be sure to select your AWS Lambda function's stream during the process:
 
-{% page-ref page="aws-cloudwatch/" %}
+{% page-ref page="aws-cloudwatch-logs/" %}
 
 ## Events
 
@@ -88,5 +88,5 @@ REPORT RequestId: 84f70cff-ab16-4f17-a729-91cc92530be4	Duration: 10028.34 ms	Bil
 
 Because the AWS Lambda integration relies on CloudWatch Logs we recommend viewing the CloudWatch logs troubleshooting guide:
 
-{% page-ref page="aws-cloudwatch/" %}
+{% page-ref page="aws-cloudwatch-logs/" %}
 

@@ -10,22 +10,10 @@ The Timber console implements a tab based interface, allowing you save tabs as "
 
 ### Saving A View
 
-{% tabs %}
-{% tab title="Web App" %}
-1. [Open the Timber web app](https://app.timber.io).
-2. Navigate to the [Console](../clients/web-app/#the-console) using the [main navigation](../clients/web-app/#2-main-navigation).
-3. Open a new tab and customize it as you please.
-4. In the bottom right of the interface click "Save View"
-
-![Timber Web App Saved Views Demo](../.gitbook/assets/saved_views.gif)
-{% endtab %}
-
-{% tab title="CLI" %}
-{% hint style="warning" %}
-Saving views within the Timber CLI is currently not supported, but we do support loading \(see below\).
-{% endhint %}
-{% endtab %}
-{% endtabs %}
+1. [Open the Timber web app.](https://app.timber.io)
+2. Navigate to the Console using the [main navigation](../clients/web-app/#2-main-navigation).
+3. Open a new tab and customize it as you please, such as [entering a search query](live-tailing.md#query-syntax), [changing the line format](live-tailing.md#changing-the-log-line-format), and [more](live-tailing.md).
+4. In the bottom right of the interface click "Save View".
 
 ### Loading A View
 

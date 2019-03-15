@@ -12,8 +12,10 @@ This feature is designed for complex long-term querying. Data is made available 
 
 ## Getting Started
 
-{% tabs %}
-{% tab title="CLI" %}
+{% hint style="warning" %}
+SQL Querying within the [Timber web app](../clients/web-app/) is not currently available. The instructions below use the [Timber CLI](../clients/cli/) which does support SQL querying.
+{% endhint %}
+
 1. [Install the `timber` CLI.](../clients/cli/#installation)
 2. List your available sources:  
 
@@ -32,14 +34,6 @@ This feature is designed for complex long-term querying. Data is made available 
    LIMIT 10
    "
    ```
-{% endtab %}
-
-{% tab title="Web App" %}
-{% hint style="warning" %}
-SQL Querying within the Timber web app is not currently available. Please use the CLI.
-{% endhint %}
-{% endtab %}
-{% endtabs %}
 
 ## Query Syntax
 
