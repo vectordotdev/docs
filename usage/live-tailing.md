@@ -182,6 +182,10 @@ Facets provide a high-level overview of your log data. It's a great place to sta
 
 ![Timber Facets Demo](../.gitbook/assets/facets.gif)
 
+### Saving Searches / Views
+
+Head over to the [saved views section](saved-views.md) for a comprehensive guide.
+
 ### Viewing Context / Metadata
 
 Timber displays your line in a human readable format. This makes using and reading your logs much easier, but many times you need to view the metadata / context attached to the log line. You can achieve this by clicking on the "eye" icon next to each line.
