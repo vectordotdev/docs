@@ -39,7 +39,11 @@ Please read [this FAQ](api-keys.md#when-should-i-create-a-new-api-key-or-reuse-a
 
 You can delete an API key by navigating to the "API K
 
-### Using With Timber's API
+### Using An API Key
+
+You can use the API key to interface with Timber's service.
+
+
 
 ## How It Works
 

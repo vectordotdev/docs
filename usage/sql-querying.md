@@ -12,7 +12,7 @@ This feature is designed for complex long-term querying. Data is made available 
 
 ## Getting Started
 
-{% hint style="warning" %}
+{% hint style="info" %}
 SQL Querying within the [Timber web app](../clients/web-app/) is not currently available. The instructions below use the [Timber CLI](../clients/cli/) which does support SQL querying.
 {% endhint %}
 
@@ -144,7 +144,7 @@ LIMIT 50
 
 `normalized_message` is a special field that Timber provides. It is a downcased and ANSI formatted stripped version of the `message` field, providing for case-insensitive searching.
 
-### Getting Query Statuses
+### Getting A Query's Status
 
 1. [Execute a query.](sql-querying.md#executing-queries)
 2. Run the `status` sub-command to get a queries status:  
@@ -247,7 +247,7 @@ Timber's S3 / SQL Querying pipeline flushes data on 15 minute intervals, meaning
 
 1. SQL queries are read-only, only `SELECT` queries are allowed.
 2. Execution time cannot exceed 10 minutes. Beyond this the query will be canceled.
-3. Only 10 X your [billing plan's volume](account-management/billing.md#volume) can be scanned within a given billing period. For example, if you have a 10gb [volume billing plan](account-management/billing.md#volume), you can only execute up to 100GB in cumulative data scanned within a [single billing period](account-management/billing.md#billing-period). See the [Usage Calculation section](sql-querying.md#usage-calculation) for more information.
+3. Only 10 X your [billing plan's volume](account-management/billing.md#volume) can be scanned within a given billing period. For example, if you have a 10gb [volume billing plan](account-management/billing.md#volume), you can only execute up to 100GB in cumulative data scanned within a [single billing period](account-management/billing.md#billing-period).Note that because of [the way Timber stores your log data](sql-querying.md#performance), SQL queries scan significantly less data than the total amount of data contained in your log lines. See the [Usage Calculation section](sql-querying.md#usage-calculation) for more information.
 
 Please contact support if you want to inquire about a limit increase.
 
