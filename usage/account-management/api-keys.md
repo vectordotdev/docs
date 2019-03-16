@@ -41,9 +41,7 @@ You can delete an API key by navigating to the "API K
 
 ### Using An API Key
 
-You can use the API key to interface with Timber's service.
-
-
+You can use the API key to interface with [Timber's API](http://docs.api.timber.io), [Timber's CLI](../../clients/cli/), or any of our [language](../../setup/languages/), [platform](../../setup/platforms/), [log forwarder](../../setup/log-forwarders/), or [operating system integrations](../../setup/operating-systems/).
 
 ## How It Works
 

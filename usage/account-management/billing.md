@@ -75,7 +75,7 @@ Your subscription operates on intervals called billing periods. By default, a si
 
 ### Exceeding Your Limit
 
-Timber defines 3 water marks as you approach and exceed your limit. Each watermark will deliver a notification to your [designated system notification destination](notification-preferences.md). Each watermark is described below:
+Timber defines 3 water marks as you approach and exceed your limit. Each watermark will deliver a notification to your [designated system notification destination](). Each watermark is described below:
 
 #### 80% Watermark
 
@@ -83,11 +83,11 @@ When you've used 80% of your [allotted volume](billing.md#volume) we'll send a n
 
 #### 100% Watermark
 
-When you've used 100% of your allotted volume we'll send a notification to your [designated system notification destination](notification-preferences.md) and display a stringent warning within the Timber app itself. As a courtesy, we will _not_ deny log data, providing you with more time to [adjust your plan](billing.md#changing-plans).
+When you've used 100% of your allotted volume we'll send a notification to your [designated system notification destination]() and display a stringent warning within the Timber app itself. As a courtesy, we will _not_ deny log data, providing you with more time to [adjust your plan](billing.md#changing-plans).
 
 #### 120% Watermark
 
-When you've used 100% of your allotted volume we'll send a notification to your [designated system notification destination](notification-preferences.md) and display a red noticed within the Timber app itself stating that we have stopped accepting logs. For cost reasons we cannot continue to accept logs until you [change your plan](billing.md#changing-plans) to one with a higher volume limit.
+When you've used 100% of your allotted volume we'll send a notification to your [designated system notification destination]() and display a red noticed within the Timber app itself stating that we have stopped accepting logs. For cost reasons we cannot continue to accept logs until you [change your plan](billing.md#changing-plans) to one with a higher volume limit.
 
 ### Changing Plans
 

@@ -104,7 +104,6 @@
   * [API Keys](usage/account-management/api-keys.md)
   * [Billing](usage/account-management/billing.md)
   * [Organization Settings](usage/account-management/organization-settings.md)
-  * [Notification Preferences](usage/account-management/notification-preferences.md)
   * [Role Based Access Control](usage/account-management/role-based-access-control.md)
   * [Switching Between Orgs](usage/account-management/switching-between-orgs.md)
   * [Team Management](usage/account-management/team-management.md)
