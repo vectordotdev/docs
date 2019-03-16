@@ -46,6 +46,7 @@ If you're using [Terraform](https://www.terraform.io/), Timber provides a [Terra
    ```
 
 2. Run `terraform init`
+3. Then `plan` and `apply` as usual.
 
 ### Multiple Sources
 
