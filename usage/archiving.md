@@ -40,8 +40,25 @@ Use Timber's default S3 bucket for quick easy setup. Use your own S3 bucket for 
 {% endtab %}
 
 {% tab title="Your Own S3 Bucket" %}
-1. [Create your S3 bucket](https://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html) in the `us-east-1` region.
-2. Add a the [Timber bucket policy](archiving.md#permissions).
+1. Navigate to the [S3 console](https://console.aws.amazon.com/s3/home?region=us-east-1#) in the `us-east-1` region and create a new bucket with the [appropriate settings](archiving.md#your-own-s3-bucket).
+2. Add a the Timber bucket policy to your newly created bucket, _**replacing `my-bucket-name` with the name of your new bucket**_.  
+
+
+   ```javascript
+   {
+     "Version":"2012-10-17",
+     "Statement":[
+       {
+         "Sid":"AddLogs",
+         "Effect":"Allow",
+         "Principal": {"AWS": ["arn:aws:iam::754402436383:root"]},
+         "Action":["s3:PutObject"],
+         "Resource":["arn:aws:s3:::my-bucket-name/*"]
+       }
+     ]
+   }
+   ```
+
 3. [Open the Timber web app.](https://app.timber.io)
 4. Navigate to the Settings section using the [main navigation](../clients/web-app/#2-main-navigation).
 5. Click the "Archives" tab.
@@ -139,7 +156,7 @@ Only S3 buckets in the `us-east-1` region are supported.
 
 #### Permissions
 
-In order for Timber to write archives to your S3 bucket you must grant Timber permission through a [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html). _**Replace `my-logs` with your bucket name!**_
+In order for Timber to write archives to your S3 bucket you must grant Timber permission through a [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html). _**Replace `my-bucket-name` with your bucket name!**_
 
 ```javascript
 {
@@ -150,7 +167,7 @@ In order for Timber to write archives to your S3 bucket you must grant Timber pe
       "Effect":"Allow",
       "Principal": {"AWS": ["arn:aws:iam::754402436383:root"]},
       "Action":["s3:PutObject"],
-      "Resource":["arn:aws:s3:::my-logs/*"]
+      "Resource":["arn:aws:s3:::my-bucket-name/*"]
     }
   ]
 }
