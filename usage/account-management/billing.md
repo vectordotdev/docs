@@ -93,15 +93,25 @@ When you've used 100% of your allotted volume we'll send a notification to your 
 
 You can change your plan by:
 
-1. Navigating to your organization's settings.
-2. Click on the "Plan & Payment" tab.
-3. Click on the "Change Plan" button.
-4. Select your desired plan details.
-5. Click "Update Plan".
+1. [Open the Timber web app.](https://app.timber.io)
+2. Navigating to the settings section using the [main navigation](../../clients/web-app/#2-main-navigation).
+3. Click on the "Plan & Payment" tab.
+4. Click on the "Change Plan" button.
+5. Select your desired plan details.
+6. Click "Update Plan".
 
 ## Payment Methods
 
 ### Changing Payment Methods
+
+1. [Open the Timber web app.](https://app.timber.io)
+2. Navigating to the settings section using the [main navigation](../../clients/web-app/#2-main-navigation).
+3. Click on the "Plan & Payment" tab.
+4. Click the "Add card" button.
+5. Fill out the form with your card details.
+6. _**After the card is added, open the context menu, a click "Make default".**_
+7. This payment method will be used going forward.
+8. Optionally remove the old payment method.
 
 ### Failed Payments
 
