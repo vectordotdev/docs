@@ -4,6 +4,10 @@ description: Powerful SQL querying against your structured log data
 
 # SQL Querying
 
+{% hint style="warning" %}
+SQL querying is currently in beta. Excuse any rough edges, and please report them to us.
+{% endhint %}
+
 Timber offers [full ANSI compliant SQL querying](https://prestodb.github.io/docs/current/sql/select.html) against your structured log data, providing you with powerful unrestricted access to your log data. Query your log data just as you would any SQL compliant database.
 
 {% hint style="info" %}
