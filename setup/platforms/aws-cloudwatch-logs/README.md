@@ -18,10 +18,23 @@ Timber integrates with [AWS CloudWatch Logs](https://docs.aws.amazon.com/AmazonC
    1. Open your [CloudWatch log groups page](%20https://console.aws.amazon.com/cloudwatch/home#logs:).
    2. Select the desired CloudWatch log group with the radio button.
    3. Click the "Actions" menu at the top and select "Stream to AWS Lambda"
-   4. For the "Lambda Function" field, select the Timber Lambda function that you deployed above. Click "Next".
+   4. For the "Lambda Function" field, select the `serverless-repo-timber-loggin-...` function that you deployed above. Click "Next".
    5. For the "Log Format" field, select "other" and leave the rest of the fields blank. Click "Next".
    6. Review the details and click "Start Streaming". 
-3. Repeat this process for any other CloudWatch log groups you wish to forward.
+3. Head back to the Timber web app and click "Next Step" to verify log delivery.
+4. Repeat this process for any other CloudWatch log groups you wish to forward.
+
+### Test The Pipes
+
+You can test the pipes to verify log delivery.
+
+1. Open the Timber lambda function, it should start with `serverless-repo-timber-loggin-...`.
+2. Click the "Test" button in the top right. A modal will open to create a new test event.
+3. For the "Event template" select "Amazon Cloudwatch Logs".
+4. For the "Event name" enter "Amazon Cloudwatch Logs".
+5. Click "Create".
+6. Click the "Test" button again to test with the new event.
+7. Verify delivery with the log output below.
 {% endtab %}
 
 {% tab title="Terraform" %}
