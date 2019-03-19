@@ -59,7 +59,7 @@ Send logs directly from within your app over HTTP:
 
 #### Test The Pipes
 
-Verify installation by testing the pipe. Start by entering your rails console:
+Verify installation by testing the pipes. Start by entering your rails console:
 
 ```bash
 bundle exec rails console
