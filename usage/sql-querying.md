@@ -4,10 +4,6 @@ description: Powerful SQL querying against your structured log data
 
 # SQL Querying
 
-{% hint style="warning" %}
-SQL querying is currently in beta. Excuse any rough edges, and please report them to us.
-{% endhint %}
-
 Timber offers [full ANSI compliant SQL querying](https://prestodb.github.io/docs/current/sql/select.html) against your structured log data, providing you with powerful unrestricted access to your log data. Query your log data just as you would any SQL compliant database.
 
 {% hint style="info" %}
@@ -16,8 +12,8 @@ This feature is designed for complex long-term querying. Data is made available 
 
 ## Getting Started
 
-{% hint style="warning" %}
-SQL Querying within the [Timber web app](../clients/web-app/) is not currently available. The instructions below use the [Timber CLI](../clients/cli/) which does support SQL querying.
+{% hint style="info" %}
+SQL Querying is limited to the [Timber CLI](../clients/cli/) since it is a low-level data feature. Integration into the Timber web app is planned.
 {% endhint %}
 
 1. [Install the `timber` CLI.](../clients/cli/#installation)
@@ -38,6 +34,8 @@ SQL Querying within the [Timber web app](../clients/web-app/) is not currently a
    LIMIT 10
    "
    ```
+
+![Timber SQL Querying Demo](../.gitbook/assets/sql_queries-executing.gif)
 
 ## Usage
 
@@ -63,13 +61,25 @@ Please see the [Presto `SELECT` docs](https://prestodb.github.io/docs/current/sq
 
 #### Tables
 
-Your table name is formatted as `source_{id}`. Where `{id}` is replaced by your actual source ID. For example: `SELECT * FROM source_1234 LIMIT 100` would select data from source ID `1234`.
+Your table name is formatted as `source_{id}`. Where `{id}` is replaced by your actual source ID.
+
+For example: `SELECT * FROM source_1234 LIMIT 100` would select data from source ID `1234`.
+
+{% hint style="info" %}
+Your can obtain your source ID via the `timber sources` command.
+{% endhint %}
 
 #### Columns
 
 Any column you send as part of your log data is automatically made available for querying. If you haven't already, please read out [Dynamic Schema Maintenance document](../under-the-hood/schema-maintenance.md).
 
-Nested columns are delimited by a `.`. For example `context.user.id` . When specifying columns with a `.` be sure to quote the name with \` characters. For example:
+Nested columns are delimited by a `.`. For example `context.user.id` 
+
+{% hint style="warning" %}
+When specifying columns with a `.` be sure to quote the name with \` characters!
+{% endhint %}
+
+For example \(notice the column quoting\):
 
 ```sql
 SELECT `context.user.id`
@@ -79,10 +89,13 @@ LIMIT 10
 
 #### Special Columns
 
-* `dt` - Log date in fractional [Unix timestamp format](https://en.wikipedia.org/wiki/Unix_time) \(float\). The timestamp represents seconds and the fractions represent fractions of a second. Use this to efficiently narrow your queries to a specific date range.
-* `normalized_message` - Down-cased and [ANSI formatting](https://en.wikipedia.org/wiki/ANSI_escape_code) stripped. Convenient for searching.
-* `application_id` - The ID of the source.
-* `severity` - Numerical representation of the `level` field. The value follows the [Syslog 5424 severities](https://en.wikipedia.org/wiki/Syslog#Severity_level).
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| `application_id` | `int` | The ID of the source, application is an unfortunate legacy term. |
+| `dt` | `float` | Log date in fractional [Unix timestamp format](https://en.wikipedia.org/wiki/Unix_time) \(float\). The timestamp represents seconds and the fractions represent fractions of a second. Use this to efficiently narrow your queries to a specific date range. |
+| `normalized_message` | `string` | Downcased and [ANSI formatting](https://en.wikipedia.org/wiki/ANSI_escape_code) stripped. Convenient for sub-string searching. |
+| `raw_message` | `string` | The raw, unaltered message that you sent to Timber. |
+| `severity` | `int` | Numerical representation of the `level` field. The value follows the [Syslog 5424 severities](https://en.wikipedia.org/wiki/Syslog#Severity_level). |
 
 #### Functions
 
@@ -148,36 +161,38 @@ LIMIT 50
 
 `normalized_message` is a special field that Timber provides. It is a downcased and ANSI formatted stripped version of the `message` field, providing for case-insensitive searching.
 
-### Getting A Query's Status
+### Listing Queries
 
-1. [Execute a query.](sql-querying.md#executing-queries)
-2. Run the `status` sub-command to get a queries status:  
+```text
+timber sql-queries
+```
+
+### Getting A Query's Info
+
+1. [Execute a query](sql-querying.md#executing-queries) or [list your queries](sql-querying.md#listing-queries).
+2. Run the `info` sub-command to get a query's status:  
 
 
    ```bash
-   timber sql-queries status [sql_query_id]
+   timber sql-queries info [sql_query_id]
    ```
 
 Please see the [Query Statuses section](sql-querying.md#query-statuses) for status explanations.
 
-### Downloading Results
+### Displaying Results
 
-1. [Execute a query.](sql-querying.md#executing-queries)
-2. Run the `sql-queries` command to list all queries:  
-
-
-   ```bash
-   timber sql-queries
-   ```
-
-3. Run the `results` sub-command to displaying the results, replacing `[sql_query_id]` with the ID of your query:  
+1. [Execute a query](sql-querying.md#executing-queries) or [list your queries](sql-querying.md#listing-queries).
+2. Run the `results` sub-command to displaying the results, replacing `[sql_query_id]` with the ID of your query:  
 
 
    ```bash
    timber sql-queries results [sql_query_id]
    ```
 
-4. Run the `download` sub-command to download the result, replacing `[sql_query_id]` with the ID of your query:  
+### Downloading Results
+
+1. [Execute a query](sql-querying.md#executing-queries) or [list your queries](sql-querying.md#listing-queries).
+2. Run the `download` sub-command to download the result, replacing `[sql_query_id]` with the ID of your query:  
 
 
    ```bash
