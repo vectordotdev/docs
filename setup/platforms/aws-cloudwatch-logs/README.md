@@ -10,15 +10,15 @@ Timber integrates with [AWS CloudWatch Logs](https://docs.aws.amazon.com/AmazonC
 
 {% tabs %}
 {% tab title="AWS Console" %}
-1. First, deploy Timber's Lambda function to forward your logs by following these instructions: 
-   1. Navigate to the [`timber-logging` lambda function deploy page](%20https://console.aws.amazon.com/lambda/home#/create/app?applicationId=arn:aws:serverlessrepo:us-east-1:754402436383:applications/timber-logging).
-   2. In the "Application Settings" panel enter your Timber API key and Timber source ID.
+1. First, deploy Timber's Lambda function to forward your logs: 
+   1. Open the [`timber-logging` lambda function deploy page](%20https://console.aws.amazon.com/lambda/home#/create/app?applicationId=arn:aws:serverlessrepo:us-east-1:754402436383:applications/timber-logging).
+   2. In the "Application Settings" panel, enter your **Timber source ID** and **Timber API key.**
    3. Click the "Deploy" button. 
-2. Next, select the CloudWatch log group that you'd like to forward by following these instructions: 
-   1. Navigate to your [CloudWatch log groups page](%20https://console.aws.amazon.com/cloudwatch/home#logs:).
+2. Next, select the CloudWatch log group that you'd like to forward: 
+   1. Open your [CloudWatch log groups page](%20https://console.aws.amazon.com/cloudwatch/home#logs:).
    2. Select the desired CloudWatch log group with the radio button.
    3. Click the "Actions" menu at the top and select "Stream to AWS Lambda"
-   4. For the "Lambda Function" field, select the Timber Lambda function that you previously deployed. Click "Next".
+   4. For the "Lambda Function" field, select the Timber Lambda function that you deployed above. Click "Next".
    5. For the "Log Format" field, select "other" and leave the rest of the fields blank. Click "Next".
    6. Review the details and click "Start Streaming". 
 3. Repeat this process for any other CloudWatch log groups you wish to forward.
@@ -27,7 +27,7 @@ Timber integrates with [AWS CloudWatch Logs](https://docs.aws.amazon.com/AmazonC
 {% tab title="Terraform" %}
 If you're using [Terraform](https://www.terraform.io/), Timber provides a [Terraform module](https://github.com/timberio/timber-cloudwatch-logs-lambda-function/tree/master/terraform) that make provisioning all of the AWS resources easy:
 
-1. Define the Terraform module in your project:  
+1. Define the Terraform module in your project, _**replacing `YOUR_API_KEY` and `YOUR_SOURCE_ID` appropriately**_:  
 
 
    ```coffeescript
@@ -46,7 +46,7 @@ If you're using [Terraform](https://www.terraform.io/), Timber provides a [Terra
    ```
 
 2. Run `terraform init`
-3. Then `plan` and `apply` as usual.
+3. Then `terraform plan` and `terraform apply` as usual.
 
 ### Multiple Sources
 
