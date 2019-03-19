@@ -76,10 +76,10 @@ Creating a consistent naming scheme for your events is important since it makes 
 
 ## Keeping Your Schema Clean
 
-Timber limits to number of tracked columns to 1,000. Setting this aside, having a schema with that many columns is very difficult for a human to use, so it's important to think carefully about the column you send to Timber. We recommend the following best practices:
+Timber [limits](../under-the-hood/limitations.md) to number of tracked columns to 1,000. Setting this aside, having a schema with that many columns is very difficult for a human to use, so it's important to think carefully about the columns you send to Timber. We recommend the following best practices:
 
 * Only send columns you want to search [search](../usage/live-tailing.md) or [graph](../usage/graphing.md).
-* Encode structured values to JSON that are only meant to be read. For example, incoming request parameters should be encoded to JSON in a single field instead of sending them as individual fields to Timber \(all of Timber's libraries do this automatically\).
+* Encode objects to JSON that are only meant to be read. For example, incoming request parameters should be encoded to JSON in a single field instead of sending them as individual fields to Timber \(all of Timber's libraries do this automatically\). This way you have the data but you don't create arbitrary columns for each parameter.
 
 ## Classifying Your Events
 
