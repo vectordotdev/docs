@@ -57,12 +57,12 @@ Send logs directly to Timber from within your app over HTTP:
    {% endcode-tabs %}
 
 3. _Optionally_ install [integrations](integrations/) for [Plug](integrations/plug.md), [Phoenix](integrations/phoenix/), [Ecto](integrations/ecto.md), and [more](integrations/)!
+4. _Optionally_ test the pipes to verify installation:  
 
-#### Test The Pipes
 
-```bash
-mix timber.test_the_pipes
-```
+   ```bash
+   mix timber.test_the_pipes
+   ```
 {% endtab %}
 
 {% tab title="STDOUT" %}
