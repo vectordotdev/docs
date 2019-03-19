@@ -76,12 +76,11 @@ Timber accepts the following content types \(ordered by preference\):
 
 ### Timber Libraries
 
-If you don't want to do this yourself you can use one of [Timber's language libraries]().
+If you don't want to do this yourself you can use one of [Timber's language libraries](../../languages/).
 
 ## Limitations
 
-1. Requests cannot exceed 1mb in size. This includes all request data, including headers.
-2. Only the [content types listed](./#accepted-content-types) are accepted.
+See the [Limitations document](../../../under-the-hood/limitations.md) for a comprehensive list.
 
 ## Troubleshooting
 
