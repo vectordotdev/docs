@@ -4,7 +4,7 @@ description: Timber service limitations
 
 # Limitations
 
-To ensure proper working order of Timber we imposes limitations. Timber's limitations are liberal, it should be rare that you bump into them under normal usage.
+To ensure proper working order of Timber we impose various limitations. Timber's limitations are liberal; it should be rare that you bump into them under normal usage.
 
 1. Log dates cannot exceed 14 days in the past.
 2. Log dates cannot exceed 2 hours in the future.
