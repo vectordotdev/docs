@@ -224,7 +224,11 @@ timber.info("Order #1234 placed, total: $500.23", {
 
 ### Adding Context
 
-For completeness with our other libraries, we added this section. Adding context is achieved by [adding middleware](./#adding-middleware). Please see the ["Adding Middleware" section](./#adding-middleware) below and the included example.
+For completeness with our other libraries, we added this section. Adding context is achieved by [adding middleware](./#adding-middleware). Please see:
+
+* [Adding Middleware](./#adding-middleware)
+* [Tying Logs To Users](./#tying-logs-to-users)
+* [Tying Logs To HTTP Requests](./#tying-logs-to-http-requests)
 
 ### Adding Middleware
 
@@ -285,7 +289,7 @@ To re-add middleware, pass it to `.use()`
 
 ### Tying Logs To Users
 
-You can associate your logs to users by adding user context. This is achieved by adding a middle immediately after logging the user in:
+You can associate your logs to users by adding user context. This is achieved by [adding middleware](./#adding-middleware) immediately after logging the user in:
 
 ```javascript
 import { ITimberLog } from "@timberio/types";
