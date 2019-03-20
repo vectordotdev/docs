@@ -19,6 +19,10 @@ description: Send logs to Timber via Fluent Bit
    {% code-tabs %}
    {% code-tabs-item title="/etc/td-agent-bit/td-agent-bit.conf" %}
    ```yaml
+   [SERVICE]
+     # Reduce the flush interval for better real-time access
+     Flush  2
+  
    [OUTPUT]
      Name    http
      # Will match all inputs, replace with your match if you want to send a subset

@@ -23,6 +23,10 @@ Requires Docker version 1.8.0 or later
    {% code-tabs %}
    {% code-tabs-item title="/etc/td-agent-bit/td-agent-bit.conf" %}
    ```yaml
+   [SERVICE]
+     # Reduce the flush interval for better real-time access
+     Flush  2
+  
    [INPUT]                                                                                                                                                                                                            
        Name Forward
        Port 24224

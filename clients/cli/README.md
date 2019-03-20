@@ -24,6 +24,12 @@ Timber is easily installed through the [homebrew package manager](https://brew.s
 brew tap timberio/brew && brew install timber
 ```
 
+You can update `timber` over time via:
+
+```text
+brew update && brew upgrade timber
+```
+
 ### Pre-built binaries
 
 If you're not on Mac, or prefer not to use [homebrew](https://brew.sh/), you can install one of our pre-built binaries. These can be found in the [releases section](https://github.com/timberio/cli/releases) of the [`cli` repository](https://github.com/timberio/cli):
