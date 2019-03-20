@@ -53,6 +53,20 @@ description: Send logs to Timber via Fluent Bit
 
 Please see the [Fluent Bit configuration documentation](https://docs.fluentbit.io/manual/configuration). Specifically the [parsing](https://docs.fluentbit.io/manual/parser) and [filtering](https://docs.fluentbit.io/manual/filter) sections.
 
+## Automatic Context
+
+Unless you're operating Fluent Bit in a [Kubernetes cluster](../platforms/kubernetes.md), context is not automatically added to your logs by default. This is why we include the `[FILTER]` plugin as part of the [installation instructions](fluent-bit.md#installation). If possible, we recommend expanding this with any other information you might find helpful.
+
+## FAQs
+
+### Why do recommend Fluent Bit instead of your own agent?
+
+Fluent Bit is a battle tested, performant, log forwarding utility written in C. It is actively maintained and always improving. It allows Timber to focus on the user experience and not the low level plumbing.
+
+### Should I use Fluent Bit or FluentD?
+
+You can read more about both utilities in the [FluentD docs](https://docs.fluentbit.io/manual/about/fluentd_and_fluentbit). In general, we recommend Fluent Bit when possible due to its improved performance. FluentD should be used in situations where Fluent Bit is not sufficient. For example, if you want to collect data from a source that Fluent Bit does not support, or you want to use a FluentD plugin that is not available in Fluent Bit.
+
 ## Troubleshooting
 
 To begin, please see our [log delivery troubleshooting guide](../../guides/troubleshooting-log-delivery.md). This covers the most common issues we see with log delivery:

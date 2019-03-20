@@ -14,9 +14,10 @@ Requires Docker version 1.8.0 or later
 
 1. [Install Fluent Bit at the system level](../log-forwarders/fluent-bit.md#installation). Fluent Bit has excellent setup instructions, please follow the appropriate ones for your system.
 2. In `/etc/td-agent-bit/td-agent-bit.conf` , add the following.  
-  
-   _**Be sure to replace `YOUR_API_KEY` and `YOUR_SOURCE_ID` appropriately!**_  
-   \(these are displayed on your source's installation page\).  
+
+
+   _**Replace `TIMBER_API_KEY`, `TIMBER_SOURCE_ID`, and `HOSTNAME`accordingly.  
+   Note: Fluent Bit will resolve these values as environment variables if they are set.**_  
 
 
    {% code-tabs %}
@@ -33,13 +34,17 @@ Requires Docker version 1.8.0 or later
      tls     On
      Host    logs.timber.io
      Port    443
-     # !!!!! Replace with your Timber source ID!
-     URI     /sources/YOUR_SOURCE_ID/frames
-     # !!!!! Replace with your Timber API key!
-     Header  Authorization Bearer YOUR_API_KEY
+     URI     /sources/${TIMBER_SOURCE_ID}/frames
+     Header  Authorization Bearer ${TIMBER_API_KEY}
      Header  Content-Type application/msgpack
      Format  msgpack
      Retry_Limit 5
+
+   [FILTER]
+       Name record_modifier
+       # Will match all inputs, replace with your match if you want to send a subset
+       Match *
+       Record hostname ${HOSTNAME}
    ```
    {% endcode-tabs-item %}
    {% endcode-tabs %}
@@ -79,11 +84,11 @@ Please see [t](https://docs.docker.com/config/containers/logging/fluentd/)he [Fl
 
 ## Automatic Context
 
-In addition to the log message itself, the above setup will automatically augment your logs with the following context keys.
+Please see the [Automatic Context section](../log-forwarders/fluent-bit.md#automatic-context) in the Fluent Bit docs.
 
 ## FAQs
 
-### Why do use Fluent Bit instead of your own agent?
+### Why do recommend Fluent Bit instead of your own agent?
 
 Fluent Bit is a battle tested, performant, log forwarding utility written in C. It is actively maintained and always improving. It allows Timber to focus on the user experience and not the low level plumbing.
 

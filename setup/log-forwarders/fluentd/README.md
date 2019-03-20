@@ -51,9 +51,9 @@ Please refer to the [FluentD configuration documentation](https://docs.fluentd.o
 
 ## FAQs
 
-### What is the difference between Fluentd and Fluent Bit
+### Should I use FluentD or Fluent Bit?
 
-[Fluent Bit](../fluent-bit.md) is the new, faster, re-written version of Fluentd. Because it is relatively early in its development it lacking in features & plugins compared to Fluentd.
+You can read more about both utilities in the [FluentD docs](https://docs.fluentbit.io/manual/about/fluentd_and_fluentbit). In general, we recommend Fluent Bit when possible due to its improved performance. FluentD should be used in situations where Fluent Bit is not sufficient. For example, if you want to collect data from a source that Fluent Bit does not support, or you want to use a FluentD plugin that is not available in Fluent Bit.
 
 ## Troubleshooting
 
