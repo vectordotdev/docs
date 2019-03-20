@@ -104,23 +104,30 @@ NAME:
 USAGE:
    timber [global options] command [command options] [arguments...]
 
+VERSION:
+   0.2.0
+
 COMMANDS:
-     auth     Authenticate with Timber and persist your API key
-     tail, t  Live tails logs
-     orgs     List organizations that you are a part of
-     sources  List sources that you have access to
-     views    List saved views that you have access to (currently only console views are displayed)
-     api      Make authenticated requests to the Timber API (http://docs.api.timber.io)
-     help, h  Shows a list of commands or help for one command
+     auth         Manage authentication for the Timber CLI
+     tail, t      Live tails logs
+     sources      Manage your Timber sources
+     sql-queries  Manage SQL queries
+     views        Manage your saved views (only console views are supported in the CLI)
+     api          Issue authenticated requests to the Timber API (http://docs.api.timber.io)
+     help, h      Shows a list of commands or help for one command
 
 GLOBAL OPTIONS:
-   --debug, -d                Output debug messages [$TIMBER_DEBUG]
-   --api-key value, -k value  Your timber.io API key [$TIMBER_API_KEY]
-   --host value, -H value     Timber.io host, useful for testing (default: "https://api.timber.io") [$TIMBER_HOST]
-   --color-output, -C         Set to force color output even if output is not a color terminal [$TIMBER_COLOR]
-   --monochrome-output, -M    Disable color output [$TIMBER_NO_COLOR]
-   --help, -h                 show help
-   --version, -v              print the version
+   --api-key value, -K value    Your timber.io API key [$TIMBER_API_KEY]
+   --color-output, -C           Set to force color output even if output is not a color terminal [$TIMBER_COLOR]
+   --max-columns value          Maximum number of columns to display in a table (default: 7) [$TIMBER_MAX_COLUMNS]
+   --max-column-length value    Maximum length of a single column value (default: 20) [$TIMBER_MAX_COLUMNS]
+   --max-per-page value         Maximum number of items to display per page (default: 25) [$TIMBER_MAX_PER_PAGE]
+   --monochrome-output, -M      Disable color output [$TIMBER_NO_COLOR]
+   --debug, -D                  Output debug messages [$TIMBER_DEBUG]
+   --host value, -H value       Timber.io host, useful for testing (default: "https://api.timber.io") [$TIMBER_HOST]
+   --time-zone value, -Z value  Time zone, such as "Local", "UTC", or "America/New_York" (default: "Local") [$TIMBER_TIME_ZONE]
+   --help, -h                   show help
+   --version, -v                print the version
 ```
 
 ## Usage
