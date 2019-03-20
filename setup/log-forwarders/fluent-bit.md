@@ -10,7 +10,10 @@ description: Send logs to Timber via Fluent Bit
 
 1. [Install Fluent Bit](https://docs.fluentbit.io/manual/installation) for your platform. Such as [Debian](https://docs.fluentbit.io/manual/installation/debian), [Ubuntu](https://docs.fluentbit.io/manual/installation/ubuntu), [CentOS](https://docs.fluentbit.io/manual/installation/redhat_centos), or [building directly](https://docs.fluentbit.io/manual/installation/build_install).
 2. Install your desired [input plugins](https://docs.fluentbit.io/manual/input), such as [file tailing](https://docs.fluentbit.io/manual/input/tail), [STDIN](https://docs.fluentbit.io/manual/input/stdin), [Syslog](https://docs.fluentbit.io/manual/input/syslog), or [TCP](https://docs.fluentbit.io/manual/input/tcp).
-3. In `/etc/td-agent-bit/td-agent-bit.conf`, configure a new `http` output. _**Replace `YOUR_API_KEY` and `YOUR_SOURCE_ID` accordingly:**_  
+3. In `/etc/td-agent-bit/td-agent-bit.conf`, add the following.  
+  
+   _**Replace `TIMBER_API_KEY`, `TIMBER_SOURCE_ID`, and `HOSTNAME`accordingly.  
+   Note: Fluent Bit will resolve these values as environment variables if they are set.**_  
 
 
    {% code-tabs %}
@@ -23,18 +26,22 @@ description: Send logs to Timber via Fluent Bit
      tls     On
      Host    logs.timber.io
      Port    443
-     # !!!!! Replace with your Timber source ID!
-     URI     /sources/YOUR_SOURCE_ID/frames
-     # !!!!! Replace with your Timber API key!
-     Header  Authorization Bearer YOUR_API_KEY
+     URI     /sources/${TIMBER_SOURCE_ID}/frames
+     Header  Authorization Bearer ${TIMBER_API_KEY}
      Header  Content-Type application/msgpack
      Format  msgpack
      Retry_Limit 5
+  
+   [FILTER]
+       Name record_modifier
+       # Will match all inputs, replace with your match if you want to send a subset
+       Match *
+       Record hostname ${HOSTNAME}
    ```
    {% endcode-tabs-item %}
    {% endcode-tabs %}
 
-4. _Optionally_ install [parser](https://docs.fluentbit.io/manual/parser) and [filter](https://docs.fluentbit.io/manual/filter) plugins to enhance your logs.
+4. _Optionally_ install any additionally [parser](https://docs.fluentbit.io/manual/parser) and [filter](https://docs.fluentbit.io/manual/filter) plugins to enhance your logs.
 5. Restart your fluent-bit agent:  
 
 

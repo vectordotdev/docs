@@ -196,8 +196,10 @@ Please see the [Query Statuses section](sql-querying.md#query-statuses) for stat
 
 
    ```bash
-   timber sql-queries download [sql_query_id]
+   timber sql-queries download [sql_query_id] | open
    ```
+
+   We pipe with the `open` command to
 
 ### Cancelling Queries
 
