@@ -24,11 +24,11 @@ SQL Querying is limited to the [Timber CLI](../clients/cli/) since it is a low-l
    timber sources
    ```
 
-3. Execute the `sql-query` command using your chosen source ID as the [table name](sql-querying.md#tables):  
+3. Execute the `sql-queries` command using your chosen source ID as the [table name](sql-querying.md#tables):  
 
 
    ```bash
-   timber sql-query execute "
+   timber sql-queries execute "
    SELECT dt, message
    FROM source_{source_id}
    LIMIT 10
