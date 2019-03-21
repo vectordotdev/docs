@@ -8,6 +8,7 @@ Timber integrates with the command line through the [`timber` command line utili
 
 ## Features
 
+* Static binary with no dependencies
 * [Live-tail & search your logs](../../usage/live-tailing.md)
 * [SQL query your logs](../../usage/sql-querying.md)
 * List organizations
@@ -15,6 +16,8 @@ Timber integrates with the command line through the [`timber` command line utili
 * Issue authenticated requests to the [Timber API](https://docs.api.timber.io)
 
 ## Installation
+
+The Timber CLI ships as a static binary with no dependencies.
 
 ### Mac OS
 
