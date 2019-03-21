@@ -126,12 +126,13 @@ This query assumes you have a `user.id` field.
 
 ```sql
 SELECT
-    `user.id` AS user_id,
+    `context.user.id` AS user_id,
     COUNT(*) AS count
 FROM source_{id}
 WHERE
     level = 'error' AND
     dt >= (now() - interval '1' week)
+GROUP BY `context.user.id`
 ```
 
 #### Example 4: Average HTTP server response times over the last 24 hours \(1 minute intervals\):
