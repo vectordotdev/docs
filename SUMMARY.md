@@ -16,6 +16,7 @@
   * [Limitations](under-the-hood/limitations.md)
   * [Security](under-the-hood/security.md)
   * [Compliance](under-the-hood/compliance.md)
+  * [Support](under-the-hood/support.md)
   * [Termionology](under-the-hood/concepts.md)
 
 ## Setup

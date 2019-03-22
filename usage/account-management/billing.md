@@ -30,6 +30,27 @@ Let's look at a real world example to explain further: If you're on a plan with 
 
 Retention is separate from volume and refers to the length of time data is stored from the time it is received. For example, if you're on a plan with a 14 day retention, and you send data on March 1, 2019 at 2pm, your data will be deleted sometime after 2pm on March 15, 2019. Timber offers liberal retention options due to the [architecture of our ingestion pipeline](../../under-the-hood/ingestion-pipeline.md). We can also offer custom retention based on your needs, just contact support.
 
+### Paid vs Free Features
+
+| Feature | Free | Paid |
+| :--- | :--- | :--- |
+| Support | Limited | Full |
+| [Sources & Hosts](../source-management.md) | 2 | Unlimited |
+| Users | 2 | Unlimited |
+| Archiving | Disabled | Enabled |
+| SQL Querying | Disabled | Enabled |
+| Enhanced Durability | Disabled | Enabled |
+
+#### Support
+
+Support for free plans is limited depending on resource constraints at the time. While it is our goal to provide excellent customer service for every user of Timber, we must prioritize paying customers in order to meet the quality of support we expect when paying for a product.
+
+#### Sources & Hosts
+
+Each source an host has a fixed cost
+
+
+
 ### How Volume Is Calculated
 
 Volume is calculated for each individual log line that you send to your Timber account. This is a byte size calculation. Because log lines can come in many forms \(JSON, msgpack, text, etc\), Timber normalizes all log lines into [`msgpack`](https://msgpack.org/) before calculating the byte size. This favors you, the customer, by removing any encoding "cruft" and ultimately producing a byte size calculation that is smaller. For example, given the following payload of log lines sent to Timber in `application/ndjson` format:
