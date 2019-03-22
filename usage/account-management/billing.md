@@ -34,22 +34,20 @@ Retention is separate from volume and refers to the length of time data is store
 
 | Feature | Free | Paid |
 | :--- | :--- | :--- |
-| Support | Limited | Full |
+| [Support](../../under-the-hood/support.md) | Limited | Full |
 | [Sources & Hosts](../source-management.md) | 2 | Unlimited |
-| Users | 2 | Unlimited |
-| Archiving | Disabled | Enabled |
-| SQL Querying | Disabled | Enabled |
-| Enhanced Durability | Disabled | Enabled |
+| [Users](team-management.md) | 2 | Unlimited |
+| [Archiving](../archiving.md) | Disabled | Enabled |
+| [SQL Querying](../sql-querying.md) | Disabled | Enabled |
+| [Enhanced Durability](billing.md#enhanced-durability) | Disabled | Enabled |
 
 #### Support
 
-Support for free plans is limited depending on resource constraints at the time. While it is our goal to provide excellent customer service for every user of Timber, we must prioritize paying customers in order to meet the quality of support we expect when paying for a product.
+You can read more about our support in the [support document](../../under-the-hood/support.md).
 
-#### Sources & Hosts
+#### Enhanced Durability
 
-Each source an host has a fixed cost
-
-
+Timber implements a [hybrid S3 ingestion pipeline](../../under-the-hood/ingestion-pipeline.md). This means that in addition to persisting your data in a fast real-time query engine, your data is also available for querying on S3 which offers 11-9s of durability. Free customers are limited to our real-time engine only, which reduces the durability guarantees we can offer. This is mostly due to the fact that free plans do not retain data past our real-time window.
 
 ### How Volume Is Calculated
 
