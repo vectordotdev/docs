@@ -158,3 +158,11 @@ You may cancel your Timber account at any time. You can accomplish by either:
 1. [Downgrading your plan to the free plan.](billing.md#changing-plans)
 2. [Deleting your Timber organization.](deleting-your-account.md)
 
+## FAQs
+
+### Can I delete old data to make room for new data?
+
+As much as we'd like to do this we simply cannot. To understand why, you must understand that the bulk of any ingestion pipeline's cost is in processing and querying the data, not storing it. Timber goes to [great lengths](../../under-the-hood/ingestion-pipeline.md) to process your data in such a way that provides for very fast exploratory searching.
+
+If you find that you are bumping into your limit and wish to reduce cost we recommend checking out our [Reducing Log Volume guide](../../guides/reducing-log-volume.md). There are a lot of ways most users can substantially reduce their log volume which will have the largest impact on reducing your cost.
+
