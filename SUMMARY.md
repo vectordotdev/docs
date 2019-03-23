@@ -113,6 +113,5 @@
 ## Resources
 
 * [API Docs](http://docs.api.timber.io/)
-* [Feature Requests](https://ideas.timber.io/)
 * [Status](https://status.timber.io/)
 
