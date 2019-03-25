@@ -86,7 +86,14 @@ Timber allows you to change your plan as frequently as you like, your plan will 
 
 ### Trials
 
-Every Timber subscription comes with a 14 day trial up to 100gb.
+Timber offers trials, making it easy to for your experience Timber in real production environmnets:
+
+1. Every Timber _new_ subscription comes with a 14 day trial.
+2. You will not be billed during the trial period.
+3. Trials begin the moment you upgrade.
+4. You are free to upgrade and downgrade as much as you like without affecting your trial.
+5. Once the trial ends, your account will be billed as normal.
+6. Trials are once per customer, regardless if you downgrade and upgrade again.
 
 ### Billing Periods
 
