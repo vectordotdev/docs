@@ -86,9 +86,9 @@ Timber allows you to change your plan as frequently as you like, your plan will 
 
 ### Trials
 
-Timber offers trials, making it easy to for your experience Timber in real production environmnets:
+Timber offers trials, making it easy to for your experience Timber in real production environments:
 
-1. Every Timber _new_ subscription comes with a 14 day trial.
+1. Your 14 day trial period begins when you create your account.
 2. You will not be billed during the trial period.
 3. Trials begin the moment you upgrade.
 4. You are free to upgrade and downgrade as much as you like without affecting your trial.
