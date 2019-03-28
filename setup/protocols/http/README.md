@@ -29,11 +29,15 @@ Content-Type: application/ndjson
 
 {% tab title="http \(basic auth\)" %}
 ```bash
-POST https://:YOUR_API_KEY@logs.timber.io/sources/YOUR_SOURCE_ID/frames
+POST https://user:YOUR_API_KEY@logs.timber.io/sources/YOUR_SOURCE_ID/frames
 Content-Type: application/ndjson
 {"level": "debug", "message": "Testing the pipes"}
 {"level": "debug", "message": "Testing the pipes again"}
 ```
+
+{% hint style="info" %}
+Timber will discard the `user` value. Basic auth required this. Use any value you'd like.
+{% endhint %}
 {% endtab %}
 
 {% tab title="curl \(bearer auth\)" %}
@@ -52,12 +56,16 @@ https://logs.timber.io/sources/YOUR_SOURCE_ID/frames
 ```bash
 curl \
 --request POST \
---user ":YOUR_API_KEY" \
+--user "user:YOUR_API_KEY" \
 --header "Content-Type: application/ndjson" \
 --data '{"level": "debug", "message": "Testing the pipes"}
 {"level": "debug", "message": "Testing the pipes again"}' \
 https://logs.timber.io/sources/YOUR_SOURCE_ID/frames
 ```
+
+{% hint style="info" %}
+Timber will discard the `user` value. Basic auth required this. Use any value you'd like.
+{% endhint %}
 {% endtab %}
 {% endtabs %}
 
