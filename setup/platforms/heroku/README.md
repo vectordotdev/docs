@@ -30,11 +30,11 @@ Timber offers deep integration with [Heroku](https://heroku.com) through the [Ti
 {% endtab %}
 
 {% tab title="Manual" %}
-1. Add the Timber [Heroku log drain](https://devcenter.heroku.com/articles/log-drains), _**replace `YOUR_API_KEY` and `YOUR_SOURCE_ID` appropriately!**_  
+1. Add the Timber [Heroku log drain](https://devcenter.heroku.com/articles/log-drains), _**replace `YOUR_API_KEY` and `YOUR_SOURCE_ID` appropriately. Be sure to prefix your `YOUR_API_KEY` with a colon!**_  
 
 
    ```bash
-    heroku drains:add https://YOUR_API_KEY@logs.timber.io/sources/YOUR_SOURCE_ID/frames
+    heroku drains:add https://:YOUR_API_KEY@logs.timber.io/sources/YOUR_SOURCE_ID/frames
    ```
 
 2.  _Optionally_ improve your logs by [configuring Heroku features](./#configuration).
