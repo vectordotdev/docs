@@ -87,15 +87,17 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5c...
 
 #### Basic Strategy
 
-When choose the `Basic` strategy you _must_ do 2 things:
+When choosing the `Basic` strategy you _must_ do 2 things:
 
-1. Prefix your API key with a `:`
+1. Prefix your API key with a `user:`
 2. Base 64 encode it.
 
-For example, given this API key: `eyJhbGciOiJIUzI1NiIsInR5c`, you would supply the following header:
+Basic auth requires a user, any value you put as the user will be discarded by Timber.
+
+For example, given this API key / user combination: `user:eyJhbGciOiJIUzI1NiIsInR5c`, you would supply the following header:
 
 ```text
-Authorization: Basic ZXlKaGJHY2lPaUpJVXpJMU5pSXNJblI1Yw==
+Authorization: Basic dXNlcjpleUpoYkdjaU9pSklVekkxTmlJc0luUjVj
 ```
 
 ### Buffering & Batching
