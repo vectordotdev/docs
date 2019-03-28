@@ -17,7 +17,7 @@ Forwarding logs to Timber is highly specific to your HTTP client. Below are a fe
 ### Examples
 
 {% tabs %}
-{% tab title="http" %}
+{% tab title="http \(bearer auth\)" %}
 ```bash
 POST https://logs.timber.io/sources/YOUR_SOURCE_ID/frames
 Authorization: Bearer YOUR_API_KEY
@@ -27,11 +27,32 @@ Content-Type: application/ndjson
 ```
 {% endtab %}
 
-{% tab title="curl" %}
+{% tab title="http \(basic auth\)" %}
+```bash
+POST https://:YOUR_API_KEY@logs.timber.io/sources/YOUR_SOURCE_ID/frames
+Content-Type: application/ndjson
+{"level": "debug", "message": "Testing the pipes"}
+{"level": "debug", "message": "Testing the pipes again"}
+```
+{% endtab %}
+
+{% tab title="curl \(bearer auth\)" %}
 ```bash
 curl \
 --request POST \
 --header 'Authorization: Bearer YOUR_API_KEY' \
+--header "Content-Type: application/ndjson" \
+--data '{"level": "debug", "message": "Testing the pipes"}
+{"level": "debug", "message": "Testing the pipes again"}' \
+https://logs.timber.io/sources/YOUR_SOURCE_ID/frames
+```
+{% endtab %}
+
+{% tab title="curl \(basic auth\)" %}
+```bash
+curl \
+--request POST \
+--user ":YOUR_API_KEY" \
 --header "Content-Type: application/ndjson" \
 --data '{"level": "debug", "message": "Testing the pipes"}
 {"level": "debug", "message": "Testing the pipes again"}' \
@@ -46,11 +67,28 @@ If you haven't already, please create a Timber source by following the [Sending 
 
 ### Authorization
 
-{% hint style="warning" %}
-Be sure to use the `Bearer` strategy. Do _not_ encode your API key in any way.
-{% endhint %}
+Timber requires the `Authorization` header as part of making requests to the Timber API. We support 2 strategies, the [`Bearer`](https://tools.ietf.org/html/rfc6750) and [`Basic`](https://tools.ietf.org/html/rfc7617) strategies.
 
-Timber requires the `Authorization` header using the `Bearer` strategy as shown above in the example. Your API key does _not_ need to be base64 encoded, you can simply copy and paste it as shown above.
+#### Bearer Strategy
+
+When choosing the `Bearer` strategy you can simply paste in your API key in its original form. You do not need to base 64 encode the key!
+
+```text
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5c...
+```
+
+#### Basic Strategy
+
+When choose the `Basic` strategy you _must_ do 2 things:
+
+1. Prefix your API key with a `:`
+2. Base 64 encode it.
+
+For example, given this API key: `eyJhbGciOiJIUzI1NiIsInR5c`, you would supply the following header:
+
+```text
+Authorization: Basic ZXlKaGJHY2lPaUpJVXpJMU5pSXNJblI1Yw==
+```
 
 ### Buffering & Batching
 
