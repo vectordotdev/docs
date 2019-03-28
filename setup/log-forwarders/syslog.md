@@ -94,7 +94,14 @@ CentOS 6 and higher already have these packages installed. You may also need sud
    systemctl restart rsyslog
    ```
 
-6. Your logs will be forwarded to Timber. _You will need to update the Timber public certificate when a new one is issued._
+6. Check status of rsyslog:
+    
+    
+    ``` bash 
+    systemctl restart rsyslog
+    ```   
+    
+7. Your logs will be forwarded to Timber. _You will need to update the Timber public certificate when a new one is issued._
 {% endtab %}
 
 {% tab title="Syslog-ng" %}
@@ -184,6 +191,7 @@ The following are general instructions for integrating syslog-ng v3.5+ with Timb
    ```bash
    systemctl restart syslog-ng
    ```
+    
 {% endtab %}
 
 {% tab title="Manual" %}
