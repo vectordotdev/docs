@@ -369,7 +369,11 @@ No, Timber is installed as an [Elixir `Logger` backend](https://hexdocs.pm/logge
 
 ### Test The Pipes
 
-The `:timber` hex package comes with a `test-the-pipe` mix command:
+{% hint style="warning" %}
+This should be run on the actual host in question. This ensures that your API key is set properly and your remote host can communicate with Timber.
+{% endhint %}
+
+The `:timber` hex package comes with a `test-the-pipes` mix command:
 
 ```text
 mix timber.test_the_pipes
