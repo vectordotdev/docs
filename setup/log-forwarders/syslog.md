@@ -104,7 +104,7 @@ You may also need sudo access to run some of the commands below.
     
     
     ``` bash 
-    systemctl restart rsyslog
+    systemctl status rsyslog
     ```   
     
 7. Your logs will be forwarded to Timber. _You will need to update the Timber public certificate when a new one is issued._
