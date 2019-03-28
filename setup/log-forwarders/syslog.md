@@ -20,12 +20,13 @@ The following are general instructions for integrating rsyslog v8+ with Timber. 
    ```bash
    apt-get install rsyslog-gnutls
    ```
+CentOS 6 and higher already have these packages installed. You may also need sudo access to run some of the commands below.
 
-2. Create the directory `/etc/ryslog.d/keys/ca.d` to place the Timber public certificate in \(the connection effectively uses certificate pinning\)  
+2. Create the directory `/etc/rsyslog.d/keys/ca.d` to place the Timber public certificate in \(the connection effectively uses certificate pinning\)  
 
 
    ```bash
-   mkdir /etc/ryslog.d/keys/ca.d
+   mkdir -p /etc/rsyslog.d/keys/ca.d
    ```
 
 3. Download the [Timber.io public certificate](https://files.timber.io/certificates/latest/io.timber-wildcard.pem):
