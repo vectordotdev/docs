@@ -8,7 +8,7 @@ Timber integrates with [Kubernetes](https://kubernetes.io/) through the [Fluent 
 
 ## Installation
 
-To forward logs from your Lubernetes cluster, we recommend deploying Fluent Bit as a [daemonset](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) to forward all container logs with Kubernetes annotations such as pod, namespace, and host. These instructions follow closely to the [official Fluent Bit Kubernetes instructions](https://docs.fluentbit.io/manual/installation/kubernetes).
+To forward logs from your Kubernetes cluster, we recommend deploying Fluent Bit as a [daemonset](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) to forward all container logs with Kubernetes annotations such as pod, namespace, and host. These instructions follow closely to the [official Fluent Bit Kubernetes instructions](https://docs.fluentbit.io/manual/installation/kubernetes).
 
 1. To get started run the following commands to create the namespace, service account and role setup:  
 
