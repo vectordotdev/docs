@@ -163,6 +163,58 @@ with timber.context(job={'id': 123, 'count': 1}):
   logger.info('Background job execution completed')
 ```
 
+## Automatic Context
+
+`timber` automatically captures [context](../../../under-the-hood/concepts.md#context) to enrich your logs.
+
+### system 
+
+The `system` context captures system level information such as hostname and pid:
+
+```javascript
+{
+    "context": {
+        "system": {
+            "pid": 20643,
+            "process_name": "python"
+        }
+    }
+}
+```
+
+| Field | Description |
+| :--- | :--- |
+| `context.system.process_name` | System level process name |
+| `context.system.pid` | System level process ID |
+
+### runtime
+
+The `runtime` context captures information about the origin of the log line:
+
+```javascript
+{
+    "context": {
+        "runtime": {
+            "function": "myFunc",
+            "file": "file.py",
+            "line": 23,
+            "thread_id": "70179740727560",
+            "thread_name": "async_thread",
+            "logger_name": "logger"
+        }
+    }
+}
+```
+
+| Field | Description |
+| :--- | :--- |
+| `context.runtime.function` | The name of the function where the logging statement was called. |
+| `context.runtime.file` | The name of the file where the logging statement was called. |
+| `context.runtime.line` | The line number where the logging statement was called. |
+| `context.runtime.thread_id` | The current unique thread ID. |
+| `context.runtime.thread_name` | The current thread name. |
+| `context.runtime.logger_name` | The name of the logger being used. |
+
 ## Performance
 
 Extreme care was taken into the design of `timber` to be fast and reliable:
