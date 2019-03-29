@@ -16,5 +16,5 @@ You can contact support by email via support@timber.io. Please include any relev
 
 ## Free Plan Limitations
 
-In order to ensure high-quality support for paying customers we must limit support for non-paying customers. The time it takes to respond is dependent on the complexity of your question and the resources available at the time. While it is our goal to help every user of Timber, we have limited resources, and cannot meet the quality of support we would expect without limiting support for free plans. If support is critical or important to you then we kindly ask that you [upgrade your plan](../usage/account-management/billing.md#changing-plans).
+In order to ensure high-quality support for paying customers we must limit support for non-paying customers. The time it takes to respond is dependent on the complexity of your question and the resources available at the time. While it is our goal to help every user of Timber, we have limited resources, and cannot meet the quality of support we would expect for paying customers without limiting support for free customers. If support is critical or important to you then we kindly ask that you [upgrade your plan](../usage/account-management/billing.md#changing-plans).
 
