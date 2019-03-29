@@ -92,7 +92,7 @@ When choosing the `Basic` strategy you _must_ do 2 things:
 1. Prefix your API key with a `user:`
 2. Base 64 encode it.
 
-Basic auth requires a user, any value you put as the user will be discarded by Timber.
+Basic auth requires a user, any value you put as the user will be discarded by Timber, but you must supply some value.
 
 For example, given this API key / user combination: `user:eyJhbGciOiJIUzI1NiIsInR5c`, you would supply the following header:
 
