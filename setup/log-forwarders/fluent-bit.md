@@ -53,13 +53,6 @@ description: Send logs to Timber via Fluent Bit
    sudo service td-agent-bit restart
    ```
 
-6. Check your fluent-bit agent:  
-
-
-   ```bash
-   sudo service td-agent-bit status
-   ```
-   
 ## Configuration
 
 Please see the [Fluent Bit configuration documentation](https://docs.fluentbit.io/manual/configuration). Specifically the [parsing](https://docs.fluentbit.io/manual/parser) and [filtering](https://docs.fluentbit.io/manual/filter) sections.

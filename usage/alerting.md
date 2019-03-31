@@ -144,11 +144,11 @@ Timber can send notification through Slack webhooks.
 
 #### Raised notification
 
-![Timber Slack Alert Raised](../.gitbook/assets/slack-alert-raised.png)
+![](../.gitbook/assets/image-2019-03-31-at-1.54.49-pm.png)
 
 #### Cleared notification
 
-![Timber Slack Alert Cleared](../.gitbook/assets/slack-alert-cleared.png)
+![](../.gitbook/assets/image-2019-03-31-at-1.55.34-pm.png)
 
 ### Email Group
 

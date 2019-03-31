@@ -12,24 +12,22 @@ To forward logs from your Kubernetes cluster, we recommend deploying Fluent Bit 
 
 1. To get started run the following commands to create the namespace, service account and role setup:  
 
-
-   ```bash
+```bash
    kubectl create namespace logging
    kubectl create -f https://raw.githubusercontent.com/fluent/fluent-bit-kubernetes-logging/master/fluent-bit-service-account.yaml
    kubectl create -f https://raw.githubusercontent.com/fluent/fluent-bit-kubernetes-logging/master/fluent-bit-role.yaml
    kubectl create -f https://raw.githubusercontent.com/fluent/fluent-bit-kubernetes-logging/master/fluent-bit-role-binding.yaml
-   ```
+```
 
-2. Then create the config map:  
+1. Then create the config map:  
 
-
-   ```bash
+```bash
    kubectl create -f https://gist.githubusercontent.com/binarylogic/951ea32ed462933fa70c439f9cab06f3/raw/fe6b761770f1ccd9b44c96421d4892b8e96927d6/fluent-bit-configmap.yaml
-   ```
+```
 
-3. Finally, deploy the daemonset to start forwarding logs: 
+1. Finally, deploy the daemonset to start forwarding logs: 
    1. [Download the Timber daemonset file: `fluent-bit-ds.yaml`](https://gist.githubusercontent.com/binarylogic/951ea32ed462933fa70c439f9cab06f3/raw/fe6b761770f1ccd9b44c96421d4892b8e96927d6/fluent-bit-ds.yaml)\`\`
-   2. _**Replace `YOUR_API_KEY` and `YOUR_SOURCE_ID` appropriately**_ \(these are displayed on your source's installation page\)
+   2. _**Replace**_ `YOUR_API_KEY` _**and**_ `YOUR_SOURCE_ID` _**appropriately**_ \(these are displayed on your source's installation page\)
    3. Run `kubectl create -f path/to/fluent-bit-ds.yaml`
 
 ## Configuration
