@@ -14,18 +14,22 @@ Timber offers first-class native support for the various types of Syslog, avoidi
 The following are general instructions for integrating rsyslog v8+ with Timber. These instruction will cause _all_ syslog messages to be forwarded to Timber. This is probably _not_ what you want. Please review the instructions on using [filter conditions](https://www.rsyslog.com/doc/v8-stable/configuration/filters.html) to limit the messages that are forwarded with the action.
 {% endhint %}
 
-1. Ensure you have any extra packages necessary for rsyslog to support TLS communication. On [Ubuntu](https://www.ubuntu.com/), this means installing the `rsyslog-gnutls` package \(the package and method to do this will vary based on your distribution\):  
+1. Ensure you have any extra packages necessary for rsyslog to support TLS communication. On [Ubuntu](https://www.ubuntu.com/) and [CentOS](https://www.centos.org/), this means installing the `rsyslog-gnutls` package \(the package and method to do this will vary based on your distribution\):  
 
 
    ```bash
+   # Debian & Ubuntu
    apt-get install rsyslog-gnutls
+
+   # CentOS
+   yum install rsyslog-gnutls
    ```
 
-2. Create the directory `/etc/ryslog.d/keys/ca.d` to place the Timber public certificate in \(the connection effectively uses certificate pinning\)  
+2. Create the directory `/etc/rsyslog.d/keys/ca.d` to place the Timber public certificate in \(the connection effectively uses certificate pinning\)  
 
 
    ```bash
-   mkdir /etc/ryslog.d/keys/ca.d
+   mkdir -p /etc/rsyslog.d/keys/ca.d
    ```
 
 3. Download the [Timber.io public certificate](https://files.timber.io/certificates/latest/io.timber-wildcard.pem):
@@ -89,11 +93,18 @@ The following are general instructions for integrating rsyslog v8+ with Timber. 
 5. Now restart the rsyslog service:  
 
 
-   ```text
+   ```bash
    systemctl restart rsyslog
    ```
 
-6. Your logs will be forwarded to Timber. _You will need to update the Timber public certificate when a new one is issued._
+6. Check the status of rsyslog:  
+
+
+   ```bash
+   systemctl status rsyslog
+   ```
+
+7. Your logs will be forwarded to Timber. _You will need to update the Timber public certificate when a new one is issued._
 {% endtab %}
 
 {% tab title="Syslog-ng" %}

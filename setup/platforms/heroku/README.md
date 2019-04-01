@@ -14,10 +14,10 @@ Timber offers deep integration with [Heroku](https://heroku.com) through the [Ti
 
 
    ```bash
-   heroku addons:create timber-logging:free
+   heroku addons:create timber-logging:maple-v1
    ```
 
-   _The `free` plan is limited, alternative plans are available_ [_here_](https://elements.heroku.com/addons/timber-logging#pricing)_._  
+   _Alternative plans are available_ [_here_](https://elements.heroku.com/addons/timber-logging#pricing)_._  
 
 2. _Optionally_ [attach](https://devcenter.heroku.com/articles/managing-add-ons#using-the-command-line-interface-attaching-an-add-on-to-another-app) the Timber add-on to other apps \(repeat for all apps\):  
 
@@ -30,12 +30,14 @@ Timber offers deep integration with [Heroku](https://heroku.com) through the [Ti
 {% endtab %}
 
 {% tab title="Manual" %}
-1. Add the Timber [Heroku log drain](https://devcenter.heroku.com/articles/log-drains), _**replace `YOUR_API_KEY` and `YOUR_SOURCE_ID` appropriately. Be sure to prefix your `YOUR_API_KEY` with a colon!**_  
+1. Add the Timber [Heroku log drain](https://devcenter.heroku.com/articles/log-drains), _**replace `YOUR_API_KEY` and `YOUR_SOURCE_ID` appropriately. Be sure to leave the `user:` prefix!**_  
 
 
    ```bash
-    heroku drains:add https://:YOUR_API_KEY@logs.timber.io/sources/YOUR_SOURCE_ID/frames
+    heroku drains:add https://user:YOUR_API_KEY@logs.timber.io/sources/YOUR_SOURCE_ID/frames
    ```
+
+   Your API key is used as the password, the user portion is discarded but must be present.  
 
 2.  _Optionally_ improve your logs by [configuring Heroku features](./#configuration).
 {% endtab %}

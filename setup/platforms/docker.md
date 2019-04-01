@@ -28,8 +28,8 @@ Requires Docker version 1.8.0 or later
      Flush  2
   
    [INPUT]                                                                                                                                                                                                            
-       Name Forward
-       Port 24224
+     Name Forward
+     Port 24224
 
    [OUTPUT]
      Name    http
@@ -45,10 +45,10 @@ Requires Docker version 1.8.0 or later
      Retry_Limit 5
 
    [FILTER]
-       Name record_modifier
-       # Will match all inputs, replace with your match if you want to send a subset
-       Match *
-       Record hostname ${HOSTNAME}
+     Name record_modifier
+     # Will match all inputs, replace with your match if you want to send a subset
+     Match *
+     Record hostname ${HOSTNAME}
    ```
    {% endcode-tabs-item %}
    {% endcode-tabs %}
