@@ -129,7 +129,7 @@ If you haven't already, please read our [structured logging best practices guide
 {% endhint %}
 
 ```python
-logger.debug('Order #1234 placed, total: $520.23', extra={
+logger.info('Order #1234 placed, total: $520.23', extra={
   'order_placed': {
     'id': 1234,
     'total': 520.23
