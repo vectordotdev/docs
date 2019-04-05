@@ -42,10 +42,10 @@ description: Send logs to Timber via Fluent Bit
      Retry_Limit 5
   
    [FILTER]
-       Name record_modifier
-       # Will match all inputs, replace with your match if you want to send a subset
-       Match *
-       Record hostname ${HOSTNAME}
+     Name record_modifier
+     # Will match all inputs, replace with your match if you want to send a subset
+     Match *
+     Record hostname ${HOSTNAME}
    ```
    {% endcode-tabs-item %}
    {% endcode-tabs %}
