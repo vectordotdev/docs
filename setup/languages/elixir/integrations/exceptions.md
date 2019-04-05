@@ -4,10 +4,6 @@ description: Turn logged exceptions into structured exception events
 
 # Exceptions
 
-{% hint style="warning" %}
-The Timber Ecto integration requires [installation of the base `timber` Hex package](../#installation) first.
-{% endhint %}
-
 Timber integrates directly with Elixir to turn your exceptions into rich structured events. This reduces noise in your logs and makes them easier to search and use.
 
 ## Installation
