@@ -19,14 +19,14 @@ description: Send logs to Timber via Fluent Bit
    {% code-tabs %}
    {% code-tabs-item title="/etc/td-agent-bit/td-agent-bit.conf" %}
    ```yaml
-   [INPUT]
-     # This is default input. You can replace it with your own or add some more
-     Name tail
-     Path /var/log/syslog
-     
    [SERVICE]
      # Reduce the flush interval for better real-time access
      Flush  2
+
+   # This is default input. You can replace it with your own or add some more
+   [INPUT]
+     Name tail
+     Path /var/log/syslog
   
    [OUTPUT]
      Name    http
