@@ -48,7 +48,7 @@ Like any other `logger.Handler`, the `TimberHandler` can be configured to only r
 
 ```python
 # Only respond to events as least as important as `warning`
-timber_handler = timber.TimberHandler(api_key='...', level=logging.WARNING)
+timber_handler = timber.TimberHandler(level=logging.WARNING)
 ```
 
 You can also set the level as a whole on the logger itself:
@@ -63,14 +63,14 @@ Timber buffers log events and sends them in the background for maximum performan
 
 ```python
 # Never allow more than 50 outstanding log events
-timber_handler = timber.TimberHandler(api_key='...', buffer_capacity=50)
+timber_handler = timber.TimberHandler(buffer_capacity=50)
 ```
 
 To control the maximum amount of time between buffer flushes, pass the `flush_interval` argument:
 
 ```python
 # Send any outstanding log events at most every 60 seconds
-timber_handler = timber.TimberHandler(api_key='...', flush_interval=60)
+timber_handler = timber.TimberHandler(flush_interval=60)
 ```
 
 ### `raise_exceptions`
@@ -80,7 +80,7 @@ Logging should never break your application, which is why the `TimberHandler` su
 ```python
 # Allow exceptions from internal log handling to propagate to the application,
 # instead of suppressing them.
-timber_handler = timber.TimberHandler(api_key='...', raise_exceptions=True)
+timber_handler = timber.TimberHandler(raise_exceptions=True)
 ```
 
 ### `drop_extra_events`
@@ -89,7 +89,7 @@ As soon as the internal log event buffer is full, Timber flushes all of the even
 
 ```python
 # Make log statements block until the internal log event buffer is no longer full.
-timber_handler = timber.TimberHandler(api_key='...', drop_extra_events=False)
+timber_handler = timber.TimberHandler(drop_extra_events=False)
 ```
 
 ### `context`
@@ -103,7 +103,7 @@ import timber
 logger = logging.getLogger(__name__)
 
 context = timber.TimberContext()
-timber_handler = timber.TimberHandler(api_key='...', context=context)
+timber_handler = timber.TimberHandler(context=context)
 logger.addHandler(timber_handler)
 
 with context(job={'id': 123}):
