@@ -169,7 +169,9 @@ You may cancel your Timber account at any time. You can accomplish by either:
 
 ### Can I delete old data to make room for new data?
 
-As much as we'd like to do this we simply cannot. To understand why, you must understand that the bulk of any ingestion pipeline's cost is in processing and querying the data, not storing it. Timber goes to [great lengths](../../under-the-hood/ingestion-pipeline.md) to process your data in such a way that provides for very fast exploratory searching.
+Like all other logging platforms, Timber's billing plans are _usage_ based, not _storage_ based. For example, if you send Timber 1gb per day for 30 days, your total usage would be 30gb, regardless if you clear or delete your data. This means if you would need at least a 30gb plan to accomodate this volume.
+
+As much as we'd like to offer storage based plans we simply cannot. To understand why, you must understand that the bulk of any ingestion pipeline's cost is in processing and querying the data, not storing it. Timber goes to [great lengths](../../under-the-hood/ingestion-pipeline.md) to process your data in such a way that provides for very fast exploratory searching and we do so in the most efficient way possible.
 
 If you find that you are bumping into your limit and wish to reduce cost we recommend checking out our [Reducing Log Volume guide](../../guides/reducing-log-volume.md). There are a lot of ways most users can substantially reduce their log volume which will have the largest impact on reducing your cost.
 
