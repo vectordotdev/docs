@@ -299,6 +299,23 @@ logger.info(
 )
 ```
 
+### Setting Context In A Controller
+
+Rails' `ActionController` offers an `around_action` callback that you can use to [set context](./#setting-context) on a per-request basis:
+
+```ruby
+class ApplicationController < ActionController::Base
+    around_action :set_context
+    
+    private
+        def set_context
+            Timber.with_context(organization: {id: 1234}) do
+                yield
+            end
+        end
+end
+```
+
 ### Log to an additional IO device
 
 {% hint style="info" %}

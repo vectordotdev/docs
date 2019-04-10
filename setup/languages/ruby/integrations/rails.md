@@ -99,3 +99,7 @@ The `template_rendered` event is emitted when `ActionView` renders a template:
 | `template_rendered.name` | `string` | The name of the template rendered. |
 | `template_rendered.duration_ms` | `float` | The duration, in milliseconds, that it took to render the template. |
 
+## Guides
+
+To keep things consolidated and simple, all guides are located in the [Ruby Guides section](../#guides).
+

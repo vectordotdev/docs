@@ -199,7 +199,5 @@ The `http_response_sent` event is emitted when a HTTP response is sent back to t
 
 ## Guides
 
-### Adding User Context
-
-
+To keep things consolidated and simple, all guides are located in the [Ruby Guides section](../#guides).
 
