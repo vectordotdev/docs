@@ -13,6 +13,53 @@ Timber integrates with [Python](https://www.python.org/) through the [`timber` P
 * [**Support for context**](./#setting-context)**.**
 * [**Performant, light weight, with a thoughtful design**](./#performance)**.**
 
+## Example
+
+To quickly demonstrate the power of Timber, the following example logs a simple structured log with context:
+
+```python
+with timber.context(user={'id': 123}):
+    logger.info('Order #1234 placed, total: $520.23', extra={
+      'order_placed': {
+        'id': 1234,
+        'total': 520.23
+      }
+    })
+```
+
+This produces the following JSON log line:
+
+```javascript
+{
+    "dt": "2019-03-04T03:44:21.221232Z",
+    "level": "info",
+    "message": "Order #1234 placed, total: $520.23",
+    "order_placed": {
+        "id": 1234,
+        "total": 520.23
+    },
+    "context": {
+        "runtime": {
+            "function": "myFunc",
+            "file": "file.py",
+            "line": 23,
+            "thread_id": "70179740727560",
+            "thread_name": "async_thread",
+            "logger_name": "logger"
+        },
+        "system": {
+            "pid": 20643,
+            "process_name": "python"
+        },
+        "user": {
+            "id": 1234
+        }
+    }
+}
+```
+
+Continue to learn more about [setting context](./#setting-context), [automatic context](./#automatic-context), [structured logging](./#structured-logging), and more.
+
 ## Installation
 
 {% hint style="info" %}
