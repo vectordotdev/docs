@@ -15,6 +15,52 @@ Timber integrates with [Elixir](https://elixir-lang.org/) through the [`:timber`
 * \*\*\*\*[**Strong structured logging support.**](./#structured-logging)\*\*\*\*
 * \*\*\*\*[**Integrates with popular 3rd party libraries such as `Phoenix` and `Plug`.**](./#integrations)\*\*\*\*
 
+## Example
+
+To quickly demonstrate the power of Timber, the following example logs a simple structured log with context:
+
+```elixir
+Timber.add_context(user: %{id: "d23f6h7ffx"})
+
+Logger.info(
+    "Order #1234 placed, total: $520.23",
+    event: %{order_placed: %{id: 1234, total: 520.23}}
+)
+```
+
+This produces the following JSON log line:
+
+```javascript
+{
+    "dt": "2019-03-04T03:44:21.221232Z",
+    "level": "info",
+    "message": "Order #1234 placed, total: $520.23",
+    "order_placed": {
+        "id": 1234,
+        "total": 520.23
+    },
+    "context": {
+        "runtime": {
+            "vm_pid": "<0.9960.261>",
+            "module_name": "MyModule",
+            "line": 371,
+            "function": "my_func/2",
+            "file": "lib/my_app/my_module.ex",
+            "application": "my_app"
+        },
+        "system": {
+            "hostname": "ec2-44-125-241-8",
+            "pid": 20643
+        },
+        "user": {
+            "id": "d23f6h7ffx"
+        }
+    }
+}
+```
+
+Continue to learn more about [setting context](./#adding-context), [automatic context](./#automatic-context), [structured logging](./#structured-logging), and more.
+
 ## Installation
 
 {% hint style="info" %}

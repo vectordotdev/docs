@@ -17,6 +17,56 @@ Timber integrates with [Javascript](https://en.wikipedia.org/wiki/JavaScript) th
 * **Light as a feather.** The gzipped browser bundle weighs in at just **4.3kb**!
 * \*\*\*\*[**Plays nicely with other loggers**](integrations/).
 
+## Example
+
+To quickly demonstrate the power of Timber, the following example logs a simple structured log with context:
+
+```javascript
+import { ITimberLog } from "@timberio/types";
+
+// Add middleware for context
+async function addCurrentUser(log: ITimberLog): Promise<ITimberLog> {
+  return {
+    ...log,
+    user: {id: 1000, name: "Lee"},
+  };
+}
+
+timber.use(addCurrentUser);
+
+timber.info(
+  "Order #1234 placed, total: $500.23",
+  {order_placed: {id: 1234, total: 500.23}}
+).then(log => {
+  // At this point, your log is synced with Timber.io!
+});
+```
+
+This produces the following JSON log line:
+
+```javascript
+{
+    "dt": "2019-03-04T03:44:21.221232Z",
+    "level": "info",
+    "message": "Order #1234 placed, total: $500.23",
+    "order_placed": {
+        "id": 1234,
+        "total": 500.23
+    },
+    "context": {
+        "system": {
+            "hostname": "ec2-44-125-241-8"
+        },
+        "user": {
+            "id": "1000",
+            "name": "Lee"
+        }
+    }
+}
+```
+
+Continue to learn more about [setting context](./#adding-context), [automatic context](../elixir/#automatic-context), [structured logging](./#structured-logging), and more.
+
 ## Installation
 
 {% hint style="info" %}

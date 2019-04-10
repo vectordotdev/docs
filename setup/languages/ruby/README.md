@@ -15,6 +15,47 @@ Timber integrates with [Ruby](https://www.ruby-lang.org) through its [`timber` R
 * \*\*\*\*[**Automatic context capturing.**](./#automatic-context)\*\*\*\*
 * \*\*\*\*[**Integrates with popular 3rd party libraries, such as `Rails` and `Rack`.**](./#integrations)\*\*\*\*
 
+## Example
+
+To quickly demonstrate the power of Timber, the following example logs a simple structured log with context:
+
+```ruby
+Timber.with_context(user: {id: "abcd1234"}) do
+    logger.info(
+        "Order #1234 placed, total: $520.23",
+        order_placed: {id: 1234, total: 520.23}
+    )
+end
+```
+
+This produces the following JSON log line:
+
+```javascript
+{
+    "dt": "2019-03-04T03:44:21.221232Z",
+    "level": "info",
+    "message": "Order #1234 placed, total: $520.23",
+    "order_placed": {
+        "id": 1234,
+        "total": 520.23
+    },
+    "context": {
+        "runtime": {
+            "thread_id": "70179740727560"
+        },
+        "system": {
+            "pid": 20643,
+            "process_name": "python"
+        },
+        "user": {
+            "id": 1234
+        }
+    }
+}
+```
+
+Continue to learn more about [setting context](./#setting-context), [automatic context](./#automatic-context), [structured logging](./#structured-logging), and more.
+
 ## Installation
 
 {% hint style="info" %}
