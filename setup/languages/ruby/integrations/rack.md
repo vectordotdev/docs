@@ -8,7 +8,7 @@ description: Integrate Timber with Rack
 The Timber Rails integration requires [installation of the base `timber` Ruby gem](../#installation) first. Additionally, if your application is a Rails app please see the [Rails integration](rails.md) which includes the Rack integration.
 {% endhint %}
 
-Timber integrates with [Rack](https://rack.github.io/) through the `timber_rack` Ruby gem which automatically captures useful context and metadata, turning your Rack logs into rich structured events.
+Timber integrates with [Rack](https://rack.github.io/) through the [`timber_rack` Ruby gem](https://rubygems.org/gems/timber-rack) which captures useful context and metadata, turning your Rack logs into rich structured events.
 
 ## Installation
 
@@ -73,7 +73,7 @@ end
 
 We require a block because it gives you complete control over how you want to silence requests. The first parameter being the traditional Rack env hash, the second being a [Rack Request](http://www.rubydoc.info/gems/rack/Rack/Request) object.
 
-### customer\_user\_hash
+### custom\_user\_hash
 
 By default Timber automatically captures user context for most of the popular authentication libraries \(Devise, and Clearance\). See [Timber::Integrations::Rack::UserContext](http://www.rubydoc.info/github/timberio/timber-rack/Timber/Integrations/Rack/UserContext) for a complete list.
 
@@ -94,9 +94,13 @@ Timber.config.integrations.rack.user_context.custom_user_hash = lambda do |rack_
 end
 ```
 
-## Automatic Context
+## Available Context
 
 ### context.http
+
+{% hint style="warning" %}
+HTTP context is only available is you install the `Timber::Integrations::Rack::HTTPContext` middleware as shown in [Installation](rack.md#installation).
+{% endhint %}
 
 HTTP context captures structured data on incoming HTTP requests:
 
@@ -119,6 +123,32 @@ HTTP context captures structured data on incoming HTTP requests:
 | `context.http.method` | `string` | Method of the HTTP request |
 | `context.http.host` | `string` | Host of the HTTP request |
 | `context.http.path` | `string` | Path of the HTTP request |
+
+### context.user
+
+{% hint style="warning" %}
+User context is only available is you install the `Timber::Integrations::Rack::UserContext` middleware as shown in [Installation](rack.md#installation).
+{% endhint %}
+
+User context captures structured data about the current logged in user.:
+
+```javascript
+{
+    "context": {
+        "user": {
+            "id": "abcd1234",
+            "email": "paul@bunyan.com",
+            "name": "Paul Bunyan"
+        }
+    }
+}
+```
+
+| Field | Type | Description |
+| :--- | :--- | :--- |
+| `context.user.id` | `string` | Unique identifier for the user |
+| `context.http.email` | `string` | Email address of the user, if available. |
+| `context.http.name` | `string` | Name of the user, if available. |
 
 ## Events
 
@@ -166,4 +196,10 @@ The `http_response_sent` event is emitted when a HTTP response is sent back to t
 | :--- | :--- | :--- |
 | `http_response_sent.status` | `string` | HTTP status code of the response |
 | `http_response_sent.duration_ms` | `float` | Duration of processing the entire request |
+
+## Guides
+
+### Adding User Context
+
+
 

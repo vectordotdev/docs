@@ -242,28 +242,24 @@ end
 
 ### Tying Logs To Users
 
+A very common use case for context is tying logs to users. This allows you to segment and filter you logs by user ID, email, name and so on. This is incredibly helpful with customer support, helping you to narrow down specific events for a user reported issue.
+
 {% tabs %}
 {% tab title="Rails" %}
-Simply add [`timber-rails`](https://github.com/timberio/timber-ruby-rails) to your `Gemfile`. `timber-rails` [automatically installs middleware](https://github.com/timberio/timber-ruby-rails/blob/0c69b63cb2fd709e33a0f9bfd0656c28399af980/lib/timber-rails.rb#L57) to capture user context, there is nothing additional you need to do.
+Simply [install the `timber-rails` integration](integrations/rails.md#installation). User context is automatically captured via a Rack middleware that is installed automatically for you. You can read more about that in the [Rack user context section](integrations/rack.md#context-user).
 {% endtab %}
 
-{% tab title="Non-Rails" %}
-A very common use-case for context is tying logs to users, you can accomplish this by setting user context immediately after you log the user in. This is typically done in a Rack middleware. It's important to do this as high up as possible so that subsequent logs contain user context:
+{% tab title="Rack" %}
+Simply [install the `timber-rack` integration](integrations/rack.md#installation). User context is captured via the provided `UserContext` Rack middleware. You can read more about that in the [Rack user context section](integrations/rack.md#context-user).
+{% endtab %}
+
+{% tab title="Other" %}
+For non-Rails/Rack environments, you can capture user context in the [same way you capture any other context](./#setting-context), by setting it as soon as you have that context:
 
 ```ruby
-class UserContextMiddleware
-  def initialize(app)
-    @app = app
-  end                
-
-  def call(env)
-    Timber.with_context(user: {id: "abcd1234"}) do
-      @app.call(env)
-    end
-  end
+Timber.with_context(user: {id: "abcd1234", email: "paul@bunyan.com"}) do
+    # code here
 end
-
-use UserContextMiddleware
 ```
 {% endtab %}
 {% endtabs %}
@@ -272,12 +268,21 @@ use UserContextMiddleware
 
 {% tabs %}
 {% tab title="Rails" %}
-Simply add [`timber-rails`](https://github.com/timberio/timber-ruby-rails) to your `Gemfile`. `timber-rails` [automatically installs middleware](https://github.com/timberio/timber-ruby-rails/blob/0c69b63cb2fd709e33a0f9bfd0656c28399af980/lib/timber-rails.rb#L57) to capture HTTP context, there is nothing additional you need to do.
+Simply [install the `timber-rails` integration](integrations/rails.md#installation). HTTP context is automatically captured via a Rack middleware that is installed automatically for you. You can read more about that in the [Rack HTTP context section](integrations/rack.md#context-http).
+{% endtab %}
+
+{% tab title="Rack" %}
+Simply [install the `timber-rack` integration](integrations/rack.md#installation). HTTP context is captured via the provided `HTTPContext` Rack middleware. You can read more about that in the [Rack HTTP context section](integrations/rack.md#context-http).
 {% endtab %}
 
 {% tab title="Non-Rails" %}
-1. Add `timber-rack` to your `Gemfile` :
-2. Add the `HTTPContext` Rack middleware:
+For non-Rails/Rack environments, you can capture HTTP context in the [same way you capture any other context](./#setting-context), by setting it as soon as you have that context:
+
+```ruby
+Timber.with_context(http: {method: "GET", path: "/path"}) do
+    # code here
+end
+```
 {% endtab %}
 {% endtabs %}
 

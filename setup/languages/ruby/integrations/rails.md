@@ -33,7 +33,7 @@ Please see the [Rack configuration](rack.md#configuration) since `timber_rack` i
 
 ## Automatic Context
 
-Please see the [Rack automatic context](rack.md#automatic-context) since `timber_rack` is included as part of the Rails integration.
+Please see the [Rack context](rack.md#automatic-context) section since [`timber_rack`](rack.md) is included as part of the Rails integration.
 
 ## Events
 
