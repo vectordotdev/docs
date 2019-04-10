@@ -15,6 +15,12 @@ Timber integrates with [Python](https://www.python.org/) through the [`timber` P
 
 ## Installation
 
+{% hint style="info" %}
+If you're unsure, we recommend installing via the "HTTP" method. To understand why you would choose one over the other, please see the ["Sending Logs To Timber" guide](../../../guides/sending-logs-to-timber.md).
+{% endhint %}
+
+{% tabs %}
+{% tab title="HTTP" %}
 1. Install the [`timber` library](https://pypi.org/project/timber/):  
 
 
@@ -37,6 +43,41 @@ Timber integrates with [Python](https://www.python.org/) through the [`timber` P
    timber_handler = timber.TimberHandler(source_id='YOUR_SOURCE_ID', api_key='YOUR_API_KEY')
    logger.addHandler(timber_handler)
    ```
+{% endtab %}
+
+{% tab title="STDOUT" %}
+Write logs to `STDOUT`, encoded in JSON format, and ship them external from your app:
+
+{% hint style="warning" %}
+This method is more advanced and requires a separate step to ship logs to Timber. Basic knowledge of `STDOUT` and log management is required. If you are unsure, please use the "HTTP" method. For more information on the advantages of this method please see [this guide](../../../guides/sending-logs-to-timber.md).
+{% endhint %}
+
+1. Install the [`timber` library](https://pypi.org/project/timber/):  
+
+
+   ```bash
+   pip install timber
+   ```
+
+2. Install the Timber logger, _**replace `YOUR_API_KEY` and `YOUR_SOURCE_ID` accordingly**_:
+
+
+
+   ```python
+   import logging
+   import timber
+
+   logger = logging.getLogger(__name__)
+   # Set to logging.DEBUG if you want all logs
+   logger.setLevel(logging.INFO)
+
+   stream_handler = logging.StreamHandler()
+   formatter = timber.Formatter()
+   stream_handler.setFormatter(formatter)
+   logger.addHandler(stream_handler)
+   ```
+{% endtab %}
+{% endtabs %}
 
 ## Configuration
 
