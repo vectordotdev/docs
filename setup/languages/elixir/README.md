@@ -86,11 +86,11 @@ Send logs directly to Timber from within your app over HTTP:
    {% endcode-tabs-item %}
    {% endcode-tabs %}
 
-2. In `config.exs`, install the Timber logger backend, _**replace `YOUR_API_KEY` and `YOUR_SOURCE_ID` accordingly**_:  
+2. In `config/prod.exs`, install the Timber logger backend, _**replace `YOUR_API_KEY` and `YOUR_SOURCE_ID` accordingly**_:  
 
 
    {% code-tabs %}
-   {% code-tabs-item title="config/config.ex" %}
+   {% code-tabs-item title="config/prod.exs" %}
    ```elixir
    config :logger,
      backends: [Timber.LoggerBackends.HTTP],
@@ -107,7 +107,7 @@ Send logs directly to Timber from within your app over HTTP:
 
 
    ```bash
-   mix timber.test_the_pipes
+   MIX_ENV=prod mix timber.test_the_pipes
    ```
 {% endtab %}
 
