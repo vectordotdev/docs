@@ -331,6 +331,27 @@ We highly recommend that you log to `STDOUT` and redirect the output to a file w
 
 If you cannot redirect `STDOUT` to a file you can install the [`logger_file_backend` library](https://github.com/onkel-dirtus/logger_file_backend). Information on installing that can be found [here](https://github.com/onkel-dirtus/logger_file_backend#configuration).
 
+### Dynamically Adding Timber
+
+You can dynamically add the Timber HTTP backend at runtime via your `Application.start/2` function:
+
+```elixir
+defmodule MyApp.Application do
+  use Application
+
+  def start(_type, _args) do
+    # Dynamically add the Timber backend
+    Logger.add_backend(Timber.LoggerBackends.HTTP)
+    
+    children = []
+    opts = [strategy: :one_for_one, name: Odin.Util.Supervisor]
+    Supervisor.start_link(children, opts)
+  end
+end
+```
+
+A common use case is to only add the backend if the `TIMBER_API_KEY` environment variable is present. Because you're adding the backend at runtime you can specify any conditions you like.
+
 ## Automatic Context
 
 `:timber` automatically captures [context](../../../under-the-hood/concepts.md#context) to enrich your logs.
