@@ -67,7 +67,9 @@ If you're unsure, we recommend installing via the "HTTP" method. To understand w
 {% endhint %}
 
 {% tabs %}
-{% tab title="HTTP" %}
+{% tab title="HTTP \(Inline\)" %}
+Send logs directly to Timber over HTTP from within your app. The "inline" method, as opposed to the "config" method, instantiates the Timber logger inline within your code instead of the [Python Logger config dictionary](https://docs.python.org/3/library/logging.config.html#).
+
 1. Install the [`timber` library](https://pypi.org/project/timber/):  
 
 
@@ -92,8 +94,50 @@ If you're unsure, we recommend installing via the "HTTP" method. To understand w
    ```
 {% endtab %}
 
-{% tab title="STDOUT" %}
-Write logs to `STDOUT`, encoded in JSON format, and ship them external from your app:
+{% tab title="HTTP \(config\)" %}
+Send logs directly to Timber over HTTP from within your app. The "config" method, as opposed to the "inline" method, adds the Timber logging handler to your [logging config dictionary](https://docs.python.org/3/library/logging.config.html#).
+
+1. Install the [`timber` library](https://pypi.org/project/timber/):  
+
+
+   ```bash
+   pip install timber
+   ```
+
+2. Add the `timber`handler to your `LOGGING` configuration, _**replace `YOUR_API_KEY` and `YOUR_SOURCE_ID` accordingly**_:  
+
+
+   {% code-tabs %}
+   {% code-tabs-item title="myapp/settings.py" %}
+   ```python
+   # This config dictionary could be defined inline or
+   # within a file. This depends on how your app is
+   # configured. For Django apps, this is located in
+   # your settings.py file.
+   LOGGING = {
+       'version': 1,
+       'handlers': {
+           'timber': {
+               'level': 'DEBUG',
+               'class': 'timber.TimberHandler',
+               'api_key': 'YOUR_API_KEY',
+               'source_id': 'YOUR_SOURCE_ID'
+           },
+       },
+       'loggers': {
+           'my-app': {
+               'handlers': ['timber'],
+               'level': 'DEBUG',
+           }
+       },
+   }
+   ```
+   {% endcode-tabs-item %}
+   {% endcode-tabs %}
+{% endtab %}
+
+{% tab title="STDOUT \(inline\)" %}
+Write logs to `STDOUT`, encoded in JSON format, and ship them external from your app. The "inline" method, as opposed to the "config" method, instantiates the Timber logger inline within your code instead of the [Python Logger config dictionary](https://docs.python.org/3/library/logging.config.html#).
 
 {% hint style="warning" %}
 This method is more advanced and requires a separate step to ship logs to Timber. Basic knowledge of `STDOUT` and log management is required. If you are unsure, please use the "HTTP" method. For more information on the advantages of this method please see [this guide](../../../guides/sending-logs-to-timber.md).
@@ -123,6 +167,57 @@ This method is more advanced and requires a separate step to ship logs to Timber
    stream_handler.setFormatter(formatter)
    logger.addHandler(stream_handler)
    ```
+{% endtab %}
+
+{% tab title="STDOUT \(config\)" %}
+Write logs to `STDOUT`, encoded in JSON format, and ship them external from your app. The "config" method, as opposed to the "inline" method, adds the Timber logging handler to your [logging config dictionary](https://docs.python.org/3/library/logging.config.html#).
+
+{% hint style="warning" %}
+This method is more advanced and requires a separate step to ship logs to Timber. Basic knowledge of `STDOUT` and log management is required. If you are unsure, please use the "HTTP" method. For more information on the advantages of this method please see [this guide](../../../guides/sending-logs-to-timber.md).
+{% endhint %}
+
+1. Install the [`timber` library](https://pypi.org/project/timber/):  
+
+
+   ```bash
+   pip install timber
+   ```
+
+2. Add the `timber` formatter to your list of formatters:  
+
+
+   {% code-tabs %}
+   {% code-tabs-item title="myapp/settings.py" %}
+   ```python
+   # This config dictionary could be defined inline or
+   # within a file. This depends on how your app is
+   # configured. For Django apps, this is located in
+   # your settings.py file.
+   LOGGING = {
+       'version': 1,
+       'formatters': {
+           'timber': {
+               '()': 'timber.TimberFormatter',
+           },
+       },
+       'handlers': {
+           'stderr': {
+               'level': 'DEBUG',
+               'class': 'logging.StreamHandler',
+               'stream': 'ext://sys.stdout',
+               'formatter': 'timber',
+           },
+       },
+       'loggers': {
+           'my-app': {
+               'handlers': ['stdout'],
+               'level': 'DEBUG',
+           },
+       },
+   }
+   ```
+   {% endcode-tabs-item %}
+   {% endcode-tabs %}
 {% endtab %}
 {% endtabs %}
 
@@ -302,6 +397,12 @@ The `runtime` context captures information about the origin of the log line:
 | `context.runtime.thread_id` | The current unique thread ID. |
 | `context.runtime.thread_name` | The current thread name. |
 | `context.runtime.logger_name` | The name of the logger being used. |
+
+## Integrations
+
+Timber integrates with 3rd party libraries to enhance and upgrade the logs they emit, turning them into rich structured events.
+
+{% page-ref page="integrations/" %}
 
 ## Performance
 

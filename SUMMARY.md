@@ -45,6 +45,8 @@
     * [NPM Package](https://www.npmjs.com/package/@timberio/js)
   * [Node](setup/languages/node.md)
   * [Python](setup/languages/python/README.md)
+    * [Integrations](setup/languages/python/integrations/README.md)
+      * [Django](setup/languages/python/integrations/django.md)
     * [Github Repo](https://github.com/timberio/timber-python)
     * [Python Package](https://pypi.org/project/timber/)
   * [Ruby](setup/languages/ruby/README.md)

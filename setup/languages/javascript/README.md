@@ -108,6 +108,8 @@ Send logs directly from within your app over HTTP:
    ```javascript
    const logger = new Timber("YOUR_API_KEY", "YOUR_SOURCE_ID");
    ```
+
+   _Note_: Timber [integrates](./#integrations) with popular 3rd party logging libraries if you'd prefer to use those.
 {% endtab %}
 
 {% tab title="Node \(STDOUT\)" %}
@@ -153,6 +155,8 @@ This method is more advanced and requires a separate step to ship logs to Timber
    })
    ```
 
+   _Note_: Timber [integrates](./#integrations) with popular 3rd party logging libraries if you'd prefer to use those.  
+
 4. At this point your application is writing logs to `STDOUT` in JSON format. Please choose the appropriate [platform](../../platforms/), [log forwarder](../../log-forwarders/), or [operating system](../../operating-systems/).
 {% endtab %}
 
@@ -189,6 +193,8 @@ For browser based environments. If you're using a module bundler like Webpack or
    ```javascript
    const logger = new Timber("YOUR_API_KEY", "YOUR_SOURCE_ID");
    ```
+
+   _Note_: Timber [integrates](./#integrations) with popular 3rd party logging libraries if you'd prefer to use those.
 {% endtab %}
 
 {% tab title="Browser \(CDN\)" %}
@@ -210,10 +216,12 @@ For Browser based environments. If you're not using a Node.js module bundler, yo
    ```javascript
    const logger = new window.Timber("YOUR_API_KEY", "YOUR_SOURCE_ID");
    ```
+
+   _Note_: Timber [integrates](./#integrations) with popular 3rd party logging libraries if you'd prefer to use those.
 {% endtab %}
 
-{% tab title="Other Loggers" %}
-Timber integrates with other popular loggers, such as [Bunyan](integrations/bunyan.md), [Pino](integrations/pino.md), and [Winston](integrations/winston.md). See the [Integrations section](integrations/) for a complete list.
+{% tab title="Other" %}
+Timber [integrates](./#integrations) with other popular loggers, such as [Bunyan](integrations/bunyan.md), [Pino](integrations/pino.md), and [Winston](integrations/winston.md). See the [Integrations section](integrations/) for a complete list.
 {% endtab %}
 {% endtabs %}
 
