@@ -60,24 +60,6 @@ Critically important to platform security are the practices and development cycl
 
 We subscribe to all security bulletins for the services we use. If an issue is relevant we will seek to resolve it as quickly as possible. If the security incidence affects customers, we will follow industry best practices for disclosure and notification to all of our clients. If you have identified a vulnerability or what more information on specific vulnerabilities please contact us. Your issue will be escalated to our security team.
 
-## Vulnerability Disclosure and Reward Program
-
-Our security team rapidly investigates all reported security issues. If you believe you’ve discovered a bug in Timber's security, please get in touch at security@timber.io. We will respond as quickly as possible to your report. We request that you not publicly disclose the issue until it has been addressed by Timber.
-
-We understand the hard work that goes into security research. To show our appreciation for researchers who help us keep our users safe, we operate a reward program for responsibly disclosed vulnerabilities. Timber rewards the confidential disclosure of any design or implementation issue that could be used to compromise the confidentiality or integrity of our users’ data \(such as by bypassing our login process, injecting code into another user’s session, or instigating action on another user’s behalf\).
-
-A minimum reward of $250 USD may be provided for the disclosure of qualifying bugs. At our discretion, we may increase the reward amount based on the creativity or severity of the bugs. If you report a vulnerability that does not qualify under the above criteria, we may still provide a minimum reward of $100 USD if your report causes us to take specific action to improve Timber's security.
-
-As with most security reward programs, we ask that you use common sense when looking for security bugs. Vulnerabilities must be disclosed to us privately with reasonable time to respond, and avoid compromise of other users and accounts, or loss of funds that are not your own. We do not reward denial of service, spam, or social engineering vulnerabilities. Although Timber itself and all services offered by Timber are eligible, vulnerabilities in third-party applications that use Timber are not.
-
-As with most security reward programs, there are some restrictions:
-
-* We will only reward the first person to responsibly disclose a bug to us
-* Any bugs that are publicly disclosed without providing us a reasonable time to respond will not be rewarded.
-* Whether to reward the disclosure of a bug and the amount of the reward is entirely at our discretion, and we may cancel the program at any time.
-* Your testing must not violate any laws.
-* We can’t provide you a reward if it would be illegal for us to do so, such as to residents of countries under current U.S. sanctions
-
 ## Trusting Timber
 
 Beyond implementing best-in-class security practices, cultivating trust with our clients is among the top values at Timber. Security is only as good as the employees that enforce it, and we strive to be open, straight-forward, honest, and operate with integrity. Timber secures the data for thousands of companies across all industries. If you have any additional questions about our security practices please do not hesitate to [contact us](mailto:support@timber.io).
