@@ -24,31 +24,31 @@ Requires Docker version 1.8.0 or later
    {% code-tabs-item title="/etc/td-agent-bit/td-agent-bit.conf" %}
    ```yaml
    [SERVICE]
-     # Reduce the flush interval for better real-time access
-     Flush  2
+       # Reduce the flush interval for better real-time access
+       Flush  2
   
    [INPUT]                                                                                                                                                                                                            
-     Name Forward
-     Port 24224
+       Name Forward
+       Port 24224
 
    [OUTPUT]
-     Name    http
-     # Will match all inputs, replace with your match if you want to send a subset
-     Match   *
-     tls     On
-     Host    logs.timber.io
-     Port    443
-     URI     /sources/${TIMBER_SOURCE_ID}/frames
-     Header  Authorization Bearer ${TIMBER_API_KEY}
-     Header  Content-Type application/msgpack
-     Format  msgpack
-     Retry_Limit 5
+       Name    http
+       # Will match all inputs, replace with your match if you want to send a subset
+       Match   *
+       tls     On
+       Host    logs.timber.io
+       Port    443
+       URI     /sources/${TIMBER_SOURCE_ID}/frames
+       Header  Authorization Bearer ${TIMBER_API_KEY}
+       Header  Content-Type application/msgpack
+       Format  msgpack
+       Retry_Limit 5
 
    [FILTER]
-     Name record_modifier
-     # Will match all inputs, replace with your match if you want to send a subset
-     Match *
-     Record hostname ${HOSTNAME}
+       Name record_modifier
+       # Will match all inputs, replace with your match if you want to send a subset
+       Match *
+       Record hostname ${HOSTNAME}
    ```
    {% endcode-tabs-item %}
    {% endcode-tabs %}
