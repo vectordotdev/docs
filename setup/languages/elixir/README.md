@@ -93,7 +93,7 @@ Send logs directly to Timber from within your app over HTTP:
    {% code-tabs-item title="config/prod.exs" %}
    ```elixir
    config :logger,
-     backends: [Timber.LoggerBackends.HTTP],
+     backends: [Timber.LoggerBackends.HTTP]
 
    config :timber,
      api_key: "YOUR_API_KEY",
