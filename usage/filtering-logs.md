@@ -35,7 +35,7 @@ curl https://api.timber.io/log_filters \
       "organization_id": "YOUR_ORGANIZATION_ID",
       "name":"FILTER_NAME",
       "match":"MATCH",
-      "source_ids": ["SOURCE_ID"]
+      "application_ids": ["SOURCE_ID"]
     }
   ' \
   | jq
@@ -71,7 +71,7 @@ curl https://api.timber.io/log_filters/ID \
   -s \
   -X PUT \
   -H "Authorization: Bearer YOUR_API_KEY" \
-  -d '{"source_ids": []}' \
+  -d '{"application_ids": []}' \
   | jq
 ```
 
