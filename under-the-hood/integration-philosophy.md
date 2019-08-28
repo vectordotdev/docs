@@ -56,7 +56,7 @@ If you aren't using our language level libraries Timber captures useful system l
 
 ### Custom Context
 
-Timber provides facilities to add custom context to your logs. This is helpful to extend context into your specific environments. If supported, the integration will outline how to capture custom context. So our [Ruby integration](../setup/languages/ruby/#setting-context) for example.
+Timber provides facilities to add custom context to your logs. This is helpful to extend context into your specific environments. If supported, the integration will outline how to capture custom context. See our [Ruby integration](../setup/languages/ruby/#setting-context) for example.
 
 ### Using Context
 
