@@ -32,6 +32,7 @@ If possible, we recommend using [Fluent Bit](../fluent-bit.md) for its superior 
      @type timber
      api_key YOUR_API_KEY
      source_id YOUR_SOURCE_ID
+     hostname YOUR_HOSTNAME
    </match>
    ```
    {% endcode-tabs-item %}
