@@ -13,7 +13,7 @@ This feature is currently in beta and is being actively improved as we receive f
 ## Getting Started
 
 {% hint style="warning" %}
-Filtering within the [Timber web app](../clients/web-app/) is not currently available, but it is available through our [API](http://docs.api.timber.io). Because this is such a simple feature, the instruction below use the [Timber API](http://docs.api.timber.io) directly.
+Filtering within the [Timber web app](../clients/web-app/) is not currently available, but it is available through our [API](http://docs.api.timber.io). Because this is such a simple feature, the instructions below use the [Timber API](http://docs.api.timber.io) directly.
 {% endhint %}
 
 In your `shell` issue the following `curl` command:
