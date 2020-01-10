@@ -105,7 +105,7 @@ The `http_request_received` event is emitted when a HTTP request is received.
 | `http_request_received.request_id` | `string` | The request ID of the incoming HTTP request. |
 
 {% hint style="info" %}
-Where's the body? Timber purposefully leaves out the HTTP request body because it can be represented in many different formats. Instead, [we log the parameters in the `controller_called` event](phoenix/#controller_called) which will be in a normalized structured.
+Where's the body? Timber purposefully leaves out the HTTP request body because it can be represented in many different formats. Instead, [we log the parameters in the `controller_called` event](phoenix/#controller_called) which will be in a normalized structure.
 {% endhint %}
 
 ### http\_response\_sent

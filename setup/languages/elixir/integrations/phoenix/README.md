@@ -76,12 +76,12 @@ The `controller_called` event is emitted when a controller received a request.
 
 ### template\_rendered
 
-The `template_rendered` event is emitted when `ActionView` renders a template:
+The `template_rendered` event is emitted when `Phoenix.View` renders a template:
 
 ```javascript
 {
     "template_rendered": {
-        "name": "/path/to/template.html.erb",
+        "name": "/path/to/template.html.eex",
         "duration_ms": 50.4
     }
 }
