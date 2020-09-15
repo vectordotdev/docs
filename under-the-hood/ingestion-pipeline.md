@@ -44,5 +44,5 @@ Because Timber uses Presto / Athena to query data on S3 you get [full ANSI compl
 
 ### Affordability
 
-This architecture is also cheaper, and we pass those costs saving onto our competitors. This is why our pricing is generally much cheaper than our competition. And as we improve we plan to pass those cost saving onto our customers.
+This architecture is also cheaper, and we pass those cost savings onto our customers. This is why our pricing is generally much cheaper than our competition. And as we improve we plan to pass those cost saving onto our customers.
 
